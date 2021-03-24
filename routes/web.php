@@ -13,6 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('faqs/index'); // Redirigimos de welcome.blade.php a index.blade.php
+// });
+
+Route::group(['prefix' => 'admin'], function () {
+
+    // Route::get('/faqs/json', 'App\Http\Controllers\Admin\FaqController@indexJson')->name('faqs_json');
+    Route::resource('faqs', 'App\Http\Controllers\Admin\FaqController', [
+        'names' => [
+            'index' => 'faqs',  // 'faqs' son URLs
+            'create' => 'faqs_create',
+            'store' => 'faqs_store',
+            'destroy' => 'faqs_destroy',
+            'show' => 'faqs_show',
+        ]
+    ]);
 });
