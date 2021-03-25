@@ -4,7 +4,7 @@
 
     <div class="tabla">
 
-        <div class="tabla-titulo">
+        <div class="tabla-titulo"> 
             <h2>FAQS</h2>
         </div>
 
@@ -71,7 +71,7 @@
 
         <div class="formulario-contenedor">
      
-            <form id="faqs-form2" class="admin-formulario">
+            <form id="faqs-form" class="admin-formulario" action = "{{route("faqs_store")}}">
 
                {{ csrf_field() }}
 
@@ -80,7 +80,7 @@
                         <label for="">Pregunta</label>
                     </div>
                     <div class="formulario-input">
-                        <input type="text" name="pregunta" id="" required >
+                        <input type="text" name="pregunta" id="" value="{{isset($faq->title) ? $faq->title : ''}}" class="input" required >
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@
                         <label for="">Respuesta</label>
                     </div>
                     <div class="formulario-input">
-                        <textarea name="respuesta" name="" id="" cols="30" rows="10" style="width: 100%;" required></textarea>
+                        <textarea name="respuesta" name="" id="" cols="30" rows="10" style="width: 100%;" value="{{isset($faq->description) ? $faq->description : ''}}" class="input" required></textarea>
                     </div>
                 </div>
 
