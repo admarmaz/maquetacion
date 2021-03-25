@@ -71,6 +71,15 @@ svg {
 input {
   width: 100%;
   height: 2rem;
+  font-size: 1em;
+}
+
+textarea {
+  font-size: 1.2em;
+}
+
+label {
+  font-weight: bold;
 }
 
 button:hover {

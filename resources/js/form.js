@@ -2,17 +2,26 @@ const saveButton = document.getElementById('guardar-cambios');
 
 saveButton.addEventListener("click", (event) => {
 
-    event.preventDefault();
 
-    const formularios = document.querySelectorAll(".admin-formulario");
+    formularios.forEach(form => {
+        event.preventDefault();
 
-    formularios.forEach(formulario => {
-        
-        const datosFormulario = new FormData(document.getElementById(formulario.id));
+        let formId = document.getElementById(form.getAttribute("id"));
+        let data = new FormData(formId);
+        let url = form.action;
 
-        for (var entrada of datosFormulario.entries()){
-            console.log(entrada[0] + ": " + entrada[1]);
-        }
+        let sendPostRequest = async () => {
+
+            try {
+                let response = await axios.post(url, data).then(response => {
+                    form.id.value = response.data.id;
+                    console.log('2');
+                });
+                 
+            } catch (error) {
+                console.error(error);
+            }
+        };
 
     });
 
