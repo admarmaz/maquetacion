@@ -2,12 +2,12 @@
 
 @section('content')
 
-    <div class="two-columns">
-        <div class="table">
+    <div class="pantalla50">
+        <div class="tabla" id="table">
             @yield('table')
         </div>
 
-        <div class="form">
+        <div class="formulario">
             @yield('form')
         </div>
     </div>

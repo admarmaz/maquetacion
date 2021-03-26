@@ -1904,17 +1904,33 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var saveButton = document.getElementById('guardar-cambios');
-saveButton.addEventListener("click", function (event) {
-  formularios.forEach(function (form) {
-    event.preventDefault();
-    var formId = document.getElementById(form.getAttribute("id"));
-    var data = new FormData(formId);
+var forms = document.querySelectorAll(".admin-formulario");
+var labels = document.getElementsByTagName('label');
+var inputs = document.querySelectorAll('.input');
+var sendButton = document.getElementById("guardar-cambios");
+var table = document.getElementById("table");
+inputs.forEach(function (input) {
+  input.addEventListener('focusin', function () {
+    for (var i = 0; i < labels.length; i++) {
+      if (labels[i].htmlFor == input.name) {
+        labels[i].classList.add("active");
+      }
+    }
+  });
+  input.addEventListener('blur', function () {
+    for (var i = 0; i < labels.length; i++) {
+      labels[i].classList.remove("active");
+    }
+  });
+});
+sendButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  forms.forEach(function (form) {
+    var data = new FormData(form);
     var url = form.action;
 
     var sendPostRequest = /*#__PURE__*/function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -1923,31 +1939,33 @@ saveButton.addEventListener("click", function (event) {
                 _context.next = 3;
                 return axios.post(url, data).then(function (response) {
                   form.id.value = response.data.id;
-                  console.log('2');
+                  table.innerHTML = response.data.table;
                 });
 
               case 3:
-                response = _context.sent;
-                _context.next = 9;
+                _context.next = 8;
                 break;
 
-              case 6:
-                _context.prev = 6;
+              case 5:
+                _context.prev = 5;
                 _context.t0 = _context["catch"](0);
                 console.error(_context.t0);
 
-              case 9:
+              case 8:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 6]]);
+        }, _callee, null, [[0, 5]]);
       }));
 
       return function sendPostRequest() {
         return _ref.apply(this, arguments);
       };
     }();
+
+    sendPostRequest();
+    console.log('1');
   });
 });
 

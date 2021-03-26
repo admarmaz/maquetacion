@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\FaqRequest;
 use App\Models\DB\Faq;
+use Debugbar;
 
 class FaqController extends Controller
 {
@@ -21,7 +22,9 @@ class FaqController extends Controller
     public function index()
     {
 
-        $view = View::make('admin.faqs.index')->with('faq', $this->faq);
+        $view = View::make('admin.faqs.index')
+            ->with('faq', $this->faq)
+            ->with('faqs', $this->faq->get());
 
         if(request()->ajax()) {
 
@@ -71,12 +74,16 @@ class FaqController extends Controller
             'active' => 1,
         ]);
 
-        // $view = View::make('admin.faqs.index')->with('faq', $faq)->renderSections();        
+        $view = View::make('admin.faqs.index')
+                ->with('faqs', $this->faq->get())
+                ->with('faq', $faq)
+                ->renderSections();        
 
-        // return response()->json([
-        //     'table' => $sections['table'],
-        //     'form' => $sections['form'],
-        // ]);
+        return response()->json([
+            'table' => $view['table'],
+            'form' => $view['form'],
+            'id' => $faq->id
+        ]);
     }
 
     public function show(Faq $faq)

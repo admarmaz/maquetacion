@@ -1,28 +1,54 @@
-const saveButton = document.getElementById('guardar-cambios');
+const forms = document.querySelectorAll(".admin-formulario");
+const labels = document.getElementsByTagName('label');
+const inputs = document.querySelectorAll('.input')
+const sendButton = document.getElementById("guardar-cambios");
+const table = document.getElementById("table");
 
-saveButton.addEventListener("click", (event) => {
 
+inputs.forEach(input => {
 
-    formularios.forEach(form => {
-        event.preventDefault();
+    input.addEventListener('focusin', () => {
 
-        let formId = document.getElementById(form.getAttribute("id"));
-        let data = new FormData(formId);
+        for( var i = 0; i < labels.length; i++ ) {
+            if (labels[i].htmlFor == input.name){
+                labels[i].classList.add("active");
+            }
+        }
+    });
+
+    input.addEventListener('blur', () => {
+
+        for( var i = 0; i < labels.length; i++ ) {
+            labels[i].classList.remove("active");
+        }
+    });
+});
+
+sendButton.addEventListener("click", (event) => {
+    
+    event.preventDefault();
+
+    forms.forEach(form => { 
+        
+        let data = new FormData(form);
         let url = form.action;
 
         let sendPostRequest = async () => {
 
             try {
-                let response = await axios.post(url, data).then(response => {
+                await axios.post(url, data).then(response => {
                     form.id.value = response.data.id;
-                    console.log('2');
+                    table.innerHTML = response.data.table;
                 });
                  
             } catch (error) {
                 console.error(error);
+                
             }
         };
 
-    });
+        sendPostRequest();
 
+        console.log('1');
+    });
 });

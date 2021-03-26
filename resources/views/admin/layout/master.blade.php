@@ -12,13 +12,11 @@
     </head>
 
     <body>
-
-        <div class="pantalla50">
+        <div class="">
             @yield('content')
         </div>
  
         @include('admin.layout.partials.js')
-
     </body>
 
 </html>
