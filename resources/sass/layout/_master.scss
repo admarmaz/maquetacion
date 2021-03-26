@@ -38,6 +38,15 @@ label{
     font-weight: bold;
 }
 
-button:hover{
-    background-color: royalblue;
+.boton-borrar:hover{
+    fill: red;
 }
+
+.boton-editar:hover{
+    fill: blue;
+}
+
+.boton-guardar:hover{
+    fill: blue;
+}
+
