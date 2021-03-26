@@ -13,6 +13,7 @@
                 <th>Pregunta</th>
                 <th>Respuesta</th> 
                 <th>Ref</th>
+                <th>Acción</th>
             </tr>
             @foreach ($faqs as $faq)
                 <tr>
@@ -39,7 +40,7 @@
 
 @section('form')
     
-    <div class="formulario">
+    <div class="">
 
         <div class="formulario-titulo">
             <h2>Introducir datos</h2>
