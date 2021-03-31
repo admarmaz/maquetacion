@@ -1,0 +1,52 @@
+th{
+    text-align: left; 
+    padding: 0.75rem; 
+    border: 0.1em solid #e9ecef;
+    background-color: silver;
+}
+
+td{ 
+    padding: 0.75rem; 
+    border: 0.1em solid #e9ecef;
+}
+
+.pantalla50{
+    display: flex; 
+    justify-content: space-around;
+    width: 100%; 
+    font-size: 1rem; 
+    font-family: 'Montserrat', sans-serif;
+}
+
+svg{
+    width:24px;
+    height:24px;
+    
+}
+
+input{
+    width: 100%; 
+    height: 2rem;
+    font-size: 1em;
+}
+
+textarea{
+    font-size: 1.2em;
+}
+
+label{
+    font-weight: bold;
+}
+
+.boton-borrar:hover{
+    fill: red;
+}
+
+.boton-editar:hover{
+    fill: blue;
+}
+
+.boton-guardar:hover{
+    fill: blue;
+}
+

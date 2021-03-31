@@ -1,0 +1,50 @@
+.faqs{
+    width: 100%;
+}
+
+.faq{
+
+    margin-bottom: 1em;
+
+    .faq-header{
+
+        background-color: hsl(199, 92%, 74%);
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5em;
+
+        .faq-title h2{
+            color: hsl(0, 0%, 0%);
+            line-height: 2em;
+            margin: 0;
+        }
+
+        .faq-button svg{
+            height: 2.5em;
+            width: 2.5em;
+        }
+
+        .faq-button:hover svg{
+            cursor: pointer;
+            fill:rgb(146, 24, 126);
+        }
+    }
+
+    .faq-description{
+        
+        background-color: hsl(180, 100%, 86%);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 1s;
+
+        p{
+            color: hsl(0, 0%, 0%);
+            margin: 0 0.5em;
+        }
+    }
+
+    .faq-description.active{
+        max-height: 100vh;
+    }
+}
+

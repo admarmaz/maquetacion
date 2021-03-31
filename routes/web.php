@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('faqs/index'); // Redirigimos de welcome.blade.php a index.blade.php
-// });
+Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('faqs_front');
 
 Route::group(['prefix' => 'admin'], function () {
 

@@ -1,6 +1,6 @@
-@extends('admin.layout.table_form')
+@extends('admin.layout.master')
 
-@section('table')
+@section('panelFaqs')
 
 
     <div class="tabla-titulo">
@@ -15,29 +15,26 @@
                 <th>Ref</th>
                 <th>Acción</th>
             </tr>
-            @foreach ($faqs as $faq)
+            @foreach ($faqs as $faq_element)
                 <tr>
-                    <td>{{$faq->title}}</td>
-                    <td>{{$faq->description}}</td> 
-                    <td>{{$faq->id}}</td>
+                    <td>{{$faq_element->title}}</td>
+                    <td>{{$faq_element->description}}</td> 
+                    <td>{{$faq_element->id}}</td>
                     <td>
-                        <a href="" class="boton-editar">
-                            <button> <svg viewBox="0 0 24 24">
+                        <button class="boton-editar" data-url="{{route("faqs_show", ['faq' => $faq_element->id])}}" > 
+                            <svg viewBox="0 0 24 24">
                                 <path fill='' d="M20 2H4C2.89 2 2 2.89 2 4V16C2 17.11 2.9 18 4 18H8V21C8 21.55 8.45 22 9 22H9.5C9.75 22 10 21.9 10.2 21.71L13.9 18H20C21.1 18 22 17.1 22 16V4C22 2.89 21.1 2 20 2M9.08 15H7V12.91L13.17 6.72L15.24 8.8L9.08 15M16.84 7.2L15.83 8.21L13.76 6.18L14.77 5.16C14.97 4.95 15.31 4.94 15.55 5.16L16.84 6.41C17.05 6.62 17.06 6.96 16.84 7.2Z" />
-                            </svg></button>
-                        </a>
+                            </svg>
+                        </button>
                         
-                        <a href="" class="boton-borrar">
-                            <button> <svg viewBox="0 0 24 24">
+                        <button class="boton-borrar borrar-dato" data-url="{{route("faqs_destroy", ['faq' => $faq_element->id])}}"> 
+                            <svg viewBox="0 0 24 24">
                                 <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
-                            </svg></button>
-                        </a>
+                            </svg>
+                        </button>
                     </td>
                 </tr>
-            @endforeach 
-
-            @php unset($faq) @endphp
-            
+            @endforeach             
         </table>
     </div>
 
@@ -74,7 +71,7 @@
                         <label for="">Respuesta</label>
                     </div>
                     <div class="formulario-input">
-                        <textarea name="description" name="" id="" cols="30" rows="10" style="width: 100%;" value="{{isset($faq->description) ? $faq->description : ''}}" class="input" required></textarea>
+                        <textarea name="description" name="" id="" cols="30" rows="10" style="width: 100%;" value="{{isset($faq->description) ? $faq->description : ''}}" class="input" required>{{isset($faq->description) ? $faq->description : ''}}</textarea>
                     </div>
                 </div>
 
