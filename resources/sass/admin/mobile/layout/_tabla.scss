@@ -1,0 +1,31 @@
+.tabla{
+    width: 90%; 
+} 
+
+.tabla .tabla-titulo{
+    margin-bottom: 10%; 
+} 
+
+.tabla .tabla-titulo h2{
+    font-size: 1.2rem; 
+    text-align: center;  
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bolder;
+} 
+
+.tabla .tabla-contenedor{
+    width: 100%;
+}
+
+.tabla .tabla-contenedor table{
+    border-collapse: collapse;
+    border-spacing: 2px; 
+    border: 1px solid #e9ecef; 
+    width: 100%;
+}
+
+.tabla-cabecera{
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 1rem;
+}

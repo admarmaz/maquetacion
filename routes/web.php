@@ -13,11 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('faqs/index'); // Redirigimos de welcome.blade.php a index.blade.php
-// });
 
 Route::group(['prefix' => 'admin'], function () {
+
+    Route::resource('faqs/categorias', 'App\Http\Controllers\Admin\FaqCategoryController', [
+        'parameters' => [
+            'categorias' => 'faq_category', 
+        ],
+        'names' => [
+            'index' => 'faqs_categories',  // 'category' son URLs
+            'create' => 'faqs_categories_create',
+            'store' => 'faqs_categories_store',
+            'destroy' => 'faqs_categories_destroy',
+            'show' => 'faqs_categories_show',
+        ]
+    ]);
 
     // Route::get('/faqs/json', 'App\Http\Controllers\Admin\FaqController@indexJson')->name('faqs_json');
     Route::resource('faqs', 'App\Http\Controllers\Admin\FaqController', [
@@ -30,3 +40,5 @@ Route::group(['prefix' => 'admin'], function () {
         ]
     ]);
 });
+
+Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('faqs_front');

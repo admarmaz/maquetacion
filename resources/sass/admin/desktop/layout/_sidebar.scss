@@ -1,0 +1,19 @@
+.sidebar{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    background-color: aquamarine;
+    padding: 0.5em;
+    margin-top: 0;
+}
+
+li{
+    display: inline-block;
+
+    margin-right: 2em;
+}
+
+ul{
+    list-style-type:none;
+}

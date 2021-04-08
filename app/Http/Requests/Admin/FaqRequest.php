@@ -28,7 +28,8 @@ class FaqRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required', // Estaba title.required => 'required', por lo tanto estaba buscando 
+                                    // un campo que no existia, title.required, daba error. 
             'description' => 'required',
         ];
     }

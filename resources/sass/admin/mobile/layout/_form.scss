@@ -1,0 +1,46 @@
+.formulario{
+    width: 90%;
+    justify-content: right;
+    margin: auto;
+}
+
+.formulario .formulario-titulo{
+    margin-bottom: 10%; 
+    width: 100%; 
+}
+
+.formulario .formulario-titulo h2{
+    font-size: 1.2rem; 
+    text-align: center;  
+    margin-bottom: 10%; 
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bolder;
+}
+
+.formulario .formulario-contenedor{
+    width: 100%;
+}
+
+.formulario .formulario-contenedor .formulario-grupo{
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.formulario .formulario-contenedor .formulario-grupo .formulario-label{
+    margin-bottom: 0.5em;
+    width: 100%;
+}
+
+.formulario .formulario-contenedor .formulario-grupo .formulario-label label{
+    width: 100%;
+}
+
+.formulario .formulario-contenedor .formulario-grupo .formulario-input input{
+    padding:0.2em ; 
+    width: 100%;
+}
+
+.formulario .formulario-contenedor .formulario-grupo .formulario-input input{
+    padding:0.2em ; 
+    width: 100%;
+}

@@ -1,0 +1,38 @@
+.faqs {
+  width: 100%;
+}
+.faqs .faq {
+  margin-bottom: 1em;
+}
+.faqs .faq .faq-header {
+  background-color: #80d3fa;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+}
+.faqs .faq .faq-header .faq-title h2 {
+  color: black;
+  line-height: 2em;
+  margin: 0;
+}
+.faqs .faq .faq-header .faq-button svg {
+  height: 2.5em;
+  width: 2.5em;
+}
+.faqs .faq .faq-header .faq-button:hover svg {
+  cursor: pointer;
+  fill: #92187e;
+}
+.faqs .faq .faq-description {
+  background-color: #b8ffff;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s;
+}
+.faqs .faq .faq-description p {
+  color: black;
+  margin: 0 0.5em;
+}
+.faqs .faq.active .faq-description {
+  max-height: 100vh;
+}

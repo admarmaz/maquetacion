@@ -1,0 +1,63 @@
+
+.faqs{
+
+    width: 70%;
+
+    .faq{
+
+        margin-bottom: 1em;
+    
+        .faq-header{
+    
+            background-color: #7DCEA0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5em;
+    
+            .faq-title h2{
+                color: hsl(0, 0%, 0%);
+                line-height: 2em;
+                margin: 0;
+            }
+
+            .faq-title:hover h2{
+                color: azure;
+            }
+            
+            .faq-button svg{
+                height: 2.5em;
+                width: 2.5em;
+            }
+    
+            .faq-button:hover svg{
+                cursor: pointer;
+                fill:rgb(146, 24, 126);
+            }
+        }
+
+        .faq-header:hover {
+            background-color: blue;
+        }
+
+        
+    
+        .faq-description{
+            
+            background-color: #9CCFB3;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s;
+    
+            p{
+                color: hsl(0, 0%, 0%);
+                margin: 0 0.5em;
+            }
+        }
+        
+    }
+    .faq.active .faq-description{
+        max-height: 100vh;
+    }
+    
+}
+

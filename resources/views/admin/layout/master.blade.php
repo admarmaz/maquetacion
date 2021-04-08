@@ -9,14 +9,18 @@
         <title>maquetacion</title>
 
         @include('admin.layout.partials.styles')
+        
     </head>
 
     <body>
+        
+        @include('admin.layout.partials.sidebar')
+
         <div class="">
             @yield('content')
         </div>
  
         @include('admin.layout.partials.js')
-    </body>
 
+    </body>
 </html>
