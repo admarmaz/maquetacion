@@ -17,4 +17,8 @@
 
     </div>
     
+    <div>
+        <button type="submit" action="{{route('front_logout')}}">logout</button>
+    </div>
+    
 </div>

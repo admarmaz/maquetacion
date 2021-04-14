@@ -19,7 +19,7 @@
                 <tr>
                     <td>{{$faq_element->title}}</td>
                     <td>{{$faq_element->description}}</td> 
-                    <td>{{$faq_element->category->name}}</td>
+                    
     
                     <td>
                         <button class="boton-editar" data-url="{{route("faqs_show", ['faq' => $faq_element->id])}}" > 

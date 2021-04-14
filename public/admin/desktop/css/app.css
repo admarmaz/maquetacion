@@ -15,8 +15,8 @@ td {
 }
 
 svg {
-  width: 30px;
-  height: 30px;
+  width: 21px;
+  height: 21px;
 }
 
 input {
@@ -29,7 +29,8 @@ input {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  font-size: 1rem;
+  font-size: 0.9em;
+  font-weight: bold;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -66,7 +67,7 @@ label {
 }
 
 .tabla .tabla-titulo h2 {
-  font-size: 1.2rem;
+  font-size: 1em;
   text-align: center;
   font-family: "Montserrat", sans-serif;
   font-weight: bolder;
@@ -101,7 +102,7 @@ label {
 }
 
 .formulario .formulario-titulo h2 {
-  font-size: 1.2rem;
+  font-size: 1.2em;
   text-align: center;
   margin-bottom: 10%;
   font-family: "Montserrat", sans-serif;

@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UsersRequest;
-use App\Models\DB\Users;
+use App\Models\DB\User;
 use Debugbar;
 
 class UsersController extends Controller
 {
     protected $user;
 
-    function __construct(Users $user)
+    function __construct(User $user)
     {
         $this->user = $user;
     }
@@ -52,18 +52,27 @@ class UsersController extends Controller
         ]);
     }
 
-    public function store(UsersRequest $request)
-    {         
-        
-        if (password7)
+    public function store(UserRequest $request)
+    {            
+        if (request('password') !== null) {
 
-        $user = $this->user->updateOrCreate([
-            'id' => request('id')],[    
-            'name' => request('name'),
-            'email' => request('email'),
-            'password' => bcrypt(request('password')),
-            'active' => 1,
-        ]);
+            $user = User::updateOrCreate([
+                'id' => request('id')],[
+                'name' => request('name'),
+                'email' => request('email'),
+                'password' => bcrypt(request('password')),
+                'active' => 1,
+            ]);
+            
+        }else{
+
+            $user = User::updateOrCreate([
+                'id' => request('id')],[
+                'name' => request('name'),
+                'email' => request('email'),
+                'active' => 1,
+            ]);
+        }
 
         $view = View::make('admin.users.index')
         ->with('users', $this->user->where('active', 1)->get())
@@ -77,7 +86,7 @@ class UsersController extends Controller
         ]);
     }
 
-    public function show(Users $user)
+    public function show(User $user)
     {
         $view = View::make('admin.users.index')
         ->with('user', $user)
@@ -95,7 +104,7 @@ class UsersController extends Controller
         return $view;
     }
 
-    public function destroy(Users $user)
+    public function destroy(User $user)
     {
         $user->active = 0;
         $user->save();

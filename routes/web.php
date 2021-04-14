@@ -16,16 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin'], function () {
 
-    Route::resource('faqs/categorias', 'App\Http\Controllers\Admin\FaqCategoryController', [
+    Route::resource('clientes', 'App\Http\Controllers\Admin\CustomerController', [
         'parameters' => [
-            'categorias' => 'faq_category', 
+            'clientes' => 'customer', 
         ],
         'names' => [
-            'index' => 'faqs_categories',  // 'category' son URLs
-            'create' => 'faqs_categories_create',
-            'store' => 'faqs_categories_store',
-            'destroy' => 'faqs_categories_destroy',
-            'show' => 'faqs_categories_show',
+            'index' => 'customers', 
+            'create' => 'customers_create',
+            'store' => 'customers_store',
+            'destroy' => 'customers_destroy',
+            'show' => 'customers_show',
         ]
     ]);
 
@@ -53,8 +53,23 @@ Route::group(['prefix' => 'admin'], function () {
         ]
     ]);
 
+    Route::resource('faqs/categorias', 'App\Http\Controllers\Admin\FaqCategoryController', [
+        'parameters' => [
+            'categorias' => 'faq_category', 
+        ],
+        'names' => [
+            'index' => 'faqs_categories',  // 'category' son URLs
+            'create' => 'faqs_categories_create',
+            'store' => 'faqs_categories_store',
+            'destroy' => 'faqs_categories_destroy',
+            'show' => 'faqs_categories_show',
+        ]
+    ]);
+
     
 });
 
 Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('faqs_front');
-Route::get('login', 'App\Http\Controllers\Front\LoginController@login')->name('front_login');
+Route::get('login', 'App\Http\Controllers\Front\LoginController@index')->name('front_login');
+Route::post('/login', 'App\Http\Controllers\Front\LoginController@login')->name('front_login_submit');
+Route::get('logout', 'App\Http\Controllers\Front\LoginController@logout')->name('front_logout');

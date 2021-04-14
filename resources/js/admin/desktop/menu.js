@@ -5,6 +5,7 @@ const table = document.getElementById("table");
 const form = document.getElementById("form");
 const menuShow = document.getElementById("menu-show");
 
+
 menuItems.forEach( menuItem => {
     
     menuItem.addEventListener("click", (event) => {
@@ -37,7 +38,7 @@ menuItems.forEach( menuItem => {
 menuShow.addEventListener("click", () => {
 
     menuShow.classList.toggle("show");
-    
 
 });
+
 
