@@ -1,27 +1,14 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:public/admin/mobile/css/app.css
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 body {
   margin: 0;
 }
 
-<<<<<<< HEAD
 th {
   text-align: left;
   padding: 0.75rem;
-=======
-=======
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612:public/admin/desktop/css/app.css
-th {
-  text-align: left;
-  padding: 0.75em;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
   border: 0.1em solid #e9ecef;
   background-color: silver;
 }
 
-<<<<<<< HEAD
 td {
   padding: 0.75rem;
   border: 0.1em solid #e9ecef;
@@ -30,27 +17,6 @@ td {
 svg {
   width: 21px;
   height: 21px;
-=======
-.global-container {
-  width: 100%;
-}
-
-td {
-  padding: 0.75em;
-  border: 0.1em solid #e9ecef;
-}
-
-.pantalla50 {
-  width: 100%;
-  font-size: 1em;
-  font-family: "Montserrat", sans-serif;
-  justify-content: space-around;
-}
-
-svg {
-  width: 24px;
-  height: 24px;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 }
 
 input {
@@ -59,7 +25,6 @@ input {
   font-size: 1em;
 }
 
-<<<<<<< HEAD
 .global-container {
   display: flex;
   justify-content: space-around;
@@ -73,8 +38,6 @@ input {
   width: 90%;
 }
 
-=======
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 textarea {
   font-size: 1.2em;
 }
@@ -96,7 +59,6 @@ label {
 }
 
 .tabla {
-<<<<<<< HEAD
   width: 100%;
 }
 
@@ -106,17 +68,6 @@ label {
 
 .tabla .tabla-titulo h2 {
   font-size: 1em;
-=======
-  width: 90%;
-}
-
-.tabla .tabla-titulo {
-  margin-bottom: 10%;
-}
-
-.tabla .tabla-titulo h2 {
-  font-size: 1.2rem;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
   text-align: center;
   font-family: "Montserrat", sans-serif;
   font-weight: bolder;
@@ -140,7 +91,6 @@ label {
 }
 
 .formulario {
-<<<<<<< HEAD
   width: 50%;
   justify-content: right;
   margin: 0 auto;
@@ -153,25 +103,6 @@ label {
 
 .formulario .formulario-titulo h2 {
   font-size: 1.2em;
-=======
-<<<<<<< HEAD:public/admin/mobile/css/app.css
-  width: 90%;
-  justify-content: right;
-  margin: auto;
-=======
-  width: 40%;
-  justify-content: right;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612:public/admin/desktop/css/app.css
-}
-
-.formulario .formulario-titulo {
-  margin-bottom: 10%;
-  width: 100%;
-}
-
-.formulario .formulario-titulo h2 {
-  font-size: 1.2rem;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
   text-align: center;
   margin-bottom: 10%;
   font-family: "Montserrat", sans-serif;
@@ -205,30 +136,17 @@ label {
   padding: 0.2em;
   width: 100%;
 }
-<<<<<<< HEAD
 
 .sidebar {
-=======
-<<<<<<< HEAD:public/admin/mobile/css/app.css
-
-.sidebar {
-  display: flex;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
   justify-content: center;
   font-weight: bold;
   font-size: 1.2em;
   background-color: aquamarine;
   padding: 0.5em;
-<<<<<<< HEAD
   margin-top: 0;
   font-family: "Montserrat", sans-serif;
   font-weight: bolder;
   cursor: pointer;
-=======
-  width: 100%;
-  font-family: "Montserrat", sans-serif;
-  font-weight: bolder;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 }
 
 #menu-show .dropdown-hidden {
@@ -241,7 +159,6 @@ label {
   text-align: center;
 }
 
-<<<<<<< HEAD
 .dropdown .dropdown-title {
   margin-top: 0;
 }
@@ -249,10 +166,6 @@ label {
 #menu-show.show .dropdown-hidden {
   height: 15vh;
   margin-top: 5em;
-=======
-#menu-show.show .dropdown-hidden {
-  height: 50vh;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 }
 
 .show {
@@ -272,17 +185,9 @@ li {
   cursor: pointer;
   display: inline-block;
   margin-right: 2em;
-<<<<<<< HEAD
   font-size: 1.5em;
-=======
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 }
 
 .dropdown-hidden li:hover {
   color: blueviolet;
 }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612:public/admin/desktop/css/app.css
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612

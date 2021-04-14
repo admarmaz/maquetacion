@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 const plusButtons = document.querySelectorAll('.faq-button');
 const faqElements = document.querySelectorAll(".faq");
@@ -38,13 +37,4 @@ plusButtons.forEach(plusButton => {
         }
     });
    
-=======
-const faqsButtons = document.querySelectorAll(".faq-button");
-
-faqsButtons.forEach(faqsButton => {
-
-    faqsButton.addEventListener("click", (event) => {
-
-    });
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 });

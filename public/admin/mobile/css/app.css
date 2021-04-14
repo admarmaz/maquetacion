@@ -1,50 +1,28 @@
-<<<<<<< HEAD
-<<<<<<< HEAD:public/admin/mobile/css/app.css
 body {
   margin: 0;
 }
 
-=======
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612:public/admin/desktop/css/app.css
 th {
   text-align: left;
   padding: 0.75em;
-=======
-th {
-  text-align: left;
-  padding: 0.75rem;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
   border: 0.1em solid #e9ecef;
   background-color: silver;
 }
 
-<<<<<<< HEAD
 .global-container {
   width: 100%;
 }
 
 td {
   padding: 0.75em;
-=======
-td {
-  padding: 0.75rem;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
   border: 0.1em solid #e9ecef;
 }
 
 .pantalla50 {
-<<<<<<< HEAD
   width: 100%;
   font-size: 1em;
   font-family: "Montserrat", sans-serif;
   justify-content: space-around;
-=======
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  font-size: 1rem;
-  font-family: "Montserrat", sans-serif;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 }
 
 svg {
@@ -79,19 +57,11 @@ label {
 }
 
 .tabla {
-<<<<<<< HEAD
   width: 90%;
-=======
-  width: 50%;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 }
 
 .tabla .tabla-titulo {
   margin-bottom: 10%;
-<<<<<<< HEAD
-=======
-  width: 100%;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 }
 
 .tabla .tabla-titulo h2 {
@@ -119,19 +89,9 @@ label {
 }
 
 .formulario {
-<<<<<<< HEAD
-<<<<<<< HEAD:public/admin/mobile/css/app.css
   width: 90%;
   justify-content: right;
   margin: auto;
-=======
-  width: 40%;
-  justify-content: right;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612:public/admin/desktop/css/app.css
-=======
-  width: 40%;
-  justify-content: right;
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 }
 
 .formulario .formulario-titulo {
@@ -174,8 +134,6 @@ label {
   padding: 0.2em;
   width: 100%;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD:public/admin/mobile/css/app.css
 
 .sidebar {
   display: flex;
@@ -225,7 +183,3 @@ li {
 .dropdown-hidden li:hover {
   color: blueviolet;
 }
-=======
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612:public/admin/desktop/css/app.css
-=======
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612

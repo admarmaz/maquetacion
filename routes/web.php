@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-<<<<<<< HEAD
-=======
-Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('faqs_front');
->>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
-
 Route::group(['prefix' => 'admin'], function () {
 
     Route::resource('clientes', 'App\Http\Controllers\Admin\CustomerController', [
