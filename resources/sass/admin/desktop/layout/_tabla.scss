@@ -1,4 +1,5 @@
 .tabla{
+<<<<<<< HEAD
     width: 100%; 
 } 
 
@@ -8,6 +9,17 @@
 
 .tabla .tabla-titulo h2{
     font-size: 1em; 
+=======
+    width: 90%; 
+} 
+
+.tabla .tabla-titulo{
+    margin-bottom: 10%; 
+} 
+
+.tabla .tabla-titulo h2{
+    font-size: 1.2rem; 
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
     text-align: center;  
     font-family: 'Montserrat', sans-serif; 
     font-weight: bolder;

@@ -1,6 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+<<<<<<< HEAD
 /***/ "./node_modules/@babel/runtime/regenerator/index.js":
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
@@ -37,6 +38,8 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 
 /***/ }),
 
+=======
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -1870,6 +1873,7 @@ module.exports = {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./resources/js/admin/mobile/crudTable.js":
 /*!************************************************!*\
   !*** ./resources/js/admin/mobile/crudTable.js ***!
@@ -2090,6 +2094,75 @@ renderTable();
 /***/ "./resources/js/admin/mobile/menu.js":
 /*!*******************************************!*\
   !*** ./resources/js/admin/mobile/menu.js ***!
+=======
+<<<<<<< HEAD:public/front/desktop/js/app.js
+/***/ "./resources/js/bootstrap.js":
+/*!***********************************!*\
+  !*** ./resources/js/bootstrap.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/**
+ * We'll load the axios HTTP library which allows us to easily issue requests
+ * to our Laravel back-end. This library automatically handles sending the
+ * CSRF token as a header based on the value of the "XSRF" token cookie.
+ */
+
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+/**
+ * Echo exposes an expressive API for subscribing to channels and listening
+ * for events that are broadcast by Laravel. Echo and event broadcasting
+ * allows your team to easily build robust real-time web applications.
+ */
+// import Echo from 'laravel-echo';
+// window.Pusher = require('pusher-js');
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: process.env.MIX_PUSHER_APP_KEY,
+//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+//     forceTLS: true
+// });
+
+/***/ }),
+
+/***/ "./resources/js/front/desktop/faqs.js":
+/*!********************************************!*\
+  !*** ./resources/js/front/desktop/faqs.js ***!
+  \********************************************/
+/***/ (() => {
+
+var plusButtons = document.querySelectorAll('.faq-button');
+var faqElements = document.querySelectorAll(".faq");
+plusButtons.forEach(function (plusButton) {
+  plusButton.addEventListener("click", function () {
+    var activeElements = document.querySelectorAll(".active");
+
+    if (plusButton.classList.contains("active")) {
+      plusButton.classList.remove("active");
+      activeElements.forEach(function (activeElement) {
+        activeElement.classList.remove("active");
+      });
+    } else {
+      activeElements.forEach(function (activeElement) {
+        activeElement.classList.remove("active");
+      });
+      plusButton.classList.add("active");
+      faqElements.forEach(function (faqElement) {
+        if (faqElement.dataset.content == plusButton.dataset.button) {
+          faqElement.classList.add("active");
+        } else {}
+      });
+      console.log("funciona");
+    }
+  });
+});
+=======
+/***/ "./resources/js/admin/mobile/form.js":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/mobile/form.js ***!
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
   \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -2097,13 +2170,17 @@ renderTable();
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+<<<<<<< HEAD
 /* harmony import */ var _crudTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./crudTable */ "./resources/js/admin/mobile/crudTable.js");
+=======
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+<<<<<<< HEAD
 
 var menuItems = document.querySelectorAll(".menu-item");
 var table = document.getElementById("table");
@@ -2114,6 +2191,37 @@ menuItems.forEach(function (menuItem) {
     var url = menuItem.dataset.url;
 
     var sendEditRequest = /*#__PURE__*/function () {
+=======
+var forms = document.querySelectorAll(".admin-formulario");
+var labels = document.getElementsByTagName('label');
+var inputs = document.querySelectorAll('.input');
+var sendButton = document.getElementById("guardar-cambios");
+var table = document.getElementById("table");
+var formContainer = document.getElementById("form");
+var botonesBorrar = document.querySelectorAll(".borrar-dato");
+var botonesEditar = document.querySelectorAll(".boton-editar");
+inputs.forEach(function (input) {
+  input.addEventListener('focusin', function () {
+    for (var i = 0; i < labels.length; i++) {
+      if (labels[i].htmlFor == input.name) {
+        labels[i].classList.add("active");
+      }
+    }
+  });
+  input.addEventListener('blur', function () {
+    for (var i = 0; i < labels.length; i++) {
+      labels[i].classList.remove("active");
+    }
+  });
+});
+sendButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  forms.forEach(function (form) {
+    var data = new FormData(form);
+    var url = form.action;
+
+    var sendPostRequest = /*#__PURE__*/function () {
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
       var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
@@ -2121,6 +2229,7 @@ menuItems.forEach(function (menuItem) {
               case 0:
                 _context.prev = 0;
                 _context.next = 3;
+<<<<<<< HEAD
                 return axios.get(url).then(function (response) {
                   form.innerHTML = response.data.form;
                   table.innerHTML = response.data.table;
@@ -2128,6 +2237,11 @@ menuItems.forEach(function (menuItem) {
 
                   (0,_crudTable__WEBPACK_IMPORTED_MODULE_1__.renderForm)();
                   (0,_crudTable__WEBPACK_IMPORTED_MODULE_1__.renderTable)();
+=======
+                return axios.post(url, data).then(function (response) {
+                  form.id.value = response.data.id;
+                  table.innerHTML = response.data.table;
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
                 });
 
               case 3:
@@ -2147,16 +2261,111 @@ menuItems.forEach(function (menuItem) {
         }, _callee, null, [[0, 5]]);
       }));
 
+<<<<<<< HEAD
       return function sendEditRequest() {
+=======
+      return function sendPostRequest() {
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
         return _ref.apply(this, arguments);
       };
     }();
 
+<<<<<<< HEAD
     sendEditRequest();
   });
 });
 menuShow.addEventListener("click", function () {
   menuShow.classList.toggle("show");
+=======
+    sendPostRequest();
+  });
+});
+botonesBorrar.forEach(function (botonBorrar) {
+  /* Para cada botón, realizamos esta acción (bucle forEach) */
+  botonBorrar.addEventListener("click", function (event) {
+    var url = botonBorrar.dataset.url;
+    /* asignamos a "url" la dirección mediante dataset */
+
+    var sendDeleteRequest = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return axios["delete"](url).then(function (response) {
+                  table.innerHTML = response.data.table;
+                });
+
+              case 3:
+                _context2.next = 8;
+                break;
+
+              case 5:
+                _context2.prev = 5;
+                _context2.t0 = _context2["catch"](0);
+                console.error(_context2.t0);
+
+              case 8:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 5]]);
+      }));
+
+      return function sendDeleteRequest() {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+
+    sendDeleteRequest();
+    /** Rev. **/
+  });
+});
+botonesEditar.forEach(function (botonEditar) {
+  botonEditar.addEventListener("click", function (event) {
+    var url = botonEditar.dataset.url;
+
+    var sendData = /*#__PURE__*/function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                _context3.next = 3;
+                return axios.get(url).then(function (response) {
+                  formContainer.innerHTML = response.data.form;
+                  renderForm();
+                });
+
+              case 3:
+                _context3.next = 8;
+                break;
+
+              case 5:
+                _context3.prev = 5;
+                _context3.t0 = _context3["catch"](0);
+                console.error(_context3.t0);
+
+              case 8:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 5]]);
+      }));
+
+      return function sendData() {
+        return _ref3.apply(this, arguments);
+      };
+    }();
+
+    sendData();
+  });
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 });
 
 /***/ }),
@@ -2189,6 +2398,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+<<<<<<< HEAD
 
 /***/ }),
 
@@ -2225,6 +2435,9 @@ var renderCkeditor = function renderCkeditor() {
     });
   });
 };
+=======
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612:public/admin/mobile/js/app.js
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 
 /***/ }),
 
@@ -19632,6 +19845,7 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
 
 
+<<<<<<< HEAD
 /***/ }),
 
 /***/ "./node_modules/regenerator-runtime/runtime.js":
@@ -20390,6 +20604,8 @@ try {
 }
 
 
+=======
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 /***/ })
 
 /******/ 	});
@@ -20422,6 +20638,11 @@ try {
 /******/ 	}
 /******/ 	
 /************************************************************************/
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:public/front/desktop/js/app.js
+=======
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -20446,6 +20667,10 @@ try {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+<<<<<<< HEAD
+=======
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612:public/admin/mobile/js/app.js
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -20458,6 +20683,7 @@ try {
 /******/ 		})();
 /******/ 	})();
 /******/ 	
+<<<<<<< HEAD
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -20474,6 +20700,8 @@ try {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+=======
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -20487,16 +20715,32 @@ try {
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:public/front/desktop/js/app.js
+/*!*******************************************!*\
+  !*** ./resources/js/front/desktop/app.js ***!
+  \*******************************************/
+__webpack_require__(/*! ../../bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(/*! ./faqs */ "./resources/js/front/desktop/faqs.js");
+=======
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 /*!******************************************!*\
   !*** ./resources/js/admin/mobile/app.js ***!
   \******************************************/
 __webpack_require__(/*! ../../bootstrap */ "./resources/js/bootstrap.js");
 
+<<<<<<< HEAD
 __webpack_require__(/*! ./crudTable */ "./resources/js/admin/mobile/crudTable.js");
 
 __webpack_require__(/*! ../../ckeditor */ "./resources/js/ckeditor.js");
 
 __webpack_require__(/*! ./menu */ "./resources/js/admin/mobile/menu.js");
+=======
+__webpack_require__(/*! ./form */ "./resources/js/admin/mobile/form.js");
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612:public/admin/mobile/js/app.js
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 })();
 
 /******/ })()

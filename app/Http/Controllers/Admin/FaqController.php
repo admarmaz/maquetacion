@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\FaqRequest;
 use App\Models\DB\Faq;
-use Debugbar;
 
 class FaqController extends Controller
 {
@@ -20,6 +19,19 @@ class FaqController extends Controller
         $this->faq = $faq;
     }
 
+    public function indexJson(Request $request)
+    {
+        $length = $request->input('length');
+        $orderBy = $request->input('column'); 
+        $orderByDir = $request->input('dir', 'asc');
+        $searchValue = $request->input('search');
+        
+        $query = $this->faq->eloquentQuery($orderBy, $orderByDir, $searchValue);
+        $data = $query->paginate($length);
+        
+        return new DataTableCollectionResource($data);
+    }
+
     public function index()
     {
 
@@ -28,6 +40,7 @@ class FaqController extends Controller
                 ->with('faqs', $this->faq->where('active', 1)->get());
 
         if(request()->ajax()) {
+<<<<<<< HEAD
             
             $sections = $view->renderSections(); 
 
@@ -35,6 +48,18 @@ class FaqController extends Controller
                 'table' => $sections['table'],
                 'form' => $sections['form'],
             ]); 
+=======
+
+            // $faqs = $this->faq->where('active', 1)->get();
+            // return response()->json($faqs);
+            
+            // $sections = $view->renderSections(); 
+    
+            // return response()->json([
+            //     'table' => $sections['table'],
+            //     'form' => $sections['form'],
+            // ]); 
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
         }
 
         return $view;
@@ -55,7 +80,11 @@ class FaqController extends Controller
     public function store(FaqRequest $request)
     {            
         $faq = $this->faq->updateOrCreate([
+<<<<<<< HEAD
             'id' => request('id')],[    
+=======
+            'id' => request('id')],[
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
             'title' => request('title'),
             'description' => request('description'),
             'category_id' => request('category_id'),

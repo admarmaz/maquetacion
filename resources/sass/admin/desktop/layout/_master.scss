@@ -1,16 +1,24 @@
+<<<<<<< HEAD
 // globales // 
 
+=======
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 body{
     margin: 0;
 }
 
 th{
     text-align: left; 
+<<<<<<< HEAD
     padding: 0.75rem; 
+=======
+    padding: 0.75em; 
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
     border: 0.1em solid #e9ecef;
     background-color: silver;
 }
 
+<<<<<<< HEAD
 td{ 
     padding: 0.75rem; 
     border: 0.1em solid #e9ecef;
@@ -19,6 +27,28 @@ td{
 svg{
     width:21px;
     height:21px; 
+=======
+.global-container{
+    width: 100%;
+}
+
+td{ 
+    padding: 0.75em; 
+    border: 0.1em solid #e9ecef;
+}
+
+.pantalla50{
+    width: 100%; 
+    font-size: 1em; 
+    font-family: 'Montserrat', sans-serif;
+    justify-content: space-around;
+}
+
+svg{
+    width:24px;
+    height:24px;
+    
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 }
 
 input{
@@ -27,6 +57,7 @@ input{
     font-size: 1em;
 }
 
+<<<<<<< HEAD
 
 .global-container{
     display: flex; 
@@ -41,6 +72,8 @@ input{
     width: 90%;
 }
 
+=======
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 textarea{
     font-size: 1.2em;
 }
@@ -60,4 +93,7 @@ label{
 .boton-guardar:hover{
     fill: blue;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612

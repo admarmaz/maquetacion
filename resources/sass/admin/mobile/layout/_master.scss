@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
     margin: 0;
 }
@@ -5,24 +6,42 @@ body{
 th{
     text-align: left; 
     padding: 0.75em; 
+=======
+th{
+    text-align: left; 
+    padding: 0.75rem; 
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
     border: 0.1em solid #e9ecef;
     background-color: silver;
 }
 
+<<<<<<< HEAD
 .global-container{
     width: 100%;
 }
 
 td{ 
     padding: 0.75em; 
+=======
+td{ 
+    padding: 0.75rem; 
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
     border: 0.1em solid #e9ecef;
 }
 
 .pantalla50{
+<<<<<<< HEAD
     width: 100%; 
     font-size: 1em; 
     font-family: 'Montserrat', sans-serif;
     justify-content: space-around;
+=======
+    display: flex; 
+    justify-content: space-around;
+    width: 100%; 
+    font-size: 1rem; 
+    font-family: 'Montserrat', sans-serif;
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 }
 
 svg{
@@ -56,3 +75,7 @@ label{
 .boton-guardar:hover{
     fill: blue;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612

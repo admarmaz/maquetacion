@@ -1,5 +1,9 @@
-@extends('admin.layout.table_form')
+@extends('admin.layout.master')
 
+<<<<<<< HEAD
+=======
+@section('panelFaqs')
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
 
 @section('table')
 
@@ -19,8 +23,12 @@
                 <tr>
                     <td>{{$faq_element->title}}</td>
                     <td>{{$faq_element->description}}</td> 
+<<<<<<< HEAD
                     
     
+=======
+                    <td>{{$faq_element->id}}</td>
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
                     <td>
                         <button class="boton-editar" data-url="{{route("faqs_show", ['faq' => $faq_element->id])}}" > 
                             <svg viewBox="0 0 24 24">
@@ -89,7 +97,11 @@
                         <label for="">Respuesta</label>
                     </div>
                     <div class="formulario-input">
+<<<<<<< HEAD
                         <textarea name="description" value="{{isset($faq->description) ? $faq->description : ''}}" class="ckeditor input-highlight" required>{{isset($faq->description) ? $faq->description : ''}}</textarea>
+=======
+                        <textarea name="description" name="" id="" cols="30" rows="10" style="width: 100%;" value="{{isset($faq->description) ? $faq->description : ''}}" class="input" required>{{isset($faq->description) ? $faq->description : ''}}</textarea>
+>>>>>>> a2306b4dd3b72c58597f1b6a40a8f8c48b1c5612
                     </div>
                 </div>
 
