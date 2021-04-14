@@ -1,7 +1,8 @@
+import {renderCkeditor} from '../../ckeditor';
 const table = document.getElementById("table");
 const form = document.getElementById("form");
 
-let renderForm = () => {
+export let renderForm = () => {
 
     let forms = document.querySelectorAll(".admin-formulario");
     let labels = document.querySelectorAll('.label-highlight');
@@ -17,8 +18,8 @@ let renderForm = () => {
                     labels[i].classList.add("active");
                 }
             }
-        });
-    
+        }); 
+        
         input.addEventListener('blur', () => {
     
             for( var i = 0; i < labels.length; i++ ) {
@@ -35,12 +36,13 @@ let renderForm = () => {
             
             let data = new FormData(form);
 
-            // if( ckeditors != 'null'){
+            if( ckeditors != 'null'){
 
-            //     Object.entries(ckeditors).forEach(([key, value]) => {
-            //         data.append(key, value.getData());
-            //     });
-            // }
+            // si ckeditor NO está vacio, 
+                Object.entries(ckeditors).forEach(([key, value]) => {
+                    data.append(key, value.getData());
+                });
+            }
 
             let url = form.action;
     
@@ -73,10 +75,12 @@ let renderForm = () => {
             sendPostRequest();
         });
     });
+
+    renderCkeditor();
 };
 
 
-let renderTable = () => {
+export let renderTable = () => {
 
     let editButtons = document.querySelectorAll(".boton-editar");
     let deleteButtons = document.querySelectorAll(".borrar-dato");

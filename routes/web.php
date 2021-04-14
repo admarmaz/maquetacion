@@ -29,6 +29,19 @@ Route::group(['prefix' => 'admin'], function () {
         ]
     ]);
 
+    Route::resource('users', 'App\Http\Controllers\Admin\UsersController', [
+        'parameters' => [
+            'users' => 'user', 
+        ],
+        'names' => [
+            'index' => 'users', 
+            'create' => 'users_create',
+            'store' => 'users_store',
+            'destroy' => 'users_destroy',
+            'show' => 'users_show',
+        ]
+    ]);
+
     // Route::get('/faqs/json', 'App\Http\Controllers\Admin\FaqController@indexJson')->name('faqs_json');
     Route::resource('faqs', 'App\Http\Controllers\Admin\FaqController', [
         'names' => [
@@ -39,6 +52,9 @@ Route::group(['prefix' => 'admin'], function () {
             'show' => 'faqs_show',
         ]
     ]);
+
+    
 });
 
 Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('faqs_front');
+Route::get('login', 'App\Http\Controllers\Front\LoginController@login')->name('front_login');

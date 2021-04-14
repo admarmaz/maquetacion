@@ -1,8 +1,16 @@
+body {
+  margin: 0;
+}
+
 th {
   text-align: left;
   padding: 0.75em;
   border: 0.1em solid #e9ecef;
   background-color: silver;
+}
+
+.global-container {
+  width: 100%;
 }
 
 td {
@@ -125,4 +133,53 @@ label {
 .formulario .formulario-contenedor .formulario-grupo .formulario-input input {
   padding: 0.2em;
   width: 100%;
+}
+
+.sidebar {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  background-color: aquamarine;
+  padding: 0.5em;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+}
+
+#menu-show .dropdown-hidden {
+  height: 0;
+  overflow: hidden;
+  transition: 1s;
+}
+
+.dropdown {
+  text-align: center;
+}
+
+#menu-show.show .dropdown-hidden {
+  height: 50vh;
+}
+
+.show {
+  display: block;
+}
+
+.dropdown-show {
+  cursor: pointer;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 2em;
+}
+
+.dropdown-hidden li:hover {
+  color: blueviolet;
 }

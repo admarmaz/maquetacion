@@ -7,25 +7,25 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\FaqRequest;
-use App\Models\DB\Faq;
+use App\Http\Requests\Admin\UsersRequest;
+use App\Models\DB\Users;
 use Debugbar;
 
-class FaqController extends Controller
+class UsersController extends Controller
 {
-    protected $faq;
+    protected $user;
 
-    function __construct(Faq $faq)
+    function __construct(Users $user)
     {
-        $this->faq = $faq;
+        $this->user = $user;
     }
 
     public function index()
     {
 
-        $view = View::make('admin.faqs.index')
-                ->with('faq', $this->faq)
-                ->with('faqs', $this->faq->where('active', 1)->get());
+        $view = View::make('admin.users.index')
+                ->with('user', $this->user)
+                ->with('users', $this->user->where('active', 1)->get());
 
         if(request()->ajax()) {
             
@@ -43,8 +43,8 @@ class FaqController extends Controller
     public function create()
     {
 
-        $view = View::make('admin.faqs.index')
-        ->with('faq', $this->faq)
+        $view = View::make('admin.users.index')
+        ->with('user', $this->user)
         ->renderSections();
 
         return response()->json([
@@ -52,33 +52,36 @@ class FaqController extends Controller
         ]);
     }
 
-    public function store(FaqRequest $request)
-    {            
-        $faq = $this->faq->updateOrCreate([
+    public function store(UsersRequest $request)
+    {         
+        
+        if (password7)
+
+        $user = $this->user->updateOrCreate([
             'id' => request('id')],[    
-            'title' => request('title'),
-            'description' => request('description'),
-            'category_id' => request('category_id'),
+            'name' => request('name'),
+            'email' => request('email'),
+            'password' => bcrypt(request('password')),
             'active' => 1,
         ]);
 
-        $view = View::make('admin.faqs.index')
-        ->with('faqs', $this->faq->where('active', 1)->get())
-        ->with('faq', $faq)
+        $view = View::make('admin.users.index')
+        ->with('users', $this->user->where('active', 1)->get())
+        ->with('user', $user)
         ->renderSections();        
 
         return response()->json([
             'table' => $view['table'],
             'form' => $view['form'],
-            'id' => $faq->id,
+            'id' => $user->id,
         ]);
     }
 
-    public function show(Faq $faq)
+    public function show(Users $user)
     {
-        $view = View::make('admin.faqs.index')
-        ->with('faq', $faq)
-        ->with('faqs', $this->faq->where('active', 1)->get());   
+        $view = View::make('admin.users.index')
+        ->with('user', $user)
+        ->with('users', $this->user->where('active', 1)->get());   
         
         if(request()->ajax()) {
 
@@ -86,22 +89,20 @@ class FaqController extends Controller
     
             return response()->json([
                 'form' => $sections['form'],
+                
             ]); 
         }
-                
         return $view;
     }
 
-    public function destroy(Faq $faq)
+    public function destroy(Users $user)
     {
-        $faq->active = 0;
-        $faq->save();
+        $user->active = 0;
+        $user->save();
 
-        // $faq->delete();
-
-        $view = View::make('admin.faqs.index')
-            ->with('faq', $this->faq)
-            ->with('faqs', $this->faq->where('active', 1)->get())
+        $view = View::make('admin.users.index')
+            ->with('user', $this->user)
+            ->with('users', $this->user->where('active', 1)->get())
             ->renderSections();
         
         return response()->json([

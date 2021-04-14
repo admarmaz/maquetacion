@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 th {
   text-align: left;
   padding: 0.75rem;
@@ -10,7 +14,18 @@ td {
   border: 0.1em solid #e9ecef;
 }
 
-.pantalla50 {
+svg {
+  width: 30px;
+  height: 30px;
+}
+
+input {
+  width: 100%;
+  height: 2rem;
+  font-size: 1em;
+}
+
+.global-container {
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -18,15 +33,8 @@ td {
   font-family: "Montserrat", sans-serif;
 }
 
-svg {
-  width: 24px;
-  height: 24px;
-}
-
-input {
-  width: 100%;
-  height: 2rem;
-  font-size: 1em;
+.admin-faq-container {
+  width: 90%;
 }
 
 textarea {
@@ -50,11 +58,10 @@ label {
 }
 
 .tabla {
-  width: 50%;
+  width: 100%;
 }
 
 .tabla .tabla-titulo {
-  margin-bottom: 10%;
   width: 100%;
 }
 
@@ -83,13 +90,14 @@ label {
 }
 
 .formulario {
-  width: 40%;
+  width: 50%;
   justify-content: right;
+  margin: 0 auto;
 }
 
 .formulario .formulario-titulo {
-  margin-bottom: 10%;
   width: 100%;
+  justify-content: center;
 }
 
 .formulario .formulario-titulo h2 {
@@ -129,20 +137,56 @@ label {
 }
 
 .sidebar {
-  display: flex;
   justify-content: center;
   font-weight: bold;
   font-size: 1.2em;
   background-color: aquamarine;
   padding: 0.5em;
   margin-top: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+  cursor: pointer;
 }
 
-li {
-  display: inline-block;
-  margin-right: 2em;
+#menu-show .dropdown-hidden {
+  height: 0;
+  overflow: hidden;
+  transition: 1s;
+}
+
+.dropdown {
+  text-align: center;
+}
+
+.dropdown .dropdown-title {
+  margin-top: 0;
+}
+
+#menu-show.show .dropdown-hidden {
+  height: 15vh;
+  margin-top: 5em;
+}
+
+.show {
+  display: block;
+}
+
+.dropdown-show {
+  cursor: pointer;
+  justify-content: center;
 }
 
 ul {
   list-style-type: none;
+}
+
+li {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 2em;
+  font-size: 1.5em;
+}
+
+.dropdown-hidden li:hover {
+  color: blueviolet;
 }

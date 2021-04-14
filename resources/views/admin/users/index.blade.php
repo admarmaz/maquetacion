@@ -10,25 +10,25 @@
     <div class="tabla-contenedor">
         <table>
             <tr class="tabla-cabecera">
-                <th>Pregunta</th>
-                <th>Respuesta</th> 
-                <th>Categoria</th>
-                <th>Acción</th>
+                <th>Id</th>
+                <th>Nombre</th> 
+                <th>Email</th>
             </tr>
-            @foreach ($faqs as $faq_element)
+
+            @foreach ($users as $user_element)
                 <tr>
-                    <td>{{$faq_element->title}}</td>
-                    <td>{{$faq_element->description}}</td> 
-                    <td>{{$faq_element->category->name}}</td>
+                    <td>{{$user_element->id}}</td>
+                    <td>{{$user_element->name}}</td> 
+                    <td>{{$user_element->email}}</td>
     
                     <td>
-                        <button class="boton-editar" data-url="{{route("faqs_show", ['faq' => $faq_element->id])}}" > 
+                        <button class="boton-editar" data-url="{{route("users_show", ['user' => $user_element->id])}}" > 
                             <svg viewBox="0 0 24 24">
                                 <path fill='' d="M20 2H4C2.89 2 2 2.89 2 4V16C2 17.11 2.9 18 4 18H8V21C8 21.55 8.45 22 9 22H9.5C9.75 22 10 21.9 10.2 21.71L13.9 18H20C21.1 18 22 17.1 22 16V4C22 2.89 21.1 2 20 2M9.08 15H7V12.91L13.17 6.72L15.24 8.8L9.08 15M16.84 7.2L15.83 8.21L13.76 6.18L14.77 5.16C14.97 4.95 15.31 4.94 15.55 5.16L16.84 6.41C17.05 6.62 17.06 6.96 16.84 7.2Z" />
                             </svg>
                         </button>
                         
-                        <button class="boton-borrar borrar-dato" data-url="{{route("faqs_destroy", ['faq' => $faq_element->id])}}"> 
+                        <button class="boton-borrar borrar-dato" data-url="{{route("users_destroy", ['user' => $user_element->id])}}"> 
                             <svg viewBox="0 0 24 24">
                                 <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
                             </svg>
@@ -46,50 +46,55 @@
     <div class="formulario-contenedor">
 
         <div class="formulario-titulo">
-            <h2>Introducir FAQ</h2>
+            <h2>Introducir usuario</h2>
         </div>
 
         <div >
      
-            <form id="faqs-form" class="admin-formulario" action="{{route("faqs_store")}}" autocomplete="off">
+            <form id="faqs-form" class="admin-formulario" action="{{route("users_store")}}" autocomplete="off">
 
                {{ csrf_field() }}
 
                <input autocomplete="false" name="hidden" type="text" style="display:none;">
-               <input type="hidden" name="id" value="{{isset($faq->id) ? $faq->id : ''}}">
+               <input type="hidden" name="id" value="{{isset($users->id) ? $users->id : ''}}">
 
-               <div class="formulario-grupo">
+
+                <div class="formulario-grupo">
                     <div class="formulario-label">
-                        <label for="category_id" class="label-highlight">
-                            Categoría 
+                        <label for="name" class="label-highlight">Nombre
                         </label>
                     </div>
-                    <div class="form-input">
-                        <select name="category_id" data-placeholder="Seleccione una categoría" class="input-highlight">
-                            <option></option>
-                            @foreach($faqs_categories as $faq_category)
-                                <option value="{{$faq_category->id}}" {{$faq->category_id == $faq_category->id ? 'selected':''}} class="category_id">{{ $faq_category->name }}</option>
-                            @endforeach
-                        </select>                   
+                    <div class="formulario-input">
+                        <input type="text" name="name" value="{{isset($user->name) ? $user->name : ''}}" class="input-highlight" required >
                     </div>
                 </div>
 
                 <div class="formulario-grupo">
                     <div class="formulario-label">
-                        <label for="title" class="label-highlight">Pregunta
-                        </label>
+                        <label for="email" class="label-highlight">Email</label>
                     </div>
                     <div class="formulario-input">
-                        <input type="text" name="title" value="{{isset($faq->title) ? $faq->title : ''}}" class="input-highlight" required >
+                        <textarea name='email' type="text" value="{{isset($user->email) ? $user->email : ''}}" class="input-highlight" required></textarea>
                     </div>
                 </div>
 
                 <div class="formulario-grupo">
                     <div class="formulario-label">
-                        <label for="">Respuesta</label>
+                        <label for="password" class="label-highlight">Contraseña
+                        </label>
                     </div>
                     <div class="formulario-input">
-                        <textarea name="description" value="{{isset($faq->description) ? $faq->description : ''}}" class="ckeditor input-highlight" required>{{isset($faq->description) ? $faq->description : ''}}</textarea>
+                        <input type="password" name="password" value="{{isset($user->password) ? $user->password : ''}}" class="input-highlight" required >
+                    </div>
+                </div>
+
+                <div class="formulario-grupo">
+                    <div class="formulario-label">
+                        <label for="password_confirmation" class="label-highlight">Contraseña
+                        </label>
+                    </div>
+                    <div class="formulario-input">
+                        <input type="password" name="password_confirmation" value="" class="input-highlight" required >
                     </div>
                 </div>
 

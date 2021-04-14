@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| Validaciones del formulario de la sección FAQ's
+| Validaciones del formulario de la sección User's
 |--------------------------------------------------------------------------
 |
 | **authorize: determina si el usuario debe estar autorizado para enviar el formulario. 
@@ -18,7 +18,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FaqRequest extends FormRequest
+class UsersRequest extends FormRequest
 {
     public function authorize()
     {
@@ -28,16 +28,20 @@ class FaqRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required', 
-            'description' => 'required',
+            'name' => 'required', 
+            'email' => 'required',
+            'password' => 'required_without:id|confirmed',
+            'password_confirmation' => 'required | same:password',
+    
         ];
     }
 
     public function messages()
     {
         return [
-            'title.required' => 'El titulo es obligatorio',
-            'description.required' => 'Debe añadir una descripción',
+            'name.required' => 'El nombre es requerido',
+            'email.required' => 'Debes introducir un correo electrónico',
+            'password.required' => "Debes introducir una contraseña"
         ];
     }
 }

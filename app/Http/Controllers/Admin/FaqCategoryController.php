@@ -19,19 +19,6 @@ class FaqCategoryController extends Controller
         $this->faq_category = $faq_category;
     }
 
-    public function indexJson(Request $request)
-    {
-        $length = $request->input('length');
-        $orderBy = $request->input('column'); 
-        $orderByDir = $request->input('dir', 'asc');
-        $searchValue = $request->input('search');
-        
-        $query = $this->faq->eloquentQuery($orderBy, $orderByDir, $searchValue);
-        $data = $query->paginate($length);
-        
-        return new DataTableCollectionResource($data);
-    }
-
     public function index()
     {
 

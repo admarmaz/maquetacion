@@ -16,7 +16,7 @@
         
         @include('admin.layout.partials.sidebar')
 
-        <div class="">
+        <div class="global-container">
             @yield('content')
         </div>
  

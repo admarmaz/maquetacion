@@ -1,19 +1,59 @@
+
 .sidebar{
-    display: flex;
     justify-content: center;
     font-weight: bold;
     font-size: 1.2em;
     background-color: aquamarine;
     padding: 0.5em;
     margin-top: 0;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bolder;
+    cursor: pointer;
 }
 
-li{
-    display: inline-block;
+#menu-show .dropdown-hidden{
+    height: 0;
+    overflow: hidden;
+    transition: 1s;
+}
 
-    margin-right: 2em;
+.dropdown{
+    text-align: center;
+}
+
+.dropdown .dropdown-title{
+    margin-top: 0;
+}
+
+#menu-show.show{
+
+    .dropdown-hidden{
+        height: 15vh;
+        margin-top: 5em;
+    }   
+}
+
+.show{
+    display: block;
+}
+
+.dropdown-show{
+    cursor: pointer;
+    justify-content: center;
 }
 
 ul{
     list-style-type:none;
 }
+
+li{
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 2em;
+    font-size: 1.5em;
+}
+
+.dropdown-hidden li:hover{
+    color: blueviolet;
+}
+    
