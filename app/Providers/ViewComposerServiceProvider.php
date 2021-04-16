@@ -30,6 +30,12 @@ class ViewComposerServiceProvider extends ServiceProvider
             'App\Http\ViewComposers\Admin\FaqsCategories' //referencia del archivo el cual
             //estamos recibiendo los datos
         );
+
+        view()->composer([
+            'admin.customers.index'], 
+            'App\Http\ViewComposers\Admin\Countries'
+            
+        );
     }
 
     public function register()

@@ -16,6 +16,7 @@ plusButtons.forEach(plusButton => {
                 activeElement.classList.remove("active");
             });
            
+      
 
         }else{
 
@@ -32,7 +33,7 @@ plusButtons.forEach(plusButton => {
                 }else{
                 }
             });
-
+            console.log("funciona");
         }
     });
    

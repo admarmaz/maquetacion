@@ -3,7 +3,7 @@
 namespace App\Http\ViewComposers\Admin;
 
 use Illuminate\View\View;
-use App\Models\DB\FaqCategory as FaqCategory;
+use App\Models\DB\FaqCategory;
 
 class FaqsCategories
 {

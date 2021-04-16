@@ -1892,7 +1892,6 @@ plusButtons.forEach(function (plusButton) {
           faqElement.classList.add("active");
         } else {}
       });
-      console.log("funciona");
     }
   });
 });

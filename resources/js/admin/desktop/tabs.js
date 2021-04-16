@@ -1,6 +1,6 @@
 
-const plusButtons = document.querySelectorAll('.faq-button');
-const faqElements = document.querySelectorAll(".faq");
+const plusButtons = document.querySelectorAll('.tab-button');
+const faqElements = document.querySelectorAll(".tabs");
 
 plusButtons.forEach(plusButton => { 
   

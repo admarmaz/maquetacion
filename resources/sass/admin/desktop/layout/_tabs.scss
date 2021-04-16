@@ -1,0 +1,20 @@
+.tabs{
+    display: flex;
+}
+
+.tabs .tab-button{
+    background-color: cadetblue;
+    margin-right: 1em;
+}
+
+.tabs .tab-content{
+    max-height: 0;
+    overflow: hidden;  
+    max-width: 0;
+}
+
+.tabs.active .tab-content{
+    display: block;
+    height: 100vh;
+
+}

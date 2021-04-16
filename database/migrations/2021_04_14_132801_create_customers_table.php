@@ -21,10 +21,9 @@ class CreateCustomersTable extends Migration
             $table->string('cp');
             $table->string('location');
             $table->string('phone');
+            $table->integer('country_id');
             $table->string('email')->unique();
             $table->boolean('active');
-            $table->timestamp('email_verified_at')->nullable();
-            $table->rememberToken();
             $table->timestamps();
         });
     }

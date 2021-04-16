@@ -12,6 +12,7 @@
                 <li class="menu-item" data-url="{{route("faqs")}}"> Faqs</li>
                 <li class="menu-item" data-url="{{route("faqs_categories")}}"> Categorias Faqs</li>
                 <li class="menu-item" data-url="{{route("users")}}"> Usuarios </li>
+                <li class="menu-item" data-url="{{route("customers")}}"> Clientes </li>
             </ul>
         </div>
 

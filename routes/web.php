@@ -28,7 +28,7 @@ Route::group(['prefix' => 'admin'], function () {
         ]
     ]);
 
-    Route::resource('users', 'App\Http\Controllers\Admin\UsersController', [
+    Route::resource('usuarios', 'App\Http\Controllers\Admin\UsersController', [
         'parameters' => [
             'users' => 'user', 
         ],
