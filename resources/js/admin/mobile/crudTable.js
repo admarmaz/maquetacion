@@ -1,4 +1,8 @@
-import {renderCkeditor} from '../../ckeditor';
+import {renderCkeditor} from './ckeditor';
+import {swipeRevealItem} from './swipe';
+import {renderFilterTable} from './filterTable';
+import { showForm } from './bottombarMenu';
+
 const table = document.getElementById("table");
 const form = document.getElementById("form");
 
@@ -84,6 +88,7 @@ export let renderTable = () => {
 
     let editButtons = document.querySelectorAll(".boton-editar");
     let deleteButtons = document.querySelectorAll(".borrar-dato");
+    let swipeRevealItemElements = document.querySelectorAll('.swipe-element');
 
     editButtons.forEach(editButton => {
 
@@ -130,7 +135,51 @@ export let renderTable = () => {
             sendDeleteRequest();
         });
     });
+
+    swipeRevealItemElements.forEach(swipeRevealItemElement => {
+
+        new swipeRevealItem(swipeRevealItemElement);
+
+    });
 };
+
+export let editElement = (url) => {
+    
+
+    let sendEditRequest = async () => {
+
+        try {
+            await axios.get(url).then(response => {
+                form.innerHTML = response.data.form;
+                // showForm();
+                renderForm();
+            });
+            
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    sendEditRequest();
+}
+
+export let deleteElement = (url) => {
+
+    let deleteRequest = async () => {
+
+        try {
+            await axios.delete(url).then(response => {
+                table.innerHTML = response.data.table;
+                renderTable();
+            });
+        console.log("Hola");
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    deleteRequest();
+}
 
 renderForm();
 renderTable();

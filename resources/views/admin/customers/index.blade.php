@@ -72,9 +72,6 @@
                         <p>Datos personales<p>
                     </div>
 
-                    <div class="tab-button" data-button="3">
-                        <p>Direcciones de envío<p>
-                    </div>
                 </div>
 
 
@@ -117,12 +114,7 @@
                                     </div>
                                 </div>
 
-                        </div>
-                    </div>
-
-                    <div class="tab" data-content="3">
-                        <div class="tab-content">
-                        <div class="formulario-grupo">
+                                <div class="formulario-grupo">
                                     <div class="formulario-label">
                                         <label for="cp" class="label-highlight">Direccion
                                         </label>
@@ -184,8 +176,12 @@
                                         </button>
                                     </a>
                                 </div>
+
                         </div>
                     </div>
+
+                        
+                      
                 
 
 

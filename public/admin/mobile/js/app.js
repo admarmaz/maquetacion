@@ -1870,6 +1870,135 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./resources/js/admin/mobile/bottombarMenu.js":
+/*!****************************************************!*\
+  !*** ./resources/js/admin/mobile/bottombarMenu.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "showForm": () => (/* binding */ showForm),
+/* harmony export */   "showTable": () => (/* binding */ showTable)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _filterTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./filterTable */ "./resources/js/admin/mobile/filterTable.js");
+/* harmony import */ var _crudTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./crudTable */ "./resources/js/admin/mobile/crudTable.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+var bottombarItems = document.querySelectorAll('.bottombar-item');
+var table = document.getElementById("table");
+var form = document.getElementById("form");
+bottombarItems.forEach(function (bottombarItem) {
+  bottombarItem.addEventListener("click", function () {
+    var activeElements = document.querySelectorAll(".bottombar-active");
+    activeElements.forEach(function (activeElement) {
+      activeElement.classList.remove("bottombar-active");
+    });
+    bottombarItem.classList.add('bottombar-active');
+
+    if (bottombarItem.dataset.option == 'form') {
+      showForm();
+    }
+
+    if (bottombarItem.dataset.option == 'table') {
+      showTable(bottombarItem.dataset.url);
+    }
+  });
+});
+var showForm = function showForm() {
+  form.classList.add('active');
+  table.classList.remove('active');
+  (0,_filterTable__WEBPACK_IMPORTED_MODULE_1__.hideFilterTable)();
+};
+var showTable = function showTable(url) {
+  var sendShowRequest = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return axios.get(url).then(function (response) {
+                table.innerHTML = response.data.table;
+                (0,_crudTable__WEBPACK_IMPORTED_MODULE_2__.renderTable)();
+              });
+
+            case 3:
+              _context.next = 8;
+              break;
+
+            case 5:
+              _context.prev = 5;
+              _context.t0 = _context["catch"](0);
+              console.error(_context.t0);
+
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 5]]);
+    }));
+
+    return function sendShowRequest() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  sendShowRequest();
+  table.classList.add('active');
+  form.classList.remove('active');
+  (0,_filterTable__WEBPACK_IMPORTED_MODULE_1__.showFilterTable)();
+};
+
+/***/ }),
+
+/***/ "./resources/js/admin/mobile/ckeditor.js":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/mobile/ckeditor.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderCkeditor": () => (/* binding */ renderCkeditor)
+/* harmony export */ });
+/* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @ckeditor/ckeditor5-build-classic */ "./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js");
+/* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0__);
+
+
+__webpack_require__(/*! @ckeditor/ckeditor5-build-classic/build/translations/es.js */ "./node_modules/@ckeditor/ckeditor5-build-classic/build/translations/es.js");
+
+var renderCkeditor = function renderCkeditor() {
+  window.ckeditors = [];
+  document.querySelectorAll('.ckeditor').forEach(function (ckeditor) {
+    _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default().create(ckeditor, {
+      toolbar: {
+        items: ['bold', 'italic', 'link', 'bulletedList', 'numberedList', '|', 'outdent', 'indent', '|', 'blockQuote', 'undo', 'redo']
+      },
+      language: 'es',
+      licenseKey: ''
+    }).then(function (classicEditor) {
+      ckeditors[ckeditor.name] = classicEditor;
+    })["catch"](function (error) {
+      console.error(error);
+    });
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/js/admin/mobile/crudTable.js":
 /*!************************************************!*\
   !*** ./resources/js/admin/mobile/crudTable.js ***!
@@ -1880,11 +2009,16 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "renderForm": () => (/* binding */ renderForm),
-/* harmony export */   "renderTable": () => (/* binding */ renderTable)
+/* harmony export */   "renderTable": () => (/* binding */ renderTable),
+/* harmony export */   "editElement": () => (/* binding */ editElement),
+/* harmony export */   "deleteElement": () => (/* binding */ deleteElement)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _ckeditor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../ckeditor */ "./resources/js/ckeditor.js");
+/* harmony import */ var _ckeditor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ckeditor */ "./resources/js/admin/mobile/ckeditor.js");
+/* harmony import */ var _swipe__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./swipe */ "./resources/js/admin/mobile/swipe.js");
+/* harmony import */ var _filterTable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filterTable */ "./resources/js/admin/mobile/filterTable.js");
+/* harmony import */ var _bottombarMenu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./bottombarMenu */ "./resources/js/admin/mobile/bottombarMenu.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1902,6 +2036,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
 
 
 var table = document.getElementById("table");
@@ -1997,6 +2134,7 @@ var renderForm = function renderForm() {
 var renderTable = function renderTable() {
   var editButtons = document.querySelectorAll(".boton-editar");
   var deleteButtons = document.querySelectorAll(".borrar-dato");
+  var swipeRevealItemElements = document.querySelectorAll('.swipe-element');
   editButtons.forEach(function (editButton) {
     editButton.addEventListener("click", function () {
       var url = editButton.dataset.url;
@@ -2081,9 +2219,186 @@ var renderTable = function renderTable() {
       sendDeleteRequest();
     });
   });
+  swipeRevealItemElements.forEach(function (swipeRevealItemElement) {
+    new _swipe__WEBPACK_IMPORTED_MODULE_2__.swipeRevealItem(swipeRevealItemElement);
+  });
+};
+var editElement = function editElement(url) {
+  var sendEditRequest = /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return axios.get(url).then(function (response) {
+                form.innerHTML = response.data.form; // showForm();
+
+                renderForm();
+              });
+
+            case 3:
+              _context4.next = 8;
+              break;
+
+            case 5:
+              _context4.prev = 5;
+              _context4.t0 = _context4["catch"](0);
+              console.error(_context4.t0);
+
+            case 8:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 5]]);
+    }));
+
+    return function sendEditRequest() {
+      return _ref6.apply(this, arguments);
+    };
+  }();
+
+  sendEditRequest();
+};
+var deleteElement = function deleteElement(url) {
+  var deleteRequest = /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
+              return axios["delete"](url).then(function (response) {
+                table.innerHTML = response.data.table;
+                renderTable();
+              });
+
+            case 3:
+              console.log("Hola");
+              _context5.next = 9;
+              break;
+
+            case 6:
+              _context5.prev = 6;
+              _context5.t0 = _context5["catch"](0);
+              console.error(_context5.t0);
+
+            case 9:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5, null, [[0, 6]]);
+    }));
+
+    return function deleteRequest() {
+      return _ref7.apply(this, arguments);
+    };
+  }();
+
+  deleteRequest();
 };
 renderForm();
 renderTable();
+
+/***/ }),
+
+/***/ "./resources/js/admin/mobile/filterTable.js":
+/*!**************************************************!*\
+  !*** ./resources/js/admin/mobile/filterTable.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderFilterTable": () => (/* binding */ renderFilterTable),
+/* harmony export */   "hideFilterTable": () => (/* binding */ hideFilterTable),
+/* harmony export */   "showFilterTable": () => (/* binding */ showFilterTable)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _crudTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./crudTable */ "./resources/js/admin/mobile/crudTable.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var table = document.getElementById("table-container");
+var tableFilter = document.getElementById("table-filter");
+var filterForm = document.getElementById("filter-form");
+var renderFilterTable = function renderFilterTable() {
+  var openFilter = document.getElementById("open-filter");
+  var applyFilter = document.getElementById("apply-filter");
+
+  if (openFilter != null) {
+    openFilter.addEventListener('click', function () {
+      openFilter.classList.remove('button-active');
+      tableFilter.classList.add('filter-active');
+      applyFilter.classList.add('button-active');
+    });
+    applyFilter.addEventListener('click', function () {
+      var data = new FormData(filterForm);
+      var url = filterForm.action;
+
+      var sendPostRequest = /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _context.prev = 0;
+                  _context.next = 3;
+                  return axios.post(url, data).then(function (response) {
+                    table.innerHTML = response.data.table;
+                    (0,_crudTable__WEBPACK_IMPORTED_MODULE_1__.renderTable)();
+                    tableFilter.classList.remove('filter-active');
+                    applyFilter.classList.remove('button-active');
+                    openFilter.classList.add('button-active');
+                  });
+
+                case 3:
+                  _context.next = 7;
+                  break;
+
+                case 5:
+                  _context.prev = 5;
+                  _context.t0 = _context["catch"](0);
+
+                case 7:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, null, [[0, 5]]);
+        }));
+
+        return function sendPostRequest() {
+          return _ref.apply(this, arguments);
+        };
+      }();
+
+      sendPostRequest();
+    });
+  }
+};
+var hideFilterTable = function hideFilterTable() {
+  tableFilter.classList.remove('filter-active');
+  var buttons = document.querySelectorAll(".button-active");
+  buttons.forEach(function (button) {
+    button.classList.remove('button-active');
+  });
+};
+var showFilterTable = function showFilterTable() {
+  var openFilter = document.getElementById("open-filter");
+  openFilter.classList.add('button-active');
+};
+renderFilterTable();
 
 /***/ }),
 
@@ -2124,7 +2439,7 @@ menuItems.forEach(function (menuItem) {
                 return axios.get(url).then(function (response) {
                   form.innerHTML = response.data.form;
                   table.innerHTML = response.data.table;
-                  window.history.pushState('', '', ulr); //cambio de url cuando navegamos con el menu
+                  window.history.pushState('', '', url); //cambio de url cuando navegamos con el menu
 
                   (0,_crudTable__WEBPACK_IMPORTED_MODULE_1__.renderForm)();
                   (0,_crudTable__WEBPACK_IMPORTED_MODULE_1__.renderTable)();
@@ -2161,6 +2476,227 @@ menuShow.addEventListener("click", function () {
 
 /***/ }),
 
+/***/ "./resources/js/admin/mobile/swipe.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/mobile/swipe.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "swipeRevealItem": () => (/* binding */ swipeRevealItem)
+/* harmony export */ });
+/* harmony import */ var _crudTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./crudTable */ "./resources/js/admin/mobile/crudTable.js");
+
+
+function swipeRevealItem(element) {
+  'use strict';
+
+  var STATE_DEFAULT = 1;
+  var STATE_LEFT_SIDE = 2;
+  var STATE_RIGHT_SIDE = 3;
+  var swipeFrontElement = element.querySelector('.swipe-front');
+  var rafPending = false;
+  var initialTouchPos = null;
+  var lastTouchPos = null;
+  var currentXPosition = 0;
+  var currentState = STATE_DEFAULT;
+  var handleSize = 10;
+  var leftSwipeVisible = 0;
+  var rightSwipeVisible = 0;
+  var itemWidth = swipeFrontElement.clientWidth;
+  var slopValue = itemWidth * (2 / 4);
+
+  this.resize = function () {
+    itemWidth = swipeFrontElement.clientWidth;
+    slopValue = itemWidth * (2 / 4);
+  };
+
+  this.handleGestureStart = function (evt) {
+    evt.preventDefault();
+
+    if (evt.touches && evt.touches.length > 1) {
+      return;
+    }
+
+    if (window.PointerEvent) {
+      evt.target.setPointerCapture(evt.pointerId);
+    } else {
+      document.addEventListener('mousemove', this.handleGestureMove, true);
+      document.addEventListener('mouseup', this.handleGestureEnd, true);
+    }
+
+    initialTouchPos = getGesturePointFromEvent(evt);
+    swipeFrontElement.style.transition = 'initial';
+  }.bind(this);
+
+  this.handleGestureMove = function (evt) {
+    evt.preventDefault();
+
+    if (!initialTouchPos) {
+      return;
+    }
+
+    lastTouchPos = getGesturePointFromEvent(evt);
+
+    if (rafPending) {
+      return;
+    }
+
+    rafPending = true;
+    window.requestAnimFrame(onAnimFrame);
+  }.bind(this);
+
+  this.handleGestureEnd = function (evt) {
+    evt.preventDefault();
+
+    if (evt.touches && evt.touches.length > 0) {
+      return;
+    }
+
+    rafPending = false;
+
+    if (window.PointerEvent) {
+      evt.target.releasePointerCapture(evt.pointerId);
+    } else {
+      document.removeEventListener('mousemove', this.handleGestureMove, true);
+      document.removeEventListener('mouseup', this.handleGestureEnd, true);
+    }
+
+    updateSwipeRestPosition();
+    leftSwipeVisible = 0;
+    rightSwipeVisible = 0;
+    initialTouchPos = null;
+  }.bind(this);
+
+  function updateSwipeRestPosition() {
+    var differenceInX = initialTouchPos.x - lastTouchPos.x;
+    currentXPosition = currentXPosition - differenceInX;
+    var newState = STATE_DEFAULT;
+
+    if (Math.abs(differenceInX) > slopValue) {
+      if (currentState === STATE_DEFAULT) {
+        if (differenceInX > 0) {
+          newState = STATE_LEFT_SIDE;
+        } else {
+          newState = STATE_RIGHT_SIDE;
+        }
+      } else {
+        if (currentState === STATE_LEFT_SIDE && differenceInX > 0) {
+          newState = STATE_DEFAULT;
+        } else if (currentState === STATE_RIGHT_SIDE && differenceInX < 0) {
+          newState = STATE_DEFAULT;
+        }
+      }
+    } else {
+      newState = currentState;
+    }
+
+    changeState(newState);
+    swipeFrontElement.style.transition = 'all 150ms ease-out';
+  }
+
+  function changeState(newState) {
+    var transformStyle;
+
+    switch (newState) {
+      case STATE_DEFAULT:
+        currentXPosition = 0;
+        break;
+
+      case STATE_LEFT_SIDE:
+        currentXPosition = -(itemWidth - handleSize);
+        break;
+
+      case STATE_RIGHT_SIDE:
+        currentXPosition = itemWidth - handleSize;
+        break;
+    }
+
+    if (currentXPosition > 1) {
+      (0,_crudTable__WEBPACK_IMPORTED_MODULE_0__.editElement)(element.querySelector('.right-swipe').dataset.url);
+    } else if (currentXPosition < -1) {
+      (0,_crudTable__WEBPACK_IMPORTED_MODULE_0__.deleteElement)(element.querySelector('.left-swipe').dataset.url);
+    }
+
+    transformStyle = 'translateX(' + currentXPosition + 'px)';
+    swipeFrontElement.style.msTransform = transformStyle;
+    swipeFrontElement.style.MozTransform = transformStyle;
+    swipeFrontElement.style.webkitTransform = transformStyle;
+    swipeFrontElement.style.transform = transformStyle;
+    currentState = newState;
+  }
+
+  function getGesturePointFromEvent(evt) {
+    var point = {};
+
+    if (evt.targetTouches) {
+      point.x = evt.targetTouches[0].clientX;
+      point.y = evt.targetTouches[0].clientY;
+    } else {
+      point.x = evt.clientX;
+      point.y = evt.clientY;
+    }
+
+    return point;
+  }
+
+  function onAnimFrame() {
+    if (!rafPending) {
+      return;
+    }
+
+    var differenceInX = initialTouchPos.x - lastTouchPos.x;
+    var newXTransform = currentXPosition - differenceInX + 'px';
+    var transformStyle = 'translateX(' + newXTransform + ')';
+
+    if (Math.sign(differenceInX) == 1 && leftSwipeVisible == 0) {
+      var swipeActive = document.getElementById('swipe-active');
+
+      if (swipeActive !== null) {
+        swipeActive.removeAttribute('id');
+      }
+
+      element.querySelector('.left-swipe').id = 'swipe-active';
+      leftSwipeVisible = 1;
+      rightSwipeVisible = 0;
+    } else if (Math.sign(differenceInX) == -1 && rightSwipeVisible == 0) {
+      var _swipeActive = document.getElementById('swipe-active');
+
+      if (_swipeActive !== null) {
+        _swipeActive.removeAttribute('id');
+      }
+
+      element.querySelector('.right-swipe').id = 'swipe-active';
+      leftSwipeVisible = 0;
+      rightSwipeVisible = 1;
+    }
+
+    swipeFrontElement.style.webkitTransform = transformStyle;
+    swipeFrontElement.style.MozTransform = transformStyle;
+    swipeFrontElement.style.msTransform = transformStyle;
+    swipeFrontElement.style.transform = transformStyle;
+    rafPending = false;
+  }
+
+  if (window.PointerEvent) {
+    swipeFrontElement.addEventListener('pointerdown', this.handleGestureStart, true);
+    swipeFrontElement.addEventListener('pointermove', this.handleGestureMove, true);
+    swipeFrontElement.addEventListener('pointerup', this.handleGestureEnd, true);
+    swipeFrontElement.addEventListener('pointercancel', this.handleGestureEnd, true);
+  } else {
+    swipeFrontElement.addEventListener('touchstart', this.handleGestureStart, true);
+    swipeFrontElement.addEventListener('touchmove', this.handleGestureMove, true);
+    swipeFrontElement.addEventListener('touchend', this.handleGestureEnd, true);
+    swipeFrontElement.addEventListener('touchcancel', this.handleGestureEnd, true);
+    swipeFrontElement.addEventListener('mousedown', this.handleGestureStart, true);
+  }
+}
+;
+
+/***/ }),
+
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -2168,14 +2704,22 @@ menuShow.addEventListener("click", function () {
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
-
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+window.onload = function () {
+  if (/iP(hone|ad)/.test(window.navigator.userAgent)) {
+    document.body.addEventListener('touchstart', function () {}, false);
+  }
+};
+
+window.requestAnimFrame = function () {
+  'use strict';
+
+  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
+    window.setTimeout(callback, 1000 / 60);
+  };
+}();
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -20497,6 +21041,10 @@ __webpack_require__(/*! ./crudTable */ "./resources/js/admin/mobile/crudTable.js
 __webpack_require__(/*! ../../ckeditor */ "./resources/js/ckeditor.js");
 
 __webpack_require__(/*! ./menu */ "./resources/js/admin/mobile/menu.js");
+
+__webpack_require__(/*! ./bottombarMenu */ "./resources/js/admin/mobile/bottombarMenu.js");
+
+__webpack_require__(/*! ./filterTable */ "./resources/js/admin/mobile/filterTable.js");
 })();
 
 /******/ })()

@@ -8,6 +8,7 @@
 
   .swipe-element {
     position: relative;
+    margin-bottom: 0.5em;
 
     width: 100%;
     height: 60px;
@@ -15,6 +16,7 @@
 
   .swipe-front {
     position: absolute;
+    display: flex;
 
     width: 100%;
     height: 60px;
@@ -104,5 +106,9 @@
   }
 
   .swipe-back .boton-borrar{
+    display: none;
+  }
+
+  .tabla .tabla-contenedor .tabla-cabecera{
     display: none;
   }

@@ -19,7 +19,8 @@ menuItems.forEach( menuItem => {
                     form.innerHTML = response.data.form;
                     table.innerHTML = response.data.table;
 
-                    window.history.pushState('', '', ulr); //cambio de url cuando navegamos con el menu
+                    window.history.pushState('', '', url); //cambio de url cuando navegamos con el menu
+
                     renderForm();
                     renderTable();
                 });
