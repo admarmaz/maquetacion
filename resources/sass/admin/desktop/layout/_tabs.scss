@@ -1,20 +1,42 @@
 .tabs{
+    width: 50%;
     display: flex;
+
+    .tab{
+
+        .tab-content{
+            max-height: 0;
+            overflow: hidden;
+        }
+  
+    }
+
+    .tab.active{
+        width: 60%;
+    }
+
+    .tab.active .tab-content{
+        display: block;
+        max-height: 100vh;
+        overflow: visible;
+        width: 100%;
+    } 
 }
 
-.tabs .tab-button{
-    background-color: cadetblue;
-    margin-right: 1em;
-}
+.tabs-buttons{
+    display: flex;
+    background-color: #c2efe1;
+    border: solid grey;
+    margin-bottom: 2em;
 
-.tabs .tab-content{
-    max-height: 0;
-    overflow: hidden;  
-    max-width: 0;
-}
+    .tab-button{
+        
+        margin-right: 1em;
+        cursor: pointer;
+        padding: 0.02em;
+    }
 
-.tabs.active .tab-content{
-    display: block;
-    height: 100vh;
-
+    .tab-button:hover{
+        background-color:aquamarine
+    }
 }

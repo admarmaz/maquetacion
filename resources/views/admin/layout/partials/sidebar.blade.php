@@ -14,12 +14,9 @@
                 <li class="menu-item" data-url="{{route("users")}}"> Usuarios </li>
                 <li class="menu-item" data-url="{{route("customers")}}"> Clientes </li>
             </ul>
+            
         </div>
-
-    </div>
-    
-    <div>
-        <button type="submit" action="{{route('front_logout')}}">logout</button>
+        
     </div>
     
 </div>

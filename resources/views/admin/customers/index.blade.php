@@ -26,9 +26,9 @@
                     <td>{{$customer_element->email}}</td>
                     <td>{{$customer_element->direction}}</td>
                     <td>{{$customer_element->cp}}</td>
+                    <td>{{$customer_element->country_id}}</td>
                     <td>{{$customer_element->location}}</td>
                     <td>{{$customer_element->phone}}</td>
-                    <td>{{$customer_element->country_id}}</td>
                     <td>
                         <button class="boton-editar" data-url="{{route("customers_show", ['customer' => $customer_element->id])}}" > 
                             <svg viewBox="0 0 24 24">
@@ -59,119 +59,137 @@
 
         <form id="faqs-form" class="admin-formulario" action="{{route("customers_store")}}" autocomplete="off">
 
-        {{ csrf_field() }}
+            {{ csrf_field() }}
 
-        <input autocomplete="false" name="hidden" type="text" style="display:none;">
-        <input type="hidden" name="id" value="{{isset($customer->id) ? $customer->id : ''}}">
+            <input autocomplete="false" name="hidden" type="text" style="display:none;">
+            <input type="hidden" name="id" value="{{isset($customer->id) ? $customer->id : ''}}">
 
-        <div class="tabs" data-content="">
+                <div class="tabs-buttons">
+                    <div class="tab-button" data-button="2">
+                        <p> Imagenes <p>
+                    </div>
+                    <div class="tab-button" data-button="1">
+                        <p>Datos personales<p>
+                    </div>
 
-            <div class="tab-button" >
-                <h3>Datos personales</h3>
-            </div>
-            <div class="tab-content" >
+                    <div class="tab-button" data-button="3">
+                        <p>Direcciones de envío<p>
+                    </div>
+                </div>
 
-                    <div class="formulario-grupo">
-                        <div class="formulario-label">
-                            <label for="name" class="label-highlight">Nombre
-                            </label>
+
+                <div class="tabs">
+                    <div class="tab" data-content="2">
+                        <div class="tab-content">
+                            <p> Pics <p>
                         </div>
-                        <div class="formulario-input">
-                            <input type="text" name="name" value="{{isset($customer->name) ? $customer->name : ''}}" class="input-highlight" required >
+                    </div>
+                    <div class="tab" data-content="1">
+                        <div class="tab-content" >
+
+                                <div class="formulario-grupo">
+                                    <div class="formulario-label">
+                                        <label for="name" class="label-highlight">Nombre
+                                        </label>
+                                    </div>
+                                    <div class="formulario-input">
+                                        <input type="text" name="name" value="{{isset($customer->name) ? $customer->name : ''}}" class="input-highlight" required >
+                                    </div>
+                                </div>
+
+                                <div class="formulario-grupo">
+                                    <div class="formulario-label">
+                                        <label for="surname" class="label-highlight">Apellidos
+                                        </label>
+                                    </div>
+                                    <div class="formulario-input">
+                                        <input type="text" name="surname" value="{{isset($customer->surname) ? $customer->surname : ''}}" class="input-highlight" required >
+                                    </div>
+                                </div>
+
+                                <div class="formulario-grupo">
+                                    <div class="formulario-label">
+                                        <label for="email" class="label-highlight">Email
+                                        </label>
+                                    </div>
+                                    <div class="formulario-input">
+                                        <input type="text" name="email" value="{{isset($customer->email) ? $customer->email : ''}}" class="input-highlight" required >
+                                    </div>
+                                </div>
+
                         </div>
                     </div>
 
-                    <div class="formulario-grupo">
-                        <div class="formulario-label">
-                            <label for="surname" class="label-highlight">Apellidos
-                            </label>
-                        </div>
-                        <div class="formulario-input">
-                            <input type="text" name="surname" value="{{isset($customer->surname) ? $customer->surname : ''}}" class="input-highlight" required >
-                        </div>
-                    </div>
+                    <div class="tab" data-content="3">
+                        <div class="tab-content">
+                        <div class="formulario-grupo">
+                                    <div class="formulario-label">
+                                        <label for="cp" class="label-highlight">Direccion
+                                        </label>
+                                    </div>
+                                    <div class="formulario-input">
+                                        <input type="text" name="direction" value="{{isset($customer->direction) ? $customer->direction : ''}}" class="input-highlight" required >
+                                    </div>
+                                </div>
 
-                    <div class="formulario-grupo">
-                        <div class="formulario-label">
-                            <label for="email" class="label-highlight">Email
-                            </label>
-                        </div>
-                        <div class="formulario-input">
-                            <input type="text" name="email" value="{{isset($customer->email) ? $customer->email : ''}}" class="input-highlight" required >
-                        </div>
-                    </div>
+                                <div class="formulario-grupo">
+                                    <div class="formulario-label">
+                                        <label for="cp" class="label-highlight">CP
+                                        </label>
+                                    </div>
+                                    <div class="formulario-input">
+                                        <input type="text" name="cp" value="{{isset($customer->cp) ? $customer->cp : ''}}" class="input-highlight" required >
+                                    </div>
+                                </div>
 
-                    <div class="formulario-grupo">
-                        <div class="formulario-label">
-                            <label for="cp" class="label-highlight">Direccion
-                            </label>
-                        </div>
-                        <div class="formulario-input">
-                            <input type="text" name="direction" value="{{isset($customer->direction) ? $customer->direction : ''}}" class="input-highlight" required >
-                        </div>
-                    </div>
+                                <div class="formulario-grupo">
+                                    <div class="formulario-label">
+                                        <label for="location" class="label-highlight">Poblacion
+                                        </label>
+                                    </div>
+                                    <div class="formulario-input">
+                                        <input type="text" name="location" value="{{isset($customer->location) ? $customer->location : ''}}" class="input-highlight" required >
+                                    </div>
+                                </div>
 
-                    <div class="formulario-grupo">
-                        <div class="formulario-label">
-                            <label for="cp" class="label-highlight">CP
-                            </label>
-                        </div>
-                        <div class="formulario-input">
-                            <input type="text" name="cp" value="{{isset($customer->cp) ? $customer->cp : ''}}" class="input-highlight" required >
-                        </div>
-                    </div>
+                                <div class="formulario-grupo">
+                                    <div class="formulario-label">
+                                        <label for="phone" class="label-highlight">Teléfono
+                                        </label>
+                                    </div>
+                                    <div class="formulario-input">
+                                        <input type="text" name="phone" value="{{isset($customer->phone) ? $customer->phone : ''}}" class="input-highlight" required >
+                                    </div>
+                                </div>
 
-                    <div class="formulario-grupo">
-                        <div class="formulario-label">
-                            <label for="location" class="label-highlight">Poblacion
-                            </label>
-                        </div>
-                        <div class="formulario-input">
-                            <input type="text" name="location" value="{{isset($customer->location) ? $customer->location : ''}}" class="input-highlight" required >
-                        </div>
-                    </div>
+                                <div class="formulario-grupo">
+                                    <div class="formulario-label">
+                                        <label for="phone" class="label-highlight">Pais
+                                        </label>
+                                    </div>
+                                    <select name="country_id" data-placeholder="Seleccione una categoría" class="input-highlight">
+                                        <option></option>
+                                        @foreach($countries as $country)
+                                            <option value="{{$country->id}}" {{$customer->country_id == $country->id ? 'selected':''}} class="country_id">{{ $country->name }}</option>
+                                        @endforeach
+                                    </select>  
+                                </div>
 
-                    <div class="formulario-grupo">
-                        <div class="formulario-label">
-                            <label for="phone" class="label-highlight">Teléfono
-                            </label>
-                        </div>
-                        <div class="formulario-input">
-                            <input type="text" name="phone" value="{{isset($customer->phone) ? $customer->phone : ''}}" class="input-highlight" required >
+                                <div class="formulario-enviar">
+                                    <a href="" class="boton-guardar">
+                                        <button id="guardar-cambios">
+                                            <svg viewBox="0 0 24 24">
+                                                <path fill="" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
+                                            </svg>
+                                        </button>
+                                    </a>
+                                </div>
                         </div>
                     </div>
+                
 
-                    <div class="formulario-grupo">
-                        <div class="formulario-label">
-                            <label for="phone" class="label-highlight">Pais
-                            </label>
-                        </div>
-                        <select name="country_id" data-placeholder="Seleccione una categoría" class="input-highlight">
-                            <option></option>
-                            @foreach($countries as $country)
-                                <option value="{{$country->id}}" {{$customer->country_id == $country->id ? 'selected':''}} class="country_id">{{ $country->name }}</option>
-                            @endforeach
-                        </select>  
-                    </div>
 
-                    <div class="formulario-enviar">
-                        <a href="" class="boton-guardar">
-                            <button id="guardar-cambios">
-                                <svg viewBox="0 0 24 24">
-                                    <path fill="" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
-                                </svg>
-                            </button>
-                        </a>
-                    </div>
-               
-            </div>  
-            
-            <div class="tab-button">
-                <h3> Imagenes </h3>
-            </div>
-            <div class="tab-content">
-                <h1> Pics </h1>
-            </div>
+                </div>
 
         </form>
 

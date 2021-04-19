@@ -1,6 +1,6 @@
 
 const plusButtons = document.querySelectorAll('.tab-button');
-const faqElements = document.querySelectorAll(".tabs");
+const tabElements = document.querySelectorAll(".tab");
 
 plusButtons.forEach(plusButton => { 
   
@@ -25,10 +25,10 @@ plusButtons.forEach(plusButton => {
             
             plusButton.classList.add("active");
 
-            faqElements.forEach(faqElement => {
+            tabElements.forEach(tabElement => {
 
-                if(faqElement.dataset.content == plusButton.dataset.button){
-                    faqElement.classList.add("active"); 
+                if(tabElement.dataset.content == plusButton.dataset.button){
+                    tabElement.classList.add("active"); 
                 }else{
                 }
             });

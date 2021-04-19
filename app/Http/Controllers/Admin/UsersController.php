@@ -52,7 +52,7 @@ class UsersController extends Controller
         ]);
     }
 
-    public function store(UserRequest $request)
+    public function store(UsersRequest $request)
     {            
         if (request('password') !== null) {
 

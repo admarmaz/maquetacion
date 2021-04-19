@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTfaqsCategory extends Migration
+class CreateTFaqsCategory extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,9 @@ class CreateTfaqsCategory extends Migration
     public function up()
     {
         Schema::create('t_faqs_category', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->boolean('active');
+            $table->increments('id');
+            $table->string('name', 255);
+            $table->boolean('active')->default(false);
             $table->timestamps();
         });
     }

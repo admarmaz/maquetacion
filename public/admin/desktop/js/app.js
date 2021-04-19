@@ -2359,7 +2359,7 @@ menuShow.addEventListener("click", function () {
 /***/ (() => {
 
 var plusButtons = document.querySelectorAll('.tab-button');
-var faqElements = document.querySelectorAll(".tabs");
+var tabElements = document.querySelectorAll(".tab");
 plusButtons.forEach(function (plusButton) {
   plusButton.addEventListener("click", function () {
     var activeElements = document.querySelectorAll(".active");
@@ -2374,9 +2374,9 @@ plusButtons.forEach(function (plusButton) {
         activeElement.classList.remove("active");
       });
       plusButton.classList.add("active");
-      faqElements.forEach(function (faqElement) {
-        if (faqElement.dataset.content == plusButton.dataset.button) {
-          faqElement.classList.add("active");
+      tabElements.forEach(function (tabElement) {
+        if (tabElement.dataset.content == plusButton.dataset.button) {
+          tabElement.classList.add("active");
         } else {}
       });
     }
