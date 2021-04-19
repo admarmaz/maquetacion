@@ -205,15 +205,14 @@ li {
   display: flex;
   width: 100%;
   height: 60px;
+  border: solid 0.2em #c2efe1;
   left: 0;
   top: 0;
   margin: 0;
   box-sizing: border-box;
   text-align: center;
-  color: #ecf0f1;
   line-height: 44px;
   vertical-align: center;
-  background-color: #4285f4;
   z-index: 2;
   /* // [START touch-action-example] */
   /* Pass all touches to javascript */
@@ -270,4 +269,8 @@ li {
 
 .tabla .tabla-contenedor .tabla-cabecera {
   display: none;
+}
+
+.swipe-content {
+  padding: 0;
 }

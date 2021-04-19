@@ -41,17 +41,6 @@ Route::group(['prefix' => 'admin'], function () {
         ]
     ]);
 
-    // Route::get('/faqs/json', 'App\Http\Controllers\Admin\FaqController@indexJson')->name('faqs_json');
-    Route::resource('faqs', 'App\Http\Controllers\Admin\FaqController', [
-        'names' => [
-            'index' => 'faqs',  // 'faqs' son URLs
-            'create' => 'faqs_create',
-            'store' => 'faqs_store',
-            'destroy' => 'faqs_destroy',
-            'show' => 'faqs_show',
-        ]
-    ]);
-
     Route::resource('faqs/categorias', 'App\Http\Controllers\Admin\FaqCategoryController', [
         'parameters' => [
             'categorias' => 'faq_category', 
@@ -64,6 +53,19 @@ Route::group(['prefix' => 'admin'], function () {
             'show' => 'faqs_categories_show',
         ]
     ]);
+
+    // Route::get('/faqs/json', 'App\Http\Controllers\Admin\FaqController@indexJson')->name('faqs_json');
+    Route::resource('faqs', 'App\Http\Controllers\Admin\FaqController', [
+        'names' => [
+            'index' => 'faqs',  // 'faqs' son URLs
+            'create' => 'faqs_create',
+            'store' => 'faqs_store',
+            'destroy' => 'faqs_destroy',
+            'show' => 'faqs_show',
+        ]
+    ]);
+
+    
 
     
 });

@@ -17,9 +17,11 @@
         @foreach ($faqs as $faq_element)
             <div class="swipe-element">
                 <div class="swipe-front promote-layer">
-                    <div> Titulo: {{$faq_element->title}} </div>
-                    <div> Respuesta: {{$faq_element->description}} </div>
-                    
+                    <div class="swipe-content">
+                        <div> <p> Titulo: {{$faq_element->title}} </p> <p> Respuesta: {{$faq_element->description}} </div>
+                        <div>  </div>
+                    </div>
+
                     <div class="swipe-back">
                         <div class="boton-editar right-swipe" data-url="{{route("faqs_show", ['faq' => $faq_element->id])}}" > 
                             <svg viewBox="0 0 24 24">
