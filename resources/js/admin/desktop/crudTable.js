@@ -47,6 +47,8 @@ export let renderForm = () => {
             let url = form.action;
     
             let sendPostRequest = async () => {
+
+                console.log('hola');
     
                 try {
                     await axios.post(url, data).then(response => {

@@ -226,3 +226,33 @@ li {
 .tabs-buttons .tab-button:hover {
   background-color: aquamarine;
 }
+
+.tabla .tabla-contenedor .tabla-cabecera {
+  display: flex;
+}
+
+.table-filter {
+  width: 30%;
+  margin: 2em auto;
+  font-size: 1em;
+}
+.table-filter.filter-active .table-filter-container {
+  max-height: 50vh;
+  overflow: visible;
+}
+.table-filter .table-filter-container {
+  max-height: 0;
+  overflow: hidden;
+}
+.table-filter .table-filter-container .filter-form .one-column .form-group .form-label {
+  margin-bottom: 1em;
+}
+.table-filter .table-filter-container .filter-form .one-column .form-group .form-input {
+  margin-bottom: 1em;
+}
+.table-filter .table-filter-buttons .table-filter-button {
+  display: none;
+}
+.table-filter .table-filter-buttons .table-filter-button.button-active {
+  display: block;
+}
