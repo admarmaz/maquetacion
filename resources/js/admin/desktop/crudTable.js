@@ -1,3 +1,4 @@
+import { orderBy } from 'lodash';
 import {renderCkeditor} from '../../ckeditor';
 const table = document.getElementById("table");
 const form = document.getElementById("form");
@@ -86,6 +87,7 @@ export let renderTable = () => {
 
     let editButtons = document.querySelectorAll(".boton-editar");
     let deleteButtons = document.querySelectorAll(".borrar-dato");
+    let orderByTitles = document.querySelectorAll(".order-by-title");
 
     editButtons.forEach(editButton => {
 
@@ -111,7 +113,6 @@ export let renderTable = () => {
     });
 
     deleteButtons.forEach(deleteButton => {
-
         deleteButton.addEventListener("click", () => {
 
             let url = deleteButton.dataset.url;
@@ -132,9 +133,31 @@ export let renderTable = () => {
             sendDeleteRequest();
         });
     });
+
+
+    orderByTitles.forEach(orderByTitle => {
+        orderByTitle.addEventListener("click", () => {
+
+            let url = orderByTitle.dataset.url;
+
+            let sendOrderRequest = async () => {
+
+                try {
+                    await axios.get(url).then(response => {
+                        table.innerHTML = response.data.table;
+                        renderTable();
+                    });
+                    
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+
+            sendOrderRequest();
+        });
+    }); 
+
 };
 
 renderForm();
 renderTable();
-
-

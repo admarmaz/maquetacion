@@ -3,6 +3,10 @@
     
   }
 
+
+  .swipe-element{
+    
+  }
   .swipe-front{
     display: flex;
     margin-bottom: 1em;
@@ -14,6 +18,24 @@
     .table-content{
       display: flex;
       margin-right: 2em;
+      width: 100%;
+    
+    }
+
+    .table-content p{
+      width: 40%;
+      margin: 0 auto;
     }
 
   }
+.tabla .table-header {
+  display: flex;
+  background-color: #c2efe1;
+  font-weight: bold;
+  margin-bottom: 1em;
+  padding: 0;
+  
+  p{
+    margin-right: 40%;
+  }
+}

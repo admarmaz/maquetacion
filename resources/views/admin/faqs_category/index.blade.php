@@ -11,7 +11,7 @@
         <table>
             <tr class="tabla-cabecera">
                 <th>Id</th>
-                <th>Name</th> 
+                <th>Nombre</th> 
                 <th>Acción</th>
             </tr>
             @foreach ($faq_categories as $faq_category_element)

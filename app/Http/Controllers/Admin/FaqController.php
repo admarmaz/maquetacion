@@ -144,10 +144,20 @@ class FaqController extends Controller
                         return $q->where(creadet);
                     }
                 }
-
             }
 
         });
+
+        $query->when(request('order'), function ($q, $order) {
+
+            if($order == null){
+                return $q;
+            }
+            else {
+                return $q->where('title', 'like', "%$search%");
+            }
+        });
+        
         
         $faqs = $query->where('active', 1)->get();
 
@@ -166,7 +176,11 @@ class FaqController extends Controller
 
     public function order(){
 
-        $this->faq = Faq::orderBy('title', 'asc')->where('active', 1)->get();
+        $faqs = Faq::orderBy('title', 'asc')
+            ->where('active', 1)->get();
+
+        $view = View::make('admin.faqs.index')
+            ->with('faqs', $faqs);
 
         if(request()->ajax()) {
             $sections = $view->renderSections(); 
@@ -180,5 +194,4 @@ class FaqController extends Controller
     }
 
     //public function orderDesc(){}
-
 }
