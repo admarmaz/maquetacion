@@ -2,3 +2,18 @@
     display: flex;
     
   }
+
+  .swipe-front{
+    display: flex;
+    margin-bottom: 1em;
+    
+    .swipe-back{
+      display: flex;
+    }
+
+    .table-content{
+      display: flex;
+      margin-right: 2em;
+    }
+
+  }

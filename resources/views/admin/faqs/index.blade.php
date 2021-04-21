@@ -11,22 +11,21 @@
     <div class="tabla-titulo">
         <h2>@lang('admin/faqs.parent_section')</h2>
     </div>
-
-    <div class="tabla-contenedor">
-        <div class="tabla-cabecera">
-                <p>Pregunta</p>
-                <p>Respuesta</p> 
-                <p>Categoria</p>
-                <p>Acción</p>
-        </div>
     
+    <div class="order" data-url="{{route("faqs_order", ['faq' => $faq_element->title])}}">
+        <p>ordenar</p>
+    </div>
+    
+    <div class="tabla-contenedor">
         <div id="table-container">
             @foreach ($faqs as $faq_element)
                 <div class="swipe-element">
                     <div class="swipe-front promote-layer">
-                        <div> Titulo: {{$faq_element->title}} </div>
-                        <div> Respuesta: {{$faq_element->description}} </div>
-                        
+                        <div class="table-content">
+                            <p> Titulo: {{$faq_element->title}} </p>
+                            <p> Respuesta: {{$faq_element->description}} </p>
+                        </div>
+
                         <div class="swipe-back">
                             <div class="boton-editar right-swipe" data-url="{{route("faqs_show", ['faq' => $faq_element->id])}}" > 
                                 <svg viewBox="0 0 24 24">
@@ -34,11 +33,11 @@
                                 </svg>
                             </div>
                             
-                            <button class="boton-borrar borrar-dato left-swipe" data-url="{{route("faqs_destroy", ['faq' => $faq_element->id])}}"> 
+                            <div class="boton-borrar borrar-dato left-swipe" data-url="{{route("faqs_destroy", ['faq' => $faq_element->id])}}"> 
                                 <svg viewBox="0 0 24 24">
                                     <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
                                 </svg>
-                            </button>
+                            </div>
                         </div>
                     </div>
                 </div>          

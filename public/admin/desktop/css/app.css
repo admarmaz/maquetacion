@@ -231,6 +231,18 @@ li {
   display: flex;
 }
 
+.swipe-front {
+  display: flex;
+  margin-bottom: 1em;
+}
+.swipe-front .swipe-back {
+  display: flex;
+}
+.swipe-front .table-content {
+  display: flex;
+  margin-right: 2em;
+}
+
 .table-filter {
   width: 30%;
   margin: 2em auto;

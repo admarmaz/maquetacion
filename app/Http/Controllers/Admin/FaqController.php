@@ -164,4 +164,21 @@ class FaqController extends Controller
 
     }
 
+    public function order(){
+
+        $this->faq = Faq::orderBy('title', 'asc')->where('active', 1)->get();
+
+        if(request()->ajax()) {
+            $sections = $view->renderSections(); 
+
+            return response()->json([
+                'table' => $sections['table'],
+            ]); 
+        }
+
+        return $view;
+    }
+
+    //public function orderDesc(){}
+
 }
