@@ -2110,8 +2110,6 @@ var renderTable = function renderTable() {
     orderByTitle.addEventListener("click", function () {
       var url = orderByTitle.dataset.url;
 
-<<<<<<< HEAD
-=======
       var sendOrderRequest = /*#__PURE__*/function () {
         var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
@@ -2292,7 +2290,6 @@ var showFilterTable = function showFilterTable() {
 };
 renderFilterTable();
 
->>>>>>> 333a8e657efa1614f72379ec28291c30abdb8cb9
 /***/ }),
 
 /***/ "./resources/js/admin/desktop/menu.js":

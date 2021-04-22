@@ -54,7 +54,10 @@ Route::group(['prefix' => 'admin'], function () {
         ]
     ]);
 
+
     // Route::get('/faqs/json', 'App\Http\Controllers\Admin\FaqController@indexJson')->name('faqs_json');
+    Route::post('/faqs/filter', 'App\Http\Controllers\Admin\FaqController@filter')->name('faqs_filter');
+    Route::get('/faqs/order', 'App\Http\Controllers\Admin\FaqController@order')->name('faqs_order');
     Route::resource('faqs', 'App\Http\Controllers\Admin\FaqController', [
         'names' => [
             'index' => 'faqs',  // 'faqs' son URLs
@@ -64,11 +67,10 @@ Route::group(['prefix' => 'admin'], function () {
             'show' => 'faqs_show',
         ]
     ]);
-
-    
-
     
 });
+
+
 
 
 Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('faqs_front');

@@ -1,12 +1,17 @@
 .formulario{
-    width: 40%;
-    justify-content: right;
-    margin: 5em 0;
+    width: 30%;
+    margin: 2em 2em;
+    padding: 1em;
+    border: 1px groove;
+    border-radius: 4px;
+    background-color: #fff;
 }
 
 .formulario .formulario-titulo{
     width: 100%; 
-    justify-content: center;
+    margin-bottom: 1em;
+    border-bottom: groove;
+    
 }
 
 .formulario .formulario-titulo h2{
@@ -36,11 +41,7 @@
 }
 
 .formulario .formulario-contenedor .formulario-grupo .formulario-input input{
-    padding:0.2em ; 
-    width: 100%;
-}
-
-.formulario .formulario-contenedor .formulario-grupo .formulario-input input{
-    padding:0.2em ; 
+    padding: 0 ; 
+    margin:0;
     width: 100%;
 }
