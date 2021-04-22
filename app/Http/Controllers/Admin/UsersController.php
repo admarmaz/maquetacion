@@ -25,7 +25,8 @@ class UsersController extends Controller
 
         $view = View::make('admin.users.index')
                 ->with('user', $this->user)
-                ->with('users', $this->user->where('active', 1)->get());
+                ->with('users', $this->user->where('active', 1)->get())
+                ->with('users', User::paginate(3));
 
         if(request()->ajax()) {
             

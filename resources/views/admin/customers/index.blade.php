@@ -1,5 +1,8 @@
-@extends('admin.layout.table_form')
+@php
+    $route = 'customers';
+@endphp
 
+@extends('admin.layout.table_form')
 
 @section('table')
 
@@ -179,14 +182,7 @@
 
                         </div>
                     </div>
-
-                        
-                      
-                
-
-
                 </div>
-
         </form>
 
     </div>

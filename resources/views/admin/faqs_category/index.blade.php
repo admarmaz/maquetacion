@@ -11,7 +11,7 @@
         <table>
             <tr class="tabla-cabecera">
                 <th>Id</th>
-                <th>Name</th> 
+                <th>Nombre</th> 
                 <th>Acción</th>
             </tr>
             @foreach ($faq_categories as $faq_category_element)
@@ -38,6 +38,9 @@
         </table>
     </div>
 
+    {{ $faq_categories->links() }}
+
+
 @endsection
 
 @section('form')
@@ -50,12 +53,12 @@
 
         <div class="formulario-contenedor">
      
-            <form id="faqs-form" class="admin-formulario" action="{{route("faqs_categories_store")}}" autocomplete="off">
+            <form id="faqs-categories-form" class="admin-formulario" action="{{route("faqs_categories_store")}}" autocomplete="off">
 
                {{ csrf_field() }}
 
                <input autocomplete="false" name="hidden" type="text" style="display:none;">
-               <input type="hidden" name="name" value="{{isset($faq_category->id) ? $faq_category->id : ''}}">
+               <input type="hidden" name="id" value="{{isset($faq_category->id) ? $faq_category->id : ''}}">
 
                 <div class="formulario-grupo">
                     <div class="formulario-label">

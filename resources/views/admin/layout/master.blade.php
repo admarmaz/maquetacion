@@ -16,6 +16,10 @@
         
         @include('admin.layout.partials.sidebar')
 
+        @if(isset($filters))
+                @include('admin.components.table_filters', $filters)
+            @endif
+
         <div class="global-container">
             @yield('content')
         </div>

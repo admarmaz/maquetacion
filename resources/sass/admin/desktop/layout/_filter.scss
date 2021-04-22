@@ -1,0 +1,54 @@
+.table-filter{
+    width: 30%;
+    margin: 2em 4em;
+    font-size: 1em;
+
+        &.filter-active{
+           
+            .table-filter-container{
+                max-height: 50vh;
+                overflow: visible;
+            }
+        }
+
+        .table-filter-container{
+
+            max-height: 0;
+            overflow: hidden;
+
+            .filter-form{
+
+                .one-column{
+
+                    .form-group{
+
+                        .form-label{
+                            margin-bottom: 1em;
+                            
+                        }
+
+                        .form-input{
+                            margin-bottom: 1em;
+                        }
+                    }
+                }
+
+
+            }
+
+        }
+
+    .table-filter-buttons .table-filter-button{
+        display: none;
+
+        &.button-active{
+            display: block;
+        }
+    }
+
+
+    
+}
+
+
+

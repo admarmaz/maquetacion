@@ -33,7 +33,7 @@ input {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  font-size: 0.9em;
+  font-size: 0.85em;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -94,7 +94,7 @@ label {
 }
 
 .formulario {
-  width: 90%;
+  width: 40%;
   justify-content: right;
   margin: 5em 0;
 }
@@ -225,4 +225,58 @@ li {
 }
 .tabs-buttons .tab-button:hover {
   background-color: aquamarine;
+}
+
+.swipe-front {
+  display: flex;
+  margin-bottom: 1em;
+}
+.swipe-front .swipe-back {
+  display: flex;
+}
+.swipe-front .table-content {
+  display: flex;
+  margin-right: 2em;
+  width: 100%;
+}
+.swipe-front .table-content p {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.tabla .table-header {
+  display: flex;
+  background-color: #c2efe1;
+  font-weight: bold;
+  margin-bottom: 1em;
+  padding: 0;
+}
+.tabla .table-header p {
+  margin-right: 40%;
+}
+
+.table-filter {
+  width: 30%;
+  margin: 2em 4em;
+  font-size: 1em;
+}
+.table-filter.filter-active .table-filter-container {
+  max-height: 50vh;
+  overflow: visible;
+}
+.table-filter .table-filter-container {
+  max-height: 0;
+  overflow: hidden;
+}
+.table-filter .table-filter-container .filter-form .one-column .form-group .form-label {
+  margin-bottom: 1em;
+}
+.table-filter .table-filter-container .filter-form .one-column .form-group .form-input {
+  margin-bottom: 1em;
+}
+.table-filter .table-filter-buttons .table-filter-button {
+  display: none;
+}
+.table-filter .table-filter-buttons .table-filter-button.button-active {
+  display: block;
 }
