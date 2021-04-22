@@ -227,10 +227,6 @@ li {
   background-color: aquamarine;
 }
 
-.tabla .tabla-contenedor .tabla-cabecera {
-  display: flex;
-}
-
 .swipe-front {
   display: flex;
   margin-bottom: 1em;

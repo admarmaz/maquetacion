@@ -48,8 +48,6 @@ export let renderForm = () => {
             let url = form.action;
     
             let sendPostRequest = async () => {
-
-                console.log('hola');
     
                 try {
                     await axios.post(url, data).then(response => {
@@ -88,6 +86,7 @@ export let renderTable = () => {
     let editButtons = document.querySelectorAll(".boton-editar");
     let deleteButtons = document.querySelectorAll(".borrar-dato");
     let orderByTitles = document.querySelectorAll(".order-by-title");
+    let paginateButtons = document.querySelectorAll(".pagination-button");
 
     editButtons.forEach(editButton => {
 
@@ -154,6 +153,28 @@ export let renderTable = () => {
             };
 
             sendOrderRequest();
+        });
+    }); 
+
+    paginateButtons.forEach(paginateButton => {
+        paginateButton.addEventListener("click", () => {
+
+            let url = paginateButton.dataset.url;
+
+            let paginate = async () => {
+
+                try {
+                    await axios.get(url).then(response => {
+                        table.innerHTML = response.data.table;
+                        renderTable();
+                    });
+                    
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+
+            paginate();
         });
     }); 
 

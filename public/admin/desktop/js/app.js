@@ -1973,22 +1973,21 @@ var renderForm = function renderForm() {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
-                  console.log('hola');
-                  _context.prev = 1;
-                  _context.next = 4;
+                  _context.prev = 0;
+                  _context.next = 3;
                   return axios.post(url, data).then(function (response) {
                     form.id.value = response.data.id;
                     table.innerHTML = response.data.table;
                     renderTable();
                   });
 
-                case 4:
-                  _context.next = 9;
+                case 3:
+                  _context.next = 8;
                   break;
 
-                case 6:
-                  _context.prev = 6;
-                  _context.t0 = _context["catch"](1);
+                case 5:
+                  _context.prev = 5;
+                  _context.t0 = _context["catch"](0);
 
                   if (_context.t0.response.status == '422') {
                     errors = _context.t0.response.data.errors;
@@ -2000,12 +1999,12 @@ var renderForm = function renderForm() {
                     document.getElementById('errors').innerHTML = errorMessage;
                   }
 
-                case 9:
+                case 8:
                 case "end":
                   return _context.stop();
               }
             }
-          }, _callee, null, [[1, 6]]);
+          }, _callee, null, [[0, 5]]);
         }));
 
         return function sendPostRequest() {
@@ -2022,6 +2021,7 @@ var renderTable = function renderTable() {
   var editButtons = document.querySelectorAll(".boton-editar");
   var deleteButtons = document.querySelectorAll(".borrar-dato");
   var orderByTitles = document.querySelectorAll(".order-by-title");
+  var paginateButtons = document.querySelectorAll(".pagination-button");
   editButtons.forEach(function (editButton) {
     editButton.addEventListener("click", function () {
       var url = editButton.dataset.url;
@@ -2146,6 +2146,48 @@ var renderTable = function renderTable() {
       }();
 
       sendOrderRequest();
+    });
+  });
+  paginateButtons.forEach(function (paginateButton) {
+    paginateButton.addEventListener("click", function () {
+      var url = paginateButton.dataset.url;
+
+      var paginate = /*#__PURE__*/function () {
+        var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+            while (1) {
+              switch (_context5.prev = _context5.next) {
+                case 0:
+                  _context5.prev = 0;
+                  _context5.next = 3;
+                  return axios.get(url).then(function (response) {
+                    table.innerHTML = response.data.table;
+                    renderTable();
+                  });
+
+                case 3:
+                  _context5.next = 8;
+                  break;
+
+                case 5:
+                  _context5.prev = 5;
+                  _context5.t0 = _context5["catch"](0);
+                  console.error(_context5.t0);
+
+                case 8:
+                case "end":
+                  return _context5.stop();
+              }
+            }
+          }, _callee5, null, [[0, 5]]);
+        }));
+
+        return function paginate() {
+          return _ref7.apply(this, arguments);
+        };
+      }();
+
+      paginate();
     });
   });
 };

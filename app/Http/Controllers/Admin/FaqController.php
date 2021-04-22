@@ -24,7 +24,7 @@ class FaqController extends Controller
 
         $view = View::make('admin.faqs.index')
                 ->with('faq', $this->faq)
-                ->with('faqs', $this->faq->where('active', 1)->get());
+                ->with('faqs', $this->faq->where('active', 1)->paginate(4));
 
         if(request()->ajax()) {
             $sections = $view->renderSections(); 
@@ -76,7 +76,7 @@ class FaqController extends Controller
     {
         $view = View::make('admin.faqs.index')
         ->with('faq', $faq)
-        ->with('faqs', $this->faq->where('active', 1)->get());   
+        ->with('faqs', $this->faq->where('active', 1)->paginate(4));   
         
         if(request()->ajax()) {
 
@@ -99,7 +99,7 @@ class FaqController extends Controller
 
         $view = View::make('admin.faqs.index')
             ->with('faq', $this->faq)
-            ->with('faqs', $this->faq->where('active', 1)->get())
+            ->with('faqs', $this->faq->where('active', 1)->paginate(4))
             ->renderSections();
         
         return response()->json([
@@ -181,7 +181,7 @@ class FaqController extends Controller
         // fuera del filtro, por lo tanto, solo admite un criterio de orden.
 
         $faqs = Faq::orderBy('title', 'asc')
-            ->where('active', 1)->get();
+            ->where('active', 1)->paginate(4);
 
         $view = View::make('admin.faqs.index')
             ->with('faqs', $faqs);

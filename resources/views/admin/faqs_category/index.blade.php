@@ -38,6 +38,9 @@
         </table>
     </div>
 
+    {{ $faq_categories->links() }}
+
+
 @endsection
 
 @section('form')
