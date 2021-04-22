@@ -73,6 +73,33 @@
                     </svg>
                 @endif
 
+                <div class="two-columns">
+                    <div class="form-group">
+                        <div class="form-label">
+                            <label for="created_at_from" class="label-highlight">Ordenar por</label>
+                        </div>
+                        <div class="form-input">
+                            <select name="order" data-placeholder="Seleccione una categoría" class="input-highlight">
+                                @foreach($order as $key => $item)
+                                    <option value="{{$item}}">{{ucfirst($key)}}</option>
+                                @endforeach
+                            </select>                   
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <div class="form-label">
+                            <label for="direction" class="label-highlight hidden">Dirección</label>
+                        </div>
+                        <div class="form-input">
+                            <select name="direction" class="input-highlight">
+                                <option value="desc">Ascendente</option>
+                                <option value="asc">Descendente</option>
+                            </select>                        
+                        </div>
+                    </div>
+                </div>  
+
             @endforeach
                  
         </form>

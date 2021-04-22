@@ -110,6 +110,9 @@ class FaqController extends Controller
 
     public function filter(Request $request){
 
+        // Mediante esta solicitud pedimos filtrar a la base de datos según los criterios 
+        // indicados. Se puede filtrar sobre los filtros aplicados.
+
         $query = $this->faq->query();
 
         $query->when(request('category_id'), function ($q, $category_id) {
@@ -139,11 +142,7 @@ class FaqController extends Controller
             }
         
             else{
-                if($created_at >= 'from_date'){
-                    if($created_at <= 'to_date'){
-                        return $q->where(creadet);
-                    }
-                }
+                return $q -> where ('created_at', $created_at);
             }
 
         });
@@ -154,7 +153,9 @@ class FaqController extends Controller
                 return $q;
             }
             else {
-                return $q->where('title', 'like', "%$search%");
+                $q = Faq::orderBy('title', 'asc')
+                ->where('active', 1)->get();
+                return $q;
             }
         });
         
@@ -174,7 +175,10 @@ class FaqController extends Controller
 
     }
 
-    public function order(){
+    public function order(){ 
+        
+        // Función que ordena Faqs de forma ascendente. Inconveniente, se encuentra 
+        // fuera del filtro, por lo tanto, solo admite un criterio de orden.
 
         $faqs = Faq::orderBy('title', 'asc')
             ->where('active', 1)->get();
