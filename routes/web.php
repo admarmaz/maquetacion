@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::resource('usuarios', 'App\Http\Controllers\Admin\UsersController', [
         'parameters' => [
-            'users' => 'user', 
+            'usuarios' => 'user', 
         ],
         'names' => [
             'index' => 'users', 

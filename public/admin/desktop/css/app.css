@@ -280,3 +280,6 @@ li {
   display: flex;
   align-items: center;
 }
+.table-filter .table-filter-buttons .table-filter-button.button-active .p {
+  font-size: 2em;
+}

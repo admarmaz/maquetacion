@@ -90,7 +90,7 @@
 
                 <div class="formulario-grupo">
                     <div class="formulario-label">
-                        <label for="password_confirmation" class="label-highlight">Contraseña
+                        <label for="password_confirmation" class="label-highlight">Confirmar contraseña
                         </label>
                     </div>
                     <div class="formulario-input">
