@@ -2,14 +2,12 @@
     width: 100%;
     font-size: 1em;
     background-color: #cccccc;
-    cursor: pointer;
 
         &.filter-active{
            
             .table-filter-container{
                 max-height: 50vh;
                 overflow: visible;
-                cursor: pointer;
             }
         }
 

@@ -61,7 +61,7 @@ class FaqController extends Controller
         ]);
 
         $view = View::make('admin.faqs.index')
-        ->with('faqs', $this->faq->where('active', 1)->get())
+        ->with('faqs', $this->faq->where('active', 1)->paginate(4))
         ->with('faq', $faq)
         ->renderSections();        
 

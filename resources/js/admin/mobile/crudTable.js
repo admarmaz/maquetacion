@@ -138,7 +138,15 @@ export let renderTable = () => {
 
     swipeRevealItemElements.forEach(swipeRevealItemElement => {
 
-        new swipeRevealItem(swipeRevealItemElement);
+        let swipeRevealItemElements = document.querySelectorAll('.swipe-element');
+
+        swipeRevealItemElements.forEach(swipeRevealItemElement => {
+    
+            new swipeRevealItem(swipeRevealItemElement);
+    
+        });
+    
+        new scrollWindowElement(table);
 
     });
 };

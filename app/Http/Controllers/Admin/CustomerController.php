@@ -25,8 +25,7 @@ class CustomerController extends Controller
 
         $view = View::make('admin.customers.index')
                 ->with('customer', $this->customer)
-                ->with('customers', $this->customer->where('active', 1)->get())
-                ->with('customers', Customer::paginate(2));
+                ->with('customers', $this->customer->where('active', 1)->paginate(4));
 
         if(request()->ajax()) {
             
@@ -68,7 +67,7 @@ class CustomerController extends Controller
         ]);
 
         $view = View::make('admin.customers.index')
-        ->with('customers', $this->customer->where('active', 1)->get())
+        ->with('customers', $this->customer->where('active', 1)->paginate(4))
         ->with('customer', $customer)
         ->renderSections();        
 
@@ -83,7 +82,7 @@ class CustomerController extends Controller
     {
         $view = View::make('admin.customers.index')
         ->with('customer', $customer)
-        ->with('customers', $this->customer->where('active', 1)->get());   
+        ->with('customers', $this->customer->where('active', 1)->paginate(4));   
         
         if(request()->ajax()) {
 
@@ -106,7 +105,7 @@ class CustomerController extends Controller
 
         $view = View::make('admin.customers.index')
             ->with('customer', $this->customer)
-            ->with('customers', $this->customer->where('active', 1)->get())
+            ->with('customers', $this->customer->where('active', 1)->paginate(4))
             ->renderSections();
         
         return response()->json([

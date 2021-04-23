@@ -77,7 +77,6 @@
 
                 </div>
 
-
                 <div class="tabs">
                     <div class="tab" data-content="2">
                         <div class="tab-content">

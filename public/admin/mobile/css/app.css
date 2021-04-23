@@ -2,27 +2,11 @@ body {
   margin: 0;
 }
 
-th {
-  text-align: left;
-  padding: 0.75em;
-  border: 0.1em solid #e9ecef;
-  background-color: silver;
-}
-
 .global-container {
   width: 100%;
 }
 
-td {
-  border: 0.1em solid #e9ecef;
-}
-
-tr {
-  width: 25%;
-}
-
 .pantalla50 {
-  width: 100%;
   font-size: 1em;
   font-family: "Montserrat", sans-serif;
   justify-content: space-around;
@@ -67,6 +51,10 @@ label {
   margin-bottom: 10%;
 }
 
+.tabla .table-header {
+  display: none;
+}
+
 .tabla .tabla-titulo h2 {
   font-size: 1.2rem;
   text-align: center;
@@ -76,6 +64,12 @@ label {
 
 .tabla .tabla-contenedor {
   width: 100%;
+}
+.tabla .tabla-contenedor .table-elements .swipe-element {
+  border-bottom: solid 1px;
+}
+.tabla .tabla-contenedor .table-elements .swipe-element .table-content p {
+  margin: 0.2em 1em;
 }
 
 .tabla .tabla-contenedor table {
@@ -95,6 +89,9 @@ label {
   width: 90%;
   justify-content: right;
   margin: auto;
+  border-radius: 4px;
+  background-color: #fff;
+  border-bottom: groove;
 }
 
 .formulario .formulario-titulo {
@@ -205,13 +202,10 @@ li {
   display: flex;
   width: 100%;
   height: 60px;
-  border: solid 0.2em #c2efe1;
   left: 0;
   top: 0;
   margin: 0;
   box-sizing: border-box;
-  text-align: center;
-  line-height: 44px;
   vertical-align: center;
   z-index: 2;
   /* // [START touch-action-example] */
@@ -273,4 +267,28 @@ li {
 
 .swipe-content {
   padding: 0;
+}
+
+.table-filter {
+  width: 100%;
+  font-size: 1em;
+  background-color: #cccccc;
+}
+.table-filter.filter-active .table-filter-container {
+  max-height: 50vh;
+  overflow: visible;
+}
+.table-filter .table-filter-buttons {
+  margin: 0 1em;
+}
+.table-filter .table-filter-container {
+  max-height: 0;
+  overflow: hidden;
+}
+.table-filter .table-filter-buttons .table-filter-button {
+  display: none;
+}
+.table-filter .table-filter-buttons .table-filter-button.button-active {
+  display: flex;
+  align-items: center;
 }

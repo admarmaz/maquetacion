@@ -3,11 +3,24 @@
     margin: 2em 0;
     border: 1px groove;
     background-color: #fff;
+    padding: 1em;
 } 
 
 .tabla .tabla-titulo{
     width: 100%; 
+    border-bottom: groove;
 } 
+
+.tabla .table-header {
+    display: flex;
+    font-weight: bold;
+    margin-bottom: 1em;
+    padding: 0;
+    
+    p{
+      margin-right: 40%;
+    }
+  }
 
 .tabla .tabla-titulo h2{
     font-size: 1.2em; 

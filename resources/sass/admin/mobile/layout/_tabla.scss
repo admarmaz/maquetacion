@@ -6,6 +6,10 @@
     margin-bottom: 10%; 
 } 
 
+.tabla .table-header{
+    display: none;
+}
+
 .tabla .tabla-titulo h2{
     font-size: 1.2rem; 
     text-align: center;  
@@ -15,6 +19,15 @@
 
 .tabla .tabla-contenedor{
     width: 100%;
+
+    .table-elements .swipe-element{
+        border-bottom: solid 1px;
+       }
+
+
+    .table-elements .swipe-element .table-content p{
+         margin: 0.2em 1em
+        }
 }
 
 .tabla .tabla-contenedor table{

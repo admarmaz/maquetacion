@@ -2220,7 +2220,11 @@ var renderTable = function renderTable() {
     });
   });
   swipeRevealItemElements.forEach(function (swipeRevealItemElement) {
-    new _swipe__WEBPACK_IMPORTED_MODULE_2__.swipeRevealItem(swipeRevealItemElement);
+    var swipeRevealItemElements = document.querySelectorAll('.swipe-element');
+    swipeRevealItemElements.forEach(function (swipeRevealItemElement) {
+      new _swipe__WEBPACK_IMPORTED_MODULE_2__.swipeRevealItem(swipeRevealItemElement);
+    });
+    new scrollWindowElement(table);
   });
 };
 var editElement = function editElement(url) {
@@ -2692,6 +2696,129 @@ function swipeRevealItem(element) {
     swipeFrontElement.addEventListener('touchcancel', this.handleGestureEnd, true);
     swipeFrontElement.addEventListener('mousedown', this.handleGestureStart, true);
   }
+}
+;
+
+/***/ }),
+
+/***/ "./resources/js/admin/mobile/verticalScroll.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/admin/mobile/verticalScroll.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "scrollWindowElement": () => (/* binding */ scrollWindowElement)
+/* harmony export */ });
+function scrollWindowElement(element) {
+  'use strict';
+
+  var scrollWindowElement = element;
+  var STATE_DEFAULT = 1;
+  var STATE_TOP_SIDE = 2;
+  var STATE_BOTTOM_SIDE = 3;
+  var rafPending = false;
+  var initialTouchPos = null;
+  var lastTouchPos = null;
+  var currentYPosition = 0;
+  var currentState = STATE_DEFAULT;
+  var handleSize = 10;
+
+  this.handleGestureStart = function (evt) {
+    if (evt.touches && evt.touches.length > 1) {
+      return;
+    }
+
+    if (scrollWindowElement.PointerEvent) {
+      evt.target.setPointerCapture(evt.pointerId);
+    } else {
+      document.addEventListener('mousemove', this.handleGestureMove, true);
+      document.addEventListener('mouseup', this.handleGestureEnd, true);
+    }
+
+    initialTouchPos = getGesturePointFromEvent(evt);
+  }.bind(this);
+
+  this.handleGestureMove = function (evt) {
+    if (!initialTouchPos) {
+      return;
+    }
+
+    lastTouchPos = getGesturePointFromEvent(evt);
+
+    if (rafPending) {
+      return;
+    }
+
+    rafPending = true;
+    window.requestAnimFrame(onAnimFrame);
+  }.bind(this);
+
+  this.handleGestureEnd = function (evt) {
+    evt.preventDefault();
+
+    if (evt.touches && evt.touches.length > 0) {
+      return;
+    }
+
+    rafPending = false;
+
+    if (scrollWindowElement.PointerEvent) {
+      evt.target.releasePointerCapture(evt.pointerId);
+    } else {
+      document.removeEventListener('mousemove', this.handleGestureMove, true);
+      document.removeEventListener('mouseup', this.handleGestureEnd, true);
+    }
+
+    updateScrollRestPosition();
+    initialTouchPos = null;
+  }.bind(this);
+
+  function updateScrollRestPosition() {
+    var transformStyle;
+    var differenceInY = initialTouchPos.y - lastTouchPos.y;
+    currentYPosition = currentYPosition - differenceInY;
+    transformStyle = currentYPosition + 'px';
+    scrollWindowElement.style.top = transformStyle;
+    scrollWindowElement.style.transition = 'all 300ms ease-out';
+    console.log(scrollWindowElement.offsetTop);
+    console.log(scrollWindowElement.getBoundingClientRect());
+  }
+
+  function getGesturePointFromEvent(evt) {
+    var point = {};
+
+    if (evt.targetTouches) {
+      point.y = evt.targetTouches[0].clientY;
+    } else {
+      point.y = evt.clientY;
+    }
+
+    return point;
+  }
+
+  function onAnimFrame() {
+    if (!rafPending) {
+      return;
+    }
+
+    var differenceInY = initialTouchPos.y - lastTouchPos.y;
+    var transformStyle = currentYPosition - differenceInY + 'px';
+    console.log(scrollWindowElement.offsetTop);
+    scrollWindowElement.style.top = transformStyle;
+    rafPending = false;
+  }
+
+  scrollWindowElement.addEventListener('touchstart', this.handleGestureStart, {
+    passive: true
+  });
+  scrollWindowElement.addEventListener('touchmove', this.handleGestureMove, {
+    passive: true
+  });
+  scrollWindowElement.addEventListener('touchend', this.handleGestureEnd, true);
+  scrollWindowElement.addEventListener('touchcancel', this.handleGestureEnd, true);
 }
 ;
 
@@ -21045,6 +21172,8 @@ __webpack_require__(/*! ./menu */ "./resources/js/admin/mobile/menu.js");
 __webpack_require__(/*! ./bottombarMenu */ "./resources/js/admin/mobile/bottombarMenu.js");
 
 __webpack_require__(/*! ./filterTable */ "./resources/js/admin/mobile/filterTable.js");
+
+__webpack_require__(/*! ./verticalScroll */ "./resources/js/admin/mobile/verticalScroll.js");
 })();
 
 /******/ })()
