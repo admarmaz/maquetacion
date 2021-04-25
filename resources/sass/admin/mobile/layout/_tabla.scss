@@ -3,7 +3,7 @@
 } 
 
 .tabla .tabla-titulo{
-    margin-bottom: 10%; 
+    border-bottom: groove;
 } 
 
 .tabla .table-header{
@@ -20,10 +20,10 @@
 .tabla .tabla-contenedor{
     width: 100%;
 
+
     .table-elements .swipe-element{
         border-bottom: solid 1px;
        }
-
 
     .table-elements .swipe-element .table-content p{
          margin: 0.2em 1em
@@ -42,3 +42,32 @@
     font-family: 'Montserrat', sans-serif; 
     font-size: 1rem;
 }
+
+.table-icons{
+    width: 100%;
+    min-height: 20vh;
+    text-align: left;
+
+    .boton-borrar {
+        display: none;
+        text-align: right;
+        background-color: #FF5733;
+        padding: 1em 2em;
+      }
+    
+    .boton-borrar#swipe-active{
+    display: block;
+    }
+
+    .boton-editar{
+        display: none;
+        padding: 1em 2em;
+        background-color:cadetblue;
+    }
+
+    .boton-editar#swipe-active{
+        display: block;
+    }  
+
+}
+

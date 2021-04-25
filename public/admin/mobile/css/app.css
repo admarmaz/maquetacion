@@ -13,8 +13,8 @@ body {
 }
 
 svg {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
 }
 
 input {
@@ -48,7 +48,7 @@ label {
 }
 
 .tabla .tabla-titulo {
-  margin-bottom: 10%;
+  border-bottom: groove;
 }
 
 .tabla .table-header {
@@ -85,13 +85,35 @@ label {
   font-size: 1rem;
 }
 
+.table-icons {
+  width: 100%;
+  min-height: 20vh;
+  text-align: left;
+}
+.table-icons .boton-borrar {
+  display: none;
+  text-align: right;
+  background-color: #FF5733;
+  padding: 1em 2em;
+}
+.table-icons .boton-borrar#swipe-active {
+  display: block;
+}
+.table-icons .boton-editar {
+  display: none;
+  padding: 1em 2em;
+  background-color: cadetblue;
+}
+.table-icons .boton-editar#swipe-active {
+  display: block;
+}
+
 .formulario {
   width: 90%;
   justify-content: right;
   margin: auto;
   border-radius: 4px;
   background-color: #fff;
-  border-bottom: groove;
 }
 
 .formulario .formulario-titulo {
@@ -184,15 +206,10 @@ li {
   color: blueviolet;
 }
 
-.content {
-  padding: 0.1em 0;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
 .swipe-element {
   position: relative;
   margin-bottom: 0.5em;
+  display: flex;
   width: 100%;
   height: 60px;
 }
@@ -214,59 +231,8 @@ li {
   /* // [END touch-action-example] */
 }
 
-.swipe-back {
-  position: absolute;
-  display: flex;
-  width: 100%;
-  height: 60px;
-  left: 0;
-  top: 0;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.swipe-back button {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background-color: #4285f4;
-  border-radius: 100%;
-  border-style: none;
-}
-
-.swipe-back button:nth-child(2) {
-  background-color: #0f9d58;
-}
-
-.swipe-back button:nth-child(3) {
-  background-color: #cb4437;
-}
-
-.swipe-back button:nth-child(4) {
-  background-color: #f4b400;
-}
-
-.promote-layer {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.swipe-back .boton-editar {
-  display: none;
-}
-
-.swipe-back .boton-borrar {
-  display: none;
-}
-
 .tabla .tabla-contenedor .tabla-cabecera {
   display: none;
-}
-
-.swipe-content {
-  padding: 0;
 }
 
 .table-filter {

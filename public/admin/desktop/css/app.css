@@ -206,7 +206,7 @@ li {
 }
 
 .tabs {
-  width: 50%;
+  width: 100%;
   display: flex;
 }
 .tabs .tab .tab-content {
@@ -226,16 +226,15 @@ li {
 .tabs-buttons {
   display: flex;
   background-color: #c2efe1;
-  border: solid grey;
   margin-bottom: 2em;
 }
 .tabs-buttons .tab-button {
-  margin-right: 1em;
+  margin: 0 0.5em;
   cursor: pointer;
-  padding: 0.02em;
+  padding: 0;
 }
 .tabs-buttons .tab-button:hover {
-  background-color: aquamarine;
+  background-color: #96a09d;
 }
 
 .swipe-front {

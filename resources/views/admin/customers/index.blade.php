@@ -21,6 +21,7 @@
                 <th>Pais</th>
                 <th>Localidad</th>
                 <th>Teléfono</th>
+                <th></th>
             </tr>
             @foreach ($customers as $customer_element)
                 <tr>

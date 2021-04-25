@@ -2581,7 +2581,7 @@ function swipeRevealItem(element) {
 
     if (Math.abs(differenceInX) > slopValue) {
       if (currentState === STATE_DEFAULT) {
-        if (differenceInX > 0) {
+        if (differenceInX > 100) {
           newState = STATE_LEFT_SIDE;
         } else {
           newState = STATE_RIGHT_SIDE;

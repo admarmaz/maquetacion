@@ -13,6 +13,7 @@
                 <th>Id</th>
                 <th>Nombre</th> 
                 <th>Email</th>
+                <th></th>
             </tr>
 
             @foreach ($users as $user_element)

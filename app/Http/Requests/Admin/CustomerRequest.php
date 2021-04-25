@@ -30,11 +30,7 @@ class CustomerRequest extends FormRequest
         return [
             'name' => 'required',
             'surname' => 'required',
-            'email' => 'required',
-            'direction' => 'required',
-            'cp' => 'required',
-            'location' => 'required',
-            'phone' => 'required',
+            
         ];
     }
 
@@ -43,11 +39,7 @@ class CustomerRequest extends FormRequest
         return [
             'name.required' => 'El nombre es requerido',
             'surname.required' => 'El nombre es requerido',
-            'email.required' => 'El nombre es requerido',
-            'cp.required' => 'El nombre es requerido',
-            'direction.required' => 'El nombre es requerido',
-            'location.required' => 'El nombre es requerido',
-            'phone.required' => 'El nombre es requerido',
+           
         ];
     }
 }
