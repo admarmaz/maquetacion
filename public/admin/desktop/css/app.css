@@ -118,6 +118,7 @@ label {
   width: 100%;
   margin-bottom: 1em;
   border-bottom: groove;
+  display: flex;
 }
 
 .formulario .formulario-titulo h2 {
@@ -281,4 +282,22 @@ li {
 }
 .table-filter .table-filter-buttons .table-filter-button.button-active .p {
   font-size: 2em;
+}
+
+.save-container {
+  width: 10em;
+  height: 5em;
+}
+
+.save-message {
+  display: none;
+}
+
+#save-show.show .save-message {
+  height: 15vh;
+  margin-top: 5em;
+}
+
+.show {
+  display: block;
 }

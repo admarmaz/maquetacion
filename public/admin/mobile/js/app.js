@@ -2017,8 +2017,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _ckeditor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ckeditor */ "./resources/js/admin/mobile/ckeditor.js");
 /* harmony import */ var _swipe__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./swipe */ "./resources/js/admin/mobile/swipe.js");
-/* harmony import */ var _filterTable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filterTable */ "./resources/js/admin/mobile/filterTable.js");
-/* harmony import */ var _bottombarMenu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./bottombarMenu */ "./resources/js/admin/mobile/bottombarMenu.js");
+/* harmony import */ var _verticalScroll__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./verticalScroll */ "./resources/js/admin/mobile/verticalScroll.js");
+/* harmony import */ var _filterTable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./filterTable */ "./resources/js/admin/mobile/filterTable.js");
+/* harmony import */ var _bottombarMenu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./bottombarMenu */ "./resources/js/admin/mobile/bottombarMenu.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2041,6 +2042,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var table = document.getElementById("table");
 var form = document.getElementById("form");
 var renderForm = function renderForm() {
@@ -2048,6 +2050,7 @@ var renderForm = function renderForm() {
   var labels = document.querySelectorAll('.label-highlight');
   var inputs = document.querySelectorAll('.input-highlight');
   var sendButton = document.getElementById("guardar-cambios");
+  var createButton = document.querySelectorAll("create-button");
   inputs.forEach(function (input) {
     input.addEventListener('focusin', function () {
       for (var i = 0; i < labels.length; i++) {
@@ -2224,7 +2227,7 @@ var renderTable = function renderTable() {
     swipeRevealItemElements.forEach(function (swipeRevealItemElement) {
       new _swipe__WEBPACK_IMPORTED_MODULE_2__.swipeRevealItem(swipeRevealItemElement);
     });
-    new scrollWindowElement(table);
+    new _verticalScroll__WEBPACK_IMPORTED_MODULE_3__.scrollWindowElement(table);
   });
 };
 var editElement = function editElement(url) {

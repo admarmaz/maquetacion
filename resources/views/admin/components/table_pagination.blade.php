@@ -5,7 +5,5 @@
             <span class="pagination-button" data-page="{{$items->url($items->lastPage())}}">Última</span>
         </p>
     </div>
-        
-    </div>
 
 </div>

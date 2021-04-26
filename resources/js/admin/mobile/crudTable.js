@@ -1,5 +1,6 @@
 import {renderCkeditor} from './ckeditor';
 import {swipeRevealItem} from './swipe';
+import {scrollWindowElement} from './verticalScroll'
 import {renderFilterTable} from './filterTable';
 import { showForm } from './bottombarMenu';
 
@@ -12,6 +13,7 @@ export let renderForm = () => {
     let labels = document.querySelectorAll('.label-highlight');
     let inputs = document.querySelectorAll('.input-highlight');
     let sendButton = document.getElementById("guardar-cambios");
+    let createButton = document.querySelectorAll("create-button");
 
     inputs.forEach(input => {
 
@@ -37,6 +39,8 @@ export let renderForm = () => {
         event.preventDefault();
     
         forms.forEach(form => { 
+
+
             
             let data = new FormData(form);
 
@@ -80,6 +84,7 @@ export let renderForm = () => {
         });
     });
 
+
     renderCkeditor();
 };
 
@@ -93,6 +98,8 @@ export let renderTable = () => {
     editButtons.forEach(editButton => {
 
         editButton.addEventListener("click", () => {
+
+            
 
             let url = editButton.dataset.url;
 

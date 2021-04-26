@@ -9,6 +9,9 @@ export let renderForm = () => {
     let labels = document.querySelectorAll('.label-highlight');
     let inputs = document.querySelectorAll('.input-highlight');
     let sendButton = document.getElementById("guardar-cambios");
+    let createButton = document.getElementById("create-button");
+    const saveShow = document.getElementById("save-show");
+    const spinnerShow = document.getElementsByName("spinner-show");
 
     inputs.forEach(input => {
 
@@ -54,6 +57,19 @@ export let renderForm = () => {
                         form.id.value = response.data.id;
                         table.innerHTML = response.data.table;
                         renderTable();
+
+                        spinnerShow.classList.toggle("show");
+
+                        setTimeout(function() {
+
+                            }, 3000);
+
+                        saveShow.classList.toggle("show");
+
+                        setTimeout(function() {
+                            saveShow.classList.toggle("show");
+                            }, 3000);
+                        
                     });
                     
                 } catch (error) {
@@ -77,7 +93,29 @@ export let renderForm = () => {
         });
     });
 
+    createButton.addEventListener("click", () => {
+
+            let url = createButton.dataset.url;
+
+            let createRequest = async () => {
+                
+                try {
+                    await axios.get(url).then(response => {
+                        form.innerHTML = response.data.form;
+                        renderForm();
+                    });
+                    
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+
+        createRequest();
+    });
+
+
     renderCkeditor();
+
 };
 
 

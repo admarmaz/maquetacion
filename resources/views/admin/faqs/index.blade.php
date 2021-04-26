@@ -9,7 +9,7 @@
 @section('table')
 
     <div class="tabla-contenedor">
-        @isset($faq)
+        @isset($faqs)
 
             <div class="tabla-titulo">
                 <h2>@lang('admin/faqs.parent_section')</h2>
@@ -55,6 +55,7 @@
             {{ $faqs->links() }}
 
         @endif 
+
     </div>
 
 @endsection
@@ -64,9 +65,13 @@
     @isset($faq)
     
         <div class="formulario-contenedor">
-
             <div class="formulario-titulo">
                 <h2>Introducir FAQ</h2>
+                <div id="create-button" data-url= "{{route("faqs_create")}}">
+                    <svg style="width:30px;height:30px" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M17,13H13V17H11V13H7V11H11V7H13V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
+                    </svg>
+                </div>
             </div>
         
             <form id="faqs-form" class="admin-formulario" action="{{route("faqs_store")}}" autocomplete="off">
@@ -123,6 +128,11 @@
             </form>    
            
         </div>
+
+        @if($agent->isDesktop())
+                @include('admin.components.save_confirmation')
+            @endif
+
     @endif 
 
 @endsection
