@@ -12,6 +12,11 @@
     margin-bottom: 1em;
     border-bottom: groove;
     display: flex;
+    justify-content: space-between;
+
+        #create-button:hover{
+            cursor: pointer;
+        }
 
 }
 

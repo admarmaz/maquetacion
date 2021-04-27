@@ -17,15 +17,18 @@
         @include('admin.layout.partials.sidebar')
 
         @if(isset($filters))
-                @include('admin.components.table_filters', $filters)
-            @endif
+                @include('admin.components.table_filters', [
+                    'route' => $route, 
+                    'filters' => $filters, 
+                    'order' => $order
+                ])
+        @endif
 
         <div class="global-container">
             @yield('content')
         </div>
  
         @include('admin.layout.partials.js')
-
 
     </body>
 </html>

@@ -119,6 +119,10 @@ label {
   margin-bottom: 1em;
   border-bottom: groove;
   display: flex;
+  justify-content: space-between;
+}
+.formulario .formulario-titulo #create-button:hover {
+  cursor: pointer;
 }
 
 .formulario .formulario-titulo h2 {

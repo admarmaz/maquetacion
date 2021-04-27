@@ -1888,6 +1888,8 @@ __webpack_require__(/*! ./tabs */ "./resources/js/admin/desktop/tabs.js");
 
 __webpack_require__(/*! ./filterTable */ "./resources/js/admin/desktop/filterTable.js");
 
+__webpack_require__(/*! ./messages */ "./resources/js/admin/desktop/messages.js");
+
 /***/ }),
 
 /***/ "./resources/js/admin/desktop/crudTable.js":
@@ -1907,6 +1909,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ckeditor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../ckeditor */ "./resources/js/ckeditor.js");
+/* harmony import */ var _desktop_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../desktop/messages */ "./resources/js/admin/desktop/messages.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1927,6 +1930,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var table = document.getElementById("table");
 var form = document.getElementById("form");
 var renderForm = function renderForm() {
@@ -1935,8 +1939,6 @@ var renderForm = function renderForm() {
   var inputs = document.querySelectorAll('.input-highlight');
   var sendButton = document.getElementById("guardar-cambios");
   var createButton = document.getElementById("create-button");
-  var saveShow = document.getElementById("save-show");
-  var spinnerShow = document.getElementsByName("spinner-show");
   inputs.forEach(function (input) {
     input.addEventListener('focusin', function () {
       for (var i = 0; i < labels.length; i++) {
@@ -1981,13 +1983,9 @@ var renderForm = function renderForm() {
                   return axios.post(url, data).then(function (response) {
                     form.id.value = response.data.id;
                     table.innerHTML = response.data.table;
+                    message.innerHTML = response.data.message;
                     renderTable();
-                    spinnerShow.classList.toggle("show");
-                    setTimeout(function () {}, 3000);
-                    saveShow.classList.toggle("show");
-                    setTimeout(function () {
-                      saveShow.classList.toggle("show");
-                    }, 3000);
+                    (0,_desktop_messages__WEBPACK_IMPORTED_MODULE_3__.messages)();
                   });
 
                 case 3:
@@ -2155,11 +2153,11 @@ var renderTable = function renderTable() {
       sendDeleteRequest();
     });
   });
-  orderByTitles.forEach(function (orderByTitle) {
-    orderByTitle.addEventListener("click", function () {
-      var url = orderByTitle.dataset.url;
+  paginateButtons.forEach(function (paginateButton) {
+    paginateButton.addEventListener("click", function () {
+      var url = paginateButton.dataset.url;
 
-      var sendOrderRequest = /*#__PURE__*/function () {
+      var paginate = /*#__PURE__*/function () {
         var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
             while (1) {
@@ -2189,50 +2187,8 @@ var renderTable = function renderTable() {
           }, _callee5, null, [[0, 5]]);
         }));
 
-        return function sendOrderRequest() {
-          return _ref7.apply(this, arguments);
-        };
-      }();
-
-      sendOrderRequest();
-    });
-  });
-  paginateButtons.forEach(function (paginateButton) {
-    paginateButton.addEventListener("click", function () {
-      var url = paginateButton.dataset.url;
-
-      var paginate = /*#__PURE__*/function () {
-        var _ref8 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
-            while (1) {
-              switch (_context6.prev = _context6.next) {
-                case 0:
-                  _context6.prev = 0;
-                  _context6.next = 3;
-                  return axios.get(url).then(function (response) {
-                    table.innerHTML = response.data.table;
-                    renderTable();
-                  });
-
-                case 3:
-                  _context6.next = 8;
-                  break;
-
-                case 5:
-                  _context6.prev = 5;
-                  _context6.t0 = _context6["catch"](0);
-                  console.error(_context6.t0);
-
-                case 8:
-                case "end":
-                  return _context6.stop();
-              }
-            }
-          }, _callee6, null, [[0, 5]]);
-        }));
-
         return function paginate() {
-          return _ref8.apply(this, arguments);
+          return _ref7.apply(this, arguments);
         };
       }();
 
@@ -2412,6 +2368,27 @@ menuItems.forEach(function (menuItem) {
 menuShow.addEventListener("click", function () {
   menuShow.classList.toggle("show");
 });
+
+/***/ }),
+
+/***/ "./resources/js/admin/desktop/messages.js":
+/*!************************************************!*\
+  !*** ./resources/js/admin/desktop/messages.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "messages": () => (/* binding */ messages)
+/* harmony export */ });
+var messages = function messages() {
+  var saveShow = document.getElementById("save-show");
+  saveShow.classList.toggle("show");
+  setTimeout(function () {
+    saveShow.classList.toggle("show");
+  }, 3000);
+};
 
 /***/ }),
 

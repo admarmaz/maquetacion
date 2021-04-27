@@ -1,7 +1,7 @@
 @php
     $route = 'faqs';
-    $filters = ['category' => $faqs_categories, 'search' => true, 'created_at' => true]; 
-    $order = [ 'Nombre' => 't.faqs.name', 'Fecha' => 't.faqs.created_at', 'Categoria' , 't.faqs_categories.name']
+    $filters = ['category' => $faqs_categories, 'search' => true, 'created_at' => true ]; 
+    $order = ['fecha de creación' => 't_faqs.created_at', 'nombre' => 't_faqs.name', 'categoría' => 't_faqs_categories.name'];
 @endphp
 
 @extends('admin.layout.table_form')
@@ -66,10 +66,14 @@
     
         <div class="formulario-contenedor">
             <div class="formulario-titulo">
-                <h2>Introducir FAQ</h2>
+
+                <div class="formulario-tit">
+                    <h2>Introducir FAQ</h2>
+                </div>
+                
                 <div id="create-button" data-url= "{{route("faqs_create")}}">
                     <svg style="width:30px;height:30px" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M17,13H13V17H11V13H7V11H11V7H13V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
+                        <path fill="currentColor" d="M12,6V9L16,5L12,1V4A8,8 0 0,0 4,12C4,13.57 4.46,15.03 5.24,16.26L6.7,14.8C6.25,13.97 6,13 6,12A6,6 0 0,1 12,6M18.76,7.74L17.3,9.2C17.74,10.04 18,11 18,12A6,6 0 0,1 12,18V15L8,19L12,23V20A8,8 0 0,0 20,12C20,10.43 19.54,8.97 18.76,7.74Z" />
                     </svg>
                 </div>
             </div>

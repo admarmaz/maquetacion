@@ -60,6 +60,13 @@ class FaqController extends Controller
             'active' => 1,
         ]);
 
+        if (request('id')){
+            $message = \Lang::get('admin/faqs.faq-update');
+        }
+        else{
+            $message = \Lang::get('admin/faqs.faq-create');
+        }
+
         $view = View::make('admin.faqs.index')
         ->with('faqs', $this->faq->where('active', 1)->paginate(4))
         ->with('faq', $faq)
@@ -69,7 +76,9 @@ class FaqController extends Controller
             'table' => $view['table'],
             'form' => $view['form'],
             'id' => $faq->id,
+            'message' => $message,
         ]);
+
     }
 
     public function show(Faq $faq)
@@ -95,8 +104,6 @@ class FaqController extends Controller
         $faq->active = 0;
         $faq->save();
 
-        // $faq->delete();
-
         $view = View::make('admin.faqs.index')
             ->with('faq', $this->faq)
             ->with('faqs', $this->faq->where('active', 1)->paginate(4))
@@ -110,92 +117,62 @@ class FaqController extends Controller
 
     public function filter(Request $request){
 
-        // Mediante esta solicitud pedimos filtrar a la base de datos según los criterios 
-        // indicados. Se puede filtrar sobre los filtros aplicados.
-
         $query = $this->faq->query();
 
-        $query->when(request('category_id'), function ($q, $category_id) {
+        $query->when($filters->category_id, function ($q, $category_id) {
 
             if($category_id == 'all'){
                 return $q;
             }
-            else {
+            else{
                 return $q->where('category_id', $category_id);
             }
         });
 
-        $query->when(request('search'), function ($q, $search) {
+        $query->when($filters->search, function ($q, $search) {
 
             if($search == null){
                 return $q;
             }
             else {
-                return $q->where('title', 'like', "%$search%");
-            }
+                return $q->where('t_faqs.name', 'like', "%$search%");
+            }   
         });
 
-        $query->when(request('date_filter'), function ($q, $date_filter) {
+        $query->when($filters->created_at_from, function ($q, $created_at_from) {
 
-            if($date_filter == null){
-                return $q;
-            }
-        
-            else{
-                return $q -> where ('created_at', $created_at);
-            }
-
-        });
-
-        $query->when(request('order'), function ($q, $order) {
-
-            if($order == null){
+            if($created_at_from == null){
                 return $q;
             }
             else {
-                $q = Faq::orderBy('title', 'asc')
-                ->where('active', 1)->get();
+                $q->whereDate('t_faqs.created_at', '>=', $created_at_from);
+            }   
+        });
+
+        $query->when($filters->created_at_since, function ($q, $created_at_since) {
+
+            if($created_at_since == null){
                 return $q;
             }
+            else {
+                $q->whereDate('t_faqs.created_at', '<=', $created_at_since);
+            }   
+        });
+
+        $query->when($filters->order, function ($q, $order) use ($request) {
+
+            $q->orderBy($order, $request->direction);
         });
         
-        
-        $faqs = $query->where('active', 1)->get();
 
         $view = View::make('admin.faqs.index')
-            ->with('faqs', $faqs);
+            ->with('faqs', $faqs)
+            ->renderSections();
 
-        if(request()->ajax()) {
-            $sections = $view->renderSections(); 
-
-            return response()->json([
-                'table' => $sections['table'],
-            ]); 
-        }
+        return response()->json([
+            'table' => $view['table'],
+        ]);
 
     }
 
-    public function order(){ 
-        
-        // Función que ordena Faqs de forma ascendente. Inconveniente, se encuentra 
-        // fuera del filtro, por lo tanto, solo admite un criterio de orden.
-
-        $faqs = Faq::orderBy('title', 'asc')
-            ->where('active', 1)->paginate(4);
-
-        $view = View::make('admin.faqs.index')
-            ->with('faqs', $faqs);
-
-        if(request()->ajax()) {
-            $sections = $view->renderSections(); 
-
-            return response()->json([
-                'table' => $sections['table'],
-            ]); 
-        }
-
-        return $view;
-    }
-
-    //public function orderDesc(){}
 }

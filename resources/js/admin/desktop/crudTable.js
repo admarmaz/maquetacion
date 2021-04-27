@@ -1,5 +1,6 @@
 import { orderBy } from 'lodash';
 import {renderCkeditor} from '../../ckeditor';
+import {messages} from '../desktop/messages';
 const table = document.getElementById("table");
 const form = document.getElementById("form");
 
@@ -10,8 +11,6 @@ export let renderForm = () => {
     let inputs = document.querySelectorAll('.input-highlight');
     let sendButton = document.getElementById("guardar-cambios");
     let createButton = document.getElementById("create-button");
-    const saveShow = document.getElementById("save-show");
-    const spinnerShow = document.getElementsByName("spinner-show");
 
     inputs.forEach(input => {
 
@@ -56,20 +55,11 @@ export let renderForm = () => {
                     await axios.post(url, data).then(response => {
                         form.id.value = response.data.id;
                         table.innerHTML = response.data.table;
+                        message.innerHTML = response.data.message; 
                         renderTable();
 
-                        spinnerShow.classList.toggle("show");
-
-                        setTimeout(function() {
-
-                            }, 3000);
-
-                        saveShow.classList.toggle("show");
-
-                        setTimeout(function() {
-                            saveShow.classList.toggle("show");
-                            }, 3000);
-                        
+                        messages();
+                         
                     });
                     
                 } catch (error) {
@@ -170,29 +160,6 @@ export let renderTable = () => {
             sendDeleteRequest();
         });
     });
-
-
-    orderByTitles.forEach(orderByTitle => {
-        orderByTitle.addEventListener("click", () => {
-
-            let url = orderByTitle.dataset.url;
-
-            let sendOrderRequest = async () => {
-
-                try {
-                    await axios.get(url).then(response => {
-                        table.innerHTML = response.data.table;
-                        renderTable();
-                    });
-                    
-                } catch (error) {
-                    console.error(error);
-                }
-            };
-
-            sendOrderRequest();
-        });
-    }); 
 
     paginateButtons.forEach(paginateButton => {
         paginateButton.addEventListener("click", () => {
