@@ -14,6 +14,8 @@
 
     <body>
         
+        @include('admin.components.messages')
+
         @include('admin.layout.partials.sidebar')
 
         @if(isset($filters))

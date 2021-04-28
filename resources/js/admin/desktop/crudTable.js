@@ -1,6 +1,6 @@
 import { orderBy } from 'lodash';
 import {renderCkeditor} from '../../ckeditor';
-import {messages} from '../desktop/messages';
+import {messages} from './messages';
 const table = document.getElementById("table");
 const form = document.getElementById("form");
 
@@ -41,7 +41,6 @@ export let renderForm = () => {
 
             if( ckeditors != 'null'){
 
-            // si ckeditor NO está vacio, 
                 Object.entries(ckeditors).forEach(([key, value]) => {
                     data.append(key, value.getData());
                 });
@@ -55,15 +54,13 @@ export let renderForm = () => {
                     await axios.post(url, data).then(response => {
                         form.id.value = response.data.id;
                         table.innerHTML = response.data.table;
-                        message.innerHTML = response.data.message; 
-                        renderTable();
 
-                        messages();
-                         
+                        messages(response.data.message);
+                        renderTable();
                     });
                     
                 } catch (error) {
-    
+                        
                     if(error.response.status == '422'){
     
                         let errors = error.response.data.errors;      
@@ -73,8 +70,7 @@ export let renderForm = () => {
                             errorMessage += '<li>' + errors[key] + '</li>';
                         })
         
-                        document.getElementById('error-container').classList.add('active');
-                        document.getElementById('errors').innerHTML = errorMessage;
+                        messages(errorMessage);
                     }
                 }
             };
@@ -85,20 +81,20 @@ export let renderForm = () => {
 
     createButton.addEventListener("click", () => {
 
-            let url = createButton.dataset.url;
+        let url = createButton.dataset.url;
 
-            let createRequest = async () => {
+        let createRequest = async () => {
+            
+            try {
+                await axios.get(url).then(response => {
+                    form.innerHTML = response.data.form;
+                    renderForm();
+                });
                 
-                try {
-                    await axios.get(url).then(response => {
-                        form.innerHTML = response.data.form;
-                        renderForm();
-                    });
-                    
-                } catch (error) {
-                    console.error(error);
-                }
-            };
+            } catch (error) {
+                console.error(error);
+            }
+        };
 
         createRequest();
     });

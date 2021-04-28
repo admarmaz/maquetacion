@@ -1909,7 +1909,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _ckeditor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../ckeditor */ "./resources/js/ckeditor.js");
-/* harmony import */ var _desktop_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../desktop/messages */ "./resources/js/admin/desktop/messages.js");
+/* harmony import */ var _messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./messages */ "./resources/js/admin/desktop/messages.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1959,7 +1959,6 @@ var renderForm = function renderForm() {
       var data = new FormData(form);
 
       if (ckeditors != 'null') {
-        // si ckeditor NO está vacio, 
         Object.entries(ckeditors).forEach(function (_ref) {
           var _ref2 = _slicedToArray(_ref, 2),
               key = _ref2[0],
@@ -1983,9 +1982,8 @@ var renderForm = function renderForm() {
                   return axios.post(url, data).then(function (response) {
                     form.id.value = response.data.id;
                     table.innerHTML = response.data.table;
-                    message.innerHTML = response.data.message;
+                    (0,_messages__WEBPACK_IMPORTED_MODULE_3__.messages)(response.data.message);
                     renderTable();
-                    (0,_desktop_messages__WEBPACK_IMPORTED_MODULE_3__.messages)();
                   });
 
                 case 3:
@@ -2002,8 +2000,7 @@ var renderForm = function renderForm() {
                     Object.keys(errors).forEach(function (key) {
                       errorMessage += '<li>' + errors[key] + '</li>';
                     });
-                    document.getElementById('error-container').classList.add('active');
-                    document.getElementById('errors').innerHTML = errorMessage;
+                    (0,_messages__WEBPACK_IMPORTED_MODULE_3__.messages)(errorMessage);
                   }
 
                 case 8:
@@ -2382,8 +2379,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "messages": () => (/* binding */ messages)
 /* harmony export */ });
-var messages = function messages() {
+var messages = function messages(message) {
   var saveShow = document.getElementById("save-show");
+  var customMessage = document.getElementById('custom-message');
+  customMessage.innerHTML = message;
   saveShow.classList.toggle("show");
   setTimeout(function () {
     saveShow.classList.toggle("show");

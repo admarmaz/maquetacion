@@ -133,10 +133,6 @@
            
         </div>
 
-        @if($agent->isDesktop())
-                @include('admin.components.save_confirmation')
-            @endif
-
     @endif 
 
 @endsection
