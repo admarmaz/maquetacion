@@ -13,8 +13,6 @@
     </head>
 
     <body>
-        
-        @include('admin.components.messages')
 
         @include('admin.layout.partials.sidebar')
 
@@ -31,6 +29,7 @@
         </div>
  
         @include('admin.layout.partials.js')
+        @include('admin.components.messages')
 
     </body>
 </html>

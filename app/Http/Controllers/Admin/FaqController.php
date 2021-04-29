@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Jenssegers\Agent\Agent;
 use App\Http\Requests\Admin\FaqRequest;
 use App\Models\DB\Faq;
 
@@ -14,9 +15,10 @@ class FaqController extends Controller
 {
     protected $faq;
 
-    function __construct(Faq $faq)
+    function __construct(Faq $faq, Agent $agent)
     {
         $this->faq = $faq;
+        $this->agent = $agent;
     }
 
     public function index()
@@ -115,55 +117,73 @@ class FaqController extends Controller
         ]);
     }
 
-    public function filter($filters = null){
+    public function filter(Request $request, $filters = null){
 
+        $filters = json_decode($request->input('filters'));
+        
         $query = $this->faq->query();
 
-        /**$query->when($filters->category_id, function ($q, $category_id) {
+        if($filters != null){
 
-            if($category_id == 'all'){
-                return $q;
-            }
-            else{
-                return $q->where('category_id', $category_id);
-            }
-        });
+            $query->when($filters->category_id, function ($q, $category_id) {
 
-        $query->when($filters->search, function ($q, $search) {
+                if($category_id == 'all'){
+                    return $q;
+                }
+                else{
+                    return $q->where('category_id', $category_id);
+                }
+            });
+    
+            $query->when($filters->search, function ($q, $search) {
+    
+                if($search == null){
+                    return $q;
+                }
+                else {
+                    return $q->where('title', 'like', "%$search%");
+                }   
+            });
+    
+            $query->when($filters->created_at_from, function ($q, $created_at_from) {
+    
+                if($created_at_from == null){
+                    return $q;
+                }
+                else {
+                    $q->whereDate('created_at', '>=', $created_at_from);
+                }   
+            });
+    
+            $query->when($filters->created_at_since, function ($q, $created_at_since) {
+    
+                if($created_at_since == null){
+                    return $q;
+                }
+                else {
+                    $q->whereDate('created_at', '<=', $created_at_since);
+                }   
+            });
+    
+            $query->when($filters->order, function ($q, $order) use ($filters) {
+    
+                $q->orderBy($order, $filters->direction);
+            });
+        }
+       
+        if($this->agent->isMobile()){
+            $faqs = $query->where('active', 1)
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(10)
+                    ->appends(['filters' => json_encode($filters)]);  
+        }
 
-            if($search == null){
-                return $q;
-            }
-            else {
-                return $q->where('t_faqs.name', 'like', "%$search%");
-            }   
-        });
-
-        $query->when($filters->created_at_from, function ($q, $created_at_from) {
-
-            if($created_at_from == null){
-                return $q;
-            }
-            else {
-                $q->whereDate('t_faqs.created_at', '>=', $created_at_from);
-            }   
-        });
-
-        $query->when($filters->created_at_since, function ($q, $created_at_since) {
-
-            if($created_at_since == null){
-                return $q;
-            }
-            else {
-                $q->whereDate('t_faqs.created_at', '<=', $created_at_since);
-            }   
-        });
-
-        $query->when($filters->order, function ($q, $order) use ($request) {
-
-            $q->orderBy($order, $request->direction);
-        });
-        
+        if($this->agent->isDesktop()){
+            $faqs = $query->where('active', 1)
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(6)
+                    ->appends(['filters' => json_encode($filters)]);   
+        }
 
         $view = View::make('admin.faqs.index')
             ->with('faqs', $faqs)
@@ -172,9 +192,6 @@ class FaqController extends Controller
         return response()->json([
             'table' => $view['table'],
         ]);
-
-        **/
-
     }
 
 }

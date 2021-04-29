@@ -109,8 +109,7 @@ export let renderTable = () => {
 
     let editButtons = document.querySelectorAll(".boton-editar");
     let deleteButtons = document.querySelectorAll(".borrar-dato");
-    let orderByTitles = document.querySelectorAll(".order-by-title");
-    let paginateButtons = document.querySelectorAll(".pagination-button");
+    let paginateButtons = document.querySelectorAll(".table-pagination-button");
 
     editButtons.forEach(editButton => {
 
@@ -158,9 +157,10 @@ export let renderTable = () => {
     });
 
     paginateButtons.forEach(paginateButton => {
+
         paginateButton.addEventListener("click", () => {
 
-            let url = paginateButton.dataset.url;
+            let url = paginateButton.dataset.pagination;
 
             let paginate = async () => {
 

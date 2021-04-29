@@ -1,6 +1,6 @@
 import {renderTable} from './crudTable';
 
-const table = document.getElementById("table-container");
+const table = document.getElementById("table");
 const tableFilter = document.getElementById("table-filter");
 const filterForm = document.getElementById("filter-form");
 
@@ -20,12 +20,24 @@ export let renderFilterTable = () => {
         applyFilter.addEventListener( 'click', () => {      
     
             let data = new FormData(filterForm);
+            let filters = {};
+
+            data.forEach(function(value, key){
+                filters[key] = value;
+            });
+            
+            let json = JSON.stringify(filters);
+
             let url = filterForm.action;
     
             let sendPostRequest = async () => {
     
                 try {
-                    await axios.post(url, data).then(response => {
+                    axios.get(url, {
+                        params: {
+                          filters: json
+                        }
+                    }).then(response => {
                         table.innerHTML = response.data.table;
                         renderTable();
                         tableFilter.classList.remove('filter-active')

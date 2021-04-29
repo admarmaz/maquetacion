@@ -115,63 +115,80 @@ class SliderController extends Controller
         ]);
     }
 
-    public function filter($filters = null){
+    public function filter(Request $request, $filters = null){
 
-        $query = $this->slider->query();
+        $filters = json_decode($request->input('filters'));
+        
+        $query = $this->faq->query();
 
-        $query->when($filters->search, function ($q, $search) {
+        if($filters != null){
 
-            if($search == null){
-                return $q;
-            }
-            else {
-                return $q->where('t_sliders.name', 'like', "%$search%");
-            }   
-        });
+            $query->when($filters->category_id, function ($q, $category_id) {
 
-        $query->when($filters->created_at_from, function ($q, $created_at_from) {
-
-            if($created_at_from == null){
-                return $q;
-            }
-            else {
-                $q->whereDate('t_sliders.created_at', '>=', $created_at_from);
-            }   
-        });
-
-        $query->when($filters->created_at_since, function ($q, $created_at_since) {
-
-            if($created_at_since == null){
-                return $q;
-            }
-            else {
-                $q->whereDate('t_sliders.created_at', '<=', $created_at_since);
-            }   
-        });
-
-        $query->when($filters->order, function ($q, $order) use ($request) {
-
-            $q->orderBy($order, $request->direction);
-        });
-
+                if($category_id == 'all'){
+                    return $q;
+                }
+                else{
+                    return $q->where('category_id', $category_id);
+                }
+            });
+    
+            $query->when($filters->search, function ($q, $search) {
+    
+                if($search == null){
+                    return $q;
+                }
+                else {
+                    return $q->where('t_faqs.name', 'like', "%$search%");
+                }   
+            });
+    
+            $query->when($filters->created_at_from, function ($q, $created_at_from) {
+    
+                if($created_at_from == null){
+                    return $q;
+                }
+                else {
+                    $q->whereDate('t_faqs.created_at', '>=', $created_at_from);
+                }   
+            });
+    
+            $query->when($filters->created_at_since, function ($q, $created_at_since) {
+    
+                if($created_at_since == null){
+                    return $q;
+                }
+                else {
+                    $q->whereDate('t_faqs.created_at', '<=', $created_at_since);
+                }   
+            });
+    
+            $query->when($filters->order, function ($q, $order) use ($filters) {
+    
+                $q->orderBy($order, $filters->direction);
+            });
+        }
+       
         if($this->agent->isMobile()){
-            $sliders = $query->join('t_sliders', 't_sliders.', '=', 't_sliders.id')
-            ->where('t_sliders.active', 1)->paginate(10);  
+            $faqs = $query->where('t_faqs.active', 1)
+                    ->orderBy('t_faqs.created_at', 'desc')
+                    ->paginate(10)
+                    ->appends(['filters' => json_encode($filters)]);  
         }
 
         if($this->agent->isDesktop()){
-            $sliders = $query->join('t_sliders', 't_sliders.category_id', '=', 't_sliders.id')
-            ->where('t_sliders.active', 1)->paginate(6);  
+            $faqs = $query->where('t_faqs.active', 1)
+                    ->orderBy('t_faqs.created_at', 'desc')
+                    ->paginate(6)
+                    ->appends(['filters' => json_encode($filters)]);   
         }
 
-        $view = View::make('admin.sliders.index')
-            ->with('sliders', $sliders)
+        $view = View::make('admin.faqs.index')
+            ->with('faqs', $faqs)
             ->renderSections();
 
         return response()->json([
             'table' => $view['table'],
         ]);
-
     }
-
 }
