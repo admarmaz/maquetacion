@@ -11,6 +11,26 @@
     border-bottom: groove;
 } 
 
+.swipe-element{
+    display: flex;
+    width: 100%;
+    margin-bottom: 0.5em;
+    border-bottom: solid 1px;
+
+    .swipe-front{
+        width: 100%;
+    }
+
+    .swipe-back{
+        display: flex;
+        cursor: pointer;
+
+        .boton-editar{
+            margin-right: 0.5em;
+        }
+    }
+}
+
 .tabla .table-header {
     display: flex;
     font-weight: bold;
@@ -18,7 +38,7 @@
     padding: 0;
     
     p{
-      margin-right: 40%;
+      margin-right: 30%;
     }
   }
 

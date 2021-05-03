@@ -6,50 +6,53 @@
 
 @section('table')
 
-    <div class="tabla-titulo">
-        <h2>@lang('admin/customers.parent_section')</h2>
-    </div>
+    @isset($customers)
 
-    <div class="tabla-contenedor">
-        <table>
-            <tr class="tabla-cabecera">
-                <th>Nombre</th>
-                <th>Apellidos</th> 
-                <th>Email</th>
-                <th>Dirección</th>
-                <th>CP</th>
-                <th>Pais</th>
-                <th>Localidad</th>
-                <th>Teléfono</th>
-                <th></th>
-            </tr>
-            @foreach ($customers as $customer_element)
-                <tr>
-                    <td>{{$customer_element->name}}</td>
-                    <td>{{$customer_element->surname}}</td>
-                    <td>{{$customer_element->email}}</td>
-                    <td>{{$customer_element->direction}}</td>
-                    <td>{{$customer_element->cp}}</td>
-                    <td>{{$customer_element->country_id}}</td>
-                    <td>{{$customer_element->location}}</td>
-                    <td>{{$customer_element->phone}}</td>
-                    <td>
-                        <button class="boton-editar" data-url="{{route("customers_show", ['customer' => $customer_element->id])}}" > 
-                            <svg viewBox="0 0 24 24">
-                                <path fill='' d="M20 2H4C2.89 2 2 2.89 2 4V16C2 17.11 2.9 18 4 18H8V21C8 21.55 8.45 22 9 22H9.5C9.75 22 10 21.9 10.2 21.71L13.9 18H20C21.1 18 22 17.1 22 16V4C22 2.89 21.1 2 20 2M9.08 15H7V12.91L13.17 6.72L15.24 8.8L9.08 15M16.84 7.2L15.83 8.21L13.76 6.18L14.77 5.16C14.97 4.95 15.31 4.94 15.55 5.16L16.84 6.41C17.05 6.62 17.06 6.96 16.84 7.2Z" />
-                            </svg>
-                        </button>
-                        
-                        <button class="boton-borrar borrar-dato" data-url="{{route("customers_destroy", ['customer' => $customer_element->id])}}"> 
-                            <svg viewBox="0 0 24 24">
-                                <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
-                            </svg>
-                        </button>
-                    </td>
+        <div class="tabla-titulo">
+            <h2>@lang('admin/customers.parent_section')</h2>
+        </div>
+
+        <div class="tabla-contenedor">
+            <table>
+                <tr class="tabla-cabecera">
+                    <th>Nombre</th>
+                    <th>Apellidos</th> 
+                    <th>Email</th>
+                    <th>Dirección</th>
+                    <th>CP</th>
+                    <th>Pais</th>
+                    <th>Localidad</th>
+                    <th>Teléfono</th>
+                    <th></th>
                 </tr>
-            @endforeach             
-        </table>
-    </div>
+                @foreach ($customers as $customer_element)
+                    <tr>
+                        <td>{{$customer_element->name}}</td>
+                        <td>{{$customer_element->surname}}</td>
+                        <td>{{$customer_element->email}}</td>
+                        <td>{{$customer_element->direction}}</td>
+                        <td>{{$customer_element->cp}}</td>
+                        <td>{{$customer_element->country_id}}</td>
+                        <td>{{$customer_element->location}}</td>
+                        <td>{{$customer_element->phone}}</td>
+                        <td>
+                            <button class="boton-editar" data-url="{{route("customers_show", ['customer' => $customer_element->id])}}" > 
+                                <svg viewBox="0 0 24 24">
+                                    <path fill='' d="M20 2H4C2.89 2 2 2.89 2 4V16C2 17.11 2.9 18 4 18H8V21C8 21.55 8.45 22 9 22H9.5C9.75 22 10 21.9 10.2 21.71L13.9 18H20C21.1 18 22 17.1 22 16V4C22 2.89 21.1 2 20 2M9.08 15H7V12.91L13.17 6.72L15.24 8.8L9.08 15M16.84 7.2L15.83 8.21L13.76 6.18L14.77 5.16C14.97 4.95 15.31 4.94 15.55 5.16L16.84 6.41C17.05 6.62 17.06 6.96 16.84 7.2Z" />
+                                </svg>
+                            </button>
+                            
+                            <button class="boton-borrar borrar-dato" data-url="{{route("customers_destroy", ['customer' => $customer_element->id])}}"> 
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                                </svg>
+                            </button>
+                        </td>
+                    </tr>
+                @endforeach             
+            </table>
+        </div>
+    @endif
 
 @endsection
 
@@ -59,6 +62,12 @@
 
         <div class="formulario-titulo">
             <h2> @lang('admin/customers.parent_form') </h2>
+        </div>
+
+        <div id="create-button" data-url= "{{route("customers_create")}}">
+            <svg style="width:30px;height:30px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M12,6V9L16,5L12,1V4A8,8 0 0,0 4,12C4,13.57 4.46,15.03 5.24,16.26L6.7,14.8C6.25,13.97 6,13 6,12A6,6 0 0,1 12,6M18.76,7.74L17.3,9.2C17.74,10.04 18,11 18,12A6,6 0 0,1 12,18V15L8,19L12,23V20A8,8 0 0,0 20,12C20,10.43 19.54,8.97 18.76,7.74Z" />
+            </svg>
         </div>
 
         <form id="faqs-form" class="admin-formulario" action="{{route("customers_store")}}" autocomplete="off">
