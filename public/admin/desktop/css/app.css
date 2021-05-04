@@ -232,20 +232,19 @@ li {
   color: blueviolet;
 }
 
-.tabs {
-  width: 100%;
+.tab {
+  display: none;
 }
-.tabs .tab {
-  width: 0;
-}
-.tabs .tab .tab-content {
+.tab .tab-content {
   max-height: 0;
   overflow: hidden;
 }
-.tabs .tab.active-tabs {
-  width: 100%;
+
+.tab.active-tabs {
+  display: block;
 }
-.tabs .tab.active-tabs .tab-content {
+
+.tab.active-tabs .tab-content {
   display: block;
   max-height: 100vh;
   overflow: visible;

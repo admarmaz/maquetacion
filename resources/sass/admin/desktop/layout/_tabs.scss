@@ -1,18 +1,16 @@
-.tabs{
-    width: 100%;
+.tab{
+    
+    display: none;
 
-    .tab{
-        width: 0;
-
-        .tab-content{
-            max-height: 0;
-            overflow: hidden;
-            
-        }
+    .tab-content{
+        max-height: 0;
+        overflow: hidden;
+        
     }
+}
 
     .tab.active-tabs{
-        width: 100%;
+        display: block;
     }
 
     .tab.active-tabs .tab-content{
@@ -21,7 +19,7 @@
         overflow: visible;
         width: 100%;
     } 
-}
+
 
 .tabs-buttons{
     display: flex;

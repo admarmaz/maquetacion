@@ -114,7 +114,7 @@
 
                     @component('admin/components.locale')
 
-                        <div class="tab-language active-tabs-locale" data-content="1">
+                        <div class="tab-language active-tabs-locale" data-content="es">
                             <div class="formulario-grupo">
                                 <div class="formulario-label">
                                     <label for="title" class="label-highlight">Título
@@ -135,7 +135,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-language" data-content="2">
+                        <div class="tab-language" data-content="en">
                             <div class="formulario-grupo">
                                 <div class="formulario-label">
                                     <label for="title" class="label-highlight">Title
@@ -159,24 +159,37 @@
                     @endcomponent
 
                 </div>
+
+                <div>
+
+                
                     
-                    <div class="tab-language" data-content="1">
+                    <div class="tab" data-content="images">
                         <div class="tab-content">
-                            <div class="drop-zone">
-                                <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                                <input type="file" name="myFile" class="drop-zone__input">
-                            </div>
+
+                            @component('admin/components.locale')
+                                <div class="tab-language active-tabs-locale" data-content="es" >
+                                    <div class="drop-zone">
+                                        <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                        <input type="file" name="myFile" class="drop-zone__input">
+                                    </div>
+                                </div>
+
+                                <div class="tab-language" data-content="en">
+                                    <div class="drop-zone">
+                                        <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                        <input type="file" name="myFile" class="drop-zone__input">
+                                    </div>
+                                </div>
+                            @endcomponent
+
                         </div>
                     </div>
 
-                    <div class="tab-language" data-content="2">
-                        <div class="tab-content">
-                            <div class="drop-zone">
-                                <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                                <input type="file" name="myFile" class="drop-zone__input">
-                            </div>
-                        </div>
-                    </div>
+                
+
+                </div>
+
 
                 <div class="formulario-enviar">
                     <a href="" class="boton-guardar">
