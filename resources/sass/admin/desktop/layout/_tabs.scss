@@ -1,19 +1,21 @@
 .tabs{
     width: 100%;
-    display: flex;
 
     .tab{
+        width: 0;
+
         .tab-content{
             max-height: 0;
             overflow: hidden;
+            
         }
     }
 
-    .tab.active{
-        width: 60%;
+    .tab.active-tabs{
+        width: 100%;
     }
 
-    .tab.active .tab-content{
+    .tab.active-tabs .tab-content{
         display: block;
         max-height: 100vh;
         overflow: visible;
@@ -24,7 +26,7 @@
 .tabs-buttons{
     display: flex;
     background-color: #c2efe1;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 
     .tab-button{
         margin: 0 0.5em;

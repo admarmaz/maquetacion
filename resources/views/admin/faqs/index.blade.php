@@ -77,45 +77,106 @@
         
             <form id="faqs-form" class="admin-formulario" action="{{route("faqs_store")}}" autocomplete="off">
 
-            {{ csrf_field() }}
+                {{ csrf_field() }}
 
-            <input autocomplete="false" name="hidden" type="text" style="display:none;">
-            <input type="hidden" name="id" value="{{isset($faq->id) ? $faq->id : ''}}">
+                <input autocomplete="false" name="hidden" type="text" style="display:none;">
+                <input type="hidden" name="id" value="{{isset($faq->id) ? $faq->id : ''}}">
 
-            <div class="formulario-grupo">
-                    <div class="formulario-label">
-                        <label for="category_id">
-                            Categoría 
-                        </label>
+                <div class="tabs-buttons">
+                    <div class="tab-button active" data-button="content">
+                        <p> Contenido <p>
                     </div>
-                    <div class="form-input">
-                        <select name="category_id" data-placeholder="Seleccione una categoría">
-                            <option></option>
-                            @foreach($faqs_categories as $faq_category)
-                                <option value="{{$faq_category->id}}" {{$faq->category_id == $faq_category->id ? 'selected':''}} class="category_id">{{ $faq_category->name }}</option>
-                            @endforeach
-                        </select>                   
+                    <div class="tab-button" data-button="images">
+                        <p> Imágenes <p>
                     </div>
+
                 </div>
 
-                <div class="formulario-grupo">
-                    <div class="formulario-label">
-                        <label for="title" class="label-highlight">Pregunta
-                        </label>
-                    </div>
-                    <div class="formulario-input">
-                        <input type="text" name="title" value="{{isset($faq->title) ? $faq->title : ''}}" class="input-highlight" required >
-                    </div>
-                </div>
+                <div class="tab active-tabs" data-content="content">
 
-                <div class="formulario-grupo">
-                    <div class="formulario-label">
-                        <label for="">Respuesta</label>
+                    <div class="tab-content">
+                        <div class="formulario-grupo">
+                            <div class="formulario-label">
+                                <label for="category_id">
+                                    Categoría 
+                                </label>
+                            </div>
+                            <div class="form-input">
+                                <select name="category_id" data-placeholder="Seleccione una categoría">
+                                    <option></option>
+                                    @foreach($faqs_categories as $faq_category)
+                                        <option value="{{$faq_category->id}}" {{$faq->category_id == $faq_category->id ? 'selected':''}} class="category_id">{{ $faq_category->name }}</option>
+                                    @endforeach
+                                </select>                   
+                            </div>
+                        </div>
                     </div>
-                    <div class="formulario-input">
-                        <textarea name="description" value="{{isset($faq->description) ? $faq->description : ''}}" class="ckeditor input-highlight" required>{{isset($faq->description) ? $faq->description : ''}}</textarea>
-                    </div>
+
+                    @component('admin/components.locale')
+
+                        <div class="tab-language active-tabs-locale" data-content="1">
+                            <div class="formulario-grupo">
+                                <div class="formulario-label">
+                                    <label for="title" class="label-highlight">Título
+                                    </label>
+                                </div>
+                                <div class="formulario-input">
+                                    <input type="text" name="title" value="{{isset($faq->title) ? $faq->title : ''}}" class="input-highlight" required >
+                                </div>
+                            </div>
+
+                            <div class="formulario-grupo">
+                                <div class="formulario-label">
+                                    <label for="">Descripción</label>
+                                </div>
+                                <div class="formulario-input">
+                                    <textarea name="description" value="{{isset($faq->description) ? $faq->description : ''}}" class="ckeditor input-highlight" required>{{isset($faq->description) ? $faq->description : ''}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-language" data-content="2">
+                            <div class="formulario-grupo">
+                                <div class="formulario-label">
+                                    <label for="title" class="label-highlight">Title
+                                    </label>
+                                </div>
+                                <div class="formulario-input">
+                                    <input type="text" name="title" value="{{isset($faq->title) ? $faq->title : ''}}" class="input-highlight" required >
+                                </div>
+                            </div>
+            
+                            <div class="formulario-grupo">
+                                <div class="formulario-label">
+                                    <label for="">Description</label>
+                                </div>
+                                <div class="formulario-input">
+                                    <textarea name="description" value="{{isset($faq->description) ? $faq->description : ''}}" class="ckeditor input-highlight" required>{{isset($faq->description) ? $faq->description : ''}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    @endcomponent
+
                 </div>
+                    
+                    <div class="tab-language" data-content="1">
+                        <div class="tab-content">
+                            <div class="drop-zone">
+                                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                <input type="file" name="myFile" class="drop-zone__input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-language" data-content="2">
+                        <div class="tab-content">
+                            <div class="drop-zone">
+                                <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                <input type="file" name="myFile" class="drop-zone__input">
+                            </div>
+                        </div>
+                    </div>
 
                 <div class="formulario-enviar">
                     <a href="" class="boton-guardar">
@@ -126,6 +187,7 @@
                         </button>
                     </a>
                 </div>
+
             </form>    
            
         </div>

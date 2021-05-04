@@ -1,6 +1,10 @@
 import { orderBy } from 'lodash';
+import {renderTabs} from './tabs';
+import {renderImages} from './images';
+import {renderLanguageTabs} from './localeTabs';
 import {renderCkeditor} from '../../ckeditor';
 import {messages} from './messages';
+
 const table = document.getElementById("table");
 const form = document.getElementById("form");
 
@@ -101,6 +105,9 @@ export let renderForm = () => {
 
 
     renderCkeditor();
+    renderTabs();
+    renderImages();
+    renderLanguageTabs();
 
 };
 

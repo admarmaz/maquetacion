@@ -7,15 +7,30 @@ use App\Models\DB\FaqCategory;
 
 class FaqsCategories
 {
-    public $faqs_categories;
+    static $composed;
 
-    public function __construct()
+    public function __construct(FaqCategory $faqs_categories)
     {
-        $this->faqs_categories = FaqCategory::where('active', 1)->orderBy('name', 'asc')->get();
+        $this->faqs_categories = $faqs_categories;
     }
 
     public function compose(View $view)
     {
-        $view->with('faqs_categories', $this->faqs_categories);
+
+        //Si ya tenemos la variable composed con la base de datos asignada,
+        // entonces, devolvemos la vista.
+        if(static::$composed) 
+        
+        {
+            return $view->with('faqs_categories', static::$composed);
+        }
+
+        //Si la variable no tiene la base de datos de categories, entonces llamamos a la base de datos
+        // y asignamos el valor.
+
+        static::$composed = $this->faqs_categories->where('active', 1)->orderBy('name', 'asc')->get();
+
+        $view->with('faqs_categories', static::$composed);
+
     }
 }

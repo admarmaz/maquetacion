@@ -5,3 +5,5 @@ require('./menu');
 require('./tabs');
 require('./filterTable');
 require('./messages');
+require('./images');
+require('./localeTabs');

@@ -1890,6 +1890,10 @@ __webpack_require__(/*! ./filterTable */ "./resources/js/admin/desktop/filterTab
 
 __webpack_require__(/*! ./messages */ "./resources/js/admin/desktop/messages.js");
 
+__webpack_require__(/*! ./images */ "./resources/js/admin/desktop/images.js");
+
+__webpack_require__(/*! ./localeTabs */ "./resources/js/admin/desktop/localeTabs.js");
+
 /***/ }),
 
 /***/ "./resources/js/admin/desktop/crudTable.js":
@@ -1908,8 +1912,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ckeditor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../ckeditor */ "./resources/js/ckeditor.js");
-/* harmony import */ var _messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./messages */ "./resources/js/admin/desktop/messages.js");
+/* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tabs */ "./resources/js/admin/desktop/tabs.js");
+/* harmony import */ var _images__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./images */ "./resources/js/admin/desktop/images.js");
+/* harmony import */ var _localeTabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./localeTabs */ "./resources/js/admin/desktop/localeTabs.js");
+/* harmony import */ var _ckeditor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../ckeditor */ "./resources/js/ckeditor.js");
+/* harmony import */ var _messages__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./messages */ "./resources/js/admin/desktop/messages.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1927,6 +1934,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
 
 
 
@@ -1982,7 +1992,7 @@ var renderForm = function renderForm() {
                   return axios.post(url, data).then(function (response) {
                     form.id.value = response.data.id;
                     table.innerHTML = response.data.table;
-                    (0,_messages__WEBPACK_IMPORTED_MODULE_3__.messages)(response.data.message);
+                    (0,_messages__WEBPACK_IMPORTED_MODULE_6__.messages)(response.data.message);
                     renderTable();
                   });
 
@@ -2000,7 +2010,7 @@ var renderForm = function renderForm() {
                     Object.keys(errors).forEach(function (key) {
                       errorMessage += '<li>' + errors[key] + '</li>';
                     });
-                    (0,_messages__WEBPACK_IMPORTED_MODULE_3__.messages)(errorMessage);
+                    (0,_messages__WEBPACK_IMPORTED_MODULE_6__.messages)(errorMessage);
                   }
 
                 case 8:
@@ -2059,7 +2069,10 @@ var renderForm = function renderForm() {
 
     createRequest();
   });
-  (0,_ckeditor__WEBPACK_IMPORTED_MODULE_2__.renderCkeditor)();
+  (0,_ckeditor__WEBPACK_IMPORTED_MODULE_5__.renderCkeditor)();
+  (0,_tabs__WEBPACK_IMPORTED_MODULE_2__.renderTabs)();
+  (0,_images__WEBPACK_IMPORTED_MODULE_3__.renderImages)();
+  (0,_localeTabs__WEBPACK_IMPORTED_MODULE_4__.renderLanguageTabs)();
 };
 var renderTable = function renderTable() {
   var editButtons = document.querySelectorAll(".boton-editar");
@@ -2294,6 +2307,126 @@ renderFilterTable();
 
 /***/ }),
 
+/***/ "./resources/js/admin/desktop/images.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/desktop/images.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderImages": () => (/* binding */ renderImages)
+/* harmony export */ });
+var renderImages = function renderImages() {
+  document.querySelectorAll(".drop-zone__input").forEach(function (inputElement) {
+    var dropZoneElement = inputElement.closest(".drop-zone");
+    dropZoneElement.addEventListener("click", function (e) {
+      inputElement.click();
+    });
+    inputElement.addEventListener("change", function (e) {
+      if (inputElement.files.length) {
+        updateThumbnail(dropZoneElement, inputElement.files[0]);
+      }
+    });
+    dropZoneElement.addEventListener("dragover", function (e) {
+      e.preventDefault();
+      dropZoneElement.classList.add("drop-zone--over");
+    });
+    ["dragleave", "dragend"].forEach(function (type) {
+      dropZoneElement.addEventListener(type, function (e) {
+        dropZoneElement.classList.remove("drop-zone--over");
+      });
+    });
+    dropZoneElement.addEventListener("drop", function (e) {
+      e.preventDefault();
+
+      if (e.dataTransfer.files.length) {
+        inputElement.files = e.dataTransfer.files;
+        updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+      }
+
+      dropZoneElement.classList.remove("drop-zone--over");
+    });
+  });
+  /**
+   * Updates the thumbnail on a drop zone element.
+   *
+   * @param {HTMLElement} dropZoneElement
+   * @param {File} file
+   */
+
+  function updateThumbnail(dropZoneElement, file) {
+    var thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb"); // First time - remove the prompt
+
+    if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+      dropZoneElement.querySelector(".drop-zone__prompt").remove();
+    } // First time - there is no thumbnail element, so lets create it
+
+
+    if (!thumbnailElement) {
+      thumbnailElement = document.createElement("div");
+      thumbnailElement.classList.add("drop-zone__thumb");
+      dropZoneElement.appendChild(thumbnailElement);
+    }
+
+    thumbnailElement.dataset.label = file.name; // Show thumbnail for image files
+
+    if (file.type.startsWith("image/")) {
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = function () {
+        thumbnailElement.style.backgroundImage = "url('".concat(reader.result, "')");
+      };
+    } else {
+      thumbnailElement.style.backgroundImage = null;
+    }
+  }
+};
+
+/***/ }),
+
+/***/ "./resources/js/admin/desktop/localeTabs.js":
+/*!**************************************************!*\
+  !*** ./resources/js/admin/desktop/localeTabs.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderLanguageTabs": () => (/* binding */ renderLanguageTabs)
+/* harmony export */ });
+var renderLanguageTabs = function renderLanguageTabs() {
+  var plusButtons = document.querySelectorAll('.tab-language-button');
+  var tabElements = document.querySelectorAll(".tab-language");
+  plusButtons.forEach(function (plusButton) {
+    plusButton.addEventListener("click", function () {
+      var activeElements = document.querySelectorAll(".active-tabs-locale");
+
+      if (plusButton.classList.contains("active-tabs-locale")) {
+        plusButton.classList.remove("active-tabs-locale");
+        activeElements.forEach(function (activeElement) {
+          activeElement.classList.remove("active-tabs-locale");
+        });
+      } else {
+        activeElements.forEach(function (activeElement) {
+          activeElement.classList.remove("active-tabs-locale");
+        });
+        plusButton.classList.add("active-tabs-locale");
+        tabElements.forEach(function (tabElement) {
+          if (tabElement.dataset.content == plusButton.dataset.button) {
+            tabElement.classList.add("active-tabs-locale");
+          } else {}
+        });
+      }
+    });
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/js/admin/desktop/menu.js":
 /*!********************************************!*\
   !*** ./resources/js/admin/desktop/menu.js ***!
@@ -2395,32 +2528,39 @@ var messages = function messages(message) {
 /*!********************************************!*\
   !*** ./resources/js/admin/desktop/tabs.js ***!
   \********************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-var plusButtons = document.querySelectorAll('.tab-button');
-var tabElements = document.querySelectorAll(".tab");
-plusButtons.forEach(function (plusButton) {
-  plusButton.addEventListener("click", function () {
-    var activeElements = document.querySelectorAll(".active");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderTabs": () => (/* binding */ renderTabs)
+/* harmony export */ });
+var renderTabs = function renderTabs() {
+  var plusButtons = document.querySelectorAll('.tab-button');
+  var tabElements = document.querySelectorAll(".tab");
+  plusButtons.forEach(function (plusButton) {
+    plusButton.addEventListener("click", function () {
+      var activeElements = document.querySelectorAll(".active-tabs");
 
-    if (plusButton.classList.contains("active")) {
-      plusButton.classList.remove("active");
-      activeElements.forEach(function (activeElement) {
-        activeElement.classList.remove("active");
-      });
-    } else {
-      activeElements.forEach(function (activeElement) {
-        activeElement.classList.remove("active");
-      });
-      plusButton.classList.add("active");
-      tabElements.forEach(function (tabElement) {
-        if (tabElement.dataset.content == plusButton.dataset.button) {
-          tabElement.classList.add("active");
-        } else {}
-      });
-    }
+      if (plusButton.classList.contains("active-tabs")) {
+        plusButton.classList.remove("active-tabs");
+        activeElements.forEach(function (activeElement) {
+          activeElement.classList.remove("active-tabs");
+        });
+      } else {
+        activeElements.forEach(function (activeElement) {
+          activeElement.classList.remove("active-tabs");
+        });
+        plusButton.classList.add("active-tabs");
+        tabElements.forEach(function (tabElement) {
+          if (tabElement.dataset.content == plusButton.dataset.button) {
+            tabElement.classList.add("active-tabs");
+          } else {}
+        });
+      }
+    });
   });
-});
+};
 
 /***/ }),
 
