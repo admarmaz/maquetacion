@@ -19,17 +19,19 @@
     margin-right: 2em;
     
     .tab-language-button{
-        margin: 0 0.5em;
         cursor: pointer;
-        padding: 0;
         background-color: #c2efe1;
         padding: 0 1em;
-        margin: 0 1em 1em 0;
+        margin-bottom: 1em;
 
     }
 
     .tab-language-button:hover{
-        background-color:rgb(150, 160, 157)
+        background-color:rgb(139, 243, 212)
+    }
+
+    .tab-language-button.active-tabs-locale{
+        background-color: rgb(150, 160, 157);
     }
 }
 

@@ -83,7 +83,7 @@
                 <input type="hidden" name="id" value="{{isset($faq->id) ? $faq->id : ''}}">
 
                 <div class="tabs-buttons">
-                    <div class="tab-button active" data-button="content">
+                    <div class="tab-button active-tabs" data-button="content">
                         <p> Contenido <p>
                     </div>
                     <div class="tab-button" data-button="images">
