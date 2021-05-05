@@ -95,33 +95,45 @@
                 <div class="tab active-tabs" data-content="content">
 
                     <div class="tab-content">
-                        <div class="formulario-grupo">
-                            <div class="formulario-label">
-                                <label for="category_id">
-                                    Categoría 
-                                </label>
+                        <div class="two-columns">
+                            <div class="formulario-grupo">
+                                <div class="formulario-label">
+                                    <label for="category_id">
+                                        Categoría 
+                                    </label>
+                                </div>
+                                <div class="form-input">
+                                    <select name="category_id" data-placeholder="Seleccione una categoría">
+                                        <option></option>
+                                        @foreach($faqs_categories as $faq_category)
+                                            <option value="{{$faq_category->id}}" {{$faq->category_id == $faq_category->id ? 'selected':''}} class="category_id">{{ $faq_category->name }}</option>
+                                        @endforeach
+                                    </select>                   
+                                </div>
                             </div>
-                            <div class="form-input">
-                                <select name="category_id" data-placeholder="Seleccione una categoría">
-                                    <option></option>
-                                    @foreach($faqs_categories as $faq_category)
-                                        <option value="{{$faq_category->id}}" {{$faq->category_id == $faq_category->id ? 'selected':''}} class="category_id">{{ $faq_category->name }}</option>
-                                    @endforeach
-                                </select>                   
+    
+                            <div class="formulario-grupo">
+                                <div class="formulario-label">
+                                    <label for="name" class="label-highlight">Nombre
+                                    </label>
+                                </div>
+                                <div class="formulario-input">
+                                    <input type="text" name="name" value="{{isset($faq->name) ? $faq->name : ''}}" class="input-highlight" required >
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    @component('admin/components.locale')
+                    @component('admin/components.locale', ['tab' => 'content'])
 
-                        <div class="tab-language active-tabs-locale" data-content="es">
+                        <div class="tab-language active-tabs-locale" data-tab = "content" data-localetab = "es">
                             <div class="formulario-grupo">
                                 <div class="formulario-label">
                                     <label for="title" class="label-highlight">Título
                                     </label>
                                 </div>
                                 <div class="formulario-input">
-                                    <input type="text" name="title" value="{{isset($faq->title) ? $faq->title : ''}}" class="input-highlight" required >
+                                    <input type="text" name="locale[title.es]" value="{{isset($faq->title) ? $faq->title : ''}}" class="input-highlight" required >
                                 </div>
                             </div>
 
@@ -130,19 +142,19 @@
                                     <label for="">Descripción</label>
                                 </div>
                                 <div class="formulario-input">
-                                    <textarea name="description" value="{{isset($faq->description) ? $faq->description : ''}}" class="ckeditor input-highlight" required>{{isset($faq->description) ? $faq->description : ''}}</textarea>
+                                    <textarea name="locale[description.es]" value="{{isset($faq->description) ? $faq->description : ''}}" class="ckeditor input-highlight" required>{{isset($faq->description) ? $faq->description : ''}}</textarea>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="tab-language" data-content="en">
+                        <div class="tab-language" data-localetab = "en" data-tab = "content">
                             <div class="formulario-grupo">
                                 <div class="formulario-label">
                                     <label for="title" class="label-highlight">Title
                                     </label>
                                 </div>
                                 <div class="formulario-input">
-                                    <input type="text" name="title" value="{{isset($faq->title) ? $faq->title : ''}}" class="input-highlight" required >
+                                    <input type="text" name="locale[title.en]" value="{{isset($faq->title) ? $faq->title : ''}}" class="input-highlight" required >
                                 </div>
                             </div>
             
@@ -151,7 +163,7 @@
                                     <label for="">Description</label>
                                 </div>
                                 <div class="formulario-input">
-                                    <textarea name="description" value="{{isset($faq->description) ? $faq->description : ''}}" class="ckeditor input-highlight" required>{{isset($faq->description) ? $faq->description : ''}}</textarea>
+                                    <textarea name="locale[description.en]" value="{{isset($faq->description) ? $faq->description : ''}}" class="ckeditor input-highlight" required>{{isset($faq->description) ? $faq->description : ''}}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -161,21 +173,18 @@
                 </div>
 
                 <div>
-
-                
-                    
-                    <div class="tab" data-content="images">
+                    <div class="tab" data-content="images" data-tab = "images">
                         <div class="tab-content">
 
-                            @component('admin/components.locale')
-                                <div class="tab-language active-tabs-locale" data-content="es" >
+                            @component('admin/components.locale', ['tab' => 'images'])
+                                <div class="tab-language active-tabs-locale" data-tab="images"  data-localetab="es">
                                     <div class="drop-zone">
-                                        <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                        <span class="drop-zone__prompt">Suelta el archivo aqui o haz click para subir</span>
                                         <input type="file" name="myFile" class="drop-zone__input">
                                     </div>
                                 </div>
 
-                                <div class="tab-language" data-content="en">
+                                <div class="tab-language" data-localetab="en" data-tab="images">
                                     <div class="drop-zone">
                                         <span class="drop-zone__prompt">Drop file here or click to upload</span>
                                         <input type="file" name="myFile" class="drop-zone__input">
@@ -185,8 +194,6 @@
 
                         </div>
                     </div>
-
-                
 
                 </div>
 

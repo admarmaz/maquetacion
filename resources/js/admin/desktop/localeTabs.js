@@ -8,35 +8,30 @@ export let renderLanguageTabs = () => {
         plusButton.addEventListener("click", () => {
             
             let activeElements = document.querySelectorAll(".active-tabs-locale");
+            let activeTab = plusButton.dataset.tab;
+
+            activeElements.forEach(activeElement => {
+
+                if(activeElement.dataset.tab == activeTab){
+                    activeElement.classList.remove("active-tabs-locale");
+                }
+            });
+
+            plusButton.classList.add("active-tabs-locale");
+
+            tabElements.forEach(tabElement => {
+                if(tabElement.dataset.tab == activeTab){
+                    if(tabElement.dataset.localetab == plusButton.dataset.localetab)
+                        tabElement.classList.add("active-tabs-locale")
+                }
+                    
             
-            if(plusButton.classList.contains("active-tabs-locale")){
-               
-                plusButton.classList.remove("active-tabs-locale");
-    
-                activeElements.forEach(activeElement => {
-                    activeElement.classList.remove("active-tabs-locale");
-                });
-               
-    
-            }else{
-    
-                activeElements.forEach(activeElement => {
-                    activeElement.classList.remove("active-tabs-locale");
-                });
-                
-                plusButton.classList.add("active-tabs-locale");
-    
-                tabElements.forEach(tabElement => {
-    
-                    if(tabElement.dataset.content == plusButton.dataset.button){
-                        tabElement.classList.add("active-tabs-locale"); 
-                    }else{
-                    }
-                });
-    
-            }
+            });
+
         });
-       
+
     });
-    
+
 }
+
+

@@ -2404,23 +2404,18 @@ var renderLanguageTabs = function renderLanguageTabs() {
   plusButtons.forEach(function (plusButton) {
     plusButton.addEventListener("click", function () {
       var activeElements = document.querySelectorAll(".active-tabs-locale");
-
-      if (plusButton.classList.contains("active-tabs-locale")) {
-        plusButton.classList.remove("active-tabs-locale");
-        activeElements.forEach(function (activeElement) {
+      var activeTab = plusButton.dataset.tab;
+      activeElements.forEach(function (activeElement) {
+        if (activeElement.dataset.tab == activeTab) {
           activeElement.classList.remove("active-tabs-locale");
-        });
-      } else {
-        activeElements.forEach(function (activeElement) {
-          activeElement.classList.remove("active-tabs-locale");
-        });
-        plusButton.classList.add("active-tabs-locale");
-        tabElements.forEach(function (tabElement) {
-          if (tabElement.dataset.content == plusButton.dataset.button) {
-            tabElement.classList.add("active-tabs-locale");
-          } else {}
-        });
-      }
+        }
+      });
+      plusButton.classList.add("active-tabs-locale");
+      tabElements.forEach(function (tabElement) {
+        if (tabElement.dataset.tab == activeTab) {
+          if (tabElement.dataset.localetab == plusButton.dataset.localetab) tabElement.classList.add("active-tabs-locale");
+        }
+      });
     });
   });
 };

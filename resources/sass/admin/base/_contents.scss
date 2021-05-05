@@ -1,0 +1,39 @@
+/*Contents*/
+
+img {
+    max-width: 100%;
+}
+
+.one-column{
+
+    .formulario-grupo{
+        width: 100%;
+    }
+}
+
+.two-columns{
+    display: flex;
+    justify-content: space-between;
+
+    .formulario-grupo{
+        width: 47%;
+    }
+}
+
+.three-columns{
+    display: flex;
+    justify-content: space-between;
+
+    .formulario-grupo{
+        width: 32%;
+    }
+}
+
+.four-columns{
+    display: flex;
+    justify-content: space-between;
+
+    .formulario-grupo{
+        width: 23%;
+    }
+}
