@@ -1,8 +1,9 @@
-import {renderCkeditor} from './ckeditor';
-import {swipeRevealItem} from './swipe';
-import {scrollWindowElement} from './verticalScroll'
-import {renderFilterTable} from './filterTable';
-import { showForm } from './bottombarMenu';
+import { orderBy } from 'lodash';
+import {renderTabs} from './tabs';
+import {renderImages} from './images';
+import {renderLanguageTabs} from './localeTabs';
+import {renderCkeditor} from '../../ckeditor';
+import {messages} from './messages';
 
 const table = document.getElementById("table");
 const form = document.getElementById("form");
@@ -13,7 +14,7 @@ export let renderForm = () => {
     let labels = document.querySelectorAll('.label-highlight');
     let inputs = document.querySelectorAll('.input-highlight');
     let sendButton = document.getElementById("guardar-cambios");
-    let createButton = document.querySelectorAll("create-button");
+    let createButton = document.getElementById("create-button");
 
     inputs.forEach(input => {
 
@@ -24,8 +25,8 @@ export let renderForm = () => {
                     labels[i].classList.add("active");
                 }
             }
-        }); 
-        
+        });
+    
         input.addEventListener('blur', () => {
     
             for( var i = 0; i < labels.length; i++ ) {
@@ -39,14 +40,11 @@ export let renderForm = () => {
         event.preventDefault();
     
         forms.forEach(form => { 
-
-
             
             let data = new FormData(form);
 
             if( ckeditors != 'null'){
 
-            // si ckeditor NO está vacio, 
                 Object.entries(ckeditors).forEach(([key, value]) => {
                     data.append(key, value.getData());
                 });
@@ -60,11 +58,13 @@ export let renderForm = () => {
                     await axios.post(url, data).then(response => {
                         form.id.value = response.data.id;
                         table.innerHTML = response.data.table;
+
+                        messages(response.data.message);
                         renderTable();
                     });
                     
                 } catch (error) {
-    
+                        
                     if(error.response.status == '422'){
     
                         let errors = error.response.data.errors;      
@@ -74,8 +74,7 @@ export let renderForm = () => {
                             errorMessage += '<li>' + errors[key] + '</li>';
                         })
         
-                        document.getElementById('error-container').classList.add('active');
-                        document.getElementById('errors').innerHTML = errorMessage;
+                        messages(errorMessage);
                     }
                 }
             };
@@ -84,8 +83,32 @@ export let renderForm = () => {
         });
     });
 
+    createButton.addEventListener("click", () => {
+
+        let url = createButton.dataset.url;
+
+        let createRequest = async () => {
+            
+            try {
+                await axios.get(url).then(response => {
+                    form.innerHTML = response.data.form;
+                    renderForm();
+                });
+                
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        createRequest();
+    });
+
 
     renderCkeditor();
+    renderTabs();
+    renderImages();
+    renderLanguageTabs();
+
 };
 
 
@@ -93,13 +116,11 @@ export let renderTable = () => {
 
     let editButtons = document.querySelectorAll(".boton-editar");
     let deleteButtons = document.querySelectorAll(".borrar-dato");
-    let swipeRevealItemElements = document.querySelectorAll('.swipe-element');
+    let paginateButtons = document.querySelectorAll(".table-pagination-button");
 
     editButtons.forEach(editButton => {
 
         editButton.addEventListener("click", () => {
-
-            
 
             let url = editButton.dataset.url;
 
@@ -121,7 +142,6 @@ export let renderTable = () => {
     });
 
     deleteButtons.forEach(deleteButton => {
-
         deleteButton.addEventListener("click", () => {
 
             let url = deleteButton.dataset.url;
@@ -143,60 +163,30 @@ export let renderTable = () => {
         });
     });
 
-    swipeRevealItemElements.forEach(swipeRevealItemElement => {
+    paginateButtons.forEach(paginateButton => {
 
-        let swipeRevealItemElements = document.querySelectorAll('.swipe-element');
+        paginateButton.addEventListener("click", () => {
 
-        swipeRevealItemElements.forEach(swipeRevealItemElement => {
-    
-            new swipeRevealItem(swipeRevealItemElement);
-    
+            let url = paginateButton.dataset.pagination;
+
+            let paginate = async () => {
+
+                try {
+                    await axios.get(url).then(response => {
+                        table.innerHTML = response.data.table;
+                        renderTable();
+                    });
+                    
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+
+            paginate();
         });
-    
-        new scrollWindowElement(table);
+    }); 
 
-    });
 };
-
-export let editElement = (url) => {
-    
-
-    let sendEditRequest = async () => {
-
-        try {
-            await axios.get(url).then(response => {
-                form.innerHTML = response.data.form;
-                // showForm();
-                renderForm();
-            });
-            
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    sendEditRequest();
-}
-
-export let deleteElement = (url) => {
-
-    let deleteRequest = async () => {
-
-        try {
-            await axios.delete(url).then(response => {
-                table.innerHTML = response.data.table;
-                renderTable();
-            });
-        console.log("Hola");
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
-    deleteRequest();
-}
 
 renderForm();
 renderTable();
-
-

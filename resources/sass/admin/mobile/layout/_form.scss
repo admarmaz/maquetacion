@@ -1,14 +1,18 @@
 .formulario{
-    width: 90%;
+    width: 100%;
     justify-content: right;
-    margin: auto;
     border-radius: 4px;
     background-color: #fff;
 }
 
 .formulario .formulario-titulo{
-    margin-bottom: 10%; 
-    width: 100%; 
+    display: flex;
+    margin: 2em 2em;
+    width: 100%;
+    align-items: center; 
+        #create-button{
+            margin-left: 2em;
+        }
 }
 
 .formulario .formulario-titulo h2{
@@ -26,10 +30,15 @@
 .formulario .formulario-contenedor .formulario-grupo{
     margin-bottom: 1em;
     width: 100%;
+        .form-input{
+            select{
+                height: 2em;
+            }
+        }
 }
 
 .formulario .formulario-contenedor .formulario-grupo .formulario-label{
-    margin-bottom: 0.5em;
+    margin-bottom: 0.7em;
     width: 100%;
 }
 

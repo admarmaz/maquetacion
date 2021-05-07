@@ -1,0 +1,40 @@
+
+.tab-language{
+    display: none;
+    }
+    
+    .tab-language.active-tabs{
+        width: 100%;
+    }
+
+    .tab-language.active-tabs-locale{
+        display: block;
+        max-height: 100vh;
+        width: 100%;
+    } 
+    
+.tab-language-buttons{
+
+    display: flex;
+    margin-right: 2em;
+    
+    .tab-language-button{
+        cursor: pointer;
+        background-color: #c2efe1;
+        padding: 0 1em;
+        margin-bottom: 1em;
+
+    }
+
+    .tab-language-button:hover{
+        background-color:rgb(139, 243, 212)
+    }
+
+    .tab-language-button.active-tabs-locale{
+        background-color: rgb(150, 160, 157);
+    }
+}
+
+.tab-language-buttons .active-tabs-locale{
+    display: block;
+}

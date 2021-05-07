@@ -11,6 +11,22 @@
             }
         }
 
+        .form-label{
+            margin: 0.5em 0.5em;
+        }
+        .form-input{
+            margin: 0.5em 0.5em;
+            overflow: hidden;
+
+            input{
+                height: 2em;
+            }
+
+            select{
+                height: 2em;
+            }
+        }
+
         .table-filter-buttons{
             margin: 0 1em;
         }
@@ -31,3 +47,5 @@
     }
     
 }
+
+

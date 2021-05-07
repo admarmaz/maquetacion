@@ -6,3 +6,5 @@ require('./menu');
 require('./bottombarMenu');
 require('./filterTable');
 require('./verticalScroll');
+require('./tabs');
+require('./localeTabs');

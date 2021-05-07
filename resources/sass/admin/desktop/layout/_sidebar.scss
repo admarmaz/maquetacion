@@ -17,6 +17,7 @@
 }
 
 .dropdown{
+    display: flex;
     text-align: center;
 }
 
@@ -55,4 +56,3 @@ li{
 .dropdown-hidden li:hover{
     color: blueviolet;
 }
-    

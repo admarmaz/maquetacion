@@ -1,0 +1,46 @@
+.tab{
+    
+    display: none;
+
+    .tab-content{
+        max-height: 0;
+        overflow: hidden;
+        
+    }
+}
+
+    .tab.active-tabs{
+        display: block;
+    }
+
+    .tab.active-tabs .tab-content{
+        display: block;
+        max-height: 100vh;
+        overflow: visible;
+        width: 100%;
+
+    } 
+
+
+.tabs-buttons{
+    display: flex;
+    background-color: #c2efe1;
+    margin-bottom: 1em;
+
+    .tab-button{
+        cursor: pointer;
+        padding: 0 1em;
+    }
+
+    .tab-button.active-tabs{
+        background-color: rgb(150, 160, 157);
+    }
+
+    .tab-button:hover{
+        background-color:rgb(139, 243, 212)
+    }
+
+    
+        
+    
+}
