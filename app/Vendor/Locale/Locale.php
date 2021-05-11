@@ -26,6 +26,11 @@ class Locale
         return $this->rel_parent; 
     }
 
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
+
     public function store($locale, $key)
     {
         foreach($locale as $rel_anchor => $value)
@@ -59,6 +64,40 @@ class Locale
     public function show($key)
     {
         return DBLocale::getValues($this->rel_parent, $key)->pluck('value','rel_anchor')->all();   
+    }
+
+    public function delete($key)
+    {
+        if (DBLocale::getValues($this->rel_parent, $key)->count() > 0) {
+
+            DBLocale::getValues($this->rel_parent, $key)->delete();   
+        }
+    }
+    
+    public function languages(){ 
+        return LocaleLanguage::where('active', 1)->get();
+    }
+
+    public function getIdByLanguage($key){ 
+        return DBLocale::getIdByLanguage($this->rel_parent, $this->language, $key)->pluck('value','tag')->all();
+    }
+
+    public function getAllByLanguage(){ 
+
+        $items = DBLocale::getAllByLanguage($this->rel_parent, $this->language)->get()->groupBy('key');
+
+        $items =  $items->map(function ($item) {
+            return $item->pluck('value','tag');
+        });
+
+        return $items;
+    }
+
+    public function updateRelParent($older_parent, $new_parent){
+
+        foreach (languages() as $language){
+            return DBLocale::updateRelParent($older_parent['titulo.'.$language->language], slug_helper($new_parent['titulo.'.$language->language]));
+        }
     }
 
 }

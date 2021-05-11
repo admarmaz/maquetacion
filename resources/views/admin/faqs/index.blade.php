@@ -21,6 +21,7 @@
                         <div class="swipe-front promote-layer">
                             <div class="table-content">
                                 <p><span> Nombre:</span> {{$faq_element->name}} </p>
+                                <p>{{$faq_element->description}}</p>
                             </div>
                         </div>
 

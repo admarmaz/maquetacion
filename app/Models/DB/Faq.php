@@ -2,17 +2,24 @@
 
 namespace App\Models\DB;
 
+use App\Vendor\Locale\Models\Locale;
+use App;
+
 class Faq extends DBModel
 {
 
     protected $table = 't_faqs';
-    protected $with = ['category']; // mediante esta linea, realizamos una llamada a la base de datos para 
-                                    // que aparte de t_faqs, traiga la base de datos faqs category,
-                                    // Se debe revisar que es más óptimo, no siempre sale rentable.
+    protected $with = ['category']; 
 
     public function category()
     {
         return $this->belongsTo(FaqCategory::class);
     }
 
+    public function locale()
+    {
+        return $this->hasMany(Locale::class, 'key')->where('rel_parent', 'faqs')->where('language', App::getLocale());
+    }
+
+    
 }

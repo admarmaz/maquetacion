@@ -82,7 +82,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
-
+Route::post('/fingerprint', 'App\Http\Controllers\Front\FingerprintController@store')->name('front_fingerprint');
 
 Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('faqs_front');
 Route::get('login', 'App\Http\Controllers\Front\LoginController@index')->name('front_login');
