@@ -12,7 +12,7 @@
         @isset($faqs)
 
             <div class="tabla-titulo">
-                <h2>@lang('admin/faqs.parent_section')</h2>
+                <h2>@lang('admin.faqs.faq-create')</h2>
             </div>
 
             <div id="table-container" class="table-elements">
@@ -120,7 +120,6 @@
                     </div>
 
                     @component('admin/components.locale', ['tab' => 'content'])
-
                         @foreach ($localizations as $localization)
 
                             <div class="tab-language {{ $loop->first ? 'active-tabs-locale' :'' }}" data-tab = "content" data-localetab = "{{$localization->alias}}">
@@ -144,35 +143,33 @@
                                 </div>
                             </div>
                         @endforeach
-
                     @endcomponent
 
                 </div>
 
-                <div>
-                    <div class="tab" data-content="images" data-tab = "images">
-                        <div class="tab-content">
+                <div class="tab" data-content="images" data-tab = "images">
+                    <div class="tab-content">
 
-                            @component('admin/components.locale', ['tab' => 'images'])
+                        @component('admin/components.locale', ['tab' => 'images'])
+                            @foreach ($localizations as $localization)
 
-                                @foreach ($localizations as $localization)
-
-                                    <div class="tab-language {{ $loop->first ? 'active-tabs-locale':'' }}" data-tab="images"  data-localetab="{{$localization->alias}}">
-                                        <div class="drop-zone">
-                                            <span class="drop-zone__prompt">Suelta el archivo aqui o haz click para subir</span>
-                                            <input type="file" name="myFile" class="drop-zone__input">
+                                <div class="tab-language {{ $loop->first ? 'active-tabs-locale':'' }}" data-tab="images"  data-localetab="{{$localization->alias}}">
+                                    <div class="drop-zone">
+                                        <div class="form-input">
+                                            @include('admin.components.upload', [
+                                                'type' => 'image', 
+                                                'content' => 'featured', 
+                                                'alias' => $localization->alias,
+                                                'files' => $faq->images_featured
+                                            ])
                                         </div>
                                     </div>
+                                </div>  
+                            @endforeach
+                        @endcomponent
 
-                                @endforeach
-
-                            @endcomponent
-
-                        </div>
                     </div>
-
                 </div>
-
 
                 <div class="formulario-enviar">
                     <a href="" class="boton-guardar">
@@ -185,7 +182,6 @@
                 </div>
 
             </form>    
-           
         </div>
 
     @endif 

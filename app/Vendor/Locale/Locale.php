@@ -56,7 +56,7 @@ class Locale
             
         }
 
-        return $locate;
+        return $locale;
             
 
     }

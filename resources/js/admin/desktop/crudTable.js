@@ -4,6 +4,7 @@ import {renderImages} from './images';
 import {renderLanguageTabs} from './localeTabs';
 import {renderCkeditor} from '../../ckeditor';
 import {messages} from './messages';
+import {renderUpload} from './upload';
 
 const table = document.getElementById("table");
 const form = document.getElementById("form");
@@ -108,6 +109,7 @@ export let renderForm = () => {
     renderTabs();
     renderImages();
     renderLanguageTabs();
+    renderUpload();
 
 };
 
