@@ -134,7 +134,7 @@ class Image
 	}
 
 	public function store_resize($file, $entity_id, $content, $language, $original_path){
-
+		
 		$name = strtolower(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));
 		$file_extension = strtolower(pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION));
 		$settings = ImageConfiguration::where('entity', $this->entity)

@@ -1,3 +1,5 @@
+import { clone, includes } from "lodash";
+
 export let renderUpload = () => {
 
     let inputElements = document.querySelectorAll(".upload-input");
@@ -57,6 +59,12 @@ export let renderUpload = () => {
       
         if (file.type.startsWith("image/")) {
             let reader = new FileReader();
+
+            if (thumbnailElement.style.backgroundImage !== null){
+
+                let clone = document.querySelector('#clone-image').cloneNode( true );
+                document.querySelector('#clone-image').appendChild( clone );
+            }
         
             reader.readAsDataURL(file);
     
@@ -66,5 +74,6 @@ export let renderUpload = () => {
         } else {
             thumbnailElement.style.backgroundImage = null;
         }
+        
     }
 }

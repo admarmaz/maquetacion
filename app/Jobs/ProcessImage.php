@@ -74,6 +74,7 @@ class ProcessImage implements ShouldQueue
         $this->quality = $quality;
         $this->file = $file;
         $this->image_configuration_id = $image_configuration_id;
+        
     }
 
     /**
@@ -83,12 +84,15 @@ class ProcessImage implements ShouldQueue
      */
     public function handle()
     {
+        
         Vips\Config::concurrencySet(1);
         Vips\Config::CacheSetMax(0);
         $this->file = Storage::disk('public')->get($this->file);
 
+        debugbar::info("handle");
         if($this->type == 'single'){
             Storage::disk($this->disk)->deleteDirectory($this->directory);
+            debugbar::info("single");
         }
 
         if($this->file_extension != 'svg'){
@@ -96,15 +100,17 @@ class ProcessImage implements ShouldQueue
             Storage::disk($this->disk)->put($this->path, (string) $buffer);
 
             $path = public_path(Storage::url($this->disk . $this->path));
+           
             $size = filesize($path);
             $data = getimagesize($path);
             $height = $data[1];
-
+            debugbar::info("jpg");
         }else{
             Storage::disk($this->disk)->put($this->path, (string) $this->file);
 
             $path = public_path(Storage::url($this->disk . $this->path));
             $size = filesize($path);
+            debugbar::info("svg");
         }
         
         

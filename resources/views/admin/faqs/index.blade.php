@@ -151,21 +151,31 @@
                     <div class="tab-content">
 
                         @component('admin/components.locale', ['tab' => 'images'])
+
                             @foreach ($localizations as $localization)
 
-                                <div class="tab-language {{ $loop->first ? 'active-tabs-locale':'' }}" data-tab="images"  data-localetab="{{$localization->alias}}">
-                                    <div class="drop-zone">
-                                        <div class="form-input">
-                                            @include('admin.components.upload', [
-                                                'type' => 'image', 
-                                                'content' => 'featured', 
-                                                'alias' => $localization->alias,
-                                                'files' => $faq->images_featured
-                                            ])
-                                        </div>
+                                <div class="tab-language {{ $loop->first ? 'active-tabs-locale':'' }}" data-tab="images"  data-localetab="{{$localization->alias}}">      
+                                    <div class="form-input">
+                                        @include('admin.components.upload', [
+                                            'type' => 'image', 
+                                            'content' => 'featured', 
+                                            'alias' => $localization->alias,
+                                            'files' => $faq->images_featured
+                                        ])
+                                    </div>
+
+                                    <div class="form-input" id="clone-image">
+                                        @include('admin.components.upload', [
+                                            'type' => 'image', 
+                                            'content' => 'featured', 
+                                            'alias' => $localization->alias,
+                                            'files' => $faq->images_featured
+                                        ])
                                     </div>
                                 </div>  
+
                             @endforeach
+
                         @endcomponent
 
                     </div>
