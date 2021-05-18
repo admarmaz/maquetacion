@@ -1,17 +1,19 @@
-@if($type == "image" )
-    <div class="upload">      
+@if($type == "image" )      
         @foreach ($files as $image)
             @if($image->language == $alias)
-                <div class="upload-thumb" data-label="{{$image->filename}}" style="background-image: url({{Storage::url($image->path)}})"></div>
-            @endif
+                <div class="upload-image single {{$image->id}}" data-url="{{route('show_image_seo', ['image' => $image->id])}}">
+
+                    <div class="upload-image-thumb" data-label="{{$image->filename}}" style="background-image: url({{Storage::url($image->path)}})">
+                    </div>
+
+                </div>
+            @endif  
         @endforeach
 
         <div class="upload-image-add single">
-            <span class="upload-prompt">@lang('admin/upload.image')</span>
+            <span class="upload-image-prompt">@lang('admin/upload.image')</span>
             <input class="upload-image-input" type="file" name="images[{{$content}}.{{$alias}}]">
         </div>
-        
-    </div>
 @endif
 
 @if($type == "images")

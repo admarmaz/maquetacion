@@ -151,11 +151,13 @@
                     <div class="tab-content">
 
                         @component('admin/components.locale', ['tab' => 'images'])
-                       
                             
                                     @foreach ($localizations as $localization)
                                         
-                                        <div class="tab-language {{ $loop->first ? 'active-tabs-locale':'' }}" data-tab="images"  data-localetab="{{$localization->alias}}">      
+                                        <div class="tab-language {{ $loop->first ? 'active-tabs-locale':'' }}" data-tab="images"  data-localetab="{{$localization->alias}}">
+                                            <div class="form-label">
+                                                <label for="name" class="label-highlight">Foto destacada</label>
+                                            </div>
                                             <div class="form-input grid-column">
                                                 @include('admin.components.upload_image', [
                                                     'type' => 'image', 
@@ -170,7 +172,7 @@
                                             <div class="form-label">
                                                 <label for="name" class="label-highlight">Galería</label>
                                             </div>
-                                            <div class="form-input">
+                                            <div class="form-input grid-column">
                                                 @include('admin.components.upload_image', [
                                                     'type' => 'images', 
                                                     'content' => 'grid', 
@@ -181,7 +183,6 @@
                                         </div>
                                         
                                     @endforeach
-                              
                             
                         @endcomponent
 
