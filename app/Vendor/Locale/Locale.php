@@ -52,7 +52,7 @@ class Locale
                 'value' => $value,
             ]);
 
-            Debugbar::info($locale);
+            
             
         }
 

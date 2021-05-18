@@ -1890,9 +1890,13 @@ __webpack_require__(/*! ./filterTable */ "./resources/js/admin/desktop/filterTab
 
 __webpack_require__(/*! ./messages */ "./resources/js/admin/desktop/messages.js");
 
-__webpack_require__(/*! ./upload */ "./resources/js/admin/desktop/upload.js");
+__webpack_require__(/*! ./uploadImage */ "./resources/js/admin/desktop/uploadImage.js");
 
 __webpack_require__(/*! ./localeTabs */ "./resources/js/admin/desktop/localeTabs.js");
+
+__webpack_require__(/*! ./modalImage */ "./resources/js/admin/desktop/modalImage.js");
+
+__webpack_require__(/*! ./wait */ "./resources/js/admin/desktop/wait.js");
 
 /***/ }),
 
@@ -1916,7 +1920,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _localeTabs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./localeTabs */ "./resources/js/admin/desktop/localeTabs.js");
 /* harmony import */ var _ckeditor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../ckeditor */ "./resources/js/ckeditor.js");
 /* harmony import */ var _messages__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./messages */ "./resources/js/admin/desktop/messages.js");
-/* harmony import */ var _upload__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./upload */ "./resources/js/admin/desktop/upload.js");
+/* harmony import */ var _uploadImage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./uploadImage */ "./resources/js/admin/desktop/uploadImage.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -1949,6 +1953,7 @@ var renderForm = function renderForm() {
   var inputs = document.querySelectorAll('.input-highlight');
   var sendButton = document.getElementById("guardar-cambios");
   var createButton = document.getElementById("create-button");
+  var storeButton = document.getElementById('store-button');
   inputs.forEach(function (input) {
     input.addEventListener('focusin', function () {
       for (var i = 0; i < labels.length; i++) {
@@ -2069,11 +2074,11 @@ var renderForm = function renderForm() {
 
     createRequest();
   });
-  (0,_ckeditor__WEBPACK_IMPORTED_MODULE_4__.renderCkeditor)();
-  (0,_upload__WEBPACK_IMPORTED_MODULE_6__.renderUpload)();
-  (0,_tabs__WEBPACK_IMPORTED_MODULE_2__.renderTabs)();
-  (0,_localeTabs__WEBPACK_IMPORTED_MODULE_3__.renderLanguageTabs)();
 };
+(0,_ckeditor__WEBPACK_IMPORTED_MODULE_4__.renderCkeditor)();
+(0,_tabs__WEBPACK_IMPORTED_MODULE_2__.renderTabs)();
+(0,_localeTabs__WEBPACK_IMPORTED_MODULE_3__.renderLanguageTabs)();
+(0,_uploadImage__WEBPACK_IMPORTED_MODULE_6__.renderUploadImage)();
 var renderTable = function renderTable() {
   var editButtons = document.querySelectorAll(".boton-editar");
   var deleteButtons = document.querySelectorAll(".borrar-dato");
@@ -2439,6 +2444,129 @@ var messages = function messages(message) {
 
 /***/ }),
 
+/***/ "./resources/js/admin/desktop/modalImage.js":
+/*!**************************************************!*\
+  !*** ./resources/js/admin/desktop/modalImage.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "openImageModal": () => (/* binding */ openImageModal)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wait__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./wait */ "./resources/js/admin/desktop/wait.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var modalImageStoreButton = document.getElementById('modal-image-store-button');
+var modalImageDeleteButton = document.getElementById('modal-image-delete-button');
+var openImageModal = function openImageModal(image) {
+  var modal = document.getElementById('upload-image-modal');
+  var imageContainer = document.getElementById('modal-image-original');
+  var imageId = document.getElementById('modal-image-id');
+  var imageFilename = document.getElementById('modal-image-filename');
+  var imageEntityId = document.getElementById('modal-image-entity-id');
+  var imageLanguage = document.getElementById('modal-image-language');
+  var imageTitle = document.getElementById('modal-image-title');
+  var imageAlt = document.getElementById('modal-image-alt');
+  imageContainer.src = '../storage/' + image.path;
+  imageFilename.value = image.filename;
+  imageEntityId.value = image.entity_id;
+  imageLanguage.value = image.language;
+  imageId.value = image.id;
+  imageTitle.value = image.title;
+  imageAlt.value = image.alt;
+  modal.classList.add('modal-active');
+  (0,_wait__WEBPACK_IMPORTED_MODULE_1__.startOverlay)();
+};
+modalImageStoreButton.addEventListener("click", function (e) {
+  var modal = document.getElementById('upload-image-modal');
+  var imageForm = document.getElementById('image-form');
+  var data = new FormData(imageForm);
+  var url = imageForm.action;
+
+  var sendImagePostRequest = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              try {
+                axios.post(url, data).then(function (response) {
+                  modal.classList.remove('modal-active');
+                  (0,_wait__WEBPACK_IMPORTED_MODULE_1__.stopWait)(); // showMessage('success', response.data.message);
+                });
+              } catch (error) {}
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function sendImagePostRequest() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  sendImagePostRequest();
+});
+modalImageDeleteButton.addEventListener("click", function (e) {
+  var modal = document.getElementById('upload-image-modal');
+  var url = modalImageDeleteButton.dataset.route;
+  var imageId = document.getElementById('modal-image-id').value;
+
+  var sendImageDeleteRequest = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              try {
+                axios.get(url, {
+                  params: {
+                    'image': imageId
+                  }
+                }).then(function (response) {
+                  modal.classList.remove('modal-active');
+                  (0,_wait__WEBPACK_IMPORTED_MODULE_1__.stopWait)(); //showMessage('success', response.data.message);
+
+                  var uploadImages = document.querySelectorAll(".upload-image");
+                  uploadImages.forEach(function (uploadImage) {
+                    if (uploadImage.classList.contains(imageId)) {
+                      uploadImage.remove();
+                    }
+                  });
+                });
+              } catch (error) {}
+
+            case 1:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function sendImageDeleteRequest() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  sendImageDeleteRequest();
+});
+
+/***/ }),
+
 /***/ "./resources/js/admin/desktop/tabs.js":
 /*!********************************************!*\
   !*** ./resources/js/admin/desktop/tabs.js ***!
@@ -2479,25 +2607,45 @@ var renderTabs = function renderTabs() {
 
 /***/ }),
 
-/***/ "./resources/js/admin/desktop/upload.js":
-/*!**********************************************!*\
-  !*** ./resources/js/admin/desktop/upload.js ***!
-  \**********************************************/
+/***/ "./resources/js/admin/desktop/uploadImage.js":
+/*!***************************************************!*\
+  !*** ./resources/js/admin/desktop/uploadImage.js ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "renderUpload": () => (/* binding */ renderUpload)
+/* harmony export */   "renderUploadImage": () => (/* binding */ renderUploadImage)
 /* harmony export */ });
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modalImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modalImage */ "./resources/js/admin/desktop/modalImage.js");
 
-var renderUpload = function renderUpload() {
-  var inputElements = document.querySelectorAll(".upload-input");
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var renderUploadImage = function renderUploadImage() {
+  /** inputElements se trata de todos los inputs, que se almacena. Busca todos los file inputs. */
+  var inputElements = document.querySelectorAll(".upload-image-input");
+  var uploadImages = document.querySelectorAll(".upload-image");
+  /** A input se le dan los eventos de click, drop y change. El eventos change cambia de valor,
+   * este es el elemento que se carga.
+    */
+
   inputElements.forEach(function (inputElement) {
-    var uploadElement = inputElement.closest(".upload");
-    uploadElement.addEventListener("click", function (e) {
+    /** Para evitar que se renderize dos veces los eventos, separamos los eventos. */
+    uploadImage(inputElement);
+  });
+
+  function uploadImage(inputElement) {
+    /** .closest busca al padre */
+    var uploadElement = inputElement.closest(".upload-image-add");
+    uploadElement.addEventListener("click", function (event) {
+      /** Cuando haga click en el padre, sera equivalente a darle click al hijo */
       inputElement.click();
     });
     inputElement.addEventListener("change", function (e) {
@@ -2507,11 +2655,11 @@ var renderUpload = function renderUpload() {
     });
     uploadElement.addEventListener("dragover", function (e) {
       e.preventDefault();
-      uploadElement.classList.add("upload-over");
+      uploadElement.classList.add("upload-image-over");
     });
     ["dragleave", "dragend"].forEach(function (type) {
       uploadElement.addEventListener(type, function (e) {
-        uploadElement.classList.remove("upload-over");
+        uploadElement.classList.remove("upload-image-over");
       });
     });
     uploadElement.addEventListener("drop", function (e) {
@@ -2522,43 +2670,141 @@ var renderUpload = function renderUpload() {
         updateThumbnail(uploadElement, e.dataTransfer.files[0]);
       }
 
-      uploadElement.classList.remove("upload-over");
+      uploadElement.classList.remove("upload-image-over");
     });
-  });
+  }
 
   function updateThumbnail(uploadElement, file) {
-    var thumbnailElement = uploadElement.querySelector(".upload-thumb");
+    var thumbnailElement = uploadElement.querySelector(".upload-image-thumb");
 
-    if (uploadElement.querySelector(".upload-prompt")) {
-      uploadElement.querySelector(".upload-prompt").remove();
+    if (uploadElement.classList.contains('collection')) {
+      if (thumbnailElement == null) {
+        var cloneUploadElement = uploadElement.cloneNode(true);
+        var cloneInput = cloneUploadElement.querySelector('.upload-image-input');
+        uploadImage(cloneInput);
+        uploadElement.parentElement.appendChild(cloneUploadElement);
+      }
+    }
+
+    if (uploadElement.querySelector(".upload-image-prompt")) {
+      uploadElement.querySelector(".upload-image-prompt").remove();
     }
 
     if (!thumbnailElement) {
       thumbnailElement = document.createElement("div");
-      thumbnailElement.classList.add("upload-thumb");
+      thumbnailElement.classList.add("upload-image-thumb");
       uploadElement.appendChild(thumbnailElement);
     }
 
-    thumbnailElement.dataset.label = file.name;
-
     if (file.type.startsWith("image/")) {
+      /** FileReader es un objeto nativo del navegador. En este caso, se encarga de tratar/manipular
+       * el value de un file input o tratar archivos. 
+       */
       var reader = new FileReader();
-
-      if (reader !== null) {
-        var _clone = document.querySelector('#clone-image').cloneNode(true);
-
-        document.querySelector('#clone-image').appendChild(_clone);
-      }
+      /** Le metemos al reader el archivo de la imagen, para después metérselo al thumbnailElement.
+       * A un input file NO LE PUEDES DAR UN VALUE ya que puede ser un agujero de seguridad. 
+       * Los inputs file son entradas para ataques.
+       */
 
       reader.readAsDataURL(file);
 
       reader.onload = function () {
         thumbnailElement.style.backgroundImage = "url('".concat(reader.result, "')");
       };
+      /** Una vez insertada la foto, debemos generar un name para esa foto. Cuando se clicka, se clona
+       * un input file, que va sin nombre. Esto es asi, porque cuando generamos el input, cada uno tiene que tener un nombre
+       * diferente, ya que sino, se pisarian unos con otros.
+       */
+
+
+      if (uploadElement.classList.contains('collection')) {
+        /** */
+        var content = uploadElement.dataset.content;
+        var alias = uploadElement.dataset.alias;
+        var inputElement = uploadElement.getElementsByClassName("upload-image-input")[0];
+        /** Damos un nombre aleatorio a la imágen para distinguirla de las demás y evitar solapamiento. */
+
+        inputElement.name = "images[" + content + "-" + Math.floor(Math.random() * 99999 + 1) + "." + alias + "]";
+      }
     } else {
       thumbnailElement.style.backgroundImage = null;
     }
   }
+
+  uploadImages.forEach(function (uploadImage) {
+    uploadImage.addEventListener("click", function (e) {
+      var url = uploadImage.dataset.url;
+
+      var sendImageRequest = /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  try {
+                    axios.get(url).then(function (response) {
+                      (0,_modalImage__WEBPACK_IMPORTED_MODULE_1__.openImageModal)(response.data);
+                    });
+                  } catch (error) {}
+
+                case 1:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+
+        return function sendImageRequest() {
+          return _ref.apply(this, arguments);
+        };
+      }();
+
+      sendImageRequest();
+    });
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/admin/desktop/wait.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/desktop/wait.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "startWait": () => (/* binding */ startWait),
+/* harmony export */   "stopWait": () => (/* binding */ stopWait),
+/* harmony export */   "startOverlay": () => (/* binding */ startOverlay),
+/* harmony export */   "stopOverlay": () => (/* binding */ stopOverlay)
+/* harmony export */ });
+var spinner = document.getElementById('spinner');
+var overlay = document.getElementById('overlay');
+var startWait = function startWait() {
+  spinner.classList.add('spinner-active');
+  overlay.classList.add('overlay-active');
+};
+var stopWait = function stopWait() {
+  spinner.classList.remove('spinner-active');
+  overlay.classList.remove('overlay-active');
+};
+var startOverlay = function startOverlay() {
+  overlay.classList.add('overlay-active');
+  overlay.addEventListener("click", function (e) {
+    var modals = document.querySelectorAll('.modal');
+    modals.forEach(function (modal) {
+      if (modal.classList.contains('modal-active')) {
+        modal.classList.remove('modal-active');
+      }
+    });
+    overlay.classList.remove('overlay-active');
+  });
+};
+var stopOverlay = function stopOverlay() {
+  overlay.classList.remove('overlay-active');
 };
 
 /***/ }),

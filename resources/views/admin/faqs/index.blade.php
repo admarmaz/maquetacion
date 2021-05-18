@@ -151,31 +151,38 @@
                     <div class="tab-content">
 
                         @component('admin/components.locale', ['tab' => 'images'])
+                       
+                            
+                                    @foreach ($localizations as $localization)
+                                        
+                                        <div class="tab-language {{ $loop->first ? 'active-tabs-locale':'' }}" data-tab="images"  data-localetab="{{$localization->alias}}">      
+                                            <div class="form-input grid-column">
+                                                @include('admin.components.upload_image', [
+                                                    'type' => 'image', 
+                                                    'content' => 'featured', 
+                                                    'alias' => $localization->alias,
+                                                    'files' => $faq->images_featured
+                                                ])
+                                            </div>
+                                        </div> 
 
-                            @foreach ($localizations as $localization)
-
-                                <div class="tab-language {{ $loop->first ? 'active-tabs-locale':'' }}" data-tab="images"  data-localetab="{{$localization->alias}}">      
-                                    <div class="form-input">
-                                        @include('admin.components.upload', [
-                                            'type' => 'image', 
-                                            'content' => 'featured', 
-                                            'alias' => $localization->alias,
-                                            'files' => $faq->images_featured
-                                        ])
-                                    </div>
-
-                                    <div class="form-input" id="clone-image">
-                                        @include('admin.components.upload', [
-                                            'type' => 'image', 
-                                            'content' => 'featured', 
-                                            'alias' => $localization->alias,
-                                            'files' => $faq->images_featured
-                                        ])
-                                    </div>
-                                </div>  
-
-                            @endforeach
-
+                                        <div class="form-group">
+                                            <div class="form-label">
+                                                <label for="name" class="label-highlight">Galería</label>
+                                            </div>
+                                            <div class="form-input">
+                                                @include('admin.components.upload_image', [
+                                                    'type' => 'images', 
+                                                    'content' => 'grid', 
+                                                    'alias' => $localization->alias,
+                                                    'files' => $faq->images_grid_preview
+                                                ])
+                                            </div>
+                                        </div>
+                                        
+                                    @endforeach
+                              
+                            
                         @endcomponent
 
                     </div>

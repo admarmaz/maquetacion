@@ -5,5 +5,7 @@ require('./menu');
 require('./tabs');
 require('./filterTable');
 require('./messages');
-require('./upload');
+require('./uploadImage');
 require('./localeTabs');
+require('./modalImage');
+require('./wait');

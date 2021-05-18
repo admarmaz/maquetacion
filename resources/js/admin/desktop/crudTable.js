@@ -3,7 +3,7 @@ import {renderTabs} from './tabs';
 import {renderLanguageTabs} from './localeTabs';
 import {renderCkeditor} from '../../ckeditor';
 import {messages} from './messages';
-import {renderUpload} from './upload';
+import {renderUploadImage} from './uploadImage';
 
 
 const table = document.getElementById("table");
@@ -16,6 +16,7 @@ export let renderForm = () => {
     let inputs = document.querySelectorAll('.input-highlight');
     let sendButton = document.getElementById("guardar-cambios");
     let createButton = document.getElementById("create-button");
+    let storeButton = document.getElementById('store-button');
 
     inputs.forEach(input => {
 
@@ -104,13 +105,14 @@ export let renderForm = () => {
         createRequest();
     });
 
+    
+};
+
 
     renderCkeditor();
-    renderUpload();
     renderTabs();
     renderLanguageTabs();
-
-};
+    renderUploadImage();
 
 
 export let renderTable = () => {

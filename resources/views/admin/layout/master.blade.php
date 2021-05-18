@@ -14,7 +14,12 @@
 
     <body>
 
+        @include('admin.components.wait')
+        @include('admin.components.modal_image')
+        @include('admin.components.modal_delete')
         @include('admin.layout.partials.sidebar')
+
+
 
         @if(isset($filters))
                 @include('admin.components.table_filters', [

@@ -886,3 +886,117 @@ li {
   font-size: 14px;
   text-align: center;
 }
+
+.tab .tab-content .grid-image {
+  display: grid;
+}
+
+.tab .tab-content #clone-image {
+  grid-row: 1;
+}
+
+.modal-delete {
+  background-color: white;
+  transform: translateY(-200%);
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: -10%;
+  transition: transform 0.5s;
+  width: 40%;
+  z-index: 3000;
+}
+.modal-delete.open {
+  top: 30%;
+  transform: translateY(0);
+}
+.modal-delete .modal-delete-header {
+  background-color: grey;
+  border-bottom: 1px solid #e9ecef;
+  padding: 0.5em 1em;
+  text-align: center;
+}
+.modal-delete .modal-delete-header h4 {
+  font-size: 1.2em;
+  margin: 0;
+}
+.modal-delete .modal-delete-footer {
+  display: flex;
+}
+.modal-delete .modal-delete-footer .modal-delete-option {
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+  width: 50%;
+}
+.modal-delete .modal-delete-footer .modal-delete-option#delete-cancel {
+  background-color: #02a8b1;
+}
+.modal-delete .modal-delete-footer .modal-delete-option#delete-confirm {
+  background-color: #d74242;
+}
+
+#upload-image-modal {
+  background-color: white;
+  display: flex;
+  height: 80vh;
+  justify-content: space-between;
+  left: 10%;
+  padding: 1em;
+  position: fixed;
+  top: -100vh;
+  transition: top 0.3s;
+  width: 80%;
+  z-index: 3000;
+}
+
+#upload-image-modal.modal-active {
+  top: 10vh;
+  transition: top 0.3s;
+}
+
+.modal-image {
+  padding: 1em;
+  width: 65%;
+}
+
+#modal-image-original {
+  height: 100%;
+  width: 100%;
+}
+
+.modal-image-attributes {
+  padding: 1em;
+  width: 30%;
+}
+
+.modal-image-store-button {
+  cursor: pointer;
+}
+.modal-image-store-button:hover .store-button-icon {
+  fill: #ff5100;
+}
+.modal-image-store-button svg {
+  float: right;
+  height: 2.4em;
+  width: 2.4em;
+}
+.modal-image-store-button svg .store-button-icon {
+  fill: gray;
+}
+
+.modal-image-delete-button {
+  bottom: 1em;
+  cursor: pointer;
+  position: absolute;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.modal-image-delete-button p {
+  color: red;
+  text-decoration: underline;
+}
