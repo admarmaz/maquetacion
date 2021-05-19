@@ -465,8 +465,8 @@ td {
 }
 
 svg {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
 }
 
 .global-container {
@@ -576,6 +576,21 @@ label {
   background-color: #fff;
 }
 
+.form-input {
+  margin-bottom: 1em;
+}
+
+.option-buttons {
+  display: flex;
+}
+.option-buttons .formulario-enviar {
+  margin-right: 1em;
+}
+
+.form-label {
+  margin-bottom: 1em;
+}
+
 .formulario .formulario-enviar .boton-guardar button {
   cursor: pointer;
 }
@@ -656,6 +671,7 @@ select {
 
 .dropdown .show {
   display: flex;
+  margin-left: 2em;
 }
 
 .dropdown-show {
@@ -822,7 +838,7 @@ li {
 .upload-image,
 .upload-image-add {
   align-items: center;
-  border: 0.2em dashed #02a8b1;
+  border: 0.15em dashed #02a8b1;
   color: #cccccc;
   cursor: pointer;
   display: flex;
@@ -832,10 +848,7 @@ li {
   justify-content: center;
   padding: 0.5em;
   text-align: center;
-}
-
-.upload-image-add.single {
-  border: none;
+  margin-bottom: 2em;
 }
 
 .upload-image-collection {
@@ -1022,4 +1035,92 @@ li {
 .modal-image-delete-button p {
   color: red;
   text-decoration: underline;
+}
+
+.overlay {
+  background-color: #000000;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+}
+.overlay.overlay-active {
+  cursor: pointer;
+  display: block;
+  opacity: 0.5;
+}
+
+.spinner {
+  display: none;
+}
+.spinner.spinner-active {
+  display: block;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  right: 0;
+  position: fixed;
+  top: 45vh;
+  width: 5%;
+  z-index: 3001;
+}
+.spinner.spinner-active svg {
+  -webkit-animation: rotator 1.4s linear infinite;
+          animation: rotator 1.4s linear infinite;
+  height: 4em;
+  width: 4em;
+}
+.spinner.spinner-active svg .path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+          animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@-webkit-keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
 }

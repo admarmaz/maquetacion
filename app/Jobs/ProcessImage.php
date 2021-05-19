@@ -92,7 +92,7 @@ class ProcessImage implements ShouldQueue
         debugbar::info("handle");
         if($this->type == 'single'){
             Storage::disk($this->disk)->deleteDirectory($this->directory);
-            debugbar::info("single");
+            
         }
 
         if($this->file_extension != 'svg'){
@@ -104,13 +104,13 @@ class ProcessImage implements ShouldQueue
             $size = filesize($path);
             $data = getimagesize($path);
             $height = $data[1];
-            debugbar::info("jpg");
+            
         }else{
             Storage::disk($this->disk)->put($this->path, (string) $this->file);
 
             $path = public_path(Storage::url($this->disk . $this->path));
             $size = filesize($path);
-            debugbar::info("svg");
+            
         }
         
         

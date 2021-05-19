@@ -7,6 +7,22 @@
     background-color: #fff;
 }
 
+.form-input{
+    margin-bottom: 1em;
+}
+
+.option-buttons{
+    display: flex;
+
+    .formulario-enviar{
+        margin-right: 1em;
+    }
+}
+
+.form-label{
+    margin-bottom: 1em;
+}
+
 .formulario .formulario-enviar{
     .boton-guardar button{
        cursor: pointer;
@@ -20,10 +36,9 @@
     display: flex;
     justify-content: space-between;
 
-        #create-button:hover{
-            cursor: pointer;
-        }
-
+    #create-button:hover{
+        cursor: pointer;
+    }
 }
 
 .formulario .formulario-titulo h2{

@@ -2014,7 +2014,7 @@ var renderForm = function renderForm() {
   var forms = document.querySelectorAll(".admin-formulario");
   var labels = document.querySelectorAll('.label-highlight');
   var inputs = document.querySelectorAll('.input-highlight');
-  var sendButton = document.getElementById("guardar-cambios");
+  var sendButton = document.getElementById(".guardar-cambios");
   var createButton = document.getElementById("create-button");
   inputs.forEach(function (input) {
     input.addEventListener('focusin', function () {

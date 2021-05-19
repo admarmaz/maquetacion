@@ -13,7 +13,7 @@ export let renderForm = () => {
     let forms = document.querySelectorAll(".admin-formulario");
     let labels = document.querySelectorAll('.label-highlight');
     let inputs = document.querySelectorAll('.input-highlight');
-    let sendButton = document.getElementById("guardar-cambios");
+    let sendButton = document.getElementById(".guardar-cambios");
     let createButton = document.getElementById("create-button");
 
     inputs.forEach(input => {

@@ -17,7 +17,6 @@
 @endif
 
 @if($type == "images")
-
     <div class="upload-image-collection">      
 
         @foreach ($files as $image)
