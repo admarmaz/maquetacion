@@ -14,9 +14,12 @@ export let openModal = () => {
 
 export let openImageModal = (image) => {
 
+    console.log(image)
+
     let modal = document.getElementById('upload-image-modal');
     let imageContainer = document.getElementById('modal-image-original');
     let imageForm = document.getElementById('image-form');
+    
 
     if(image.path){
         imageContainer.src = '../storage/' + image.path;
@@ -43,8 +46,25 @@ export let openImageModal = (image) => {
 export let updateImageModal = (image) => {
 
     let imageContainer = document.getElementById('modal-image-original');
+    imageContainer.src = image.dataset.image;
+    console.log(imageContainer);
 
-    imageContainer.src = image;
+    let imageForm = document.getElementById('image-form');
+    imageForm.reset();
+
+    for (var [key, val] of Object.entries(image.dataset)) {
+
+        let input = imageForm.elements[key];
+
+        if(input){
+
+            switch(input.type) {
+                case 'checkbox': input.checked = !!val; break;
+                default:         input.value = val;     break;
+            }
+        }
+    }
+    
 }
 
 modalImageStoreButton .addEventListener("click", (e) => {

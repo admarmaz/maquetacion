@@ -129,7 +129,7 @@ export let renderUploadImage = () => {
                     axios.get(url).then(response => {
     
                         openImageModal(response.data);
-                        
+                                                
                     });
                     
                 } catch (error) {
@@ -139,8 +139,8 @@ export let renderUploadImage = () => {
     
             sendImageRequest();
 
-        }else{            
-
+        }else{   
+            updateImageModal(image);
             openModal();
         }
     }

@@ -9,3 +9,4 @@ require('./uploadImage');
 require('./localeTabs');
 require('./modalImage');
 require('./wait');
+require('./pagination');
