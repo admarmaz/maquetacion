@@ -1,7 +1,7 @@
 
 .faqs{
 
-    width: 70%;
+    width: 80%;
 
     .faq{
 
@@ -12,7 +12,7 @@
             background-color: #7DCEA0;
             display: flex;
             justify-content: space-between;
-            padding: 0.5em;
+            padding: 0 1em;
     
             .faq-title h2{
                 color: hsl(0, 0%, 0%);
@@ -42,7 +42,7 @@
         
     
         .faq-description{
-            
+
             background-color: #9CCFB3;
             max-height: 0;
             overflow: hidden;
@@ -61,3 +61,6 @@
     
 }
 
+.faqs .faq-active .faq-description .desktop-featured{
+    display: flex;
+}

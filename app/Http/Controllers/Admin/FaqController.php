@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use JamesDordoy\LaravelVueDatatable\Http\Resources\DataTableCollectionResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
@@ -10,37 +9,55 @@ use App\Http\Controllers\Controller;
 use Jenssegers\Agent\Agent;
 use App\Http\Requests\Admin\FaqRequest;
 use App\Vendor\Locale\Locale;
+use App\Vendor\Locale\LocaleSlugSeo;
 use App\Vendor\Image\Image;
-use App\Models\DB\Faq;
+use App\Models\DB\Faq; 
 use Debugbar;
 
 class FaqController extends Controller
 {
-    protected $faq;
+    protected $agent;
     protected $locale;
+    protected $locale_slug_seo;
     protected $image;
+    protected $paginate;
+    protected $faq;
 
-    function __construct(Faq $faq, Agent $agent, Locale $locale, Image $image)
+    function __construct(Faq $faq, Agent $agent, Locale $locale, LocaleSlugSeo $locale_slug_seo, Image $image)
     {
-        $this->faq = $faq;
+        
         $this->agent = $agent;
-        $this->image = $image;
         $this->locale = $locale;
+        $this->locale_slug_seo = $locale_slug_seo;
+        $this->image = $image;
+        $this->faq = $faq;
+        $this->faq->visible = 1;
+
+        if ($this->agent->isMobile()) {
+            $this->paginate = 10;
+        }
+
+        if ($this->agent->isDesktop()) {
+            $this->paginate = 6;
+        }
 
         $this->locale->setParent('faqs');
+        $this->locale_slug_seo->setParent('faqs');
         $this->image->setEntity('faqs');
     }
 
     public function index()
     {
-
         $view = View::make('admin.faqs.index')
-                ->with('faq', $this->faq)
-                ->with('faqs', $this->faq->where('active', 1)->paginate(4));
-
+        ->with('faq', $this->faq)
+        ->with('faqs', $this->faq->where('active', 1)
+        ->orderBy('created_at', 'desc')
+        ->paginate($this->paginate));
+    
         if(request()->ajax()) {
+            
             $sections = $view->renderSections(); 
-
+    
             return response()->json([
                 'table' => $sections['table'],
                 'form' => $sections['form'],
@@ -52,7 +69,6 @@ class FaqController extends Controller
 
     public function create()
     {
-
         $view = View::make('admin.faqs.index')
         ->with('faq', $this->faq)
         ->renderSections();
@@ -64,60 +80,62 @@ class FaqController extends Controller
 
     public function store(FaqRequest $request)
     {            
-
+                
         $faq = $this->faq->updateOrCreate([
-            'id' => request('id')],[    
+            'id' => request('id')],[
             'name' => request('name'),
-            'category_id' => request('category_id'),
             'active' => 1,
+            'visible' => request('visible') == "true" ? 1 : 0 ,
+            'category_id' => request('category_id'),
         ]);
 
-        
+        if(request('seo')){
+            $seo = $this->locale_slug_seo->store(request("seo"), $faq->id, 'front_faq');
+        }
 
         if(request('locale')){
             $locale = $this->locale->store(request('locale'), $faq->id);
         }
 
-         Debugbar::info(request('images'));
         if(request('images')){
-            $images = $this->image->storeRequest(request('images'), 'webp', $faq->id);
+            $images = $this->image->store(request('images'), $faq->id);
         }
 
         if (request('id')){
             $message = \Lang::get('admin/faqs.faq-update');
-        }
-        else{
+        }else{
             $message = \Lang::get('admin/faqs.faq-create');
         }
 
         $view = View::make('admin.faqs.index')
-        ->with('faqs', $this->faq->where('active', 1)->paginate(4))
-        ->with('faq', $faq)
+        ->with('faqs', $this->faq->where('active', 1)->orderBy('created_at', 'desc')->paginate($this->paginate))
+        ->with('faq', $this->faq)
         ->renderSections();        
 
         return response()->json([
             'table' => $view['table'],
             'form' => $view['form'],
-            'id' => $faq->id,
             'message' => $message,
         ]);
-
     }
 
-    public function show(Faq $faq)
+    public function edit(Faq $faq)
     {
         $locale = $this->locale->show($faq->id);
+        $seo = $this->locale_slug_seo->show($faq->id);
 
         $view = View::make('admin.faqs.index')
         ->with('locale', $locale)
+        ->with('seo', $seo)
         ->with('faq', $faq)
-        ->with('faqs', $this->faq->where('active', 1)->paginate(4));   
+        ->with('faqs', $this->faq->where('active', 1)->orderBy('created_at', 'desc')->paginate($this->paginate));        
         
         if(request()->ajax()) {
 
             $sections = $view->renderSections(); 
     
             return response()->json([
+                'table' => $sections['table'],
                 'form' => $sections['form'],
             ]); 
         }
@@ -125,19 +143,35 @@ class FaqController extends Controller
         return $view;
     }
 
+    public function show(Faq $faq){
+
+        $view = View::make('admin.faqs.index')
+        ->with('faq', $faq)
+        ->with('faqs', $this->faq->where('active', 1)->orderBy('created_at', 'desc')->paginate($this->paginate))
+        ->renderSections();        
+
+        return response()->json([
+            'table' => $view['table'],
+            'form' => $view['form'],
+        ]);
+    }
+
     public function destroy(Faq $faq)
     {
         $faq->active = 0;
         $faq->save();
 
+        $message = \Lang::get('admin/faqs.faq-delete');
+
         $view = View::make('admin.faqs.index')
-            ->with('faq', $this->faq)
-            ->with('faqs', $this->faq->where('active', 1)->paginate(4))
-            ->renderSections();
-        
+        ->with('faq', $this->faq)
+        ->with('faqs', $this->faq->where('active', 1)->orderBy('created_at', 'desc')->paginate($this->paginate))
+        ->renderSections();        
+
         return response()->json([
             'table' => $view['table'],
-            'form' => $view['form']
+            'form' => $view['form'],
+            'message' => $message
         ]);
     }
 
@@ -165,7 +199,7 @@ class FaqController extends Controller
                     return $q;
                 }
                 else {
-                    return $q->where('title', 'like', "%$search%");
+                    return $q->where('t_faqs.name', 'like', "%$search%");
                 }   
             });
     
@@ -175,7 +209,7 @@ class FaqController extends Controller
                     return $q;
                 }
                 else {
-                    $q->whereDate('created_at', '>=', $created_at_from);
+                    $q->whereDate('t_faqs.created_at', '>=', $created_at_from);
                 }   
             });
     
@@ -185,7 +219,7 @@ class FaqController extends Controller
                     return $q;
                 }
                 else {
-                    $q->whereDate('created_at', '<=', $created_at_since);
+                    $q->whereDate('t_faqs.created_at', '<=', $created_at_since);
                 }   
             });
     
@@ -194,20 +228,11 @@ class FaqController extends Controller
                 $q->orderBy($order, $filters->direction);
             });
         }
-       
-        if($this->agent->isMobile()){
-            $faqs = $query->where('active', 1)
-                    ->orderBy('created_at', 'desc')
-                    ->paginate(10)
-                    ->appends(['filters' => json_encode($filters)]);  
-        }
-
-        if($this->agent->isDesktop()){
-            $faqs = $query->where('active', 1)
-                    ->orderBy('created_at', 'desc')
-                    ->paginate(6)
-                    ->appends(['filters' => json_encode($filters)]);   
-        }
+    
+        $faqs = $query->where('t_faqs.active', 1)
+                ->orderBy('t_faqs.created_at', 'desc')
+                ->paginate($this->paginate)
+                ->appends(['filters' => json_encode($filters)]);   
 
         $view = View::make('admin.faqs.index')
             ->with('faqs', $faqs)
@@ -217,5 +242,4 @@ class FaqController extends Controller
             'table' => $view['table'],
         ]);
     }
-
 }

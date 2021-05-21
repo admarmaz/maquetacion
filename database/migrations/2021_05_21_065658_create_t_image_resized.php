@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTImageResized extends Migration
 {
@@ -17,19 +17,22 @@ class CreateTImageResized extends Migration
             $table->increments('id');
             $table->string('title', 255)->nullable(true);
             $table->text('alt')->nullable(true);
-            $table->string('path', 255);
-            $table->string('entity',64);
-            $table->integer('entity_id')->unsigned()->index();
-            $table->string('language',64);
-            $table->string('filename',255);
-            $table->string('content',64);
-            $table->string('mime_type',64);
+            $table->string('path', 255)->nullable(true);
+            $table->string('entity',64)->nullable(true);
+            $table->integer('entity_id')->unsigned()->index()->nullable(true);
+            $table->string('language',64)->nullable(true);
+            $table->string('filename',255)->nullable(true);
+            $table->string('content',64)->nullable(true);
+            $table->string('mime_type',64)->nullable(true);
             $table->string('grid',11)->nullable(true);
             $table->integer('size')->nullable(true);
             $table->smallInteger('width')->nullable(true);
             $table->smallInteger('height')->nullable(true);
             $table->integer('quality')->nullable(true);
-            $table->integer('image_configuration_id')->unsigned()->index()->nullable();
+            $table->integer('runtime')->nullable(true);
+            $table->integer('image_original_id')->unsigned()->nullable(true);
+            $table->integer('temporal_id')->unsigned()->index()->nullable(true);
+            $table->integer('image_configuration_id')->unsigned()->nullable(true);
             $table->timestamps();
         });
     }
@@ -41,6 +44,6 @@ class CreateTImageResized extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_image');
+        Schema::dropIfExists('t_image_resized');
     }
 }

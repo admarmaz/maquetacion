@@ -14,9 +14,11 @@ class CreateTFaqs extends Migration
     public function up()
     {
         Schema::create('t_faqs', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->integer('category_id');
+            $table->increments('id');
+            $table->string('name', 255);
+            $table->unsignedInteger('category_id');
+            $table->integer('order')->default(0);
+            $table->boolean('visible');
             $table->boolean('active');
             $table->timestamps();
         });
@@ -32,4 +34,3 @@ class CreateTFaqs extends Migration
         Schema::dropIfExists('t_faqs');
     }
 }
-

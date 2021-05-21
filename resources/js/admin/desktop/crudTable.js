@@ -6,6 +6,7 @@ import {messages} from './messages';
 import {renderUploadImage} from './uploadImage';
 
 
+
 const table = document.getElementById("table");
 const form = document.getElementById("form");
 
@@ -90,15 +91,18 @@ export let renderForm = () => {
         let url = createButton.dataset.url;
 
         let createRequest = async () => {
+
             
             try {
                 await axios.get(url).then(response => {
                     form.innerHTML = response.data.form;
                     renderForm();
+                    
                 });
                 
             } catch (error) {
                 console.error(error);
+                
             }
         };
 
@@ -189,6 +193,7 @@ export let renderTable = () => {
         });
     }); 
 
+    
 };
 
 renderForm();

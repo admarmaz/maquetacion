@@ -23,14 +23,27 @@
                 </div>
 
                 <div class="faq-description">
-                    <p>{!!isset($faq->locale['description']) ? $faq->locale['description'] : "" !!}</p>
-                
-                    @isset($faq->image_featured_desktop->path)
-                        <div class="faq-description-image">
-                            <img src="{{Storage::url($faq->image_featured_desktop->path)}}" alt="{{$faq->image_featured_desktop->alt}}" title="{{$faq->image_featured_desktop->title}}" />
-                        </div>
-                    @endif
-                
+                    <div class="desktop-featured">
+                        @isset($faq->image_featured_desktop->path)
+                            <div class="faq-description-image">
+                                <img src="{{Storage::url($faq->image_featured_desktop->path)}}" alt="{{$faq->image_featured_desktop->alt}}" title="{{$faq->image_featured_desktop->title}}" />
+                            </div>
+                        @endif
+
+                        <p>{!!isset($faq->locale['description']) ? $faq->locale['description'] : "" !!}</p>
+
+                    </div>
+                    
+                    <div class="desktop-gallery">
+                        <p> Galeria </p>
+                        @isset($faq->image_grid_desktop)
+                            @foreach($faq->image_grid_desktop as $faq->image_grid_desktop)
+                                <div class="faq-description-image">
+                                    <img src="{{Storage::url($faq->image_grid_desktop->path)}}" alt="{{$faq->image_grid_desktop->alt}}" title="{{$faq->image_grid_desktop->title}}" />
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
                 </div>
                 
             </div>
