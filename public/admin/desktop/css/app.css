@@ -639,7 +639,6 @@ select {
 }
 
 .sidebar {
-  justify-content: center;
   font-weight: bold;
   font-size: 1.2em;
   background-color: aquamarine;
@@ -655,9 +654,12 @@ select {
   transition: 1s;
 }
 
-.dropdown {
+.dropdown-show {
   display: flex;
-  padding: 1em 2em;
+  padding: 0.5em 2em;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
 }
 
 .dropdown .dropdown-title {
@@ -672,11 +674,6 @@ select {
 .dropdown .show {
   display: flex;
   margin-left: 2em;
-}
-
-.dropdown-show {
-  cursor: pointer;
-  justify-content: center;
 }
 
 ul {
@@ -763,6 +760,7 @@ li {
 .table-filter .table-filter-container {
   max-height: 0;
   overflow: hidden;
+  justify-content: center;
 }
 .table-filter .table-filter-buttons .table-filter-button {
   display: none;

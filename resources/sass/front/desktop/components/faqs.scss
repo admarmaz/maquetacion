@@ -9,10 +9,11 @@
     
         .faq-header{
     
-            background-color: #7DCEA0;
+            background-color: #ffffff;
             display: flex;
             justify-content: space-between;
             padding: 0 1em;
+            align-items: center;
     
             .faq-title h2{
                 color: hsl(0, 0%, 0%);
@@ -24,26 +25,22 @@
                 color: azure;
             }
             
-            .faq-button svg{
-                height: 2.5em;
-                width: 2.5em;
+            .faq-icon svg{
+                height: 2em;
+                width: 2em;
             }
     
-            .faq-button:hover svg{
-                cursor: pointer;
-                fill:rgb(146, 24, 126);
-            }
         }
 
         .faq-header:hover {
-            background-color: blue;
+            color: greenyellow;
+            cursor: pointer;
         }
 
         
     
         .faq-description{
 
-            background-color: #9CCFB3;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s;
@@ -55,9 +52,30 @@
         }
         
     }
-    .faq.active .faq-description{
-        max-height: 100vh;
+
+
+    .faq.active{
+        .faq-description{
+            max-height: 100vh;
+            padding: 1em 1em;
+            
+            .desktop-featured{
+                display: flex;
+            }
+
+            .desktop-gallery{
+                display: grid;
+                grid-template-columns: repeat(3, 0.1fr);
+                margin: 2em;
+
+
+                .faq-description-image{
+                    margin: 0 0.5em;
+                }
+            }
+        }
     }
+
     
 }
 

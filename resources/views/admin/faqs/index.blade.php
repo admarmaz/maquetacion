@@ -173,8 +173,8 @@
                                     </div>
                                     <div class="form-input grid-column">
                                         @include('admin.components.upload_image', [
-                                            'entity' => 'faqs',
                                             'type' => 'single', 
+                                            'entity' => 'faqs',
                                             'content' => 'featured', 
                                             'alias' => $localization->alias,
                                             'files' => $faq->images_featured_preview
@@ -188,8 +188,8 @@
                                         </div>
                                         <div class="form-input grid-column">
                                             @include('admin.components.upload_image', [
-                                                'entity' => 'faqs',
-                                                'type' => 'collection', 
+                                                'type' => 'collection',
+                                                'entity' => 'faqs', 
                                                 'content' => 'grid', 
                                                 'alias' => $localization->alias,
                                                 'files' => $faq->images_grid_preview
