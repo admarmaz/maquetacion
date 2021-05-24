@@ -24,7 +24,6 @@
                 <li class="menu-item" data-url="{{route("users")}}"> Usuarios </li>
                 <li class="menu-item" data-url="{{route("customers")}}"> Clientes </li>
                 <li class="menu-item" data-url="{{route("sliders")}}"> Sliders </li>
-                <li class="menu-item" data-url="{{route("translations")}}"> Traducciones </li>
                 
             </ul>
             

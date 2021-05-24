@@ -82,8 +82,8 @@ class LocaleTagController extends Controller
         }
         
         $view = View::make('admin.tags.index')
-        ->with('tags', $tags)
-        ->with('tag', $tag);
+        ->with('locale_tags', $tags)
+        ->with('locale_tag', $tag);
         
         if(request()->ajax()) {
             $sections = $view->renderSections(); 
@@ -95,6 +95,47 @@ class LocaleTagController extends Controller
         }
                 
         return $view;
+    }
+
+    public function store(Request $request)
+    {    
+    
+        foreach (request('tag') as $rel_anchor => $value){
+
+            $rel_anchor = str_replace(['-', '_'], ".", $rel_anchor); 
+            $explode_rel_anchor = explode('.', $rel_anchor);
+            $language = end($explode_rel_anchor);
+
+            $locale_tag = $this->locale_tag::updateOrCreate([
+                'language' => $language,
+                'group' => request('group'),
+                'key' => request('key')],[
+                'value' => $value,
+                'active' => 1
+            ]);
+        }
+        
+        $this->manager->exportTranslations(request('group'));   
+
+        $tags = $this->locale_tag
+        ->select('group', 'key')
+        ->groupBy('group', 'key')
+        ->where('group', 'not like', 'admin/%')
+        ->where('group', 'not like', 'front/seo')
+        ->paginate($this->paginate);  
+
+        $message = \Lang::get('admin/tags.tag-update');
+
+        $view = View::make('admin.tags.index')
+        ->with('tags', $tags)
+        ->with('tag', $this->locale_tag)
+        ->renderSections(); 
+
+        return response()->json([
+            'table' => $view['table'],
+            'form' => $view['form'],
+            'message' => $message,
+        ]);
     }
 
 }
