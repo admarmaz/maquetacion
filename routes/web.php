@@ -20,6 +20,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/image/{image}', 'App\Vendor\Image\Image@show')->name('show_image_seo');
     Route::post('/image/seo', 'App\Vendor\Image\Image@storeSeo')->name('store_image_seo');
 
+    Route::get('/translations', 'App\Http\Controllers\Admin\LocaleTagController@index')->name('tags');
+    Route::get('/translations', 'App\Http\Controllers\Admin\LocaleTagController@edit')->name('edit_tag');
+    Route::get('/traducciones', 'App\Http\Controllers\Admin\LocaleTagController@show')->name('show_tag');
+    Route::post('/traducciones', 'App\Http\Controllers\Admin\LocaleTagController@store')->name('t_locale_index');
+
+
     Route::resource('sliders', 'App\Http\Controllers\Admin\SliderController', [
         'parameters' => [
             'sliders' => 'slider', 
