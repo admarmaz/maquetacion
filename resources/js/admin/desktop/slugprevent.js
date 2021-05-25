@@ -6,7 +6,7 @@ export let renderSlugPrevent = () => {
 
         preventSlug.forEach(preventSlug) => {
 
-            preventeSlug.addEventListener()
+            preventeSlug.addEventListener('keydown' )
 
 
 
