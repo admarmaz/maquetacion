@@ -8,6 +8,8 @@ import {renderLocaleTags} from './localeTags';
 import {renderLocaleSeo} from './localeSeo';
 import {renderGoogleBot} from './googleBot';
 import {renderSitemap} from './sitemap';
+import {renderSlugPrevent} from './slugPrevent';
+
 
 const table = document.getElementById("table");
 const form = document.getElementById("form");
@@ -130,6 +132,7 @@ export let renderForm = () => {
     renderLocaleSeo();
     renderGoogleBot();
     renderSitemap();
+    renderSlugPrevent();
 };
 
 export let renderTable = () => {
@@ -158,6 +161,7 @@ export let renderTable = () => {
             };
 
             sendEditRequest();
+            
         });
     });
 

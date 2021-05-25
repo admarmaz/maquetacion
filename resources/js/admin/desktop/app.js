@@ -13,3 +13,4 @@ require('./pagination');
 require('./ckeditor');
 require('./sitemap');
 require('./localeSeo');
+require('./slugPrevent');
