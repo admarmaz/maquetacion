@@ -577,7 +577,7 @@ label {
 }
 
 .form-input {
-  margin-bottom: 1em;
+  margin: 1em 1em;
 }
 
 .option-buttons {
@@ -587,8 +587,16 @@ label {
   margin-right: 1em;
 }
 
+.formulario-enviar {
+  margin-right: 1em;
+}
+
 .form-label {
   margin-bottom: 1em;
+}
+.form-label span {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .formulario .formulario-enviar .boton-guardar button {
@@ -714,6 +722,8 @@ li {
   display: flex;
   background-color: #c2efe1;
   margin-bottom: 1em;
+  justify-content: space-between;
+  align-items: center;
 }
 .tabs-buttons .tab-button {
   cursor: pointer;

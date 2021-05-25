@@ -8,7 +8,7 @@
 }
 
 .form-input{
-    margin-bottom: 1em;
+    margin: 1em 1em;
 }
 
 .option-buttons{
@@ -19,8 +19,17 @@
     }
 }
 
+.formulario-enviar{
+    margin-right: 1em;
+}
+
 .form-label{
     margin-bottom: 1em;
+
+    span{
+        cursor: pointer;
+        text-decoration: underline;
+    }
 }
 
 .formulario .formulario-enviar{

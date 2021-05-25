@@ -4,8 +4,10 @@ import {renderLanguageTabs} from './localeTabs';
 import {renderCkeditor} from '../../ckeditor';
 import {messages} from './messages';
 import {renderUploadImage} from './uploadImage';
-
-
+import {renderLocaleTags} from './localeTags';
+import {renderLocaleSeo} from './localeSeo';
+import {renderGoogleBot} from './googleBot';
+import {renderSitemap} from './sitemap';
 
 const table = document.getElementById("table");
 const form = document.getElementById("form");
@@ -38,86 +40,97 @@ export let renderForm = () => {
         });
     });
     
-    sendButton.addEventListener("click", (event) => {
+    if(sendButton){
 
-        event.preventDefault();
+        sendButton.addEventListener("click", (event) => {
+
+            event.preventDefault();
+        
+            forms.forEach(form => { 
+                
+                let data = new FormData(form);
+                let url = form.action;
     
-        forms.forEach(form => { 
+                if( ckeditors != 'null'){
+    
+                    Object.entries(ckeditors).forEach(([key, value]) => {
+                        data.append(key, value.getData());
+                    });
+                }
+    
+        
+                let sendPostRequest = async () => {
+        
+                    try {
+                        await axios.post(url, data).then(response => {
+
+                            if(response.data.id){
+                            form.id.value = response.data.id;
+                            }
+                            table.innerHTML = response.data.table;
+    
+                            messages(response.data.message);
+                            renderTable();
+                            renderForm();
+                        });
+                        
+                    } catch (error) {
+                            
+                        if(error.response.status == '422'){
+        
+                            let errors = error.response.data.errors;      
+                            let errorMessage = '';
+        
+                            Object.keys(errors).forEach(function(key) {
+                                errorMessage += '<li>' + errors[key] + '</li>';
+                            })
             
-            let data = new FormData(form);
+                            messages(errorMessage);
+                        }
+                    }
+                };
+        
+                sendPostRequest();
+            });
+        });    
+    }
 
-            if( ckeditors != 'null'){
+    if(createButton){
 
-                Object.entries(ckeditors).forEach(([key, value]) => {
-                    data.append(key, value.getData());
-                });
-            }
+        createButton.addEventListener("click", () => {
 
-            let url = form.action;
-    
-            let sendPostRequest = async () => {
-    
+            let url = createButton.dataset.url;
+
+            let createRequest = async () => {
+
+                
                 try {
-                    await axios.post(url, data).then(response => {
-                        form.id.value = response.data.id;
-                        table.innerHTML = response.data.table;
-
-                        messages(response.data.message);
-                        renderTable();
+                    await axios.get(url).then(response => {
+                        form.innerHTML = response.data.form;
+                        renderForm();
+                        
                     });
                     
                 } catch (error) {
-                        
-                    if(error.response.status == '422'){
-    
-                        let errors = error.response.data.errors;      
-                        let errorMessage = '';
-    
-                        Object.keys(errors).forEach(function(key) {
-                            errorMessage += '<li>' + errors[key] + '</li>';
-                        })
-        
-                        messages(errorMessage);
-                    }
+                    console.error(error);
+                    
                 }
             };
-    
-            sendPostRequest();
+
+            createRequest();
         });
-    });
 
-    createButton.addEventListener("click", () => {
-
-        let url = createButton.dataset.url;
-
-        let createRequest = async () => {
-
-            
-            try {
-                await axios.get(url).then(response => {
-                    form.innerHTML = response.data.form;
-                    renderForm();
-                    
-                });
-                
-            } catch (error) {
-                console.error(error);
-                
-            }
-        };
-
-        createRequest();
-    });
-
-    
-};
-
-
+    }
+  
     renderCkeditor();
     renderTabs();
     renderLanguageTabs();
     renderUploadImage();
-
+    renderLocaleTags();
+    renderLocaleSeo();
+    renderGoogleBot();
+    renderSitemap();
+};
 
 export let renderTable = () => {
 

@@ -11,3 +11,5 @@ require('./modalImage');
 require('./wait');
 require('./pagination');
 require('./ckeditor');
+require('./sitemap');
+require('./localeSeo');
