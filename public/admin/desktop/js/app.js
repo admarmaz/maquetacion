@@ -3044,20 +3044,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "renderSlugPrevent": () => (/* binding */ renderSlugPrevent)
 /* harmony export */ });
 var renderSlugPrevent = function renderSlugPrevent() {
-  var preventSlugs = document.querySelectorAll('.slug');
+  var blockInputs = document.querySelectorAll(".slug");
+  blockInputs.forEach(function (blockInput) {
+    var originalInput = blockInput.value.match(/\{.*?\}/g);
 
-  if (preventSlugs) {
-    preventSlugs.forEach(function (preventSlug) {
-      preventSlug.addEventListener('keydown', function () {
-        var slug = preventSlug.value.match(/\{.*?\}/g);
-        console.log(slug);
+    if (originalInput) {
+      blockInput.addEventListener("keydown", function () {
+        var setInput = blockInput.value;
+        blockInput.addEventListener("keyup", function () {
+          var finalInput = blockInput.value.match(/\{.*?\}/g);
+
+          if (finalInput) {
+            if (originalInput.toString() != finalInput.toString()) {
+              blockInput.value = setInput;
+            }
+          } else {
+            blockInput.value = setInput;
+          }
+
+          setInput = blockInput.value;
+        });
       });
-      preventSlug.addEventListener('keyup', function () {
-        var slug = preventSlug.value.match(/\{.*?\}/g);
-        console.log(slug);
-      });
-    });
-  }
+    }
+  });
 };
 
 /***/ }),

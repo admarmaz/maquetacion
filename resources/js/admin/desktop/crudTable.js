@@ -110,6 +110,8 @@ export let renderForm = () => {
                     await axios.get(url).then(response => {
                         form.innerHTML = response.data.form;
                         renderForm();
+
+                        
                         
                     });
                     
@@ -153,6 +155,7 @@ export let renderTable = () => {
                     await axios.get(url).then(response => {
                         form.innerHTML = response.data.form;
                         renderForm();
+                       
                     });
                     
                 } catch (error) {

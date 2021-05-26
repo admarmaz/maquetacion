@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'front_login' => 'logindgsd',
-  'front_faqs' => 'preguntas-frecuentesssss',
+  'front_login' => 'login',
+  'front_faqs' => 'preguntas-frecuentes',
   'front_faq' => 'preguntas-frecuentes/{slug}',
 );

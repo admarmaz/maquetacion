@@ -1,25 +1,32 @@
 export let renderSlugPrevent = () => {
-
-    let preventSlugs = document.querySelectorAll('.slug');
-
-    if(preventSlugs){
-
-        preventSlugs.forEach(preventSlug => {
-
-            preventSlug.addEventListener('keydown', () => {
-
-                let slug = preventSlug.value.match(/\{.*?\}/g);
-                console.log(slug);
-
-            })
-
-            preventSlug.addEventListener('keyup', () =>{
-
-                let slug = preventSlug.value.match(/\{.*?\}/g);
-                console.log(slug);
-
-            })
+    
+        let blockInputs = document.querySelectorAll(".slug");
+    
+        blockInputs.forEach(blockInput => {
+    
+            let originalInput = blockInput.value.match(/\{.*?\}/g)
+    
+            if (originalInput){
+    
+                blockInput.addEventListener("keydown", () =>{
+                    let setInput = blockInput.value;
+    
+                    blockInput.addEventListener("keyup", () =>{
+                        let finalInput = blockInput.value.match(/\{.*?\}/g)
+        
+                        if (finalInput){
+                            if(originalInput.toString() != finalInput.toString()){
+                                blockInput.value = setInput;
+                            }
+    
+                        }else{
+                            blockInput.value = setInput;
+                        }
+                        
+                        setInput = blockInput.value
+                    })
+                });   
+            }  
         })
-    }
+        
 }
-

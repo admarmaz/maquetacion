@@ -97,7 +97,9 @@
                     <div class="tab-button" data-button="images">
                         <p> Imágenes <p>
                     </div>
-
+                    <div class="tab-button" data-button="seo">
+                        <p> Seo <p>
+                    </div>
                 </div>
 
                 <div class="tab active-tabs" data-content="content">
@@ -142,7 +144,7 @@
                                         </label>
                                     </div>
                                     <div class="formulario-input">
-                                        <input type="text" name="locale[title.{{$localization->alias}}]" value="{{isset($locale["title.$localization->alias"]) ? $locale["title.$localization->alias"] : ''}}" class="input-highlight" required >
+                                        <input type="text" name="seo[title.{{$localization->alias}}]" value="{{isset($seo["title.$localization->alias"]) ? $seo["title.$localization->alias"] : ''}}" class="input-highlight" required >
                                     </div>
                                 </div>
 
@@ -196,7 +198,6 @@
                                             ])
                                         </div>
                                     </div>
-
                                 </div>
                                 
                             @endforeach
@@ -205,6 +206,57 @@
 
                     </div>
                 </div>
+
+                <div class="tab" data-content="seo" data-tab = "seo">
+
+                    <div class="tab-content">
+
+                        @component('admin.components.locale', ['tab' => 'seo'])
+
+                            @foreach ($localizations as $localization)
+
+                                <div class="tab-language {{ $loop->first ? 'active-tabs-locale':'' }}" data-tab="seo" data-localetab="{{$localization->alias}}">
+
+                                    <div class="one-column">
+                                        <div class="form-group">
+                                            <div class="form-label">
+                                                <label for="keywords" class="label-highlight">
+                                                    Keywords 
+                                                </label>
+                                            </div>
+                                            <div class="form-input">
+                                                <input type="text" name="seo[keywords.{{$localization->alias}}]" value='{{isset($seo["keywords.$localization->alias"]) ? $seo["keywords.$localization->alias"] : ''}}' class="input-highlight">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="one-column">
+                                        <div class="form-group">
+                                            <div class="form-label">
+                                                <label for="description" class="label-highlight">
+                                                    Descripción. 
+                                                </label>
+                                            </div>
+
+                                            <div class="form-input">
+                                                <textarea maxlength='160' class="input-highlight input-counter" name="seo[description.{{$localization->alias}}]">{{isset($seo["description.$localization->alias"]) ? $seo["description.$localization->alias"] : '' }}</textarea>
+                                                <p>Has escrito <span>0</span> caracteres de los 160 recomendados.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                
+                                </div>
+
+                            @endforeach
+                
+                        @endcomponent
+
+                    </div>
+                <</div>
+
+
+
+
 
             </form>    
         </div>

@@ -340,3 +340,49 @@ Horizon started successfully.
 Horizon started successfully.
 Horizon started successfully.
 Horizon started successfully.
+Horizon started successfully.
+Horizon started successfully.
+[2021-05-26 12:04:44][091d33e6-37a2-47e2-8a63-73cba4882388] Processing: App\Jobs\ProcessImage
+[2021-05-26 12:04:44][46062f91-ea15-4974-ba57-fd59cac8d598] Processing: App\Jobs\ProcessImage
+[2021-05-26 12:04:44][9084661d-f6eb-43e7-9970-a976f495fd32] Processing: App\Jobs\ProcessImage
+[2021-05-26 12:04:45][091d33e6-37a2-47e2-8a63-73cba4882388] Processed:  App\Jobs\ProcessImage
+[2021-05-26 12:04:45][46062f91-ea15-4974-ba57-fd59cac8d598] Processed:  App\Jobs\ProcessImage
+[2021-05-26 12:04:45][9084661d-f6eb-43e7-9970-a976f495fd32] Processed:  App\Jobs\ProcessImage
+[2021-05-26 12:10:58][c91b2d94-13c5-46b3-98a6-ea8e62eff1af] Processing: App\Jobs\ProcessImage
+[2021-05-26 12:10:58][c91b2d94-13c5-46b3-98a6-ea8e62eff1af] Processed:  App\Jobs\ProcessImage
+[2021-05-26 12:10:58][0747b7be-c8b5-4fb7-b725-96872ef851e7] Processing: App\Jobs\ProcessImage
+[2021-05-26 12:10:58][0747b7be-c8b5-4fb7-b725-96872ef851e7] Processed:  App\Jobs\ProcessImage
+[2021-05-26 12:10:58][954c961d-cb84-4a70-90cb-bb753d2ba3d7] Processing: App\Jobs\ProcessImage
+[2021-05-26 12:10:58][954c961d-cb84-4a70-90cb-bb753d2ba3d7] Processed:  App\Jobs\ProcessImage
+[2021-05-26 12:24:03][1622aaa0-871d-4dab-95bc-f3f5f3bf4df9] Processing: App\Jobs\ProcessImage
+[2021-05-26 12:24:04][1622aaa0-871d-4dab-95bc-f3f5f3bf4df9] Processed:  App\Jobs\ProcessImage
+[2021-05-26 12:24:03][cc688cef-d4fb-4e7c-9820-3418c6fd3d42] Processing: App\Jobs\ProcessImage
+[2021-05-26 12:24:03][cc688cef-d4fb-4e7c-9820-3418c6fd3d42] Processed:  App\Jobs\ProcessImage
+[2021-05-26 12:24:03][bdc28d9e-9d08-4537-b321-1df526b7da0b] Processing: App\Jobs\ProcessImage
+[2021-05-26 12:24:04][bdc28d9e-9d08-4537-b321-1df526b7da0b] Processed:  App\Jobs\ProcessImage
+[2021-05-26 13:22:23][cef7c0ab-9556-4c0d-adc8-59bef26b3cd5] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:22:23][cef7c0ab-9556-4c0d-adc8-59bef26b3cd5] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:22:23][cef7c0ab-9556-4c0d-adc8-59bef26b3cd5] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:22:23][cef7c0ab-9556-4c0d-adc8-59bef26b3cd5] Failed:     App\Jobs\DeleteImage
+[2021-05-26 13:22:26][ffbf1817-6200-4033-a085-4e069eb5ae2e] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:22:26][ffbf1817-6200-4033-a085-4e069eb5ae2e] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:22:26][ffbf1817-6200-4033-a085-4e069eb5ae2e] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:22:26][ffbf1817-6200-4033-a085-4e069eb5ae2e] Failed:     App\Jobs\DeleteImage
+[2021-05-26 13:22:29][737e59ba-1131-4cb3-9ad6-799aa9292fb0] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:22:29][737e59ba-1131-4cb3-9ad6-799aa9292fb0] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:22:29][737e59ba-1131-4cb3-9ad6-799aa9292fb0] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:22:29][737e59ba-1131-4cb3-9ad6-799aa9292fb0] Failed:     App\Jobs\DeleteImage
+[2021-05-26 13:40:18][1a8d5128-144f-4dcf-b571-28411157822a] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:40:18][1a8d5128-144f-4dcf-b571-28411157822a] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:40:18][1a8d5128-144f-4dcf-b571-28411157822a] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:40:18][1a8d5128-144f-4dcf-b571-28411157822a] Failed:     App\Jobs\DeleteImage
+[2021-05-26 13:47:22][b0e5350f-c715-455c-93d4-8dcd823739b2] Processing: App\Jobs\ProcessImage
+[2021-05-26 13:47:22][b0e5350f-c715-455c-93d4-8dcd823739b2] Processed:  App\Jobs\ProcessImage
+[2021-05-26 13:47:22][7c7632ea-e3b7-44b1-b622-5623351323ea] Processing: App\Jobs\ProcessImage
+[2021-05-26 13:47:23][7c7632ea-e3b7-44b1-b622-5623351323ea] Processed:  App\Jobs\ProcessImage
+[2021-05-26 13:47:22][92c57f08-41cf-446c-b3e7-a7e49bf4a3a0] Processing: App\Jobs\ProcessImage
+[2021-05-26 13:47:22][92c57f08-41cf-446c-b3e7-a7e49bf4a3a0] Processed:  App\Jobs\ProcessImage
+[2021-05-26 13:51:50][52052eda-fd58-4e43-859e-33e13906d22e] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:51:50][52052eda-fd58-4e43-859e-33e13906d22e] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:51:50][52052eda-fd58-4e43-859e-33e13906d22e] Processing: App\Jobs\DeleteImage
+[2021-05-26 13:51:50][52052eda-fd58-4e43-859e-33e13906d22e] Failed:     App\Jobs\DeleteImage

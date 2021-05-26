@@ -38,7 +38,7 @@ class FaqController extends Controller
         }
 
         if ($this->agent->isDesktop()) {
-            $this->paginate = 6;
+            $this->paginate = 3;
         }
 
         $this->locale->setParent('faqs');
@@ -81,13 +81,16 @@ class FaqController extends Controller
     public function store(FaqRequest $request)
     {            
                 
+        Debugbar::info(request("seo"));
+
         $faq = $this->faq->updateOrCreate([
             'id' => request('id')],[
             'name' => request('name'),
             'active' => 1,
-            'visible' => request('visible') == "true" ? 1 : 0 ,
+            'visible' => 1,
             'category_id' => request('category_id'),
         ]);
+
 
         if(request('seo')){
             $seo = $this->locale_slug_seo->store(request("seo"), $faq->id, 'front_faq');
