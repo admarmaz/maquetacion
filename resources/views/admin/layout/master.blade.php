@@ -20,7 +20,6 @@
         @include('admin.layout.partials.sidebar')
 
 
-
         @if(isset($filters))
                 @include('admin.components.table_filters', [
                     'route' => $route, 

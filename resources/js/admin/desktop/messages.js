@@ -1,6 +1,6 @@
 export let messages = (message) => {
 
-    let saveShow = document.getElementById("save-show");
+    let saveShow = document.querySelectorAll(".save-show");
     let customMessage = document.getElementById('custom-message');
 
     customMessage.innerHTML = message;

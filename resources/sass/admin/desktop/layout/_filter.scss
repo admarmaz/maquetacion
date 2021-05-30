@@ -3,6 +3,7 @@
     font-size: 1em;
     background-color: #cccccc;
     cursor: pointer;
+    
 
         &.filter-active{
            
@@ -14,7 +15,8 @@
         }
 
         .table-filter-buttons{
-            margin: 0 1em;
+            margin: 0 3em;
+            align-content: right;
         }
 
         .table-filter-container{
@@ -29,6 +31,7 @@
         &.button-active{
             display: flex;
             align-items: center;
+            justify-content: right;
 
             .p{
                 font-size: 2em;

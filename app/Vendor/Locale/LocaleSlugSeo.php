@@ -53,7 +53,7 @@ class LocaleSlugSeo
                 'key' => $key],[
                 'parent_slug' => isset($seo['parent.'. $language]) ? $seo['parent.'. $language] : null,
                 'locale_seo_id' => $locale_seo->id,
-                'slug' => slug_helper($seo['title.'. $language]),
+                'slug' => isset($seo['title.'. $language]),
                 'title' => $seo['title.'. $language] ,
                 'description' => isset($seo['description.'. $language])? $seo['description.'. $language] : '' ,
                 'keywords' => isset($seo['keywords.'. $language])? $seo['keywords.'. $language] : '' ,

@@ -1879,7 +1879,7 @@ window.requestAnimFrame = function () {
   \********************************************/
 /***/ (() => {
 
-var plusButtons = document.querySelectorAll('.faq-button');
+var plusButtons = document.querySelectorAll('.faq-plus-button');
 var faqElements = document.querySelectorAll(".faq");
 plusButtons.forEach(function (plusButton) {
   plusButton.addEventListener("click", function () {

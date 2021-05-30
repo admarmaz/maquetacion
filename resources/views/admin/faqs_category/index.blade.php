@@ -1,3 +1,8 @@
+@php
+    $route = 'faq_categories';
+@endphp
+
+
 @extends('admin.layout.table_form')
 
 @section('table')

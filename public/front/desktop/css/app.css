@@ -512,19 +512,21 @@ body {
   width: 80%;
 }
 .faqs .faqs-title h3 {
-  color: white;
+  color: #110c40;
   font-size: 2.5em;
   font-weight: 600;
   text-align: center;
 }
 .faqs .faq {
   width: 100%;
+  cursor: pointer;
 }
 .faqs .faq .faq-title-container {
   border-bottom: 0.2em solid white;
   display: flex;
   height: 10vh;
   width: 100%;
+  align-items: center;
 }
 @media (min-width: 1920px) {
   .faqs .faq .faq-title-container {
@@ -536,7 +538,7 @@ body {
   width: 90%;
 }
 .faqs .faq .faq-title-container .faq-title h3 {
-  color: white;
+  color: green;
   font-weight: 400;
 }
 .faqs .faq .faq-title-container .faq-plus-button {
@@ -583,7 +585,7 @@ body {
   bottom: 0.65em;
 }
 .faqs .faq .faq-title-container:hover {
-  background-color: #110c40;
+  background-color: white;
 }
 .faqs .faq .faq-description {
   background-color: white;
@@ -617,7 +619,7 @@ body {
   width: 20%;
 }
 .faqs .faq.active .faq-title-container {
-  background-color: #110c40;
+  background-color: white;
 }
 .faqs .faq.active .faq-description {
   max-height: 70vh;

@@ -2719,7 +2719,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "messages": () => (/* binding */ messages)
 /* harmony export */ });
 var messages = function messages(message) {
-  var saveShow = document.getElementById("save-show");
+  var saveShow = document.querySelectorAll(".save-show");
   var customMessage = document.getElementById('custom-message');
   customMessage.innerHTML = message;
   saveShow.classList.toggle("show");

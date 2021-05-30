@@ -570,7 +570,7 @@ label {
 .formulario {
   width: 50%;
   margin: 2em 2em;
-  padding: 1em;
+  padding: 2em;
   border: 1px groove;
   border-radius: 4px;
   background-color: #fff;
@@ -764,7 +764,8 @@ li {
   cursor: pointer;
 }
 .table-filter .table-filter-buttons {
-  margin: 0 1em;
+  margin: 0 3em;
+  align-content: right;
 }
 .table-filter .table-filter-container {
   max-height: 0;
@@ -777,6 +778,7 @@ li {
 .table-filter .table-filter-buttons .table-filter-button.button-active {
   display: flex;
   align-items: center;
+  justify-content: right;
 }
 .table-filter .table-filter-buttons .table-filter-button.button-active .p {
   font-size: 2em;
@@ -787,13 +789,10 @@ li {
   height: 5em;
   margin-left: 60vh;
   margin-top: 8vh;
+  border: solid yellow;
 }
 
-.save-message {
-  display: none;
-}
-
-#save-show.show .save-message {
+.save-show .show .save-message {
   justify-content: right;
   height: 15vh;
   margin-top: 5em;
