@@ -386,3 +386,12 @@ Horizon started successfully.
 [2021-05-26 13:51:50][52052eda-fd58-4e43-859e-33e13906d22e] Processing: App\Jobs\DeleteImage
 [2021-05-26 13:51:50][52052eda-fd58-4e43-859e-33e13906d22e] Processing: App\Jobs\DeleteImage
 [2021-05-26 13:51:50][52052eda-fd58-4e43-859e-33e13906d22e] Failed:     App\Jobs\DeleteImage
+Horizon started successfully.
+Horizon started successfully.
+[2021-05-31 06:58:01][7292f475-2863-415a-850e-adf15793b495] Processing: App\Jobs\ProcessImage
+[2021-05-31 06:58:01][b0fc384d-db70-4d04-9212-41b6b964e385] Processing: App\Jobs\ProcessImage
+[2021-05-31 06:58:01][44e8675f-1377-4eff-8627-db8e7b4f7c98] Processing: App\Jobs\ProcessImage
+[2021-05-31 06:58:02][7292f475-2863-415a-850e-adf15793b495] Processed:  App\Jobs\ProcessImage
+[2021-05-31 06:58:02][b0fc384d-db70-4d04-9212-41b6b964e385] Processed:  App\Jobs\ProcessImage
+[2021-05-31 06:58:02][44e8675f-1377-4eff-8627-db8e7b4f7c98] Processed:  App\Jobs\ProcessImage
+Horizon started successfully.

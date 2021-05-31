@@ -8,21 +8,22 @@ use App\Http\Controllers\Controller;
 use Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use App\Vendor\Locale\Manager;
 use Jenssegers\Agent\Agent;
-use Vendor\Product\Model\Product;
+use App\Vendor\Product\Models\Product;
 
 use Debugbar;
 
 class ProductController extends Controller
 {
-    protected $agent;
+    protected $product;
     
-    function __construct(Agent $agent, Manager $manager, )
+    function __construct(Agent $agent, Manager $manager, Product $product)
     {
         //$this->middleware('auth');
         $this->agent = $agent;
         $this->manager = $manager;
-       
+        $this->product = $product;
 
         if ($this->agent->isMobile()) {
             $this->paginate = 10;
@@ -35,12 +36,12 @@ class ProductController extends Controller
 
     public function index()
     {
-        $seos = $this->seo
-                ->select('key')
-                ->groupBy('key')
-                ->paginate($this->paginate);  
-
-        $view = View::make('admin.seo.index')->with('seos', $seos);
+        
+        $view = View::make('admin.products.index')->with('seos', $seos)
+        ->with('product', $this->product)
+        ->with('faqs', $this->product->where('active', 1)
+        ->orderBy('created_at', 'desc')
+        ->paginate($this->paginate));
 
         if(request()->ajax()) {
 

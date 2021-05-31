@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTProducts extends Migration
+class CreateTFodders extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateTProducts extends Migration
      */
     public function up()
     {
-        Schema::create('t_products', function (Blueprint $table) {
+        Schema::create('t_fodders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('fodders_id');
             $table->string('name', 255);
-            $table->unsignedInteger('product_categories_id');
-            $table->decimal('unit_cost');
-            $table->integer('VAT');
-            $table->integer('discount');
-            $table->decimal('sale_price');
+            $table->string('brand', 400);
             $table->boolean('active');
             $table->timestamps();
         });
@@ -34,6 +29,6 @@ class CreateTProducts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_products');
+        Schema::dropIfExists('t_fodders');
     }
 }

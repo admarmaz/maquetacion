@@ -9,4 +9,9 @@ class Product extends Model
 {
     protected $table = 't_products';
 
+    public function items()
+    {
+        return $this->hasMany(Fodder::class, 'item_id');
+    }
+
 }

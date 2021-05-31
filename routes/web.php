@@ -36,6 +36,19 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/traduciones/import', 'App\Http\Controllers\Admin\LocaleTagController@importTags')->name('tags_import');
 
 
+    Route::resource('fodders', 'App\Http\Controllers\Admin\FodderController', [
+        'parameters' => [
+            'fodders' => 'fodder', 
+        ],
+        'names' => [
+            'index' => 'fodders', 
+            'create' => 'fodders_create',
+            'store' => 'fodders_store',
+            'destroy' => 'fodders_destroy',
+            'edit' => 'fodders_edit',
+        ]
+    ]);
+
     Route::resource('productos', 'App\Http\Controllers\Admin\ProductController', [
         'parameters' => [
             'productos' => 'product', 
@@ -45,7 +58,7 @@ Route::group(['prefix' => 'admin'], function () {
             'create' => 'products_create',
             'store' => 'products_store',
             'destroy' => 'products_destroy',
-            'show' => 'products_show',
+            'edit' => 'products_edit',
         ]
     ]);
 
