@@ -15,9 +15,6 @@ class CreateTProducts extends Migration
     {
         Schema::create('t_products', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('fodders_id');
-            $table->string('name', 255);
-            $table->unsignedInteger('product_categories_id');
             $table->decimal('unit_cost');
             $table->integer('VAT');
             $table->integer('discount');

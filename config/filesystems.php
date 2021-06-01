@@ -64,6 +64,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'fodders' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/fodders'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
     ],
 
     /*

@@ -135,12 +135,12 @@ Route::group(['prefix' => $localizationseo->setLocale(),
 
     Route::get($localizationseo->transRoute('routes.front_faqs'), 'App\Http\Controllers\Front\FaqController@index')->name('front_faqs');
     Route::get($localizationseo->transRoute('routes.front_faq'), 'App\Http\Controllers\Front\FaqController@show')->name('front_faq');
+    Route::get($localizationseo->transRoute('routes.front_fodders'), 'App\Http\Controllers\Front\FodderController@index')->name('front_fodders');
+    Route::get($localizationseo->transRoute('routes.front_fodders'), 'App\Http\Controllers\Front\FodderController@show')->name('front_fodders');
 });
 
 
 Route::post('/fingerprint', 'App\Http\Controllers\Front\FingerprintController@store')->name('front_fingerprint');
-
-Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('faqs_front');
 Route::get('login', 'App\Http\Controllers\Front\LoginController@index')->name('front_login');
 Route::post('/login', 'App\Http\Controllers\Front\LoginController@login')->name('front_login_submit');
 Route::get('logout', 'App\Http\Controllers\Front\LoginController@logout')->name('front_logout');

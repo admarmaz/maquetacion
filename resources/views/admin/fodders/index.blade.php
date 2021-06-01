@@ -11,7 +11,7 @@
         @isset($fodders)
 
             <div class="tabla-titulo">
-                <h2>@lang('admin/items.parent_section')</h2>
+                <h2>@lang('admin/fodders.parent_section')</h2>
             </div>
 
             <div id="table-container" class="table-elements">
@@ -59,7 +59,7 @@
             <div class="formulario-titulo">
 
                 <div class="formulario-tit">
-                    <h2>@lang('admin/items.new-item')</h2>
+                    <h2>@lang('admin/fodders.new-item')</h2>
                 </div>
                 <div class="option-buttons">
                     <div class="formulario-enviar">
@@ -82,7 +82,7 @@
                 
             </div>
         
-            <form id="faqs-form" class="admin-formulario" action="{{route("fodders_store")}}" autocomplete="off">
+            <form id="fodders-form" class="admin-formulario" action="{{route("fodders_store")}}" autocomplete="off">
 
                 {{ csrf_field() }}
 
@@ -99,20 +99,15 @@
                     <div class="tab-button" data-button="seo">
                         <p> Seo <p>
                     </div>
+                    <div class="tab-button" data-button="product">
+                        <p> Producto <p>
+                    </div>
                 </div>
 
                 <div class="tab active-tabs" data-content="content">
 
                     <div class="tab-content">
                         <div class="two-columns">
-                            <div class="formulario-grupo">
-                                <div class="formulario-label">
-                                    <label for="category_id">
-                                        Producto 
-                                    </label>
-                                </div>
-                                
-                            </div>
     
                             <div class="formulario-grupo">
                                 <div class="formulario-label">
@@ -121,6 +116,16 @@
                                 </div>
                                 <div class="formulario-input">
                                     <input type="text" name="name" value="{{isset($fodder->name) ? $fodder->name : ''}}" class="input-highlight" required >
+                                </div>
+                            </div>
+
+                            <div class="formulario-grupo">
+                                <div class="formulario-label">
+                                    <label for="brand" class="label-highlight">Marca
+                                    </label>
+                                </div>
+                                <div class="formulario-input">
+                                    <input type="text" name="brand" value="{{isset($fodder->brand) ? $fodder->brand : ''}}" class="input-highlight" required >
                                 </div>
                             </div>
                         </div>
@@ -152,6 +157,169 @@
                         @endforeach
                     @endcomponent
 
+                </div>
+
+                <div class="tab" data-content="images" data-tab = "images">
+                    <div class="tab-content">
+
+                        @component('admin/components.locale', ['tab' => 'images'])
+                            
+                            @foreach ($localizations as $localization)
+                                
+                                <div class="tab-language {{ $loop->first ? 'active-tabs-locale':'' }}" data-tab="images"  data-localetab="{{$localization->alias}}">
+                                    <div class="form-label">
+                                        <label for="name" class="label-highlight">Foto destacada</label>
+                                    </div>
+                                    <div class="form-input grid-column">
+                                        @include('admin.components.upload_image', [
+                                            'type' => 'single', 
+                                            'entity' => 'fodders',
+                                            'content' => 'featured', 
+                                            'alias' => $localization->alias,
+                                            'files' => $fodder->images_featured_preview
+                                        ])
+                                    </div>
+                                 
+
+                                    <div class="form-group">
+                                        <div class="form-label">
+                                            <label for="name" class="label-highlight">Galería</label>
+                                        </div>
+                                        <div class="form-input grid-column">
+                                            @include('admin.components.upload_image', [
+                                                'type' => 'collection',
+                                                'entity' => 'fodders', 
+                                                'content' => 'grid', 
+                                                'alias' => $localization->alias,
+                                                'files' => $fodder->images_grid_preview
+                                            ])
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            @endforeach
+                    
+                        @endcomponent
+
+                    </div>
+                </div>
+
+                <div class="tab" data-content="seo" data-tab = "seo">
+
+                    <div class="tab-content">
+
+                        @component('admin.components.locale', ['tab' => 'seo'])
+
+                            @foreach ($localizations as $localization)
+
+                                <div class="tab-language {{ $loop->first ? 'active-tabs-locale':'' }}" data-tab="seo" data-localetab="{{$localization->alias}}">
+
+                                    <div class="one-column">
+                                        <div class="form-group">
+                                            <div class="form-label">
+                                                <label for="keywords" class="label-highlight">
+                                                    Keywords 
+                                                </label>
+                                            </div>
+                                            <div class="form-input">
+                                                <input type="text" name="seo[keywords.{{$localization->alias}}]" value='{{isset($seo["keywords.$localization->alias"]) ? $seo["keywords.$localization->alias"] : ''}}' class="input-highlight">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="one-column">
+                                        <div class="form-group">
+                                            <div class="form-label">
+                                                <label for="description" class="label-highlight">
+                                                    Descripción. 
+                                                </label>
+                                            </div>
+
+                                            <div class="form-input">
+                                                <textarea maxlength='160' class="input-highlight input-counter" name="seo[description.{{$localization->alias}}]">{{isset($seo["description.$localization->alias"]) ? $seo["description.$localization->alias"] : '' }}</textarea>
+                                                <p>Has escrito <span>0</span> caracteres de los 160 recomendados.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                
+                                </div>
+
+                            @endforeach
+                
+                        @endcomponent
+
+                    </div>
+                </div>
+
+                <div class="tab" data-content="product" data-tab = "product">
+
+                    <div class="tab-content">
+
+                        @component('admin.components.locale', ['tab' => 'product'])
+
+                            @foreach ($localizations as $localization)
+
+                                <div class="tab-language {{ $loop->first ? 'active-tabs-locale':'' }}" data-tab="product" data-localetab="{{$localization->alias}}">
+
+                                    <div class="one-column">
+                                        <div class="form-group">
+                                            <div class="form-label">
+                                                <label for="keywords" class="label-highlight">
+                                                    Coste sin IVA 
+                                                </label>
+                                            </div>
+                                            <div class="form-input">
+                                                <input type="text" name="[keywords.{{$localization->alias}}]" value="{{isset($product->unit_cost) ? $fodder->name : ''}}"  class="input-highlight">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="one-column">
+                                        <div class="form-group">
+                                            <div class="form-label">
+                                                <label for="keywords" class="label-highlight">
+                                                    IVA
+                                                </label>
+                                            </div>
+                                            <div class="form-input">
+                                                <input type="text" name="[keywords.{{$localization->alias}}]" value="{{isset($product->unit_cost) ? $fodder->name : ''}}"  class="input-highlight">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="one-column">
+                                        <div class="form-group">
+                                            <div class="form-label">
+                                                <label for="keywords" class="label-highlight">
+                                                    Descuento
+                                                </label>
+                                            </div>
+                                            <div class="form-input">
+                                                <input type="text" name="[keywords.{{$localization->alias}}]" value="{{isset($product->unit_cost) ? $fodder->name : ''}}"  class="input-highlight">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="one-column">
+                                        <div class="form-group">
+                                            <div class="form-label">
+                                                <label for="keywords" class="label-highlight">
+                                                    Precio de venta 
+                                                </label>
+                                            </div>
+                                            <div class="form-input">
+                                                <input type="text" name="[keywords.{{$localization->alias}}]" value="{{isset($product->unit_cost) ? $fodder->name : ''}}"  class="input-highlight">
+                                            </div>
+                                        </div>
+                                    </div>
+                                                                
+                                </div>
+
+                            @endforeach
+                
+                        @endcomponent
+
+                    </div>
                 </div>
 
 

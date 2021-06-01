@@ -395,3 +395,591 @@ Horizon started successfully.
 [2021-05-31 06:58:02][b0fc384d-db70-4d04-9212-41b6b964e385] Processed:  App\Jobs\ProcessImage
 [2021-05-31 06:58:02][44e8675f-1377-4eff-8627-db8e7b4f7c98] Processed:  App\Jobs\ProcessImage
 Horizon started successfully.
+Horizon started successfully.
+Horizon started successfully.
+[2021-06-01 08:27:07][31a9c17b-a0ff-411d-81b4-695718dafb89] Processing: App\Jobs\ProcessImage
+[2021-06-01 08:27:07][45de6dbe-ef1c-4707-ad52-1515698f6edf] Processing: App\Jobs\ProcessImage
+[2021-06-01 08:27:07][c46aa0a5-151d-4987-99fd-a685d9ccf10a] Processing: App\Jobs\ProcessImage
+[2021-06-01 08:27:08][31a9c17b-a0ff-411d-81b4-695718dafb89] Processed:  App\Jobs\ProcessImage
+[2021-06-01 08:27:08][45de6dbe-ef1c-4707-ad52-1515698f6edf] Processed:  App\Jobs\ProcessImage
+[2021-06-01 08:27:08][c46aa0a5-151d-4987-99fd-a685d9ccf10a] Processed:  App\Jobs\ProcessImage
+[2021-06-01 10:17:32][ee543720-fad9-4a55-b276-5328e44c1afe] Processing: App\Jobs\ProcessImage
+[2021-06-01 10:17:32][02690120-4992-481f-ae42-e4d70d703804] Processing: App\Jobs\ProcessImage
+[2021-06-01 10:17:32][28866800-2c2f-4336-90ec-5a238f0b71f9] Processing: App\Jobs\ProcessImage
+[2021-06-01 10:17:33][ee543720-fad9-4a55-b276-5328e44c1afe] Processed:  App\Jobs\ProcessImage
+[2021-06-01 10:17:33][02690120-4992-481f-ae42-e4d70d703804] Processed:  App\Jobs\ProcessImage
+[2021-06-01 10:17:33][28866800-2c2f-4336-90ec-5a238f0b71f9] Processed:  App\Jobs\ProcessImage
+[2021-06-01 10:17:54][2d0fa8ab-97f3-4443-96d2-d0289b7a15e9] Processing: App\Jobs\ProcessImage
+[2021-06-01 10:17:54][2d0fa8ab-97f3-4443-96d2-d0289b7a15e9] Processed:  App\Jobs\ProcessImage
+[2021-06-01 10:17:54][12507283-07de-468f-974d-e1221053ffe7] Processing: App\Jobs\ProcessImage
+[2021-06-01 10:17:54][12507283-07de-468f-974d-e1221053ffe7] Processed:  App\Jobs\ProcessImage
+[2021-06-01 10:17:54][b5b5134b-4e3f-49a2-aeef-10347b312a19] Processing: App\Jobs\ProcessImage
+[2021-06-01 10:17:54][b5b5134b-4e3f-49a2-aeef-10347b312a19] Processed:  App\Jobs\ProcessImage
+[2021-06-01 10:17:54][dd81ba01-ea4c-45df-9cc2-9ebd6e10ae92] Processing: App\Jobs\ProcessImage
+[2021-06-01 10:17:54][dd81ba01-ea4c-45df-9cc2-9ebd6e10ae92] Processed:  App\Jobs\ProcessImage
+[2021-06-01 10:17:54][51654949-e803-4632-a025-7d7e2e5feeae] Processing: App\Jobs\ProcessImage
+[2021-06-01 10:17:54][51654949-e803-4632-a025-7d7e2e5feeae] Processed:  App\Jobs\ProcessImage
+[2021-06-01 10:18:48][c0f3115d-176a-4c7a-97eb-31ef3e63f782] Processing: App\Jobs\ProcessImage
+[2021-06-01 10:18:49][c0f3115d-176a-4c7a-97eb-31ef3e63f782] Processed:  App\Jobs\ProcessImage
+[2021-06-01 10:18:48][6a8c3192-93f6-41ad-928f-0bb0ce01d5ab] Processing: App\Jobs\ProcessImage
+[2021-06-01 10:18:49][6a8c3192-93f6-41ad-928f-0bb0ce01d5ab] Processed:  App\Jobs\ProcessImage
+[2021-06-01 10:18:49][edeab060-ebb2-41ea-85e6-bf4fe71df6e1] Processing: App\Jobs\ProcessImage
+[2021-06-01 10:18:49][edeab060-ebb2-41ea-85e6-bf4fe71df6e1] Processed:  App\Jobs\ProcessImage
+[2021-06-01 10:18:48][22dc2eef-ad51-4fc3-bd15-45bcc0365aac] Processing: App\Jobs\ProcessImage
+[2021-06-01 10:18:49][22dc2eef-ad51-4fc3-bd15-45bcc0365aac] Processed:  App\Jobs\ProcessImage
+[2021-06-01 10:18:49][9e2bedb4-d0ed-4447-a2c6-31272728bada] Processing: App\Jobs\ProcessImage
+[2021-06-01 10:18:49][9e2bedb4-d0ed-4447-a2c6-31272728bada] Processed:  App\Jobs\ProcessImage
+[2021-06-01 10:18:49][bd88a5b7-7dc0-4951-8b6f-8fc0ec323545] Processing: App\Jobs\ProcessImage
+[2021-06-01 10:18:49][bd88a5b7-7dc0-4951-8b6f-8fc0ec323545] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:31:57][ab7f425b-4a8e-45d3-ae9e-c02cb2073e3b] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:31:57][ab7f425b-4a8e-45d3-ae9e-c02cb2073e3b] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:31:57][c66b06d5-76ca-45c9-89cb-549c21ce8a3e] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:31:57][c66b06d5-76ca-45c9-89cb-549c21ce8a3e] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:31:57][d4982c27-7ea8-47f4-8e1b-41e236bf259a] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:31:57][d4982c27-7ea8-47f4-8e1b-41e236bf259a] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:31:57][5b6ae744-b6bb-475c-8c4b-4c27e001a738] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:31:57][5b6ae744-b6bb-475c-8c4b-4c27e001a738] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:31:57][22ea53d7-d6f2-4289-b9c7-a3aa43e0922a] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:31:57][22ea53d7-d6f2-4289-b9c7-a3aa43e0922a] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:31:57][0e2f2476-94fe-4eda-831a-d36cf3ebe01b] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:31:57][0e2f2476-94fe-4eda-831a-d36cf3ebe01b] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:06][a8105bd8-7dc7-4192-9135-581922298fcd] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:07][a8105bd8-7dc7-4192-9135-581922298fcd] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:07][e11132f0-5d7a-4f8c-add6-975cc15aeb6c] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:06][f4a3c3b7-686f-46f2-a1a7-3eefdc02d110] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:07][f4a3c3b7-686f-46f2-a1a7-3eefdc02d110] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:07][7ce2eea1-2a66-4848-a177-dba79ad0e8ae] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:06][dda41ae0-b266-4f2e-b32e-0524c6c1a6d9] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:07][dda41ae0-b266-4f2e-b32e-0524c6c1a6d9] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:07][5d3b5f93-a728-4f38-a5ba-1d3b5778a5ed] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:07][5d3b5f93-a728-4f38-a5ba-1d3b5778a5ed] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:07][c2f8ef99-c3b6-43f1-9313-d7a1608a0348] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:07][e11132f0-5d7a-4f8c-add6-975cc15aeb6c] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:07][dbe0c160-4e2d-4402-b883-ea084b799e94] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:07][dbe0c160-4e2d-4402-b883-ea084b799e94] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:07][2b0012a6-ebfc-4a46-a093-66fe30f0eca3] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:07][2b0012a6-ebfc-4a46-a093-66fe30f0eca3] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:07][ad3fdda7-8025-4240-b416-7ed925c2491f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:07][ad3fdda7-8025-4240-b416-7ed925c2491f] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:07][7ce2eea1-2a66-4848-a177-dba79ad0e8ae] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:07][32e00fe7-9ca4-4595-92b9-556e795c6224] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:07][32e00fe7-9ca4-4595-92b9-556e795c6224] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:07][c2f8ef99-c3b6-43f1-9313-d7a1608a0348] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:07][442af2f0-9fee-4c60-a8db-a13876f935ac] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:07][442af2f0-9fee-4c60-a8db-a13876f935ac] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:07][5818b18d-313b-4455-a6d5-4bf16a924ac6] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:07][5818b18d-313b-4455-a6d5-4bf16a924ac6] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:07][076b6615-9e2f-4119-b53b-0ae58e2f96f0] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:07][076b6615-9e2f-4119-b53b-0ae58e2f96f0] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:34:07][d34bcaac-b889-4efb-90b4-2fdab76f0fc6] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:34:07][d34bcaac-b889-4efb-90b4-2fdab76f0fc6] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:36:53][8ae01c99-5fa6-4725-83a3-c9357936068d] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:36:53][a0acb096-d0a0-45f8-8a49-7a3f78454afb] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:36:53][a94ab1af-32e8-4d92-ba82-694100e98a92] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:36:53][8ae01c99-5fa6-4725-83a3-c9357936068d] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:36:53][02d41fd6-baa9-49fc-b255-506eb095c672] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:36:53][02d41fd6-baa9-49fc-b255-506eb095c672] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:36:53][519c0fcf-5d5a-4f6b-9ae5-6014b5e177c5] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:36:53][519c0fcf-5d5a-4f6b-9ae5-6014b5e177c5] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:36:53][7cde1207-563f-4ddf-a8a8-bea3825073d6] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:36:54][7cde1207-563f-4ddf-a8a8-bea3825073d6] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:36:54][026f7883-842e-4953-8a39-33f19ec0c1f3] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:36:54][026f7883-842e-4953-8a39-33f19ec0c1f3] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:36:53][a0acb096-d0a0-45f8-8a49-7a3f78454afb] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:36:53][3982e160-b53d-4878-8939-f8bbbefe7557] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:36:53][3982e160-b53d-4878-8939-f8bbbefe7557] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:36:53][d24d80ce-ef87-44b6-adcc-9e0c9b50816a] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:36:54][d24d80ce-ef87-44b6-adcc-9e0c9b50816a] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:36:53][a94ab1af-32e8-4d92-ba82-694100e98a92] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:36:53][7e7f80ee-4586-4493-ac79-b2178552ddc1] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:36:53][7e7f80ee-4586-4493-ac79-b2178552ddc1] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:36:53][6ad1f5f6-af0e-497d-8f60-d2dccfc86d7d] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:36:54][6ad1f5f6-af0e-497d-8f60-d2dccfc86d7d] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:36:54][e3091363-542d-4cb9-b0c4-54382efeba26] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:36:54][e3091363-542d-4cb9-b0c4-54382efeba26] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][ee986bbb-6d46-462c-b134-e75be6c50082] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:30][ee986bbb-6d46-462c-b134-e75be6c50082] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][fa2835a6-d9d9-4d24-bb5f-27c3fc12bf16] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:30][fa2835a6-d9d9-4d24-bb5f-27c3fc12bf16] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][cb24cbb4-24c5-4955-aa06-479cdac4e2cb] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:30][cb24cbb4-24c5-4955-aa06-479cdac4e2cb] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][25a33239-2c07-46f6-b775-415db823de43] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:30][8ca38214-747c-4d83-b636-0f9b054b8c42] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:30][8ca38214-747c-4d83-b636-0f9b054b8c42] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][4b5034bf-71d1-474a-80ab-b71a3a08d340] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:30][4b5034bf-71d1-474a-80ab-b71a3a08d340] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][9dd4e032-7fb1-455d-9a18-ce0e80c79ec4] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:30][9dd4e032-7fb1-455d-9a18-ce0e80c79ec4] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][89137484-fb21-4b5b-885d-d083d2cc62ef] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:30][89137484-fb21-4b5b-885d-d083d2cc62ef] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][d244baf0-88ff-449b-82d8-2bf41e9f3415] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:30][4c285578-7265-4cac-b91d-21b33a565a58] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:30][4c285578-7265-4cac-b91d-21b33a565a58] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][423c647b-7dba-4dcc-9a50-26655fc6c653] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:30][423c647b-7dba-4dcc-9a50-26655fc6c653] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][11eab2ed-d1a3-40a0-9d33-53a0e7983243] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:30][11eab2ed-d1a3-40a0-9d33-53a0e7983243] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][ffd17103-bffb-4b1e-99a6-162454eff29b] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:30][25a33239-2c07-46f6-b775-415db823de43] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][d244baf0-88ff-449b-82d8-2bf41e9f3415] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][94f89583-8a47-4133-a69e-76098bd9383d] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:31][94f89583-8a47-4133-a69e-76098bd9383d] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][ffd17103-bffb-4b1e-99a6-162454eff29b] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:37:30][b3da86ab-6b57-45f8-8d53-5ee540c6f6ec] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:37:31][b3da86ab-6b57-45f8-8d53-5ee540c6f6ec] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:38:13][f7913957-1f38-4ab6-bd08-42827ee121e7] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:38:13][b7d19bed-4245-43b8-b7fe-f512c5c81dae] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:38:13][4c9aed35-db79-4d0f-af7f-464862eaadc1] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:38:13][f7913957-1f38-4ab6-bd08-42827ee121e7] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:38:13][b7d19bed-4245-43b8-b7fe-f512c5c81dae] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:38:13][4c9aed35-db79-4d0f-af7f-464862eaadc1] Processed:  App\Jobs\ProcessImage
+[2021-06-01 11:40:52][0744b340-17b3-439c-a42d-11f27b2cb586] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][8c0d52ab-3939-49b4-ac6a-216351ed6d52] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][28940f4f-de64-4c26-bc75-308109759dc6] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][c5fa4b09-8f29-4794-adaf-3b35e4cf66fc] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:52][c5fa4b09-8f29-4794-adaf-3b35e4cf66fc] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][931fef88-5160-4dd7-a962-fc7f73c48720] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][3192892a-6a8a-41a3-9faa-ceec3403bd70] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][0744b340-17b3-439c-a42d-11f27b2cb586] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][931fef88-5160-4dd7-a962-fc7f73c48720] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][3192892a-6a8a-41a3-9faa-ceec3403bd70] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][28940f4f-de64-4c26-bc75-308109759dc6] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][931fef88-5160-4dd7-a962-fc7f73c48720] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][931fef88-5160-4dd7-a962-fc7f73c48720] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:40:53][3192892a-6a8a-41a3-9faa-ceec3403bd70] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][3192892a-6a8a-41a3-9faa-ceec3403bd70] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:40:53][28940f4f-de64-4c26-bc75-308109759dc6] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][28940f4f-de64-4c26-bc75-308109759dc6] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:40:53][8c0d52ab-3939-49b4-ac6a-216351ed6d52] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][0744b340-17b3-439c-a42d-11f27b2cb586] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][0744b340-17b3-439c-a42d-11f27b2cb586] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:40:53][8c0d52ab-3939-49b4-ac6a-216351ed6d52] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][8c0d52ab-3939-49b4-ac6a-216351ed6d52] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:40:53][c5fa4b09-8f29-4794-adaf-3b35e4cf66fc] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:40:53][c5fa4b09-8f29-4794-adaf-3b35e4cf66fc] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:42:11][42de2588-e67f-4157-98c6-0415d65aa060] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][57f940cd-1b1f-4989-a124-fe1265bbab51] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][61ca8466-98ac-4f5e-88fb-2d92510cc64f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][e210b598-476e-4c4a-b70f-046038e8ccb7] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][c8b0a0d6-e029-45ec-9d87-32f1304611c2] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][4caecdb4-8d36-471b-843a-66b604bb5c2d] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][b470b7d1-b248-40db-817e-66b24957d94e] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][f235609d-41df-437f-a3a5-81cbac1a832f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][424882f1-0fed-43c2-98e5-dd513e51b1b9] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][baf6f488-c16e-481d-b636-9005bdb20052] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][57f940cd-1b1f-4989-a124-fe1265bbab51] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][d6f36cac-6984-4e42-8129-31ce5af89c37] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][c8b0a0d6-e029-45ec-9d87-32f1304611c2] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][3c8fd930-5291-426b-8bad-6fd7e3e6b45f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][424882f1-0fed-43c2-98e5-dd513e51b1b9] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][424882f1-0fed-43c2-98e5-dd513e51b1b9] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:42:11][baf6f488-c16e-481d-b636-9005bdb20052] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][baf6f488-c16e-481d-b636-9005bdb20052] Failed:     App\Jobs\ProcessImage
+
+(banana:4162): GLib-GObject-WARNING **: 11:42:11.537: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4162): GLib-GObject-WARNING **: 11:42:11.563: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4162): GLib-GObject-WARNING **: 11:42:11.600: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4162): GLib-GObject-WARNING **: 11:42:11.612: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4162): GLib-GObject-WARNING **: 11:42:11.643: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4162): GLib-GObject-WARNING **: 11:42:11.656: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4162): GLib-GObject-WARNING **: 11:42:11.697: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+[2021-06-01 11:42:11][424882f1-0fed-43c2-98e5-dd513e51b1b9] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][3e49feb7-354b-4c0c-98f0-6e66f272909b] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][d6f36cac-6984-4e42-8129-31ce5af89c37] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][3c8fd930-5291-426b-8bad-6fd7e3e6b45f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][ee3088c6-e1fb-45cd-8a21-c0b72f67bb00] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][3e49feb7-354b-4c0c-98f0-6e66f272909b] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][e210b598-476e-4c4a-b70f-046038e8ccb7] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][b470b7d1-b248-40db-817e-66b24957d94e] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][f235609d-41df-437f-a3a5-81cbac1a832f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][ee3088c6-e1fb-45cd-8a21-c0b72f67bb00] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][4b2a77ba-0dbf-4631-b01d-083d1b583c50] Processing: App\Jobs\ProcessImage
+
+(banana:4163): GLib-GObject-WARNING **: 11:42:11.535: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:42:11.567: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:42:11.609: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:42:11.622: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:42:11.642: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:42:11.687: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:42:11.699: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:42:11.723: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+[2021-06-01 11:42:11][baf6f488-c16e-481d-b636-9005bdb20052] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][4b2a77ba-0dbf-4631-b01d-083d1b583c50] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][b6417b19-ed3b-488f-af9a-8e6d245cbf17] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][93e644d3-bab1-41a7-beae-a05590b564ea] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][ceb2363c-f929-4ede-944e-4b109e834356] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][42de2588-e67f-4157-98c6-0415d65aa060] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][4b2a77ba-0dbf-4631-b01d-083d1b583c50] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][61ca8466-98ac-4f5e-88fb-2d92510cc64f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][b6417b19-ed3b-488f-af9a-8e6d245cbf17] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][4caecdb4-8d36-471b-843a-66b604bb5c2d] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][93e644d3-bab1-41a7-beae-a05590b564ea] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][ceb2363c-f929-4ede-944e-4b109e834356] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][42de2588-e67f-4157-98c6-0415d65aa060] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][42de2588-e67f-4157-98c6-0415d65aa060] Failed:     App\Jobs\ProcessImage
+
+(banana:4164): GLib-GObject-WARNING **: 11:42:11.516: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:42:11.576: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:42:11.608: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:42:11.616: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:42:11.635: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:42:11.649: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:42:11.659: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:42:11.696: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:42:11.714: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+[2021-06-01 11:42:11][57f940cd-1b1f-4989-a124-fe1265bbab51] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][57f940cd-1b1f-4989-a124-fe1265bbab51] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:42:11][d6f36cac-6984-4e42-8129-31ce5af89c37] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][d6f36cac-6984-4e42-8129-31ce5af89c37] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:42:11][4caecdb4-8d36-471b-843a-66b604bb5c2d] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][4caecdb4-8d36-471b-843a-66b604bb5c2d] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:42:11][b470b7d1-b248-40db-817e-66b24957d94e] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][b470b7d1-b248-40db-817e-66b24957d94e] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:42:11][f235609d-41df-437f-a3a5-81cbac1a832f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][f235609d-41df-437f-a3a5-81cbac1a832f] Failed:     App\Jobs\ProcessImage
+
+(banana:4162): GLib-GObject-WARNING **: 11:42:11.763: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4162): GLib-GObject-WARNING **: 11:42:11.798: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4162): GLib-GObject-WARNING **: 11:42:11.856: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4162): GLib-GObject-WARNING **: 11:42:11.880: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+[2021-06-01 11:42:11][4b2a77ba-0dbf-4631-b01d-083d1b583c50] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:42:11][61ca8466-98ac-4f5e-88fb-2d92510cc64f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][61ca8466-98ac-4f5e-88fb-2d92510cc64f] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:42:11][c8b0a0d6-e029-45ec-9d87-32f1304611c2] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][c8b0a0d6-e029-45ec-9d87-32f1304611c2] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:42:11][93e644d3-bab1-41a7-beae-a05590b564ea] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][93e644d3-bab1-41a7-beae-a05590b564ea] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:42:11][ee3088c6-e1fb-45cd-8a21-c0b72f67bb00] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][ee3088c6-e1fb-45cd-8a21-c0b72f67bb00] Failed:     App\Jobs\ProcessImage
+
+(banana:4163): GLib-GObject-WARNING **: 11:42:11.755: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:42:11.799: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:42:11.873: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:42:11.903: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+[2021-06-01 11:42:11][3e49feb7-354b-4c0c-98f0-6e66f272909b] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][3e49feb7-354b-4c0c-98f0-6e66f272909b] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:42:11][b6417b19-ed3b-488f-af9a-8e6d245cbf17] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][b6417b19-ed3b-488f-af9a-8e6d245cbf17] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:42:11][e210b598-476e-4c4a-b70f-046038e8ccb7] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][e210b598-476e-4c4a-b70f-046038e8ccb7] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:42:11][3c8fd930-5291-426b-8bad-6fd7e3e6b45f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][3c8fd930-5291-426b-8bad-6fd7e3e6b45f] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:42:11][ceb2363c-f929-4ede-944e-4b109e834356] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:42:11][ceb2363c-f929-4ede-944e-4b109e834356] Failed:     App\Jobs\ProcessImage
+
+(banana:4164): GLib-GObject-WARNING **: 11:42:11.760: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:42:11.797: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:42:11.866: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:42:11.900: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+[2021-06-01 11:43:45][26a2e1cd-4b33-4d96-aa66-41828374d0c2] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][7c59a0eb-08b6-442a-b200-bc7107385ef9] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][c0ba23c1-fa4a-4a22-8bdc-eef1de7437e3] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][696f74f2-49fd-46f9-92a3-fffc873e4001] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][44e56845-c8db-4815-b794-43207a45d0f2] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][3a3ba040-53d5-4146-89a0-ec1eece19061] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][c0ba23c1-fa4a-4a22-8bdc-eef1de7437e3] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][dd29237f-a002-4a1f-ae7b-7cd6431d8c91] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][26a2e1cd-4b33-4d96-aa66-41828374d0c2] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][26a2e1cd-4b33-4d96-aa66-41828374d0c2] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:43:45][03566f7c-3d99-4bbb-9155-6f6f4258cb3f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][03566f7c-3d99-4bbb-9155-6f6f4258cb3f] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:43:45][c0ba23c1-fa4a-4a22-8bdc-eef1de7437e3] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][c0ba23c1-fa4a-4a22-8bdc-eef1de7437e3] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:43:45][dd29237f-a002-4a1f-ae7b-7cd6431d8c91] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][dd29237f-a002-4a1f-ae7b-7cd6431d8c91] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:43:45][960fc313-ad41-409c-b652-9bd43b03d000] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][960fc313-ad41-409c-b652-9bd43b03d000] Failed:     App\Jobs\ProcessImage
+
+(banana:4162): GLib-GObject-WARNING **: 11:43:45.222: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4162): GLib-GObject-WARNING **: 11:43:45.245: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4162): GLib-GObject-WARNING **: 11:43:45.271: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4162): GLib-GObject-WARNING **: 11:43:45.335: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4162): GLib-GObject-WARNING **: 11:43:45.415: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+[2021-06-01 11:43:45][44e56845-c8db-4815-b794-43207a45d0f2] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][03566f7c-3d99-4bbb-9155-6f6f4258cb3f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][f9feb703-b098-40ac-812b-3cd9d7bdf547] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][960fc313-ad41-409c-b652-9bd43b03d000] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][9a3e509d-0d2e-4b27-9997-3a8f308ad81f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][7c59a0eb-08b6-442a-b200-bc7107385ef9] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][f1d19041-942c-4451-8cfa-b0b917e01340] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][696f74f2-49fd-46f9-92a3-fffc873e4001] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][44e56845-c8db-4815-b794-43207a45d0f2] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][44e56845-c8db-4815-b794-43207a45d0f2] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:43:45][d097ce34-5c56-48f0-aeef-89b5bbb8cca7] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][d097ce34-5c56-48f0-aeef-89b5bbb8cca7] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:43:45][7c59a0eb-08b6-442a-b200-bc7107385ef9] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][7c59a0eb-08b6-442a-b200-bc7107385ef9] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:43:45][f1d19041-942c-4451-8cfa-b0b917e01340] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][f1d19041-942c-4451-8cfa-b0b917e01340] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:43:45][3b7d5ac2-9e58-446d-8256-f6e9973dc232] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][3b7d5ac2-9e58-446d-8256-f6e9973dc232] Failed:     App\Jobs\ProcessImage
+
+(banana:4163): GLib-GObject-WARNING **: 11:43:45.224: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:43:45.236: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:43:45.249: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:43:45.276: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:43:45.295: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:43:45.328: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:43:45.349: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4163): GLib-GObject-WARNING **: 11:43:45.387: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+[2021-06-01 11:43:45][9a3e509d-0d2e-4b27-9997-3a8f308ad81f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][d097ce34-5c56-48f0-aeef-89b5bbb8cca7] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][3a3ba040-53d5-4146-89a0-ec1eece19061] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][94e86965-75bb-48fa-a0df-68789199cadd] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][f1d19041-942c-4451-8cfa-b0b917e01340] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][dd29237f-a002-4a1f-ae7b-7cd6431d8c91] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][3b7d5ac2-9e58-446d-8256-f6e9973dc232] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][26a2e1cd-4b33-4d96-aa66-41828374d0c2] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][d097ce34-5c56-48f0-aeef-89b5bbb8cca7] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][03566f7c-3d99-4bbb-9155-6f6f4258cb3f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][94e86965-75bb-48fa-a0df-68789199cadd] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][f9feb703-b098-40ac-812b-3cd9d7bdf547] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][3b7d5ac2-9e58-446d-8256-f6e9973dc232] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][960fc313-ad41-409c-b652-9bd43b03d000] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][9a3e509d-0d2e-4b27-9997-3a8f308ad81f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][9a3e509d-0d2e-4b27-9997-3a8f308ad81f] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:43:45][3a3ba040-53d5-4146-89a0-ec1eece19061] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][3a3ba040-53d5-4146-89a0-ec1eece19061] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:43:45][94e86965-75bb-48fa-a0df-68789199cadd] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][94e86965-75bb-48fa-a0df-68789199cadd] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:43:45][f9feb703-b098-40ac-812b-3cd9d7bdf547] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][f9feb703-b098-40ac-812b-3cd9d7bdf547] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:43:45][696f74f2-49fd-46f9-92a3-fffc873e4001] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:43:45][696f74f2-49fd-46f9-92a3-fffc873e4001] Failed:     App\Jobs\ProcessImage
+
+(banana:4164): GLib-GObject-WARNING **: 11:43:45.215: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:43:45.224: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:43:45.230: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:43:45.246: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:43:45.261: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:43:45.269: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:43:45.278: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:43:45.285: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:43:45.292: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:43:45.299: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:43:45.334: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:43:45.357: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:43:45.383: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+
+(banana:4164): GLib-GObject-WARNING **: 11:43:45.411: value "0" of type 'gint' is invalid or out of range for property 'width' of type 'gint'
+[2021-06-01 11:45:06][7ac45407-2622-41ea-899b-d3d2ddacee24] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:06][97ffddb3-d522-45c9-bfaf-1dcd5b9c018e] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:06][7d256d0a-14e0-4138-9241-f84bd6762ae2] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:06][1b1b5758-e8c3-4013-9367-50a15b735464] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:06][e42b61db-47b5-4c85-9425-8439859f6c58] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:06][3b63f09d-6b52-41d6-a7d5-fd3b8095ddd0] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:06][dddc28e3-1986-40c0-864e-656a6e6e9232] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:06][077b903b-303c-4d13-ac68-dcdf4b864fa3] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][ff134b9c-b6f8-4124-b6fa-dfd96b3cfc45] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][61f029d7-1907-487e-a400-612e233137bd] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][dddc28e3-1986-40c0-864e-656a6e6e9232] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][077b903b-303c-4d13-ac68-dcdf4b864fa3] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][1b1b5758-e8c3-4013-9367-50a15b735464] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][7ac45407-2622-41ea-899b-d3d2ddacee24] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][7d256d0a-14e0-4138-9241-f84bd6762ae2] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][e42b61db-47b5-4c85-9425-8439859f6c58] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][3b63f09d-6b52-41d6-a7d5-fd3b8095ddd0] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][8481516a-1691-4ab8-8b2a-6294c0072ec8] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][a28c848d-53d6-4931-a431-4261fa0db233] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][a281dcf6-d88a-4330-93cf-2d22c22dbc76] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][ff134b9c-b6f8-4124-b6fa-dfd96b3cfc45] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][d479a290-7cdf-4ce2-bc45-39cc5097ba06] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][7ac45407-2622-41ea-899b-d3d2ddacee24] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][7ac45407-2622-41ea-899b-d3d2ddacee24] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:07][e42b61db-47b5-4c85-9425-8439859f6c58] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][e42b61db-47b5-4c85-9425-8439859f6c58] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:07][61f029d7-1907-487e-a400-612e233137bd] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][8481516a-1691-4ab8-8b2a-6294c0072ec8] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][a28c848d-53d6-4931-a431-4261fa0db233] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][a281dcf6-d88a-4330-93cf-2d22c22dbc76] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][d479a290-7cdf-4ce2-bc45-39cc5097ba06] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][7ae70a9a-7ea9-42ca-8e12-72eedc655780] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][97ffddb3-d522-45c9-bfaf-1dcd5b9c018e] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][7d256d0a-14e0-4138-9241-f84bd6762ae2] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:07][7d256d0a-14e0-4138-9241-f84bd6762ae2] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:07][7ae70a9a-7ea9-42ca-8e12-72eedc655780] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:08][a281dcf6-d88a-4330-93cf-2d22c22dbc76] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:08][a281dcf6-d88a-4330-93cf-2d22c22dbc76] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:08][077b903b-303c-4d13-ac68-dcdf4b864fa3] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:08][077b903b-303c-4d13-ac68-dcdf4b864fa3] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:08][61f029d7-1907-487e-a400-612e233137bd] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:08][61f029d7-1907-487e-a400-612e233137bd] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:08][dddc28e3-1986-40c0-864e-656a6e6e9232] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:08][dddc28e3-1986-40c0-864e-656a6e6e9232] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:08][8481516a-1691-4ab8-8b2a-6294c0072ec8] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:08][8481516a-1691-4ab8-8b2a-6294c0072ec8] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:08][a28c848d-53d6-4931-a431-4261fa0db233] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:08][a28c848d-53d6-4931-a431-4261fa0db233] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:08][ff134b9c-b6f8-4124-b6fa-dfd96b3cfc45] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:08][ff134b9c-b6f8-4124-b6fa-dfd96b3cfc45] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:08][97ffddb3-d522-45c9-bfaf-1dcd5b9c018e] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:08][97ffddb3-d522-45c9-bfaf-1dcd5b9c018e] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:08][3b63f09d-6b52-41d6-a7d5-fd3b8095ddd0] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:08][3b63f09d-6b52-41d6-a7d5-fd3b8095ddd0] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:08][d479a290-7cdf-4ce2-bc45-39cc5097ba06] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:08][d479a290-7cdf-4ce2-bc45-39cc5097ba06] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:08][7ae70a9a-7ea9-42ca-8e12-72eedc655780] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:08][7ae70a9a-7ea9-42ca-8e12-72eedc655780] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:08][1b1b5758-e8c3-4013-9367-50a15b735464] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:09][1b1b5758-e8c3-4013-9367-50a15b735464] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:32][ee63cffa-8425-4c66-95b4-3187c4dc875b] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][dc710556-a634-4c65-8ff2-a8a89324353e] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:32][6dfb1e29-b3fe-4b18-aaaf-e173731b5d1f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][03b2969c-3de9-438e-9cca-11f13de45314] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][fd797cc0-134b-4adf-b0dd-6462af8bc43d] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][22206e34-3a57-4760-9479-4c59e4786a38] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][bdfd7ff5-a5e6-4e9c-9e98-ba0749fb7ad8] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][2415fc63-965c-4d26-88ce-aaa8d22d3c8a] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][fe198072-6b00-4881-8848-110c8ac03ace] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][6c57427c-49fc-49e8-a1bc-66a7cd70ea31] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][bdfd7ff5-a5e6-4e9c-9e98-ba0749fb7ad8] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][22206e34-3a57-4760-9479-4c59e4786a38] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][06ef9167-edad-4f9e-b51f-8840f8a5100d] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][f53b820b-17ef-4d72-94fb-58f9f2b4b5a0] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][8aa32776-6f63-499b-bc4e-843afb580761] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][2415fc63-965c-4d26-88ce-aaa8d22d3c8a] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][c7536bf0-9096-4cd3-9574-9733cb349ad1] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][2c1d7ba7-cf22-4cdb-b117-33d3768076e5] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][6dfb1e29-b3fe-4b18-aaaf-e173731b5d1f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][ee63cffa-8425-4c66-95b4-3187c4dc875b] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][03b2969c-3de9-438e-9cca-11f13de45314] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:33][dc710556-a634-4c65-8ff2-a8a89324353e] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][fd797cc0-134b-4adf-b0dd-6462af8bc43d] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][8aa32776-6f63-499b-bc4e-843afb580761] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][bdfd7ff5-a5e6-4e9c-9e98-ba0749fb7ad8] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][bdfd7ff5-a5e6-4e9c-9e98-ba0749fb7ad8] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:34][f53b820b-17ef-4d72-94fb-58f9f2b4b5a0] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][f53b820b-17ef-4d72-94fb-58f9f2b4b5a0] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:34][fe198072-6b00-4881-8848-110c8ac03ace] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][fe198072-6b00-4881-8848-110c8ac03ace] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:35][2c1d7ba7-cf22-4cdb-b117-33d3768076e5] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:35][2c1d7ba7-cf22-4cdb-b117-33d3768076e5] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:34][06ef9167-edad-4f9e-b51f-8840f8a5100d] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][c7536bf0-9096-4cd3-9574-9733cb349ad1] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][f53b820b-17ef-4d72-94fb-58f9f2b4b5a0] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][fe198072-6b00-4881-8848-110c8ac03ace] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][2c1d7ba7-cf22-4cdb-b117-33d3768076e5] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][03b2969c-3de9-438e-9cca-11f13de45314] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][03b2969c-3de9-438e-9cca-11f13de45314] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:34][dc710556-a634-4c65-8ff2-a8a89324353e] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][dc710556-a634-4c65-8ff2-a8a89324353e] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:34][2415fc63-965c-4d26-88ce-aaa8d22d3c8a] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][2415fc63-965c-4d26-88ce-aaa8d22d3c8a] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:35][22206e34-3a57-4760-9479-4c59e4786a38] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][6dfb1e29-b3fe-4b18-aaaf-e173731b5d1f] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][6dfb1e29-b3fe-4b18-aaaf-e173731b5d1f] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:34][ee63cffa-8425-4c66-95b4-3187c4dc875b] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][ee63cffa-8425-4c66-95b4-3187c4dc875b] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:34][6c57427c-49fc-49e8-a1bc-66a7cd70ea31] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][06ef9167-edad-4f9e-b51f-8840f8a5100d] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][06ef9167-edad-4f9e-b51f-8840f8a5100d] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:34][c7536bf0-9096-4cd3-9574-9733cb349ad1] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:34][c7536bf0-9096-4cd3-9574-9733cb349ad1] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:34][fd797cc0-134b-4adf-b0dd-6462af8bc43d] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:35][8aa32776-6f63-499b-bc4e-843afb580761] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:35][8aa32776-6f63-499b-bc4e-843afb580761] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:35][22206e34-3a57-4760-9479-4c59e4786a38] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:35][fd797cc0-134b-4adf-b0dd-6462af8bc43d] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:45:35][6c57427c-49fc-49e8-a1bc-66a7cd70ea31] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:45:35][6c57427c-49fc-49e8-a1bc-66a7cd70ea31] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:58:19][ea6641f2-bdb5-4c7d-800d-97317353b6d4] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:58:19][9c07142c-5702-4cff-a386-c300aa18b4d5] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:58:19][e0c27fb8-c0df-4ac2-ae5f-a417245c2ce8] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:58:19][9c07142c-5702-4cff-a386-c300aa18b4d5] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:58:19][9c07142c-5702-4cff-a386-c300aa18b4d5] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:58:19][ea6641f2-bdb5-4c7d-800d-97317353b6d4] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:58:19][ea6641f2-bdb5-4c7d-800d-97317353b6d4] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:58:19][ea6641f2-bdb5-4c7d-800d-97317353b6d4] Failed:     App\Jobs\ProcessImage
+[2021-06-01 11:58:19][9c07142c-5702-4cff-a386-c300aa18b4d5] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:58:19][e0c27fb8-c0df-4ac2-ae5f-a417245c2ce8] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:58:19][e0c27fb8-c0df-4ac2-ae5f-a417245c2ce8] Processing: App\Jobs\ProcessImage
+[2021-06-01 11:58:19][e0c27fb8-c0df-4ac2-ae5f-a417245c2ce8] Failed:     App\Jobs\ProcessImage
+[2021-06-01 12:01:11][1a1bc9e7-0ddb-4b8a-a85e-3b80d3588612] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:01:11][e1442a3f-7fc7-477f-990d-8e5b75b5d3eb] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:01:11][095d9547-a890-405a-9f9f-0001f54195ab] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:01:11][095d9547-a890-405a-9f9f-0001f54195ab] Failed:     App\Jobs\ProcessImage
+[2021-06-01 12:01:11][e1442a3f-7fc7-477f-990d-8e5b75b5d3eb] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:01:11][1a1bc9e7-0ddb-4b8a-a85e-3b80d3588612] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:01:11][1a1bc9e7-0ddb-4b8a-a85e-3b80d3588612] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:01:11][1a1bc9e7-0ddb-4b8a-a85e-3b80d3588612] Failed:     App\Jobs\ProcessImage
+[2021-06-01 12:01:11][095d9547-a890-405a-9f9f-0001f54195ab] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:01:11][095d9547-a890-405a-9f9f-0001f54195ab] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:01:11][e1442a3f-7fc7-477f-990d-8e5b75b5d3eb] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:01:11][e1442a3f-7fc7-477f-990d-8e5b75b5d3eb] Failed:     App\Jobs\ProcessImage
+[2021-06-01 12:08:30][cf42e0df-adb5-4641-9966-39cba166a64c] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:08:30][070a9a83-843c-4013-9dc4-bf820af42feb] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:08:30][cf42e0df-adb5-4641-9966-39cba166a64c] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:08:30][cf42e0df-adb5-4641-9966-39cba166a64c] Failed:     App\Jobs\ProcessImage
+[2021-06-01 12:08:30][eda454a8-c925-4dd1-8ba6-d005ba757b2b] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:08:30][eda454a8-c925-4dd1-8ba6-d005ba757b2b] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:08:30][eda454a8-c925-4dd1-8ba6-d005ba757b2b] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:08:30][eda454a8-c925-4dd1-8ba6-d005ba757b2b] Failed:     App\Jobs\ProcessImage
+[2021-06-01 12:08:30][070a9a83-843c-4013-9dc4-bf820af42feb] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:08:30][cf42e0df-adb5-4641-9966-39cba166a64c] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:08:30][070a9a83-843c-4013-9dc4-bf820af42feb] Processing: App\Jobs\ProcessImage
+[2021-06-01 12:08:30][070a9a83-843c-4013-9dc4-bf820af42feb] Failed:     App\Jobs\ProcessImage
+[2021-06-01 13:23:00][7752b62b-01c7-4ed9-8779-5da3b7e9b1e1] Processing: App\Jobs\ProcessImage
+[2021-06-01 13:23:00][7752b62b-01c7-4ed9-8779-5da3b7e9b1e1] Processing: App\Jobs\ProcessImage
+[2021-06-01 13:23:00][7752b62b-01c7-4ed9-8779-5da3b7e9b1e1] Processing: App\Jobs\ProcessImage
+[2021-06-01 13:23:00][7752b62b-01c7-4ed9-8779-5da3b7e9b1e1] Failed:     App\Jobs\ProcessImage
+[2021-06-01 13:23:00][b014e209-6e74-4720-9ef3-be8334b0d10a] Processing: App\Jobs\ProcessImage
+[2021-06-01 13:23:00][b014e209-6e74-4720-9ef3-be8334b0d10a] Processing: App\Jobs\ProcessImage
+[2021-06-01 13:23:00][b014e209-6e74-4720-9ef3-be8334b0d10a] Processing: App\Jobs\ProcessImage
+[2021-06-01 13:23:00][b014e209-6e74-4720-9ef3-be8334b0d10a] Failed:     App\Jobs\ProcessImage
+[2021-06-01 13:23:00][fa9d7089-e97c-493b-a46f-fbc0a6bafa12] Processing: App\Jobs\ProcessImage
+[2021-06-01 13:23:00][fa9d7089-e97c-493b-a46f-fbc0a6bafa12] Processing: App\Jobs\ProcessImage
+[2021-06-01 13:23:00][fa9d7089-e97c-493b-a46f-fbc0a6bafa12] Processing: App\Jobs\ProcessImage
+[2021-06-01 13:23:00][fa9d7089-e97c-493b-a46f-fbc0a6bafa12] Failed:     App\Jobs\ProcessImage

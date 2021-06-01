@@ -14,10 +14,10 @@ class CreateTFodders extends Migration
     public function up()
     {
         Schema::create('t_fodders', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('name', 255);
             $table->string('brand', 400);
-            $table->boolean('active');
+            $table->boolean('active')->default(1);;
             $table->timestamps();
         });
     }

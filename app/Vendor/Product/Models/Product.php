@@ -9,9 +9,9 @@ class Product extends Model
 {
     protected $table = 't_products';
 
-    public function items()
+    public function fodders()
     {
-        return $this->hasMany(Fodder::class, 'item_id');
+        return $this->hasMany(Fodder::class, 'fodders_id');
     }
 
 }
