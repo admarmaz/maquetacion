@@ -17,7 +17,7 @@ class CreateTFodders extends Migration
             $table->increments('id');
             $table->string('name', 255);
             $table->string('brand', 400);
-            $table->boolean('active')->default(1);;
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

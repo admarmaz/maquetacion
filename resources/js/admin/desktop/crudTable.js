@@ -72,8 +72,8 @@ export let renderForm = () => {
                             table.innerHTML = response.data.table;
     
                             messages(response.data.message);
-                            renderTable();
                             renderForm();
+                            renderTable();
                         });
                         
                     } catch (error) {
@@ -110,8 +110,7 @@ export let renderForm = () => {
                     await axios.get(url).then(response => {
                         form.innerHTML = response.data.form;
                         renderForm();
-
-                        
+                        renderTable();
                         
                     });
                     

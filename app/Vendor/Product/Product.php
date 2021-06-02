@@ -3,10 +3,12 @@
 namespace App\Vendor\Product;
 
 use App\Vendor\Product\Models\Product as DBProduct;
+use Debugbar;
 
 class Product
 {
     protected $rel_parent;
+    protected $language;
 
     function __construct(DBProduct $product)
     {
@@ -22,33 +24,32 @@ class Product
     {
         return $this->rel_parent;
     }
-    
 
-    public function store($product, $id)
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+    }
+
+    public function store($product, $key)
     {  
 
-        foreach ($product as $rel_anchor => $value){
+        Debugbar::info($product['unit_cost']);
 
-            $rel_anchor = str_replace(['-', '_'], ".", $rel_anchor); 
-            $explode_rel_anchor = explode('.', $rel_anchor);
-            array_pop($explode_rel_anchor); 
-            $tag = implode(".", $explode_rel_anchor); 
-
-            $product[] = $this->product->updateOrCreate([
-                    'id' => $id],[
-                    'rel_parent' => $this->rel_parent,
-                    'rel_anchor' => $rel_anchor,
-                    'tag' => $tag,
-                    'value' => $value,
-            ]);
-        }
-
+        $product = $this->product->updateOrCreate([
+            'key' => $key,
+            'rel_parent' => $this->rel_parent],[
+            'unit_cost' => $product['unit_cost'],
+            'discount' => $product['discount'],
+            'sale_price' => $product['sale_price'],
+            'VAT' => $product['VAT'],
+    ]);
+    
         return $product;
     }
 
     public function show($key)
     {
-        return DBProduct::getValues($this->rel_parent, $key)->pluck('value','rel_anchor')->all();   
+        return DBProduct::getValues($this->rel_parent, $key)->pluck('unit_cost','VAT')->all();   
     }
 
     public function delete($key)

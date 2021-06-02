@@ -6,6 +6,7 @@ use App\Vendor\Locale\Models\Locale;
 use App\Vendor\Locale\Models\LocaleSlugSeo;
 use App\Vendor\Image\Models\ImageResized;
 use Illuminate\Database\Eloquent\Model;
+use App;
 use Debugbar;
 
 class Fodder extends DBModel

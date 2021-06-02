@@ -12,8 +12,8 @@ use App\Vendor\Locale\Manager;
 use Jenssegers\Agent\Agent;
 use App\Vendor\Locale\Locale;
 use App\Vendor\Locale\LocaleSlugSeo;
+use App\Vendor\Product\Product;
 use App\Vendor\Image\Image;
-
 use App\Models\DB\Fodder;
 use App\Http\Requests\Admin\FodderRequest;
 
@@ -27,7 +27,7 @@ class FodderController extends Controller
     protected $image;
     protected $paginate;
     
-    function __construct(Agent $agent, Manager $manager, Fodder $fodder, Locale $locale, LocaleSlugSeo $locale_slug_seo, Image $image)
+    function __construct(Agent $agent, Manager $manager, Fodder $fodder, Product $product, Locale $locale, LocaleSlugSeo $locale_slug_seo, Image $image)
     {
         //$this->middleware('auth');
         $this->agent = $agent;
@@ -36,6 +36,7 @@ class FodderController extends Controller
         $this->locale = $locale;
         $this->locale_slug_seo = $locale_slug_seo;
         $this->image = $image;
+        $this->product = $product;
 
         if ($this->agent->isMobile()) {
             $this->paginate = 10;
@@ -47,8 +48,7 @@ class FodderController extends Controller
 
         $this->locale->setParent('fodders');
         $this->locale_slug_seo->setParent('fodders');
-        $this->image->setEntity('fodders');
-
+        $this->product->setParent('fodders');
     }
 
     public function index()
@@ -83,7 +83,9 @@ class FodderController extends Controller
             'active' => 1,
         ]);
 
-        Debugbar::info($fodder);
+        if(request('product')){
+            $product = $this->product->store(request("product"), $fodder->id);
+        }
 
         if(request('seo')){
             $seo = $this->locale_slug_seo->store(request("seo"), $fodder->id, 'front_fodder');
@@ -116,11 +118,11 @@ class FodderController extends Controller
         ]);
     }
 
-    public function edit(Fodder $fodder)
+    public function edit(Fodder $fodder, Product $product)
     {
         $locale = $this->locale->show($fodder->id);
         $seo = $this->locale_slug_seo->show($fodder->id);
-
+    
         $view = View::make('admin.fodders.index')
         ->with('locale', $locale)
         ->with('seo', $seo)
@@ -145,11 +147,14 @@ class FodderController extends Controller
         $fodder->active = 0;
         $fodder->save();
 
+        $this->locale->delete($fodder->id);
+        $this->locale_slug_seo->delete($fodder->id);
+
         $message = \Lang::get('admin/items.item-delete');
 
         $view = View::make('admin.fodders.index')
         ->with('fodder', $this->fodder)
-        ->with('fodder', $this->fodder->where('active', 1)->orderBy('created_at', 'desc')->paginate($this->paginate))
+        ->with('fodders', $this->fodder->where('active', 1)->orderBy('created_at', 'desc')->paginate($this->paginate))
         ->renderSections();        
 
         return response()->json([

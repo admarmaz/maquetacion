@@ -8,6 +8,7 @@ use Debugbar;
 class Product extends Model
 {
     protected $table = 't_products';
+    protected $guarded = [];
 
     public function fodders()
     {

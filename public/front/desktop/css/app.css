@@ -624,3 +624,10 @@ body {
 .faqs .faq.active .faq-description {
   max-height: 70vh;
 }
+
+.fodder-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 150px);
+  grid-gap: 2rem;
+}

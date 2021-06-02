@@ -11,7 +11,7 @@
         @isset($fodders)
 
             <div class="tabla-titulo">
-                <h2>@lang('admin/fodders.parent_section')</h2>
+                <h2>@lang('admin/fodder.parent_section')</h2>
             </div>
 
             <div id="table-container" class="table-elements">
@@ -59,7 +59,7 @@
             <div class="formulario-titulo">
 
                 <div class="formulario-tit">
-                    <h2>@lang('admin/fodders.new-item')</h2>
+                    <h2>@lang('admin/fodder.new-item')</h2>
                 </div>
                 <div class="option-buttons">
                     <div class="formulario-enviar">
@@ -255,73 +255,61 @@
 
                     <div class="tab-content">
 
-                        @component('admin.components.locale', ['tab' => 'product'])
-
-                            @foreach ($localizations as $localization)
-
-                                <div class="tab-language {{ $loop->first ? 'active-tabs-locale':'' }}" data-tab="product" data-localetab="{{$localization->alias}}">
-
-                                    <div class="one-column">
-                                        <div class="form-group">
-                                            <div class="form-label">
-                                                <label for="keywords" class="label-highlight">
-                                                    Coste sin IVA 
-                                                </label>
-                                            </div>
-                                            <div class="form-input">
-                                                <input type="text" name="[keywords.{{$localization->alias}}]" value="{{isset($product->unit_cost) ? $fodder->name : ''}}"  class="input-highlight">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="one-column">
-                                        <div class="form-group">
-                                            <div class="form-label">
-                                                <label for="keywords" class="label-highlight">
-                                                    IVA
-                                                </label>
-                                            </div>
-                                            <div class="form-input">
-                                                <input type="text" name="[keywords.{{$localization->alias}}]" value="{{isset($product->unit_cost) ? $fodder->name : ''}}"  class="input-highlight">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="one-column">
-                                        <div class="form-group">
-                                            <div class="form-label">
-                                                <label for="keywords" class="label-highlight">
-                                                    Descuento
-                                                </label>
-                                            </div>
-                                            <div class="form-input">
-                                                <input type="text" name="[keywords.{{$localization->alias}}]" value="{{isset($product->unit_cost) ? $fodder->name : ''}}"  class="input-highlight">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="one-column">
-                                        <div class="form-group">
-                                            <div class="form-label">
-                                                <label for="keywords" class="label-highlight">
-                                                    Precio de venta 
-                                                </label>
-                                            </div>
-                                            <div class="form-input">
-                                                <input type="text" name="[keywords.{{$localization->alias}}]" value="{{isset($product->unit_cost) ? $fodder->name : ''}}"  class="input-highlight">
-                                            </div>
-                                        </div>
-                                    </div>
-                                                                
+                        <div class="one-column">
+                            <div class="form-group">
+                                <div class="form-label">
+                                    <label for="keywords" class="label-highlight">
+                                        Coste sin IVA 
+                                    </label>
                                 </div>
+                                <div class="form-input">
+                                    <input type="text" name= "product[unit_cost]" value="{{isset($product->unit_cost) ? $product->unit_cost : ''}}"  class="input-highlight">
+                                </div>
+                            </div>
+                        </div>
 
-                            @endforeach
-                
-                        @endcomponent
+                        <div class="one-column">
+                            <div class="form-group">
+                                <div class="form-label">
+                                    <label for="keywords" class="label-highlight">
+                                        IVA
+                                    </label>
+                                </div>
+                                <div class="form-input">
+                                    <input type="text" name= "product[VAT]" value="{{isset($product->VAT) ? $product->VAT : ''}}"  class="input-highlight">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="one-column">
+                            <div class="form-group">
+                                <div class="form-label">
+                                    <label for="keywords" class="label-highlight">
+                                        Descuento
+                                    </label>
+                                </div>
+                                <div class="form-input">
+                                    <input type="text" name= "product[discount]" value="{{isset($product->discount) ? $product->discount : ''}}"  class="input-highlight">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="one-column">
+                            <div class="form-group">
+                                <div class="form-label">
+                                    <label for="keywords" class="label-highlight">
+                                        Precio de venta 
+                                    </label>
+                                </div>
+                                <div class="form-input">
+                                    <input type="text" name= "product[sale_price]" value="{{isset($product->sale_price) ? $product->sale_price : ''}}"  class="input-highlight">
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
-                </div>
 
+                </div>
 
             </form>    
         </div>

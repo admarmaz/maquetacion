@@ -2058,8 +2058,8 @@ var renderForm = function renderForm() {
 
                       table.innerHTML = response.data.table;
                       (0,_messages__WEBPACK_IMPORTED_MODULE_5__.messages)(response.data.message);
-                      renderTable();
                       renderForm();
+                      renderTable();
                     });
 
                   case 3:
@@ -2112,6 +2112,7 @@ var renderForm = function renderForm() {
                   return axios.get(url).then(function (response) {
                     form.innerHTML = response.data.form;
                     renderForm();
+                    renderTable();
                   });
 
                 case 3:

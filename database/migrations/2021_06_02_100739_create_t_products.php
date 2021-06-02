@@ -15,11 +15,13 @@ class CreateTProducts extends Migration
     {
         Schema::create('t_products', function (Blueprint $table) {
             $table->id();
+            $table->string('rel_parent', 255);
+            $table->integer('key')->nullable(true)->index();
             $table->decimal('unit_cost');
-            $table->integer('VAT');
+            $table->integer('VAT')->nullable();
             $table->integer('discount');
             $table->decimal('sale_price');
-            $table->boolean('active');
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }
