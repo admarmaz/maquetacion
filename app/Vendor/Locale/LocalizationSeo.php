@@ -10,6 +10,7 @@ use App\Vendor\Locale\Exceptions\SupportedLocalesNotDefined;
 use App\Vendor\Locale\Exceptions\UnsupportedLocaleException;
 use App\Vendor\Locale\Models\LocaleSeo;
 use App\Vendor\Locale\Manager;
+use Debugbar;
 
 class LocalizationSeo
 {
@@ -304,6 +305,8 @@ class LocalizationSeo
         }
 
         $this->manager->exportTranslations('routes');
+
+        Debugbar::info($seo);
 
         return $seo;
     }

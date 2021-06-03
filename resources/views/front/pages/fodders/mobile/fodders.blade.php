@@ -89,19 +89,6 @@
 
     </div>
 
-    <div>
-        <div class="fodder-title pink-title">
-            <h3>La mejor comida para gatos a los mejores precios.</h3>
-            
-        </div>
-
-        <p>En Tiendanimal nos gusta ver a las mascotas y a sus cuidadores felices, por eso seleccionamos los marcas de pienso para gatos consolidadas y de referencia en el mercado para su alimentación,
-            porque sabemos que esa es la base de la salud y la alegría. La alimentación de tu gato es muy importante para mantener su vitalidad y bienestar,
-            por eso te asesoramos cuanto necesites, para que encuentres el pienso ideal, los mejores snacks de gato,
-            los complementos nutricionales y la comida húmeda especial para gatos y gatitos que marcarán la diferencia en su salud.
-        </p>
-    </div>
-
     
     
 </div>

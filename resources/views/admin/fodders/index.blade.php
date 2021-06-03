@@ -179,7 +179,6 @@
                                             'files' => $fodder->images_featured_preview
                                         ])
                                     </div>
-                                 
 
                                     <div class="form-group">
                                         <div class="form-label">

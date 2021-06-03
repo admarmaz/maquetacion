@@ -80,7 +80,7 @@ class Image
 			$width = $data[0];
 			$height = $data[1];
 		}
-		
+
 		$settings = ImageConfiguration::where('entity', $this->entity)
 		->where('content', $content)
 		->where('grid', 'original')

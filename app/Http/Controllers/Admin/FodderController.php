@@ -43,9 +43,10 @@ class FodderController extends Controller
         }
 
         if ($this->agent->isDesktop()) {
-            $this->paginate = 3;
+            $this->paginate = 6;
         }
 
+        $this->image->setEntity('fodders');
         $this->locale->setParent('fodders');
         $this->locale_slug_seo->setParent('fodders');
         $this->product->setParent('fodders');
@@ -81,6 +82,7 @@ class FodderController extends Controller
             'name' => request('name'),
             'brand' => request('brand'),
             'active' => 1,
+            'visible' => 1,
         ]);
 
         if(request('product')){

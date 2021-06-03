@@ -36,6 +36,7 @@ class FodderController extends Controller
             $fodders = $this->fodder
                     ->with('image_featured_desktop')
                     ->where('active', 1)
+                    ->where('visible', 1)
                     ->get();
         }
         
@@ -43,6 +44,7 @@ class FodderController extends Controller
             $fodders = $this->fodder
                     ->with('image_featured_mobile')
                     ->where('active', 1)
+                    ->where('visible', 1)
                     ->get();
         }
 
@@ -71,6 +73,7 @@ class FodderController extends Controller
                     ->with('image_featured_desktop')
                     ->with('image_grid_desktop')
                     ->where('active', 1)
+                    ->where('visible', 1)
                     ->find($seo->key);
             }
             
@@ -79,6 +82,7 @@ class FodderController extends Controller
                     ->with('image_featured_mobile')
                     ->with('image_grid_mobile')
                     ->where('active', 1)
+                    ->where('visible', 1)
                     ->find($seo->key);
             }
 

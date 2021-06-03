@@ -495,6 +495,10 @@ body {
   background-color: #f3f3f5;
 }
 
+ul {
+  padding: 0;
+}
+
 .main-content {
   width: 80%;
   margin: 5em auto;
@@ -625,9 +629,81 @@ body {
   max-height: 70vh;
 }
 
-.fodder-container {
+.fodders-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 360px);
+  grid-gap: 2rem;
+}
+.fodders-container .fodder-item {
+  border: 1px solid #e3e3e9;
+  border-radius: 5px;
+  padding: 0.5em;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+.fodders-container .fodder-item :hover .buy-button {
+  background-color: green;
+}
+
+.fodder-single {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 150px);
+  grid-template-columns: 35fr 60fr;
   grid-gap: 2rem;
+}
+
+.rating-item {
+  display: inline-block;
+}
+
+.section-description {
+  font-size: 1em;
+}
+
+.sale-price {
+  display: flex;
+  align-items: center;
+}
+.sale-price p {
+  font-size: 1.5em;
+  margin: 0;
+  padding: 0.2em 0.1em;
+  color: black;
+}
+.sale-price span {
+  text-decoration: line-through;
+  font-size: 1em;
+}
+
+.buy-button {
+  display: flex;
+  background-color: #78b800;
+  border: none;
+  border-radius: 3px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 100%;
+}
+.buy-button p {
+  margin: 0;
+  padding: 0.5em;
+}
+
+.pink-title {
+  color: #cc3872;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.pink-title p {
+  margin: 0;
+}
+
+.small-description {
+  font-size: 0.8em;
+}
+
+.small-numbers {
+  font-size: 0.8em;
 }
