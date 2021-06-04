@@ -22,6 +22,7 @@
     </head>
 
     <body>
+        {{display_menu('principal','horizontal')}}
         <div class="wrapper" id="app">
             <div class="main-content">
                 @yield('content')
