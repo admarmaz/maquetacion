@@ -1,4 +1,3 @@
-import { orderBy } from 'lodash';
 import {renderTabs} from './tabs';
 import {renderLanguageTabs} from './localeTabs';
 import {renderCkeditor} from '../../ckeditor';
@@ -9,7 +8,8 @@ import {renderLocaleSeo} from './localeSeo';
 import {renderGoogleBot} from './googleBot';
 import {renderSitemap} from './sitemap';
 import {renderSlugPrevent} from './slugPrevent';
-
+import {renderNestedSortables} from './sortable';
+import {renderMenuItems} from './menuItems';
 
 const table = document.getElementById("table");
 const form = document.getElementById("form");
@@ -19,9 +19,8 @@ export let renderForm = () => {
     let forms = document.querySelectorAll(".admin-formulario");
     let labels = document.querySelectorAll('.label-highlight');
     let inputs = document.querySelectorAll('.input-highlight');
-    let sendButton = document.getElementById("guardar-cambios");
+    let sendButton = document.getElementById("store-button");
     let createButton = document.getElementById("create-button");
-    let storeButton = document.getElementById('store-button');
 
     inputs.forEach(input => {
 
@@ -134,6 +133,8 @@ export let renderForm = () => {
     renderGoogleBot();
     renderSitemap();
     renderSlugPrevent();
+    renderNestedSortables();
+    renderMenuItems();
 };
 
 export let renderTable = () => {

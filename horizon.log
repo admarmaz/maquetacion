@@ -1408,3 +1408,4 @@ Horizon started successfully.
 [2021-06-03 09:53:38][02be49fb-26fe-412f-83a0-c99400884e06] Processed:  App\Jobs\ProcessImage
 [2021-06-03 09:53:38][dbefc06b-6b6f-4204-adce-3fd44b1de416] Processing: App\Jobs\ProcessImage
 [2021-06-03 09:53:38][dbefc06b-6b6f-4204-adce-3fd44b1de416] Processed:  App\Jobs\ProcessImage
+Horizon started successfully.

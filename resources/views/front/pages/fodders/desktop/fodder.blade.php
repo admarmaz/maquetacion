@@ -1,3 +1,8 @@
+
+<div class="fodder-title pink-title">
+    <h3>@lang('front/fodders.title')</h3>
+</div>
+
 <div class="fodder-single">
     
     <div class="">
