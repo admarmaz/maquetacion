@@ -3506,9 +3506,6 @@ var renderTabs = function renderTabs() {
 
       if (plusButton.classList.contains("active-tabs")) {
         plusButton.classList.remove("active-tabs");
-        activeElements.forEach(function (activeElement) {
-          activeElement.classList.remove("active-tabs");
-        });
       } else {
         activeElements.forEach(function (activeElement) {
           activeElement.classList.remove("active-tabs");
@@ -3517,7 +3514,9 @@ var renderTabs = function renderTabs() {
         tabElements.forEach(function (tabElement) {
           if (tabElement.dataset.content == plusButton.dataset.button) {
             tabElement.classList.add("active-tabs");
-          } else {}
+          } else {
+            tabElement.classList.remove("active-tabs");
+          }
         });
       }
     });

@@ -12,12 +12,7 @@ export let renderTabs = () => {
             if(plusButton.classList.contains("active-tabs")){
                
                 plusButton.classList.remove("active-tabs");
-    
-                activeElements.forEach(activeElement => {
-                    activeElement.classList.remove("active-tabs");
-                });
-               
-    
+            
             }else{
     
                 activeElements.forEach(activeElement => {
@@ -31,6 +26,7 @@ export let renderTabs = () => {
                     if(tabElement.dataset.content == plusButton.dataset.button){
                         tabElement.classList.add("active-tabs"); 
                     }else{
+                        tabElement.classList.remove("active-tabs");
                     }
                 });
     

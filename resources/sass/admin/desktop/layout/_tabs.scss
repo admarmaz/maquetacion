@@ -39,9 +39,10 @@
 
     .tab-button:hover{
         background-color:rgb(139, 243, 212)
-    }
+    }   
+    
+}
 
-    
-        
-    
+.tab.active-tabs .tabs-buttons .tab-button{
+    background-color: rgb(150, 160, 157);
 }

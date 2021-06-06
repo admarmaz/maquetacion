@@ -735,6 +735,10 @@ li {
   background-color: #8bf3d4;
 }
 
+.tab.active-tabs .tabs-buttons .tab-button {
+  background-color: #96a09d;
+}
+
 .swipe-front {
   display: flex;
   margin-bottom: 1em;
