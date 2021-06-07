@@ -1,0 +1,70 @@
+.header-fixed{
+	
+	background-color: #48423d;
+
+
+	&.hidden{
+		@include fadeOut(0,1s);
+	}
+
+	&.blur{
+		background-color: rgba(73, 73, 73, 0.8);
+		overflow: hidden;
+
+		h4{
+			color: #ffffff;
+		}
+	}
+}
+
+.header-element{
+	color: white;
+	margin-right: 2em;
+}
+
+.header-fixed .header-container{
+
+	display: flex;
+	justify-content: space-between;
+	height: 100%;
+
+	.header-logo{
+		width: max-content;
+		
+	}
+
+	.header-menu{
+		display: flex;
+		width: max-content;
+		align-items: center;
+		height: 2rem;
+		
+
+		.booking-button{
+			
+			margin: auto;
+			margin-left: 2em;
+
+		}
+	}
+}
+
+.header-fixed .header-bar{
+
+	height: 3.5em;
+	overflow: hidden;
+	padding-top: 1em;
+	width: 100%;
+	
+
+	&.blur{
+		background-color: grey;
+		filter: blur(2px);
+		opacity: 0.8;
+		overflow: hidden;
+	}
+}
+
+.deeper .parent{
+	margin-right: 2em;
+}

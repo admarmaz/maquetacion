@@ -511,6 +511,108 @@ ul {
   }
 }
 
+.topbar {
+  background-color: white;
+  display: flex;
+  padding: 0 1em;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+.topbar .phone-element {
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
+}
+.topbar .mail-element {
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
+}
+
+.header-fixed {
+  background-color: #48423d;
+}
+.header-fixed.hidden {
+  opacity: 0;
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-name: fadeOut;
+          animation-name: fadeOut;
+}
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.header-fixed.blur {
+  background-color: rgba(73, 73, 73, 0.8);
+  overflow: hidden;
+}
+.header-fixed.blur h4 {
+  color: #ffffff;
+}
+
+.header-element {
+  color: white;
+  margin-right: 2em;
+}
+
+.header-fixed .header-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+.header-fixed .header-container .header-logo {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.header-fixed .header-container .header-menu {
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  align-items: center;
+  height: 2rem;
+}
+.header-fixed .header-container .header-menu .booking-button {
+  margin: auto;
+  margin-left: 2em;
+}
+
+.header-fixed .header-bar {
+  height: 3.5em;
+  overflow: hidden;
+  padding-top: 1em;
+  width: 100%;
+}
+.header-fixed .header-bar.blur {
+  background-color: grey;
+  filter: blur(2px);
+  opacity: 0.8;
+  overflow: hidden;
+}
+
+.deeper .parent {
+  margin-right: 2em;
+}
+
 .faqs {
   margin: 3% auto;
   width: 80%;
@@ -706,4 +808,46 @@ ul {
 
 .small-numbers {
   font-size: 0.8em;
+}
+
+.menu-inline {
+  position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  z-index: 1001;
+}
+.menu-inline li {
+  cursor: pointer;
+  display: inline-flex;
+}
+.menu-inline li a h4 {
+  color: white;
+  font-size: 1em;
+}
+.menu-inline li:hover a h4 {
+  color: #48423d;
+  background-color: white;
+}
+@media (min-width: 1920px) {
+  .menu-inline li a h4 {
+    font-size: 1.6em;
+  }
+}
+.menu-inline:hover .menu {
+  opacity: 1;
+  top: 5vh;
+  transition: all 0.7s;
+}
+
+.menu {
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.7s;
+  top: 0;
 }
