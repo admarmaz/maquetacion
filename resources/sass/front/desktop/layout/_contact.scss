@@ -1,0 +1,36 @@
+
+.contact-form{
+    width: 60%;
+
+    .contact-inputs{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+        margin-bottom: 1em;
+    }
+}
+
+.contact-container{
+    display: flex;
+
+    .contact-tabs{
+        margin-right: 2em;
+        width: 40%;
+        display: block;
+        
+        .contact-item{
+            display: flex;
+            cursor: pointer;
+            margin: 1em;
+            padding: .8em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            height: 1.2em;
+            align-items: center;
+            justify-content: space-between;
+            font-size: .8em;
+
+        }
+    }
+}
+

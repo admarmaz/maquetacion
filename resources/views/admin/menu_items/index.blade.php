@@ -10,7 +10,7 @@
 
     @foreach ($localizations as $localization)
 
-    <div class="tab-language {{ $loop->first ? 'active-tabs-locale' :'' }}" data-tab = "content" data-localetab = "{{$localization->alias}}">
+        <div class="tab-language {{ $loop->first ? 'active-tabs-locale' :'' }}" data-tab = "content" data-localetab = "{{$localization->alias}}">
                 
             <div class="one-column">
                 <div class="formulario-grupo">
@@ -42,6 +42,10 @@
         </div>
 
     @endforeach
+
+    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z" />
+    </svg>
 
 @endcomponent
             

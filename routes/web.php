@@ -147,7 +147,8 @@ Route::group(['prefix' => 'admin'], function () {
     
 });
 
-Route::post('/contacto', 'App\Http\Controllers\Front\ContactController@send')->name('front_contact_form');
+Route::post('/contacto', 'App\Http\Controllers\Front\ContactController@store')->name('front_contact_form');
+Route::get('/traduccion/{language}/{parent}/{slug?}', 'App\Http\Controllers\Front\LocalizationController@show')->name('front_localization');
 
 Route::group(['prefix' => $localizationseo->setLocale(),
               'middleware' => [ 'localize' ]
@@ -157,6 +158,8 @@ Route::group(['prefix' => $localizationseo->setLocale(),
     Route::get($localizationseo->transRoute('routes.front_faq'), 'App\Http\Controllers\Front\FaqController@show')->name('front_faq');
     Route::get($localizationseo->transRoute('routes.front_fodders'), 'App\Http\Controllers\Front\FodderController@index')->name('front_fodders');
     Route::get($localizationseo->transRoute('routes.front_fodder'), 'App\Http\Controllers\Front\FodderController@show')->name('front_fodder');
+    Route::get($localizationseo->transRoute('routes.front_contact'), 'App\Http\Controllers\Front\ContactController@index')->name('front_contact');
+
 });
 
 

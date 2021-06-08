@@ -8,7 +8,7 @@
 
                 <div class="booking-button">
                     <button>
-                        @lang('front/footer.booking')
+                        @lang('front/footer.contact')
                     </button>
                 </div>
             </div>

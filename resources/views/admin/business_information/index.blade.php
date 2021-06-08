@@ -172,7 +172,7 @@
                                         </div>
                                         <div class="form-input grid-column">
                                             @include('admin.components.upload_image', [
-                                                'entity' => 'business-information',
+                                                'entity' => 'business_information',
                                                 'type' => 'single', 
                                                 'content' => 'logo', 
                                                 'alias' => $localization->alias,
@@ -187,7 +187,7 @@
                                         </div>
                                         <div class="form-input grid-column">
                                             @include('admin.components.upload_image', [
-                                                'entity' => 'business-information',
+                                                'entity' => 'business_information',
                                                 'type' => 'single', 
                                                 'content' => 'logolight', 
                                                 'alias' => $localization->alias,

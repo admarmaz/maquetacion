@@ -493,10 +493,26 @@ a:hover, a:focus {
 body {
   color: #4e5359;
   background-color: #f3f3f5;
+  font-size: 0.9em;
 }
 
 ul {
   padding: 0;
+}
+
+input {
+  margin-top: 0.2em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 1.7em;
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  margin-top: 0.2em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .main-content {
@@ -661,6 +677,10 @@ ul {
   font-weight: 400;
 }
 
+.footer-element .fotter-logo {
+  color: #232323;
+}
+
 .footer .footer-element-icon {
   margin-right: 0.5em;
 }
@@ -678,7 +698,37 @@ ul {
 
 .footer .footer-contact-item {
   display: flex;
-  margin: 0.5em 0;
+}
+
+.contact-form {
+  width: 60%;
+}
+.contact-form .contact-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  margin-bottom: 1em;
+}
+
+.contact-container {
+  display: flex;
+}
+.contact-container .contact-tabs {
+  margin-right: 2em;
+  width: 40%;
+  display: block;
+}
+.contact-container .contact-tabs .contact-item {
+  display: flex;
+  cursor: pointer;
+  margin: 1em;
+  padding: 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 1.2em;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8em;
 }
 
 .faqs {

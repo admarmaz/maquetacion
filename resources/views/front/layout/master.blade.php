@@ -22,8 +22,7 @@
     </head>
 
     <body>
-
-        @include("front.layout.partials.topbar")
+        
         @include("front.layout.partials.header_fixed")
     
         <div class="wrapper" id="app">

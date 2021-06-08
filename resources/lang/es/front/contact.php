@@ -1,10 +1,18 @@
 <?php
 
 return array (
-  'title' => 'Contacta con nosotros',
-  'send' => 'ENVIAR',
-  'contact-socials-title' => 'Redes sociales',
-  'contact-info-title' => 'Información',
-  'contact-map-title' => 'Donde encontrarnos',
-  'contact-map-text' => 'Estamos situados en El Club Marítimo San Antonio de la Playa ubicado en Can Pastilla, Mallorca – Islas Baleares. Para llegar a Can Pastilla existen principalmente tres líneas de autobús urbano propiedad de la EMT y son las líneas 15 30 y 31B además de la línea 21 que comunica s’Arenal con el Aeropuerto. Para llegar mediante coche existe la autovía Ma-19 que recorre todos los puntos turísticos dichos anteriormente.'
+  'title' => '¿Tienes dudas sobre tu pedido? ¡Aquí te ayudamos!',
+  'description' => 'Aquí resolvemos tus dudas más frecuentes sobre los pedidos y te ayudamos a contactar con nuestro
+  Servicio de Atención al Cliente',
+
+  'personal-data' => 'Nombres y apellidos',
+  'phone' => 'Teléfono de contacto',
+  'email' => 'Dirección de email',
+  'ask-question' => 'Mándanos tus dudas o comentarios',
+  'province' => 'Indique provincia',
+  'map' => 'Encuentranos',
+  'map-text' => 'Tiendas actualmente abiertas',
+  'send' => 'Enviar',
+
+
 );

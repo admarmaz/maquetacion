@@ -3,5 +3,5 @@
 return array (
   'menu' => 'MENÚ',
   'socials' => 'SÍGUENOS',
-  'contact' => 'CONTACTO',
+  'contact' => 'Consulta cualquier duda aquí',
 );
