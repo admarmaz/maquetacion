@@ -1,5 +1,6 @@
 .footer{
-	background-color: #253786;
+	background-color: #232323;
+	color: #f1f1f4;
 	height: max-content;
 	margin-top: 0px;
 	padding: 5% 10%;
@@ -15,8 +16,7 @@
     top: 0;
     height: 20px;
     background-size: 40px 40px;
-    background-image: radial-gradient(circle at 20px -29px, transparent 40px, #FFF 41px);
-    transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .footer:after{
@@ -27,7 +27,7 @@
     top: 0;
     height: 30px;
     background-size: 80px 40px;
-    background-image: radial-gradient(circle at 20px 52px, #FFF 40px, transparent 41px);
+
     transform: rotate(180deg);
 }
 
@@ -40,9 +40,7 @@
 	
 	margin-top: 2em;
 	
-	button{
-		@include gradientButton(#253786,#02A8B0, 1em);
-	}
+	
 }
 
 .footer .footer-element-container{

@@ -1,8 +1,8 @@
 <?php
 
 return array (
-  'telephone' => '+34 654548109',
-  'email' => 'mailto@mail.com',
+  'phone' => '+34 654548109',
+  'email' => 'mailto@bestcats.com',
   'province' => 'Valencia',
   'poblation' => 'Burjasot',
   'postalcode' => '46021',
