@@ -58,6 +58,15 @@ class FaqController extends Controller
         $view = View::make('front.pages.faqs.index')
                 ->with('faqs', $faqs) 
                 ->with('seo', $seo );
+
+        if(request()->ajax()) {
+
+            $sections = $view->renderSections(); 
+    
+            return response()->json([
+                'view' => $sections['content'],
+            ]); 
+        }
         
         return $view;
     }
@@ -90,6 +99,15 @@ class FaqController extends Controller
 
             $view = View::make('front.pages.faqs.single')->with('faq', $faq);
 
+            if(request()->ajax()) {
+
+                $sections = $view->renderSections(); 
+        
+                return response()->json([
+                    'view' => $sections['content'],
+                ]); 
+            }
+            
             return $view;
 
         }else{

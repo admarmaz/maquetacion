@@ -45,7 +45,5 @@
         </div>
     </form>
 
-    <div class="login-errors">
-        @include('front.components.desktop.errors')
-    </div>    
+       
 </div>

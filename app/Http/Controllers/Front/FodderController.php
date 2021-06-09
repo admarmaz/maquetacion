@@ -58,6 +58,15 @@ class FodderController extends Controller
         $view = View::make('front.pages.fodders.index')
                 ->with('fodders', $fodders) 
                 ->with('seo', $seo );
+
+        if(request()->ajax()) {
+
+            $sections = $view->renderSections(); 
+    
+            return response()->json([
+                'view' => $sections['content'],
+            ]); 
+        }
         
         return $view;
     }
@@ -89,6 +98,15 @@ class FodderController extends Controller
             $fodder['locale'] = $fodder->locale->pluck('value','tag');
 
             $view = View::make('front.pages.fodders.single')->with('fodder', $fodder);
+
+            if(request()->ajax()) {
+
+                $sections = $view->renderSections(); 
+        
+                return response()->json([
+                    'view' => $sections['content'],
+                ]); 
+            }
 
             return $view;
 

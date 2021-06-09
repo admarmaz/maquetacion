@@ -534,6 +534,7 @@ textarea {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+  justify-content: space-between;
 }
 .topbar .phone-element {
   display: flex;
@@ -729,6 +730,38 @@ textarea {
   align-items: center;
   justify-content: space-between;
   font-size: 0.8em;
+}
+
+.modal-localization {
+  display: flex;
+  left: 0;
+  margin: auto;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  top: -40vh;
+  transition: opacity 0.5s;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  z-index: 5000;
+}
+.modal-localization.modal-active {
+  opacity: 1;
+  top: 40vh;
+}
+.modal-localization .localization-option {
+  cursor: pointer;
+  margin: 1em;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.modal-localization .localization-option:hover {
+  box-shadow: 0px 7px 10px rgba(223, 238, 243, 0.3);
+}
+.modal-localization .localization-option svg {
+  width: 10em;
 }
 
 .faqs {
@@ -968,4 +1001,84 @@ textarea {
   margin-right: auto;
   transition: all 0.7s;
   top: 0;
+}
+
+.localization {
+  cursor: pointer;
+  position: relative;
+  width: 1.5em;
+}
+.localization:hover {
+  box-shadow: 0px 7px 10px rgba(223, 238, 243, 0.3);
+}
+
+.contact {
+  margin: 5% auto;
+  width: 70%;
+}
+@media (min-width: 1920px) {
+  .contact {
+    margin: 2% auto;
+    width: 35%;
+  }
+}
+
+.contact .sidebar .contact-socials .contact-socials-title,
+.contact .sidebar .contact-info .contact-info-title {
+  margin-bottom: 2em;
+}
+.contact .sidebar .contact-socials .socials-icons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+.contact .sidebar .contact-info .contact-info-element {
+  display: flex;
+  margin-bottom: 2em;
+}
+.contact .sidebar .contact-info .contact-info-element .contact-info-text {
+  margin: auto 0;
+  margin-left: 1em;
+  text-align: left;
+}
+.contact .sidebar .contact-socials .socials-icons .social-icon,
+.contact .sidebar .contact-info .contact-info-element .contact-info-icon {
+  background-color: #253786;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  height: 3em;
+  width: 3em;
+}
+.contact .sidebar .contact-socials .socials-icons .social-icon svg,
+.contact .sidebar .contact-info .contact-info-element .contact-info-icon svg {
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+}
+.contact .sidebar .contact-socials .socials-icons .social-icon svg path,
+.contact .sidebar .contact-info .contact-info-element .contact-info-icon svg path {
+  fill: white;
+}
+.contact .sidebar .contact-socials .socials-icons .social-icon:hover {
+  background-color: #00a9b1;
+  cursor: pointer;
+}
+
+.contact .contact-map {
+  margin: 0.5em 0;
+}
+.contact .contact-map .contact-map-title h3 {
+  font-size: 2em;
+  color: #00a9b1;
+}
+.contact .contact-map .contact-map-text {
+  margin: 0.5em 0;
+}
+.contact .contact-map .contact-map-text p {
+  margin: 0.5em 0;
+}
+.contact .contact-map .contact-map-ubication {
+  height: 50vh;
+  margin: 2em 0;
 }

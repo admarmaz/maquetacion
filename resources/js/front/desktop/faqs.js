@@ -1,4 +1,6 @@
 
+export let renderFaqs = () => {
+
 const plusButtons = document.querySelectorAll('.faq-plus-button');
 const faqElements = document.querySelectorAll(".faq");
 
@@ -37,3 +39,7 @@ plusButtons.forEach(plusButton => {
     });
    
 });
+
+}
+
+renderFaqs();
