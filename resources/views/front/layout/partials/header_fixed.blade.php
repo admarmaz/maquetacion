@@ -6,7 +6,7 @@
                 <a href="/"><img src="{{Storage::url($logo->path)}}" alt="{{$logo->alt}}" title="{{$logo->title}}"></a>
             @endisset
         </div>
-    
+  
         <div class="header-menu">
 
             <div class= "header-element">

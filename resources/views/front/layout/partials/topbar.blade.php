@@ -23,9 +23,7 @@
             <p><a href="mailto:@lang('front/information.email')">@lang('front/information.email')</a></p>
         </div>
 
-        <div class="topbar-element topbar-localization">
-            @include('front.components.desktop.localization')
-        </div>
+       
         
     </div>
 
