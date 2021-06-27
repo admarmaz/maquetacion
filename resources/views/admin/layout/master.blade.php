@@ -14,6 +14,7 @@
 
     <body>
 
+        @include('admin.components.messages')
         @include('admin.components.wait')
         @include('admin.components.modal_image')
         @include('admin.components.modal_delete')
@@ -33,7 +34,6 @@
         </div>
  
         @include('admin.layout.partials.js')
-        @include('admin.components.messages')
 
     </body>
 </html>

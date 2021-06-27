@@ -8,7 +8,7 @@ import {renderLocaleSeo} from './localeSeo';
 import {renderGoogleBot} from './googleBot';
 import {renderSitemap} from './sitemap';
 import {renderSlugPrevent} from './slugPrevent';
-import {renderNestedSortables} from './sortable';
+
 import {renderMenuItems} from './menuItems';
 
 const table = document.getElementById("table");
@@ -69,15 +69,15 @@ export let renderForm = () => {
                             form.id.value = response.data.id;
                             }
                             table.innerHTML = response.data.table;
-    
-                            messages(response.data.message);
+
                             renderForm();
                             renderTable();
+                            messages();
                         });
                         
                     } catch (error) {
                             
-                        if(error.response.status == '422'){
+                    /*    if(error.response.status == '422'){
 
                             let errors = error.response.data.errors;      
                             let errorMessage = '';
@@ -88,6 +88,8 @@ export let renderForm = () => {
             
                             messages(errorMessage);
                         }
+                    */
+
                     }
                 };
         
@@ -133,7 +135,6 @@ export let renderForm = () => {
     renderGoogleBot();
     renderSitemap();
     renderSlugPrevent();
-    renderNestedSortables();
     renderMenuItems();
 };
 

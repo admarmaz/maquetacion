@@ -1,13 +1,11 @@
-export let messages = (message) => {
+export let messages = () => {
 
-    let saveShow = document.querySelectorAll(".save-show");
-    let customMessage = document.getElementById('custom-message');
+    let saveShow = document.getElementById("save-container");
 
-    customMessage.innerHTML = message;
     saveShow.classList.toggle("show");
-
-    setTimeout(function() {
+    setTimeout(function(){ 
         saveShow.classList.toggle("show");
-    }, 3000);   
-};
+        }, 3000);
+      
+}
 
