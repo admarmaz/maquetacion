@@ -1,0 +1,48 @@
+.login{
+
+    margin: auto auto;
+    border: 1px #ddd solid;
+    border-radius: 4px;
+    background-color: #fff;
+    width: 21em;
+    padding: 1.5em;
+    justify-content: center;
+
+    .login-form{
+
+        .login-header{
+            font-size: .6em;
+        }
+    
+        .formulario-grupo{
+            margin-bottom: 1em;
+            font-weight: bold;
+
+            .form-label{
+                font-size: .8em;
+                margin-bottom: .2em;
+            }
+        }
+
+        #login-form{
+            .form-group.login-submit{
+                button.login-button{
+                    width: 100%;
+                    padding: .4em;
+                    background-color: #ffca68;
+                    border-radius: 4px;
+
+                    &:hover{
+                        background-color: #ffb223;
+                    }
+                }
+
+                
+                
+            }
+
+        }
+    }
+
+}
+

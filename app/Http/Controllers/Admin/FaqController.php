@@ -25,7 +25,7 @@ class FaqController extends Controller
 
     function __construct(Faq $faq, Agent $agent, Locale $locale, LocaleSlugSeo $locale_slug_seo, Image $image)
     {
-        
+        $this->middleware('auth');
         $this->agent = $agent;
         $this->locale = $locale;
         $this->locale_slug_seo = $locale_slug_seo;

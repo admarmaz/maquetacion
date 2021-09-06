@@ -68,16 +68,18 @@ export let renderForm = () => {
                             if(response.data.id){
                             form.id.value = response.data.id;
                             }
+
                             table.innerHTML = response.data.table;
 
                             renderForm();
                             renderTable();
                             messages();
+                            
                         });
                         
                     } catch (error) {
                             
-                    /*    if(error.response.status == '422'){
+                        if(error.response.status == '422'){
 
                             let errors = error.response.data.errors;      
                             let errorMessage = '';
@@ -88,8 +90,7 @@ export let renderForm = () => {
             
                             messages(errorMessage);
                         }
-                    */
-
+                    
                     }
                 };
         

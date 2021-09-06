@@ -2042,6 +2042,7 @@ var renderForm = function renderForm() {
 
         var sendPostRequest = /*#__PURE__*/function () {
           var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+            var errors, errorMessage;
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
               while (1) {
                 switch (_context.prev = _context.next) {
@@ -2060,14 +2061,23 @@ var renderForm = function renderForm() {
                     });
 
                   case 3:
-                    _context.next = 7;
+                    _context.next = 8;
                     break;
 
                   case 5:
                     _context.prev = 5;
                     _context.t0 = _context["catch"](0);
 
-                  case 7:
+                    if (_context.t0.response.status == '422') {
+                      errors = _context.t0.response.data.errors;
+                      errorMessage = '';
+                      Object.keys(errors).forEach(function (key) {
+                        errorMessage += '<li>' + errors[key] + '</li>';
+                      });
+                      (0,_messages__WEBPACK_IMPORTED_MODULE_4__.messages)(errorMessage);
+                    }
+
+                  case 8:
                   case "end":
                     return _context.stop();
                 }

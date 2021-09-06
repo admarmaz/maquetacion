@@ -28,16 +28,15 @@ class SliderRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required', 
-            'entity' => 'required',
+            'name' => 'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'El nombre es obligatorio',
-            'entity.required' => 'Entity es obligatorio',
+            'name.required' => 'El nombre es obligatorio'
+            
         ];
     }
 }

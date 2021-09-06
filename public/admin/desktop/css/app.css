@@ -564,7 +564,7 @@ label {
 .tabla-cabecera {
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
+  font-size: 0.9em;
 }
 
 .formulario {
@@ -800,6 +800,16 @@ li {
 #save-container svg {
   margin-right: 1em;
 }
+@-webkit-keyframes successful {
+  100% {
+    left: 70%;
+  }
+}
+@keyframes successful {
+  100% {
+    left: 70%;
+  }
+}
 #save-container.show {
   display: flex;
   width: 20em;
@@ -809,13 +819,15 @@ li {
   position: absolute;
   font-size: 0.8em;
   top: 5%;
-  left: 80%;
+  left: 120%;
   opacity: 90%;
   border-radius: 2px;
   box-shadow: 0px 0px 7px #292929;
   -moz-box-shadow: 0px 0px 7px #292929;
-  -webkit-box-shadow: 0px 0px 7px #292929;
-  -webkit-animation: move 2s ease-in;
+  -webkit-animation-name: successful;
+          animation-name: successful;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
 }
 #save-container.show .save-show {
   display: flex;

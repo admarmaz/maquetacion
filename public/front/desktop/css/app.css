@@ -1082,3 +1082,33 @@ textarea {
   height: 50vh;
   margin: 2em 0;
 }
+
+.login {
+  margin: auto auto;
+  border: 1px #ddd solid;
+  border-radius: 4px;
+  background-color: #fff;
+  width: 21em;
+  padding: 1.5em;
+  justify-content: center;
+}
+.login .login-form .login-header {
+  font-size: 0.6em;
+}
+.login .login-form .formulario-grupo {
+  margin-bottom: 1em;
+  font-weight: bold;
+}
+.login .login-form .formulario-grupo .form-label {
+  font-size: 0.8em;
+  margin-bottom: 0.2em;
+}
+.login .login-form #login-form .form-group.login-submit button.login-button {
+  width: 100%;
+  padding: 0.4em;
+  background-color: #ffca68;
+  border-radius: 4px;
+}
+.login .login-form #login-form .form-group.login-submit button.login-button:hover {
+  background-color: #ffb223;
+}

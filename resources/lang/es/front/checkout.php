@@ -1,5 +1,6 @@
 <?php
 
 return array (
-  'checkout-continue' => 'Entrar',
+  'checkout-continue' => 'Continuar',
+  'login-header' => 'Iniciar sesión',
 );
