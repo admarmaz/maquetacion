@@ -14,6 +14,10 @@
             <div>
                 @lang('admin/'.$route.'.parent_section')
             </div>
+
+            <div>
+                <button class="close-session" id="log-out" data-url= "{{route("front_logout")}}"> Cerrar sesión </button>
+            </div>
         
         </div>
 

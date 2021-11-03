@@ -2008,6 +2008,7 @@ var renderForm = function renderForm() {
   var inputs = document.querySelectorAll('.input-highlight');
   var sendButton = document.getElementById("store-button");
   var createButton = document.getElementById("create-button");
+  var logout = document.getElementById("log-out");
   inputs.forEach(function (input) {
     input.addEventListener('focusin', function () {
       for (var i = 0; i < labels.length; i++) {
@@ -2139,6 +2140,46 @@ var renderForm = function renderForm() {
     });
   }
 
+  if (logout) {
+    logout.addEventListener("click", function () {
+      var url = logout.dataset.url;
+
+      var closeSession = /*#__PURE__*/function () {
+        var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+            while (1) {
+              switch (_context3.prev = _context3.next) {
+                case 0:
+                  _context3.prev = 0;
+                  _context3.next = 3;
+                  return axios.get(url).then(function (response) {});
+
+                case 3:
+                  _context3.next = 8;
+                  break;
+
+                case 5:
+                  _context3.prev = 5;
+                  _context3.t0 = _context3["catch"](0);
+                  console.error(_context3.t0);
+
+                case 8:
+                case "end":
+                  return _context3.stop();
+              }
+            }
+          }, _callee3, null, [[0, 5]]);
+        }));
+
+        return function closeSession() {
+          return _ref5.apply(this, arguments);
+        };
+      }();
+
+      closeSession();
+    });
+  }
+
   (0,_ckeditor__WEBPACK_IMPORTED_MODULE_3__.renderCkeditor)();
   (0,_tabs__WEBPACK_IMPORTED_MODULE_1__.renderTabs)();
   (0,_localeTabs__WEBPACK_IMPORTED_MODULE_2__.renderLanguageTabs)();
@@ -2159,48 +2200,6 @@ var renderTable = function renderTable() {
       var url = editButton.dataset.url;
 
       var sendEditRequest = /*#__PURE__*/function () {
-        var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-            while (1) {
-              switch (_context3.prev = _context3.next) {
-                case 0:
-                  _context3.prev = 0;
-                  _context3.next = 3;
-                  return axios.get(url).then(function (response) {
-                    form.innerHTML = response.data.form;
-                    renderForm();
-                  });
-
-                case 3:
-                  _context3.next = 8;
-                  break;
-
-                case 5:
-                  _context3.prev = 5;
-                  _context3.t0 = _context3["catch"](0);
-                  console.error(_context3.t0);
-
-                case 8:
-                case "end":
-                  return _context3.stop();
-              }
-            }
-          }, _callee3, null, [[0, 5]]);
-        }));
-
-        return function sendEditRequest() {
-          return _ref5.apply(this, arguments);
-        };
-      }();
-
-      sendEditRequest();
-    });
-  });
-  deleteButtons.forEach(function (deleteButton) {
-    deleteButton.addEventListener("click", function () {
-      var url = deleteButton.dataset.url;
-
-      var sendDeleteRequest = /*#__PURE__*/function () {
         var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
             while (1) {
@@ -2208,9 +2207,9 @@ var renderTable = function renderTable() {
                 case 0:
                   _context4.prev = 0;
                   _context4.next = 3;
-                  return axios["delete"](url).then(function (response) {
-                    table.innerHTML = response.data.table;
-                    renderTable();
+                  return axios.get(url).then(function (response) {
+                    form.innerHTML = response.data.form;
+                    renderForm();
                   });
 
                 case 3:
@@ -2230,19 +2229,19 @@ var renderTable = function renderTable() {
           }, _callee4, null, [[0, 5]]);
         }));
 
-        return function sendDeleteRequest() {
+        return function sendEditRequest() {
           return _ref6.apply(this, arguments);
         };
       }();
 
-      sendDeleteRequest();
+      sendEditRequest();
     });
   });
-  paginateButtons.forEach(function (paginateButton) {
-    paginateButton.addEventListener("click", function () {
-      var url = paginateButton.dataset.pagination;
+  deleteButtons.forEach(function (deleteButton) {
+    deleteButton.addEventListener("click", function () {
+      var url = deleteButton.dataset.url;
 
-      var paginate = /*#__PURE__*/function () {
+      var sendDeleteRequest = /*#__PURE__*/function () {
         var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
             while (1) {
@@ -2250,7 +2249,7 @@ var renderTable = function renderTable() {
                 case 0:
                   _context5.prev = 0;
                   _context5.next = 3;
-                  return axios.get(url).then(function (response) {
+                  return axios["delete"](url).then(function (response) {
                     table.innerHTML = response.data.table;
                     renderTable();
                   });
@@ -2272,8 +2271,50 @@ var renderTable = function renderTable() {
           }, _callee5, null, [[0, 5]]);
         }));
 
-        return function paginate() {
+        return function sendDeleteRequest() {
           return _ref7.apply(this, arguments);
+        };
+      }();
+
+      sendDeleteRequest();
+    });
+  });
+  paginateButtons.forEach(function (paginateButton) {
+    paginateButton.addEventListener("click", function () {
+      var url = paginateButton.dataset.pagination;
+
+      var paginate = /*#__PURE__*/function () {
+        var _ref8 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+            while (1) {
+              switch (_context6.prev = _context6.next) {
+                case 0:
+                  _context6.prev = 0;
+                  _context6.next = 3;
+                  return axios.get(url).then(function (response) {
+                    table.innerHTML = response.data.table;
+                    renderTable();
+                  });
+
+                case 3:
+                  _context6.next = 8;
+                  break;
+
+                case 5:
+                  _context6.prev = 5;
+                  _context6.t0 = _context6["catch"](0);
+                  console.error(_context6.t0);
+
+                case 8:
+                case "end":
+                  return _context6.stop();
+              }
+            }
+          }, _callee6, null, [[0, 5]]);
+        }));
+
+        return function paginate() {
+          return _ref8.apply(this, arguments);
         };
       }();
 

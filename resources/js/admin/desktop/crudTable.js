@@ -21,6 +21,7 @@ export let renderForm = () => {
     let inputs = document.querySelectorAll('.input-highlight');
     let sendButton = document.getElementById("store-button");
     let createButton = document.getElementById("create-button");
+    let logout = document.getElementById("log-out");
 
     inputs.forEach(input => {
 
@@ -107,12 +108,12 @@ export let renderForm = () => {
 
             let createRequest = async () => {
 
-                
                 try {
                     await axios.get(url).then(response => {
                         form.innerHTML = response.data.form;
                         renderForm();
                         renderTable();
+                        
                         
                     });
                     
@@ -126,7 +127,29 @@ export let renderForm = () => {
         });
 
     }
+
+    if(logout){
+
+        logout.addEventListener("click", () => {
+
+            let url = logout.dataset.url;
+
+            let closeSession = async () => {
+
+                try {
+                    await axios.get(url).then(response => {
+                        
+                    });
+                    
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+            closeSession();
+        })
+    }
   
+
     renderCkeditor();
     renderTabs();
     renderLanguageTabs();

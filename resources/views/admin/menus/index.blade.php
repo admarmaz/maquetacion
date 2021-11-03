@@ -30,6 +30,7 @@
                     </div>
                 </div>
             @endforeach
+
         </div>
 
         @include('admin.components.table_pagination', ['items' => $menus])

@@ -38,7 +38,6 @@
                                 </svg>
                             </div>
                         </div>
-                        
                     </div>          
                 @endforeach 
             </div>
@@ -46,6 +45,7 @@
             @if($agent->isDesktop())
                 @include('admin.components.table_pagination', ['items' => $faqs])
             @endif
+            
         @endif 
 
     </div>
