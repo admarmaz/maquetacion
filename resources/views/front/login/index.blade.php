@@ -1,13 +1,8 @@
-@extends('front.layout.master')
+@extends('front.layout.login')
 
-@section('content')
+@section('login')
 
-<div class="login">
-
-    
-    <!-- <div class="login-errors">
-        @include('front.components.desktop.errors')
-    </div>  -->
+<div class="login" id="login">
 
     <div class="login-form">
 
@@ -44,7 +39,6 @@
             </div>
         </form>
     </div>
-
    
 </div>
 

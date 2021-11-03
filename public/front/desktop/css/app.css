@@ -37,6 +37,39 @@ img {
   display: none;
 }
 
+/*Contents*/
+img {
+  max-width: 100%;
+}
+
+.one-column .formulario-grupo {
+  width: 100%;
+}
+
+.two-columns {
+  display: flex;
+  justify-content: space-between;
+}
+.two-columns .formulario-grupo {
+  width: 47%;
+}
+
+.three-columns {
+  display: flex;
+  justify-content: space-between;
+}
+.three-columns .formulario-grupo {
+  width: 32%;
+}
+
+.four-columns {
+  display: flex;
+  justify-content: space-between;
+}
+.four-columns .formulario-grupo {
+  width: 23%;
+}
+
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -699,6 +732,7 @@ textarea {
 
 .footer .footer-contact-item {
   display: flex;
+  align-items: center;
 }
 
 .contact-form {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -65,7 +66,6 @@ class LoginController extends Controller
         Auth::guard('web')->logout();
         $request->session()->invalidate();
 
-        return redirect()->route('customers');
-        
+        return view('front.login.index');
     }
 }
