@@ -66,6 +66,6 @@ class LoginController extends Controller
         Auth::guard('web')->logout();
         $request->session()->invalidate();
 
-        return view('front.login.index');
+        return redirect()->route('front_login');
     }
 }

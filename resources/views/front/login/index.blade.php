@@ -2,7 +2,7 @@
 
 @section('login')
 
-<div class="login" id="login">
+<div class="login">
 
     <div class="login-form">
 

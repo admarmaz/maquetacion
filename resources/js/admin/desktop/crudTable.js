@@ -138,7 +138,7 @@ export let renderForm = () => {
 
                 try {
                     await axios.get(url).then(response => {
-                        
+                        location.reload();
                     });
                     
                 } catch (error) {

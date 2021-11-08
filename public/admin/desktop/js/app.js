@@ -2152,7 +2152,9 @@ var renderForm = function renderForm() {
                 case 0:
                   _context3.prev = 0;
                   _context3.next = 3;
-                  return axios.get(url).then(function (response) {});
+                  return axios.get(url).then(function (response) {
+                    location.reload();
+                  });
 
                 case 3:
                   _context3.next = 8;
