@@ -465,8 +465,8 @@ td {
 }
 
 svg {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
 }
 
 .global-container {
@@ -577,7 +577,7 @@ label {
 }
 
 .form-input {
-  margin: 1em 1em;
+  margin: 1em 0;
 }
 
 .option-buttons {
@@ -610,8 +610,9 @@ label {
   display: flex;
   justify-content: space-between;
 }
-.formulario .formulario-titulo #create-button:hover {
+.formulario .formulario-titulo .option-buttons .empty-form-button:hover {
   cursor: pointer;
+  fill: #fd0000;
 }
 
 .formulario .formulario-titulo h2 {
@@ -649,17 +650,17 @@ select {
 .sidebar {
   font-weight: bold;
   font-size: 1.2em;
-  background-color: aquamarine;
+  background-color: #cccccc;
   margin-top: 0;
   font-family: "Montserrat", sans-serif;
-  font-weight: bolder;
+  font-weight: normal;
   cursor: pointer;
 }
 
 #menu-show .dropdown-hidden {
   height: 0;
   overflow: hidden;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .dropdown-show {
@@ -675,8 +676,7 @@ select {
 }
 
 #menu-show.show .dropdown-hidden {
-  height: 15vh;
-  margin-top: 5em;
+  height: 10vh;
 }
 
 .dropdown .show {
@@ -692,11 +692,18 @@ li {
   cursor: pointer;
   display: inline-block;
   margin-right: 2em;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 .dropdown-hidden li:hover {
   color: blueviolet;
+}
+
+.close-session {
+  font-size: 0.8em;
+}
+.close-session:hover {
+  color: red;
 }
 
 .tab {
@@ -727,6 +734,9 @@ li {
 .tabs-buttons .tab-button {
   cursor: pointer;
   padding: 0 1em;
+}
+.tabs-buttons .tab-button p {
+  margin: 0.5em;
 }
 .tabs-buttons .tab-button.active-tabs {
   background-color: #96a09d;
@@ -759,11 +769,14 @@ li {
 .table-filter {
   width: 100%;
   font-size: 1em;
-  background-color: #cccccc;
+  background-color: #c2efe1;
   cursor: pointer;
 }
 .table-filter.filter-active .table-filter-container {
+  margin: auto auto;
   max-height: 50vh;
+  max-width: 40%;
+  padding: 1em 1em;
   overflow: visible;
   cursor: pointer;
 }
@@ -781,11 +794,14 @@ li {
 }
 .table-filter .table-filter-buttons .table-filter-button.button-active {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: right;
 }
-.table-filter .table-filter-buttons .table-filter-button.button-active .p {
-  font-size: 2em;
+.table-filter .table-filter-buttons .table-filter-button.button-active p {
+  margin: 0;
+}
+.table-filter .table-filter-buttons .table-filter-button .table-filter-button .open-f {
+  margin: 0;
 }
 
 #save-container {
@@ -857,6 +873,9 @@ li {
   background-color: #c2efe1;
   padding: 0 1em;
   margin-bottom: 1em;
+}
+.tab-language-buttons .tab-language-button p {
+  margin: 0.5em;
 }
 .tab-language-buttons .tab-language-button:hover {
   background-color: #8bf3d4;

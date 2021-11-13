@@ -3,17 +3,17 @@
    
     font-weight: bold;
     font-size: 1.2em;
-    background-color: aquamarine;
+    background-color: #cccccc;
     margin-top: 0;
     font-family: 'Montserrat', sans-serif; 
-    font-weight: bolder;
+    font-weight: normal;
     cursor: pointer;
 }
 
 #menu-show .dropdown-hidden{
     height: 0;
     overflow: hidden;
-    transition: 1s;
+    transition: 0.5s;
 }
 
 .dropdown-show{
@@ -31,8 +31,7 @@
 #menu-show.show{
 
     .dropdown-hidden{
-        height: 15vh;
-        margin-top: 5em;
+        height: 10vh;
     }   
 }
 
@@ -49,9 +48,17 @@ li{
     cursor: pointer;
     display: inline-block;
     margin-right: 2em;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 .dropdown-hidden li:hover{
     color: blueviolet;
+}
+
+.close-session{
+    font-size: 0.8em;
+
+    &:hover{
+        color: red;
+    }
 }

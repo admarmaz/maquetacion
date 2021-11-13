@@ -16,7 +16,7 @@
             </div>
 
             <div>
-                <button class="close-session" id="log-out" data-url= "{{route("front_logout")}}"> Cerrar sesión </button>
+                <div class="close-session" id="log-out" data-url= "{{route("front_logout")}}"> Cerrar sesión </div>
             </div>
         
         </div>
@@ -28,6 +28,7 @@
                 <li class="menu-item" data-url="{{route("users")}}"> Usuarios </li>
                 <li class="menu-item" data-url="{{route("customers")}}"> Clientes </li>
                 <li class="menu-item" data-url="{{route("sliders")}}"> Sliders </li>
+                <li class="menu-item" data-url="{{route("seo")}}"> Seo </li>
             </ul>
             
         </div>

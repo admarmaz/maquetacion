@@ -8,7 +8,7 @@
 }
 
 .form-input{
-    margin: 1em 1em;
+    margin: 1em 0;
 }
 
 .option-buttons{
@@ -45,9 +45,11 @@
     display: flex;
     justify-content: space-between;
 
-    #create-button:hover{
+    .option-buttons .empty-form-button:hover{
         cursor: pointer;
+        fill: rgb(253, 0, 0);
     }
+
 }
 
 .formulario .formulario-titulo h2{
