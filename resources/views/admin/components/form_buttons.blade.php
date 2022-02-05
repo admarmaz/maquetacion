@@ -1,17 +1,23 @@
-<div class="forms-buttons">
-    
-    <div class="form-button store-button save-show" id="store-button"> 
-        <svg viewBox="0 0 24 24">
-            <path fill="" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
-        </svg>
-    </div>
-    
-    <div class="form-button create-button" id="create-button" data-url="{{route($route.'_create')}}"> 
-        <svg style="width:30px;height:30px" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M12,6V9L16,5L12,1V4A8,8 0 0,0 4,12C4,13.57 4.46,15.03 5.24,16.26L6.7,14.8C6.25,13.97 6,13 6,12A6,6 0 0,1 12,6M18.76,7.74L17.3,9.2C17.74,10.04 18,11 18,12A6,6 0 0,1 12,18V15L8,19L12,23V20A8,8 0 0,0 20,12C20,10.43 19.54,8.97 18.76,7.74Z" />
-        </svg>
+
+@extends('admin.faqs.index')
+
+@section('forms-buttons')
+
+    <div class="forms-buttons">
+        
+        <div class="boton-editar right-swipe" data-url="{{route("faqs_edit", ['faq' => $faq_element->id])}}" > 
+            <svg viewBox="0 0 24 24">
+                <path d="M20.71,7.04C20.37,7.38 20.04,7.71 20.03,8.04C20,8.36 20.34,8.69 20.66,9C21.14,9.5 21.61,9.95 21.59,10.44C21.57,10.93 21.06,11.44 20.55,11.94L16.42,16.08L15,14.66L19.25,10.42L18.29,9.46L16.87,10.87L13.12,7.12L16.96,3.29C17.35,2.9 18,2.9 18.37,3.29L20.71,5.63C21.1,6 21.1,6.65 20.71,7.04M3,17.25L12.56,7.68L16.31,11.43L6.75,21H3V17.25Z" />
+            </svg>
+        </div>
+        
+        <div class="boton-borrar borrar-dato left-swipe" data-url="{{route("faqs_destroy", ['faq' => $faq_element->id])}}"> 
+            <svg viewBox="0 0 24 24">
+                <path d="M20.37,8.91L19.37,10.64L7.24,3.64L8.24,1.91L11.28,3.66L12.64,3.29L16.97,5.79L17.34,7.16L20.37,8.91M6,19V7H11.07L18,11V19A2,2 0 0,1 16,21H8A2,2 0 0,1 6,19M8,19H16V12.2L10.46,9H8V19Z" />
+            </svg>
+        </div>
+
+        
     </div>
 
-    
-</div>
-
+@endsection

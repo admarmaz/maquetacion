@@ -9,6 +9,7 @@
         <title>maquetacion</title>
 
         @include('admin.layout.partials.styles')
+        
 
     </head>
 
@@ -32,7 +33,12 @@
         <div class="global-container">
             @yield('content')
         </div>
- 
+
+        <div>
+            @yield('Test')
+        </div>
+
+                    
         @include('admin.layout.partials.js')
 
     </body>
