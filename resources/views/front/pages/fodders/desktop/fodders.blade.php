@@ -22,9 +22,9 @@
             <div class="fodder-item" data-content="{{$loop->iteration}}" data-button="{{$loop->iteration}}">
                 
                 <div class="">
-                    @isset($fodder->image_featured_mobile->path)
+                    @isset($fodder->image_featured_desktop->path)
                         <div class="">
-                            <img src="{{Storage::url($fodder->image_featured_mobile->path)}}" alt="{{$fodder->image_featured_desktop->alt}}" title="{{$fodder->image_featured_desktop->title}}" />
+                            <img src="{{Storage::url($fodder->image_featured_desktop->path)}}" alt="{{$fodder->image_featured_desktop->alt}}" title="{{$fodder->image_featured_desktop->title}}" />
                         </div>
                     @endif
                 </div>  

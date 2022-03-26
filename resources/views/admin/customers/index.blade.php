@@ -1,15 +1,18 @@
 @php
-    $route = 'customers';
+    $route = 'clientes';
+ 
 @endphp
 
 @extends('admin.layout.table_form')
+
+
 
 @section('table')
 
     @isset($customers)
 
         <div class="tabla-titulo">
-            <h2>@lang('admin/customers.parent_section')</h2>
+            <h2>@lang('admin/clientes.parent_section')</h2>
         </div>
 
         <div class="tabla-contenedor">
@@ -56,14 +59,18 @@
     <div class="formulario-contenedor">
 
         <div class="formulario-titulo">
-            <h2> @lang('admin/customers.parent_form') </h2>
+
+            <h2> @lang('admin/clientes.parent_form') </h2>
+
+            <div id="create-button" class= "empty-form-button" data-url= "{{route("customers_create")}}">
+                <svg style="width:30px;height:30px" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12,6V9L16,5L12,1V4A8,8 0 0,0 4,12C4,13.57 4.46,15.03 5.24,16.26L6.7,14.8C6.25,13.97 6,13 6,12A6,6 0 0,1 12,6M18.76,7.74L17.3,9.2C17.74,10.04 18,11 18,12A6,6 0 0,1 12,18V15L8,19L12,23V20A8,8 0 0,0 20,12C20,10.43 19.54,8.97 18.76,7.74Z" />
+                </svg>
+            </div>
+
         </div>
 
-        <div id="create-button" class= "empty-form-button" data-url= "{{route("customers_create")}}">
-            <svg style="width:30px;height:30px" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M12,6V9L16,5L12,1V4A8,8 0 0,0 4,12C4,13.57 4.46,15.03 5.24,16.26L6.7,14.8C6.25,13.97 6,13 6,12A6,6 0 0,1 12,6M18.76,7.74L17.3,9.2C17.74,10.04 18,11 18,12A6,6 0 0,1 12,18V15L8,19L12,23V20A8,8 0 0,0 20,12C20,10.43 19.54,8.97 18.76,7.74Z" />
-            </svg>
-        </div>
+        
 
         <form id="faqs-form" class="admin-formulario" action="{{route("customers_store")}}" autocomplete="off">
 
@@ -85,11 +92,7 @@
                 </div>
 
                 <div class="tabs">
-                    <div class="tab" data-content="2">
-                        <div class="tab-content">
-                            <p> Pics <p>
-                        </div>
-                    </div>
+                    
                     <div class="tab" data-content="1">
                         <div class="tab-content" >
 
@@ -188,8 +191,16 @@
 
                         </div>
                     </div>
+
+                    <div class="tab" data-content="2">
+                        <div class="tab-content">
+                            <p> Pics <p>
+                        </div>
+                    </div>
+                    
                 </div>
         </form>
 
     </div>
 @endsection
+

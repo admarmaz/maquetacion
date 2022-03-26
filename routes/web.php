@@ -144,6 +144,19 @@ Route::group(['prefix' => 'admin'], function () {
             'edit' => 'faqs_edit',
         ]
     ]);
+
+    Route::resource('proveedores', 'App\Http\Controllers\Admin\SupplierController', [
+        'parameters' => [
+            'suppliers' => 'supplier', 
+        ],
+        'names' => [
+            'index' => 'suppliers', 
+            'create' => 'suppliers_create',
+            'store' => 'suppliers_store',
+            'destroy' => 'suppliers_destroy',
+            'show' => 'suppliers_show',
+        ]
+    ]);
     
 });
 

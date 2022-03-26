@@ -14,6 +14,7 @@ use App\Vendor\Image\Image;
 use App\Models\DB\Faq; 
 use Debugbar;
 
+
 class FaqController extends Controller
 {
     protected $agent;
@@ -61,6 +62,7 @@ class FaqController extends Controller
             return response()->json([
                 'table' => $sections['table'],
                 'form' => $sections['form'],
+                'sidebar' => $sections['sidebar'],
             ]); 
         }
 

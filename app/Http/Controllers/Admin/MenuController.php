@@ -50,6 +50,8 @@ class MenuController extends Controller
         if(request()->ajax()) {
 
             $sections = $view->renderSections(); 
+            $lang = app()->getLocale();
+
     
             return response()->json([
                 'table' => $sections['table'],

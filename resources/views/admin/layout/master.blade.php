@@ -19,7 +19,6 @@
         @include('admin.components.wait')
         @include('admin.components.modal_image')
         @include('admin.components.modal_delete')
-        @include('admin.layout.partials.sidebar')
 
 
         @if(isset($filters))
@@ -30,12 +29,16 @@
                 ])
         @endif
 
+        <div id="sidebar">
+            @yield('sidebar')
+        </div>
+
         <div class="global-container">
             @yield('content')
         </div>
 
         <div>
-            @yield('Test')
+            @yield('test')
         </div>
 
                     

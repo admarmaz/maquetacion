@@ -8,11 +8,11 @@ import {renderLocaleSeo} from './localeSeo';
 import {renderGoogleBot} from './googleBot';
 import {renderSitemap} from './sitemap';
 import {renderSlugPrevent} from './slugPrevent';
-
 import {renderMenuItems} from './menuItems';
 
 const table = document.getElementById("table");
 const form = document.getElementById("form");
+
 
 export let renderForm = () => {
 
@@ -21,7 +21,8 @@ export let renderForm = () => {
     let inputs = document.querySelectorAll('.input-highlight');
     let sendButton = document.getElementById("store-button");
     let createButton = document.getElementById("create-button");
-    let logout = document.getElementById("log-out");
+    
+    
 
     inputs.forEach(input => {
 
@@ -41,6 +42,7 @@ export let renderForm = () => {
             }
         });
     });
+
     
     if(sendButton){
 
@@ -100,6 +102,8 @@ export let renderForm = () => {
         });    
     }
 
+    
+
     if(createButton){
 
         createButton.addEventListener("click", () => {
@@ -127,29 +131,8 @@ export let renderForm = () => {
         });
 
     }
-
-    if(logout){
-
-        logout.addEventListener("click", () => {
-
-            let url = logout.dataset.url;
-
-            let closeSession = async () => {
-
-                try {
-                    await axios.get(url).then(response => {
-                        location.reload();
-                    });
-                    
-                } catch (error) {
-                    console.error(error);
-                }
-            };
-            closeSession();
-        })
-    }
   
-
+    
     renderCkeditor();
     renderTabs();
     renderLanguageTabs();
@@ -160,6 +143,8 @@ export let renderForm = () => {
     renderSitemap();
     renderSlugPrevent();
     renderMenuItems();
+    
+    
 };
 
 export let renderTable = () => {
@@ -167,11 +152,13 @@ export let renderTable = () => {
     let editButtons = document.querySelectorAll(".boton-editar");
     let deleteButtons = document.querySelectorAll(".borrar-dato");
     let paginateButtons = document.querySelectorAll(".table-pagination-button");
+    let logout = document.getElementById("log-out");
+
 
     editButtons.forEach(editButton => {
 
         editButton.addEventListener("click", () => {
-
+            
             let url = editButton.dataset.url;
 
             let sendEditRequest = async () => {
@@ -238,8 +225,32 @@ export let renderTable = () => {
         });
     }); 
 
+    if(logout){
+
+        logout.addEventListener("click", () => {
+
+            let url = logout.dataset.url;
+
+            let closeSession = async () => {
+
+                try {
+                    await axios.get(url).then(response => {
+                        location.reload();
+                    });
+                    
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+            closeSession();
+        })
+    }
+    
     
 };
 
+
+
 renderForm();
 renderTable();
+

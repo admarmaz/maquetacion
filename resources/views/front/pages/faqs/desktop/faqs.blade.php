@@ -22,9 +22,9 @@
                 </div>
 
                 <div class="faq-description-image">
-                    @isset($faq->image_featured_desktop->path)
+                    @isset($faqs->image_featured_desktop->path)
                         <div class="faq-description-image-featured">
-                            <img src="{{Storage::url($faq->image_featured_desktop->path)}}" alt="{{$faq->image_featured_desktop->alt}}" title="{{$faq->image_featured_desktop->title}}" />
+                            <img src="{{Storage::url($faqs->image_featured)}}" alt="{{$faq->image_featured_desktop->alt}}" title="{{$faq->image_featured_desktop->title}}" />
                         </div>
                     @endif
 

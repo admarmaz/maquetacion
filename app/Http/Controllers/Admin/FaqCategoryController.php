@@ -34,6 +34,7 @@ class FaqCategoryController extends Controller
             return response()->json([
                 'table' => $sections['table'],
                 'form' => $sections['form'],
+                'sidebar' => $sections['sidebar'],
             ]); 
         }
 
