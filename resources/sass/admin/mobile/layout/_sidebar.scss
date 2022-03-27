@@ -1,41 +1,43 @@
 
 .sidebar{
-    display: flex;
-    justify-content: center;
+   
     font-weight: bold;
     font-size: 1.2em;
-    background-color: aquamarine;
-    padding: 0.5em;
-    width: 100%;
+    background-color: #cccccc;
+    margin-top: 0;
     font-family: 'Montserrat', sans-serif; 
-    font-weight: bolder;
+    font-weight: normal;
+    cursor: pointer;
 }
 
 #menu-show .dropdown-hidden{
     height: 0;
     overflow: hidden;
-    transition: 1s;
+    transition: 0.5s;
 }
 
-.dropdown{
+.dropdown-show{
     display: flex;
-    text-align: center;
+    padding: 0.5em 2em;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.dropdown .dropdown-title{
+    margin-top: 0;
 }
 
 #menu-show.show{
 
     .dropdown-hidden{
-        height: 50vh;
+        height: 10vh;
     }   
 }
 
-.show{
-    display: block;
-}
-
-.dropdown-show{
-    cursor: pointer;
-    justify-content: center;
+.dropdown .show{
+    display: flex;
+    margin-left: 2em;
 }
 
 ul{
@@ -46,9 +48,17 @@ li{
     cursor: pointer;
     display: inline-block;
     margin-right: 2em;
+    font-size: 1em;
 }
 
 .dropdown-hidden li:hover{
     color: blueviolet;
 }
-    
+
+.close-session{
+    font-size: 0.8em;
+
+    &:hover{
+        color: red;
+    }
+}

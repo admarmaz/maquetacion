@@ -1,44 +1,66 @@
+
 import {renderForm, renderTable} from './crudTable' ;
 
-let menuItems = document.querySelectorAll(".menu-item");
+
+const sidebar = document.getElementById("sidebar");
 const table = document.getElementById("table");
 const form = document.getElementById("form");
-const menuShow = document.getElementById("menu-show");
 
-menuItems.forEach( menuItem => {
+
+let renderMenu = () => {
     
-    menuItem.addEventListener("click", (event) => {
+    let menuItems = document.querySelectorAll(".menu-item");
 
-        let url = menuItem.dataset.url;
+    menuItems.forEach( menuItem => {
+        menuItem.addEventListener("click", (event) => {
+            
+            let url = menuItem.dataset.url;
+            
+            let sendEditRequest = async () => {
 
-        let sendEditRequest = async () => {
+                try {
+                    await axios.get(url).then(response => {
+                        
+                        console.log(response);
+                        form.innerHTML = response.data.form;
+                        table.innerHTML = response.data.table;
+                        sidebar.innerHTML = response.data.sidebar;
+                        
+                        window.history.pushState(null, null, url);
+                        
+                    });
 
-            try {
-                await axios.get(url).then(response => {
+                    
+                } catch (error) {
+                    console.error(error);
+                }
 
-                    form.innerHTML = response.data.form;
-                    table.innerHTML = response.data.table;
+                renderTable();
+                renderForm();
+                renderMenu();
+                showMenu();
+            };
 
-                    window.history.pushState('', '', url); //cambio de url cuando navegamos con el menu
-
-                    renderForm();
-                    renderTable();
-                });
-                
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        sendEditRequest();
+            sendEditRequest();
+            
+        });
 
     });
-});
-
-menuShow.addEventListener("click", () => {
-
-    menuShow.classList.toggle("show");
     
+}
 
-});
+let showMenu = () => {
+
+    const menuShow = document.getElementById("menu-show");
+
+    menuShow.addEventListener("click", () => {
+
+        menuShow.classList.toggle("show");
+        console.log("Don't overthink")
+    });
+}
+
+showMenu();
+renderMenu();
+
 

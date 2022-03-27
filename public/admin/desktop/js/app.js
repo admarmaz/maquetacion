@@ -2055,7 +2055,6 @@ var renderForm = function renderForm() {
                       }
 
                       table.innerHTML = response.data.table;
-                      renderForm();
                       renderTable();
                       (0,_messages__WEBPACK_IMPORTED_MODULE_4__.messages)();
                     });
@@ -2684,9 +2683,6 @@ var renderLocaleTags = function renderLocaleTags() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "renderMenu": () => (/* binding */ renderMenu)
-/* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _crudTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./crudTable */ "./resources/js/admin/desktop/crudTable.js");
@@ -2700,6 +2696,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var sidebar = document.getElementById("sidebar");
 var table = document.getElementById("table");
 var form = document.getElementById("form");
+
 var renderMenu = function renderMenu() {
   var menuItems = document.querySelectorAll(".menu-item");
   menuItems.forEach(function (menuItem) {
@@ -2732,9 +2729,9 @@ var renderMenu = function renderMenu() {
                   console.error(_context.t0);
 
                 case 8:
-                  renderMenu();
                   (0,_crudTable__WEBPACK_IMPORTED_MODULE_1__.renderTable)();
                   (0,_crudTable__WEBPACK_IMPORTED_MODULE_1__.renderForm)();
+                  renderMenu();
                   showMenu();
 
                 case 12:

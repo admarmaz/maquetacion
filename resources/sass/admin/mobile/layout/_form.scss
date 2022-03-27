@@ -10,9 +10,7 @@
     margin: 2em 2em;
     width: 100%;
     align-items: center; 
-        #create-button{
-            margin-left: 2em;
-        }
+        
 }
 
 .formulario .formulario-titulo h2{
@@ -25,6 +23,10 @@
 
 .formulario .formulario-contenedor{
     width: 100%;
+
+    .option-buttons{
+        display: flex;
+    }
 }
 
 .formulario .formulario-contenedor .formulario-grupo{

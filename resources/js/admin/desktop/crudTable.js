@@ -74,7 +74,6 @@ export let renderForm = () => {
 
                             table.innerHTML = response.data.table;
 
-                            renderForm();
                             renderTable();
                             messages();
                             

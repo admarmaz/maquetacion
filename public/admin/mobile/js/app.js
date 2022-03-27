@@ -1977,13 +1977,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tabs */ "./resources/js/admin/mobile/tabs.js");
-/* harmony import */ var _images__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./images */ "./resources/js/admin/mobile/images.js");
-/* harmony import */ var _localeTabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./localeTabs */ "./resources/js/admin/mobile/localeTabs.js");
-/* harmony import */ var _ckeditor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../ckeditor */ "./resources/js/ckeditor.js");
-/* harmony import */ var _messages__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./messages */ "./resources/js/admin/mobile/messages.js");
+/* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tabs */ "./resources/js/admin/mobile/tabs.js");
+/* harmony import */ var _localeTabs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./localeTabs */ "./resources/js/admin/mobile/localeTabs.js");
+/* harmony import */ var _ckeditor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../ckeditor */ "./resources/js/ckeditor.js");
+/* harmony import */ var _messages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./messages */ "./resources/js/admin/mobile/messages.js");
+/* harmony import */ var _uploadImage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./uploadImage */ "./resources/js/admin/mobile/uploadImage.js");
+/* harmony import */ var _localeTags__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./localeTags */ "./resources/js/admin/mobile/localeTags.js");
+/* harmony import */ var _localeSeo__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./localeSeo */ "./resources/js/admin/mobile/localeSeo.js");
+/* harmony import */ var _googleBot__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./googleBot */ "./resources/js/admin/mobile/googleBot.js");
+/* harmony import */ var _sitemap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./sitemap */ "./resources/js/admin/mobile/sitemap.js");
+/* harmony import */ var _slugPrevent__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./slugPrevent */ "./resources/js/admin/mobile/slugPrevent.js");
+/* harmony import */ var _menuItems__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./menuItems */ "./resources/js/admin/mobile/menuItems.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2008,13 +2012,18 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
+
+
+
 var table = document.getElementById("table");
 var form = document.getElementById("form");
 var renderForm = function renderForm() {
   var forms = document.querySelectorAll(".admin-formulario");
   var labels = document.querySelectorAll('.label-highlight');
   var inputs = document.querySelectorAll('.input-highlight');
-  var sendButton = document.getElementById(".guardar-cambios");
+  var sendButton = document.getElementById("store-button");
   var createButton = document.getElementById("create-button");
   inputs.forEach(function (input) {
     input.addEventListener('focusin', function () {
@@ -2030,121 +2039,138 @@ var renderForm = function renderForm() {
       }
     });
   });
-  sendButton.addEventListener("click", function (event) {
-    event.preventDefault();
-    forms.forEach(function (form) {
-      var data = new FormData(form);
 
-      if (ckeditors != 'null') {
-        Object.entries(ckeditors).forEach(function (_ref) {
-          var _ref2 = _slicedToArray(_ref, 2),
-              key = _ref2[0],
-              value = _ref2[1];
+  if (sendButton) {
+    sendButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      forms.forEach(function (form) {
+        var data = new FormData(form);
+        var url = form.action;
 
-          data.append(key, value.getData());
-        });
-      }
+        if (ckeditors != 'null') {
+          Object.entries(ckeditors).forEach(function (_ref) {
+            var _ref2 = _slicedToArray(_ref, 2),
+                key = _ref2[0],
+                value = _ref2[1];
 
-      var url = form.action;
+            data.append(key, value.getData());
+          });
+        }
 
-      var sendPostRequest = /*#__PURE__*/function () {
-        var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-          var errors, errorMessage;
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        var sendPostRequest = /*#__PURE__*/function () {
+          var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+            var errors, errorMessage;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    _context.prev = 0;
+                    _context.next = 3;
+                    return axios.post(url, data).then(function (response) {
+                      if (response.data.id) {
+                        form.id.value = response.data.id;
+                      }
+
+                      table.innerHTML = response.data.table;
+                      renderTable();
+                      (0,_messages__WEBPACK_IMPORTED_MODULE_4__.messages)();
+                    });
+
+                  case 3:
+                    _context.next = 8;
+                    break;
+
+                  case 5:
+                    _context.prev = 5;
+                    _context.t0 = _context["catch"](0);
+
+                    if (_context.t0.response.status == '422') {
+                      errors = _context.t0.response.data.errors;
+                      errorMessage = '';
+                      Object.keys(errors).forEach(function (key) {
+                        errorMessage += '<li>' + errors[key] + '</li>';
+                      });
+                      (0,_messages__WEBPACK_IMPORTED_MODULE_4__.messages)(errorMessage);
+                    }
+
+                  case 8:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee, null, [[0, 5]]);
+          }));
+
+          return function sendPostRequest() {
+            return _ref3.apply(this, arguments);
+          };
+        }();
+
+        sendPostRequest();
+      });
+    });
+  }
+
+  if (createButton) {
+    createButton.addEventListener("click", function () {
+      var url = createButton.dataset.url;
+
+      var createRequest = /*#__PURE__*/function () {
+        var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
             while (1) {
-              switch (_context.prev = _context.next) {
+              switch (_context2.prev = _context2.next) {
                 case 0:
-                  _context.prev = 0;
-                  _context.next = 3;
-                  return axios.post(url, data).then(function (response) {
-                    form.id.value = response.data.id;
-                    table.innerHTML = response.data.table;
-                    (0,_messages__WEBPACK_IMPORTED_MODULE_6__.messages)(response.data.message);
+                  _context2.prev = 0;
+                  _context2.next = 3;
+                  return axios.get(url).then(function (response) {
+                    form.innerHTML = response.data.form;
+                    renderForm();
                     renderTable();
                   });
 
                 case 3:
-                  _context.next = 8;
+                  _context2.next = 8;
                   break;
 
                 case 5:
-                  _context.prev = 5;
-                  _context.t0 = _context["catch"](0);
-
-                  if (_context.t0.response.status == '422') {
-                    errors = _context.t0.response.data.errors;
-                    errorMessage = '';
-                    Object.keys(errors).forEach(function (key) {
-                      errorMessage += '<li>' + errors[key] + '</li>';
-                    });
-                    (0,_messages__WEBPACK_IMPORTED_MODULE_6__.messages)(errorMessage);
-                  }
+                  _context2.prev = 5;
+                  _context2.t0 = _context2["catch"](0);
+                  console.error(_context2.t0);
 
                 case 8:
                 case "end":
-                  return _context.stop();
+                  return _context2.stop();
               }
             }
-          }, _callee, null, [[0, 5]]);
+          }, _callee2, null, [[0, 5]]);
         }));
 
-        return function sendPostRequest() {
-          return _ref3.apply(this, arguments);
+        return function createRequest() {
+          return _ref4.apply(this, arguments);
         };
       }();
 
-      sendPostRequest();
+      createRequest();
     });
-  });
-  createButton.addEventListener("click", function () {
-    var url = createButton.dataset.url;
+  }
 
-    var createRequest = /*#__PURE__*/function () {
-      var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.prev = 0;
-                _context2.next = 3;
-                return axios.get(url).then(function (response) {
-                  form.innerHTML = response.data.form;
-                  renderForm();
-                });
-
-              case 3:
-                _context2.next = 8;
-                break;
-
-              case 5:
-                _context2.prev = 5;
-                _context2.t0 = _context2["catch"](0);
-                console.error(_context2.t0);
-
-              case 8:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, null, [[0, 5]]);
-      }));
-
-      return function createRequest() {
-        return _ref4.apply(this, arguments);
-      };
-    }();
-
-    createRequest();
-  });
-  (0,_ckeditor__WEBPACK_IMPORTED_MODULE_5__.renderCkeditor)();
-  (0,_tabs__WEBPACK_IMPORTED_MODULE_2__.renderTabs)();
-  (0,_images__WEBPACK_IMPORTED_MODULE_3__.renderImages)();
-  (0,_localeTabs__WEBPACK_IMPORTED_MODULE_4__.renderLanguageTabs)();
+  (0,_ckeditor__WEBPACK_IMPORTED_MODULE_3__.renderCkeditor)();
+  (0,_tabs__WEBPACK_IMPORTED_MODULE_1__.renderTabs)();
+  (0,_localeTabs__WEBPACK_IMPORTED_MODULE_2__.renderLanguageTabs)();
+  (0,_uploadImage__WEBPACK_IMPORTED_MODULE_5__.renderUploadImage)();
+  (0,_localeTags__WEBPACK_IMPORTED_MODULE_6__.renderLocaleTags)();
+  (0,_localeSeo__WEBPACK_IMPORTED_MODULE_7__.renderLocaleSeo)();
+  (0,_googleBot__WEBPACK_IMPORTED_MODULE_8__.renderGoogleBot)();
+  (0,_sitemap__WEBPACK_IMPORTED_MODULE_9__.renderSitemap)();
+  (0,_slugPrevent__WEBPACK_IMPORTED_MODULE_10__.renderSlugPrevent)();
+  (0,_menuItems__WEBPACK_IMPORTED_MODULE_11__.renderMenuItems)();
 };
 var renderTable = function renderTable() {
   var editButtons = document.querySelectorAll(".boton-editar");
   var deleteButtons = document.querySelectorAll(".borrar-dato");
   var paginateButtons = document.querySelectorAll(".table-pagination-button");
+  var logout = document.getElementById("log-out");
   editButtons.forEach(function (editButton) {
     editButton.addEventListener("click", function () {
       var url = editButton.dataset.url;
@@ -2271,6 +2297,48 @@ var renderTable = function renderTable() {
       paginate();
     });
   });
+
+  if (logout) {
+    logout.addEventListener("click", function () {
+      var url = logout.dataset.url;
+
+      var closeSession = /*#__PURE__*/function () {
+        var _ref8 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+            while (1) {
+              switch (_context6.prev = _context6.next) {
+                case 0:
+                  _context6.prev = 0;
+                  _context6.next = 3;
+                  return axios.get(url).then(function (response) {
+                    location.reload();
+                  });
+
+                case 3:
+                  _context6.next = 8;
+                  break;
+
+                case 5:
+                  _context6.prev = 5;
+                  _context6.t0 = _context6["catch"](0);
+                  console.error(_context6.t0);
+
+                case 8:
+                case "end":
+                  return _context6.stop();
+              }
+            }
+          }, _callee6, null, [[0, 5]]);
+        }));
+
+        return function closeSession() {
+          return _ref8.apply(this, arguments);
+        };
+      }();
+
+      closeSession();
+    });
+  }
 };
 renderForm();
 renderTable();
@@ -2374,81 +2442,145 @@ renderFilterTable();
 
 /***/ }),
 
-/***/ "./resources/js/admin/mobile/images.js":
-/*!*********************************************!*\
-  !*** ./resources/js/admin/mobile/images.js ***!
-  \*********************************************/
+/***/ "./resources/js/admin/mobile/googleBot.js":
+/*!************************************************!*\
+  !*** ./resources/js/admin/mobile/googleBot.js ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "renderImages": () => (/* binding */ renderImages)
+/* harmony export */   "renderGoogleBot": () => (/* binding */ renderGoogleBot)
 /* harmony export */ });
-var renderImages = function renderImages() {
-  document.querySelectorAll(".drop-zone__input").forEach(function (inputElement) {
-    var dropZoneElement = inputElement.closest(".drop-zone");
-    dropZoneElement.addEventListener("click", function (e) {
-      inputElement.click();
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _crudTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./crudTable */ "./resources/js/admin/mobile/crudTable.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+ //import {showMessage} from './messages';
+//import {startWait, stopWait} from './wait';
+
+var renderGoogleBot = function renderGoogleBot() {
+  var table = document.getElementById("table");
+  var pingGoogle = document.getElementById('ping-google');
+
+  if (pingGoogle) {
+    pingGoogle.addEventListener("click", function () {
+      var url = pingGoogle.dataset.url;
+
+      var sendEditRequest = /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _context.prev = 0;
+                  _context.next = 3;
+                  return axios.get(url).then(function (response) {
+                    showMessage('success', response.data.message);
+                  });
+
+                case 3:
+                  _context.next = 8;
+                  break;
+
+                case 5:
+                  _context.prev = 5;
+                  _context.t0 = _context["catch"](0);
+                  console.error(_context.t0);
+
+                case 8:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, null, [[0, 5]]);
+        }));
+
+        return function sendEditRequest() {
+          return _ref.apply(this, arguments);
+        };
+      }();
+
+      sendEditRequest();
     });
-    inputElement.addEventListener("change", function (e) {
-      if (inputElement.files.length) {
-        updateThumbnail(dropZoneElement, inputElement.files[0]);
-      }
+  }
+};
+
+/***/ }),
+
+/***/ "./resources/js/admin/mobile/localeSeo.js":
+/*!************************************************!*\
+  !*** ./resources/js/admin/mobile/localeSeo.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderLocaleSeo": () => (/* binding */ renderLocaleSeo)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _crudTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./crudTable */ "./resources/js/admin/mobile/crudTable.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var renderLocaleSeo = function renderLocaleSeo() {
+  var table = document.getElementById("table");
+  var importSeo = document.getElementById('import-seo');
+
+  if (importSeo) {
+    importSeo.addEventListener("click", function () {
+      var url = importSeo.dataset.url;
+
+      var sendEditRequest = /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _context.prev = 0;
+                  _context.next = 3;
+                  return axios.get(url).then(function (response) {
+                    table.innerHTML = response.data.table;
+                    (0,_crudTable__WEBPACK_IMPORTED_MODULE_1__.renderTable)(); //showMessage('success', response.data.message);
+                    //stopWait();
+                  });
+
+                case 3:
+                  _context.next = 8;
+                  break;
+
+                case 5:
+                  _context.prev = 5;
+                  _context.t0 = _context["catch"](0);
+                  console.error(_context.t0);
+
+                case 8:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, null, [[0, 5]]);
+        }));
+
+        return function sendEditRequest() {
+          return _ref.apply(this, arguments);
+        };
+      }();
+
+      sendEditRequest();
     });
-    dropZoneElement.addEventListener("dragover", function (e) {
-      e.preventDefault();
-      dropZoneElement.classList.add("drop-zone--over");
-    });
-    ["dragleave", "dragend"].forEach(function (type) {
-      dropZoneElement.addEventListener(type, function (e) {
-        dropZoneElement.classList.remove("drop-zone--over");
-      });
-    });
-    dropZoneElement.addEventListener("drop", function (e) {
-      e.preventDefault();
-
-      if (e.dataTransfer.files.length) {
-        inputElement.files = e.dataTransfer.files;
-        updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
-      }
-
-      dropZoneElement.classList.remove("drop-zone--over");
-    });
-  });
-  /**
-   * Updates the thumbnail on a drop zone element.
-   *
-   * @param {HTMLElement} dropZoneElement
-   * @param {File} file
-   */
-
-  function updateThumbnail(dropZoneElement, file) {
-    var thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb"); // First time - remove the prompt
-
-    if (dropZoneElement.querySelector(".drop-zone__prompt")) {
-      dropZoneElement.querySelector(".drop-zone__prompt").remove();
-    } // First time - there is no thumbnail element, so lets create it
-
-
-    if (!thumbnailElement) {
-      thumbnailElement = document.createElement("div");
-      thumbnailElement.classList.add("drop-zone__thumb");
-      dropZoneElement.appendChild(thumbnailElement);
-    }
-
-    thumbnailElement.dataset.label = file.name; // Show thumbnail for image files
-
-    if (file.type.startsWith("image/")) {
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-
-      reader.onload = function () {
-        thumbnailElement.style.backgroundImage = "url('".concat(reader.result, "')");
-      };
-    } else {
-      thumbnailElement.style.backgroundImage = null;
-    }
   }
 };
 
@@ -2489,6 +2621,77 @@ var renderLanguageTabs = function renderLanguageTabs() {
 
 /***/ }),
 
+/***/ "./resources/js/admin/mobile/localeTags.js":
+/*!*************************************************!*\
+  !*** ./resources/js/admin/mobile/localeTags.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderLocaleTags": () => (/* binding */ renderLocaleTags)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _crudTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./crudTable */ "./resources/js/admin/mobile/crudTable.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var renderLocaleTags = function renderLocaleTags() {
+  var table = document.getElementById("table");
+  var importTags = document.getElementById('import-tags');
+
+  if (importTags) {
+    importTags.addEventListener("click", function () {
+      var url = importTags.dataset.url;
+
+      var sendImportTagsRequest = /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _context.prev = 0;
+                  _context.next = 3;
+                  return axios.get(url).then(function (response) {
+                    table.innerHTML = response.data.table;
+                    (0,_crudTable__WEBPACK_IMPORTED_MODULE_1__.renderTable)();
+                  });
+
+                case 3:
+                  _context.next = 8;
+                  break;
+
+                case 5:
+                  _context.prev = 5;
+                  _context.t0 = _context["catch"](0);
+                  console.error(_context.t0);
+
+                case 8:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, null, [[0, 5]]);
+        }));
+
+        return function sendImportTagsRequest() {
+          return _ref.apply(this, arguments);
+        };
+      }();
+
+      sendImportTagsRequest();
+    });
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/js/admin/mobile/menu.js":
 /*!*******************************************!*\
   !*** ./resources/js/admin/mobile/menu.js ***!
@@ -2507,59 +2710,220 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
-var menuItems = document.querySelectorAll(".menu-item");
+var sidebar = document.getElementById("sidebar");
 var table = document.getElementById("table");
 var form = document.getElementById("form");
-var menuShow = document.getElementById("menu-show");
-menuItems.forEach(function (menuItem) {
-  menuItem.addEventListener("click", function (event) {
-    var url = menuItem.dataset.url;
 
-    var sendEditRequest = /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.prev = 0;
-                _context.next = 3;
-                return axios.get(url).then(function (response) {
-                  form.innerHTML = response.data.form;
-                  table.innerHTML = response.data.table;
-                  window.history.pushState('', '', url); //cambio de url cuando navegamos con el menu
+var renderMenu = function renderMenu() {
+  var menuItems = document.querySelectorAll(".menu-item");
+  menuItems.forEach(function (menuItem) {
+    menuItem.addEventListener("click", function (event) {
+      var url = menuItem.dataset.url;
 
-                  (0,_crudTable__WEBPACK_IMPORTED_MODULE_1__.renderForm)();
+      var sendEditRequest = /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _context.prev = 0;
+                  _context.next = 3;
+                  return axios.get(url).then(function (response) {
+                    console.log(response);
+                    form.innerHTML = response.data.form;
+                    table.innerHTML = response.data.table;
+                    sidebar.innerHTML = response.data.sidebar;
+                    window.history.pushState(null, null, url);
+                  });
+
+                case 3:
+                  _context.next = 8;
+                  break;
+
+                case 5:
+                  _context.prev = 5;
+                  _context.t0 = _context["catch"](0);
+                  console.error(_context.t0);
+
+                case 8:
                   (0,_crudTable__WEBPACK_IMPORTED_MODULE_1__.renderTable)();
-                });
+                  (0,_crudTable__WEBPACK_IMPORTED_MODULE_1__.renderForm)();
+                  renderMenu();
+                  showMenu();
 
-              case 3:
-                _context.next = 8;
-                break;
-
-              case 5:
-                _context.prev = 5;
-                _context.t0 = _context["catch"](0);
-                console.error(_context.t0);
-
-              case 8:
-              case "end":
-                return _context.stop();
+                case 12:
+                case "end":
+                  return _context.stop();
+              }
             }
-          }
-        }, _callee, null, [[0, 5]]);
-      }));
+          }, _callee, null, [[0, 5]]);
+        }));
 
-      return function sendEditRequest() {
-        return _ref.apply(this, arguments);
-      };
-    }();
+        return function sendEditRequest() {
+          return _ref.apply(this, arguments);
+        };
+      }();
 
-    sendEditRequest();
+      sendEditRequest();
+    });
   });
-});
-menuShow.addEventListener("click", function () {
-  menuShow.classList.toggle("show");
-});
+};
+
+var showMenu = function showMenu() {
+  var menuShow = document.getElementById("menu-show");
+  menuShow.addEventListener("click", function () {
+    menuShow.classList.toggle("show");
+    console.log("Don't overthink");
+  });
+};
+
+showMenu();
+renderMenu();
+
+/***/ }),
+
+/***/ "./resources/js/admin/mobile/menuItems.js":
+/*!************************************************!*\
+  !*** ./resources/js/admin/mobile/menuItems.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderMenuItems": () => (/* binding */ renderMenuItems)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modalMenuItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modalMenuItem */ "./resources/js/admin/mobile/modalMenuItem.js");
+/* harmony import */ var _wait__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./wait */ "./resources/js/admin/mobile/wait.js");
+/* harmony import */ var _selects__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./selects */ "./resources/js/admin/mobile/selects.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+var renderMenuItems = function renderMenuItems() {
+  var createButtons = document.querySelectorAll('.menu-item-create');
+  var editButtons = document.querySelectorAll('.menu-item-edit');
+  var deleteButtons = document.querySelectorAll('.menu-item-delete');
+  var modalDelete = document.getElementById('modal-delete');
+  var deleteConfirm = document.getElementById('delete-confirm');
+
+  if (createButtons) {
+    createButtons.forEach(function (createButton) {
+      createButton.addEventListener('click', function () {
+        var url = createButton.dataset.url;
+        var language = createButton.dataset.language;
+        var menu = createButton.dataset.menu;
+        var modalContainer = document.getElementById('menu-item-modal-container');
+
+        var sendMenuItemRequest = /*#__PURE__*/function () {
+          var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    try {
+                      axios.get(url, {
+                        params: {
+                          'language': language
+                        }
+                      }).then(function (response) {
+                        modalContainer.innerHTML = response.data.form;
+                        document.getElementById('menu-item-language').value = language;
+                        document.getElementById('menu-id').value = menu;
+                        (0,_selects__WEBPACK_IMPORTED_MODULE_3__.renderSelects)();
+                        (0,_modalMenuItem__WEBPACK_IMPORTED_MODULE_1__.renderMenuItemForm)();
+                        setTimeout(function () {
+                          (0,_modalMenuItem__WEBPACK_IMPORTED_MODULE_1__.openModal)();
+                        }, 200);
+                      });
+                    } catch (error) {}
+
+                  case 1:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee);
+          }));
+
+          return function sendMenuItemRequest() {
+            return _ref.apply(this, arguments);
+          };
+        }();
+
+        sendMenuItemRequest();
+      });
+    });
+  }
+
+  if (editButtons) {
+    editButtons.forEach(function (editButton) {
+      editButton.addEventListener("click", function () {
+        var modalContainer = document.getElementById('menu-item-modal-container');
+        var url = editButton.dataset.route + '/' + editButton.dataset.id;
+
+        var sendEditRequest = /*#__PURE__*/function () {
+          var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    _context2.prev = 0;
+                    _context2.next = 3;
+                    return axios.get(url).then(function (response) {
+                      modalContainer.innerHTML = response.data.form;
+                      (0,_selects__WEBPACK_IMPORTED_MODULE_3__.renderSelects)();
+                      (0,_modalMenuItem__WEBPACK_IMPORTED_MODULE_1__.renderMenuItemForm)();
+                      setTimeout(function () {
+                        (0,_modalMenuItem__WEBPACK_IMPORTED_MODULE_1__.openModal)();
+                      }, 200);
+                    });
+
+                  case 3:
+                    _context2.next = 8;
+                    break;
+
+                  case 5:
+                    _context2.prev = 5;
+                    _context2.t0 = _context2["catch"](0);
+                    console.error(_context2.t0);
+
+                  case 8:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2, null, [[0, 5]]);
+          }));
+
+          return function sendEditRequest() {
+            return _ref2.apply(this, arguments);
+          };
+        }();
+
+        sendEditRequest();
+      });
+    });
+  }
+
+  if (deleteButtons) {
+    deleteButtons.forEach(function (deleteButton) {
+      deleteButton.addEventListener("click", function () {
+        var url = deleteButton.dataset.route + '/' + deleteButton.dataset.id;
+        deleteConfirm.dataset.url = url;
+        modalDelete.classList.add('modal-active');
+        (0,_wait__WEBPACK_IMPORTED_MODULE_2__.startOverlay)();
+      });
+    });
+  }
+};
 
 /***/ }),
 
@@ -2582,6 +2946,431 @@ var messages = function messages(message) {
   setTimeout(function () {
     saveShow.classList.toggle("show");
   }, 3000);
+};
+
+/***/ }),
+
+/***/ "./resources/js/admin/mobile/modalImage.js":
+/*!*************************************************!*\
+  !*** ./resources/js/admin/mobile/modalImage.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "openModal": () => (/* binding */ openModal),
+/* harmony export */   "updateImageModal": () => (/* binding */ updateImageModal)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wait__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./wait */ "./resources/js/admin/mobile/wait.js");
+/* harmony import */ var _uploadImage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./uploadImage */ "./resources/js/admin/mobile/uploadImage.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+var modalImageStoreButton = document.getElementById('modal-image-store-button');
+var modalImageDeleteButton = document.getElementById('modal-image-delete-button');
+var openModal = function openModal() {
+  var modal = document.getElementById('upload-image-modal');
+  modal.classList.add('modal-active');
+  (0,_wait__WEBPACK_IMPORTED_MODULE_1__.startOverlay)();
+};
+var updateImageModal = function updateImageModal(image) {
+  var imageContainer = document.getElementById('modal-image-original');
+  var imageForm = document.getElementById('image-form');
+  imageForm.reset();
+
+  if (image.path) {
+    if (image.entity_id) {
+      image.imageId = image.id;
+      imageContainer.src = '../storage/' + image.path;
+    } else {
+      imageContainer.src = image.path;
+    }
+  } else {
+    imageContainer.src = image.dataset.path;
+    image = image.dataset;
+  }
+
+  for (var _i = 0, _Object$entries = Object.entries(image); _i < _Object$entries.length; _i++) {
+    var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+        key = _Object$entries$_i[0],
+        val = _Object$entries$_i[1];
+
+    var input = imageForm.elements[key];
+
+    if (input) {
+      switch (input.type) {
+        case 'checkbox':
+          input.checked = !!val;
+          break;
+
+        default:
+          input.value = val;
+          break;
+      }
+    }
+  }
+};
+modalImageStoreButton.addEventListener("click", function (e) {
+  var modal = document.getElementById('upload-image-modal');
+  var imageForm = document.getElementById('image-form');
+  var data = new FormData(imageForm);
+  var url = imageForm.action;
+
+  var sendImagePostRequest = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              try {
+                axios.post(url, data).then(function (response) {
+                  modal.classList.remove('modal-active');
+                  imageForm.reset();
+                  (0,_wait__WEBPACK_IMPORTED_MODULE_1__.stopWait)(); //showMessage('success', response.data.message);
+                });
+              } catch (error) {}
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function sendImagePostRequest() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  sendImagePostRequest();
+});
+modalImageDeleteButton.addEventListener("click", function (e) {
+  var url = modalImageDeleteButton.dataset.route;
+  var modal = document.getElementById('upload-image-modal');
+  var imageForm = document.getElementById('image-form');
+  var temporalId = document.getElementById('modal-image-temporal-id').value;
+  var id = document.getElementById('modal-image-id').value;
+
+  if (id) {
+    var sendImageDeleteRequest = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                try {
+                  axios.get(url, {
+                    params: {
+                      'image': id
+                    }
+                  }).then(function (response) {
+                    (0,_uploadImage__WEBPACK_IMPORTED_MODULE_2__.deleteThumbnail)(response.data.imageId); //showMessage('success', response.data.message);
+                  });
+                } catch (error) {}
+
+              case 1:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      return function sendImageDeleteRequest() {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+
+    sendImageDeleteRequest();
+  } else {
+    (0,_uploadImage__WEBPACK_IMPORTED_MODULE_2__.deleteThumbnail)(temporalId);
+  }
+
+  modal.classList.remove('modal-active');
+  imageForm.reset();
+  (0,_wait__WEBPACK_IMPORTED_MODULE_1__.stopWait)();
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/mobile/modalMenuItem.js":
+/*!****************************************************!*\
+  !*** ./resources/js/admin/mobile/modalMenuItem.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "openModal": () => (/* binding */ openModal),
+/* harmony export */   "renderMenuItemForm": () => (/* binding */ renderMenuItemForm)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _menuItems__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menuItems */ "./resources/js/admin/mobile/menuItems.js");
+/* harmony import */ var _crudTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./crudTable */ "./resources/js/admin/mobile/crudTable.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+ //import {startOverlay, stopWait} from './wait';
+//import {showMessage} from './messages';
+
+var openModal = function openModal() {
+  var modal = document.getElementById('menu-item-modal');
+  modal.classList.add('modal-active');
+  startOverlay();
+};
+var renderMenuItemForm = function renderMenuItemForm() {
+  var menuItemStoreButton = document.getElementById('modal-menu-item-store-button');
+
+  if (menuItemStoreButton) {
+    menuItemStoreButton.addEventListener("click", function (e) {
+      var menuItemFormContainer = document.getElementById('menu-item-form-container');
+      var modal = document.getElementById('menu-item-modal');
+      var itemMenuForm = document.getElementById('menu-item-form');
+      var url = itemMenuForm.action;
+      var data = new FormData(itemMenuForm);
+      var id = document.getElementById('modal-image-id');
+
+      var sendItemMenuPostRequest = /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  try {
+                    axios.post(url, data).then(function (response) {
+                      menuItemFormContainer.innerHTML = response.data.form;
+                      modal.classList.remove('modal-active');
+                      id.value = "";
+                      itemMenuForm.reset();
+                      (0,_menuItems__WEBPACK_IMPORTED_MODULE_1__.renderMenuItems)();
+                      (0,_crudTable__WEBPACK_IMPORTED_MODULE_2__.renderForm)();
+                      stopWait();
+                      showMessage('success', response.data.message);
+                    });
+                  } catch (error) {}
+
+                case 1:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+
+        return function sendItemMenuPostRequest() {
+          return _ref.apply(this, arguments);
+        };
+      }();
+
+      sendItemMenuPostRequest();
+    });
+  }
+};
+
+/***/ }),
+
+/***/ "./resources/js/admin/mobile/selects.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/mobile/selects.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderSelects": () => (/* binding */ renderSelects)
+/* harmony export */ });
+var renderSelects = function renderSelects() {
+  var selectsRelated = document.querySelectorAll('.primary-select-related');
+  var selectsDisplay = document.querySelectorAll('.select-display');
+  selectsDisplay.forEach(function (selectDisplay) {
+    selectDisplay.addEventListener("change", function () {
+      var selectDisplayOptions = document.querySelectorAll('.select-display-option');
+      selectDisplayOptions.forEach(function (selectDisplayOption) {
+        if (selectDisplayOption.dataset.option == selectDisplay.value) {
+          selectDisplayOption.classList.add('visible');
+        } else {
+          selectDisplayOption.classList.remove('visible');
+        }
+      });
+    });
+  });
+  selectsRelated.forEach(function (selectRelated) {
+    selectRelated.addEventListener("change", function () {
+      var secondaryRelated = document.querySelector('.secondary-select-related');
+      var secondaryRelatedOptions = document.querySelectorAll('.secondary-select-related option');
+      secondaryRelatedOptions.forEach(function (secondaryRelatedOption) {
+        if (selectRelated.value == secondaryRelatedOption.dataset.related) {
+          secondaryRelated.closest('.select-related').classList.add('visible');
+          secondaryRelatedOption.classList.remove('hidden');
+        } else {
+          secondaryRelated.closest('.select-related').classList.remove('visible');
+          secondaryRelatedOption.classList.add('hidden');
+        }
+      });
+    });
+  });
+}; // $(document).on('change', '.primary-select-related', function(){
+//     var optionId =  $(this).val();
+//     $('.select-related').removeClass('visible');
+//     $(".secondary-select-related").val(" ");
+//     $('.secondary-select-related').prop("disabled", false); 
+//     $('.secondary-select-related option').addClass('hidden');
+//     $('.primary-select-related option[value="' + optionId + '"]').prop('selected', true);
+//     var matching = $('.secondary-select-related option').filter(function(){
+//         return $(this).data('related') == optionId;
+//     });
+//     if(matching.length > 0){
+//         $(matching).removeClass('hidden'); 
+//         $('.select-related').addClass('visible');
+//     }
+// });
+// // select_display
+// $(document).on('change', '.select-display', function(){
+//     $('.select-display-option').removeClass('visible');
+//     $('.select-display-option :input').val('');
+//     $('.select-display-option').prop("disabled", true);
+//     var select = $('.select-display-option#' + $(this).children(":selected").attr("id"));
+//     select.addClass('visible');
+//     select.find('.select-option').prop("disabled", false);
+// });
+//
+
+/***/ }),
+
+/***/ "./resources/js/admin/mobile/sitemap.js":
+/*!**********************************************!*\
+  !*** ./resources/js/admin/mobile/sitemap.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderSitemap": () => (/* binding */ renderSitemap)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wait__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./wait */ "./resources/js/admin/mobile/wait.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var renderSitemap = function renderSitemap() {
+  var createSitemap = document.getElementById('create-sitemap');
+  var sitemap = document.getElementById('sitemap');
+
+  if (createSitemap) {
+    createSitemap.addEventListener("click", function () {
+      var url = createSitemap.dataset.url;
+
+      var sendEditRequest = /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _context.prev = 0;
+                  _context.next = 3;
+                  return axios.get(url).then(function (response) {
+                    console.log(sitemap);
+                    sitemap.value = response.data.sitemap;
+                  });
+
+                case 3:
+                  _context.next = 8;
+                  break;
+
+                case 5:
+                  _context.prev = 5;
+                  _context.t0 = _context["catch"](0);
+                  console.error(_context.t0);
+
+                case 8:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, null, [[0, 5]]);
+        }));
+
+        return function sendEditRequest() {
+          return _ref.apply(this, arguments);
+        };
+      }();
+
+      sendEditRequest();
+    });
+  }
+};
+
+/***/ }),
+
+/***/ "./resources/js/admin/mobile/slugPrevent.js":
+/*!**************************************************!*\
+  !*** ./resources/js/admin/mobile/slugPrevent.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderSlugPrevent": () => (/* binding */ renderSlugPrevent)
+/* harmony export */ });
+var renderSlugPrevent = function renderSlugPrevent() {
+  var blockInputs = document.querySelectorAll(".slug");
+  blockInputs.forEach(function (blockInput) {
+    var originalInput = blockInput.value.match(/\{.*?\}/g);
+
+    if (originalInput) {
+      blockInput.addEventListener("keydown", function () {
+        var setInput = blockInput.value;
+        blockInput.addEventListener("keyup", function () {
+          var finalInput = blockInput.value.match(/\{.*?\}/g);
+
+          if (finalInput) {
+            if (originalInput.toString() != finalInput.toString()) {
+              blockInput.value = setInput;
+            }
+          } else {
+            blockInput.value = setInput;
+          }
+
+          setInput = blockInput.value;
+        });
+      });
+    }
+  });
 };
 
 /***/ }),
@@ -2623,6 +3412,229 @@ var renderTabs = function renderTabs() {
     });
   });
 };
+
+/***/ }),
+
+/***/ "./resources/js/admin/mobile/uploadImage.js":
+/*!**************************************************!*\
+  !*** ./resources/js/admin/mobile/uploadImage.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderUploadImage": () => (/* binding */ renderUploadImage),
+/* harmony export */   "deleteThumbnail": () => (/* binding */ deleteThumbnail)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modalImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modalImage */ "./resources/js/admin/mobile/modalImage.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var renderUploadImage = function renderUploadImage() {
+  var inputElements = document.querySelectorAll(".upload-image-input");
+  var uploadImages = document.querySelectorAll(".upload-image");
+  inputElements.forEach(function (inputElement) {
+    uploadImage(inputElement);
+  });
+  uploadImages.forEach(function (uploadImage) {
+    uploadImage.addEventListener("click", function (e) {
+      openImage(uploadImage);
+    });
+  });
+};
+
+function uploadImage(inputElement) {
+  var uploadElement = inputElement.parentElement;
+  uploadElement.addEventListener("click", function (e) {
+    var thumbnailElement = uploadElement.querySelector(".upload-image-thumb");
+
+    if (!thumbnailElement) {
+      inputElement.click();
+    } else {
+      openImage(uploadElement);
+    }
+
+    ;
+  });
+  inputElement.addEventListener("change", function (e) {
+    if (inputElement.files.length) {
+      updateThumbnail(uploadElement, inputElement.files[0]);
+    }
+  });
+  uploadElement.addEventListener("dragover", function (e) {
+    e.preventDefault();
+    uploadElement.classList.add("upload-image-over");
+  });
+  ["dragleave", "dragend"].forEach(function (type) {
+    uploadElement.addEventListener(type, function (e) {
+      uploadElement.classList.remove("upload-image-over");
+    });
+  });
+  uploadElement.addEventListener("drop", function (e) {
+    e.preventDefault();
+
+    if (e.dataTransfer.files.length) {
+      inputElement.files = e.dataTransfer.files;
+      updateThumbnail(uploadElement, e.dataTransfer.files[0]);
+    }
+
+    uploadElement.classList.remove("upload-image-over");
+  });
+}
+
+function updateThumbnail(uploadElement, file) {
+  if (file.type.startsWith("image/")) {
+    var _thumbnailElement = uploadElement.querySelector(".upload-image-thumb");
+
+    if (uploadElement.classList.contains('collection')) {
+      if (!_thumbnailElement) {
+        var cloneUploadElement = uploadElement.cloneNode(true);
+        var cloneInput = cloneUploadElement.querySelector('.upload-image-input');
+        uploadImage(cloneInput);
+        uploadElement.parentElement.insertBefore(cloneUploadElement, uploadElement);
+      }
+    }
+
+    if (uploadElement.querySelector(".upload-image-prompt")) {
+      uploadElement.querySelector(".upload-image-prompt").classList.add('hidden');
+    }
+
+    if (!_thumbnailElement) {
+      _thumbnailElement = document.createElement("div");
+
+      _thumbnailElement.classList.add("upload-image-thumb");
+
+      uploadElement.appendChild(_thumbnailElement);
+    }
+
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+
+    reader.onload = function () {
+      var temporalId = Math.floor(Math.random() * 99999 + 1);
+      var content = uploadElement.dataset.content;
+      var language = uploadElement.dataset.language;
+      var inputElement = uploadElement.getElementsByClassName("upload-image-input")[0];
+      _thumbnailElement.style.backgroundImage = "url('".concat(reader.result, "')");
+      uploadElement.dataset.temporalId = temporalId;
+      uploadElement.dataset.path = reader.result;
+      inputElement.name = "images[" + content + "-" + temporalId + "." + language + "]";
+      uploadElement.classList.remove('upload-image-add');
+      uploadElement.classList.add('upload-image');
+      (0,_modalImage__WEBPACK_IMPORTED_MODULE_1__.updateImageModal)(uploadElement);
+      (0,_modalImage__WEBPACK_IMPORTED_MODULE_1__.openModal)();
+    };
+  } else {
+    thumbnailElement.style.backgroundImage = null;
+  }
+}
+
+function openImage(image) {
+  var temporalId = image.dataset.temporalId;
+  var url = image.dataset.url;
+
+  if (temporalId) {
+    var sendImageRequest = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                try {
+                  axios.get(url, {
+                    params: {
+                      'image': temporalId
+                    }
+                  }).then(function (response) {
+                    if (response.data) {
+                      response.data.path = image.dataset.path;
+                      (0,_modalImage__WEBPACK_IMPORTED_MODULE_1__.updateImageModal)(response.data);
+                    } else {
+                      (0,_modalImage__WEBPACK_IMPORTED_MODULE_1__.updateImageModal)(image);
+                    }
+
+                    ;
+                    (0,_modalImage__WEBPACK_IMPORTED_MODULE_1__.openModal)();
+                  });
+                } catch (error) {}
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function sendImageRequest() {
+        return _ref.apply(this, arguments);
+      };
+    }();
+
+    sendImageRequest();
+  } else {
+    var _sendImageRequest = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                try {
+                  axios.get(url).then(function (response) {
+                    response.data.path = response.data.original_image.path;
+                    (0,_modalImage__WEBPACK_IMPORTED_MODULE_1__.updateImageModal)(response.data);
+                    (0,_modalImage__WEBPACK_IMPORTED_MODULE_1__.openModal)();
+                  });
+                } catch (error) {}
+
+              case 1:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      return function _sendImageRequest() {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+
+    _sendImageRequest();
+  }
+}
+
+function deleteThumbnail(imageId) {
+  var uploadImages = document.querySelectorAll(".upload-image");
+  uploadImages.forEach(function (uploadImage) {
+    if (uploadImage.classList.contains('collection')) {
+      if (uploadImage.dataset.temporalId == imageId || uploadImage.dataset.imageId == imageId) {
+        uploadImage.remove();
+      }
+    }
+
+    if (uploadImage.classList.contains('single')) {
+      if (uploadImage.dataset.temporalId == imageId || uploadImage.dataset.imageId == imageId) {
+        uploadImage.querySelector(".upload-image-thumb").remove();
+        uploadImage.dataset.temporalId == '';
+        uploadImage.querySelector(".upload-image-prompt").classList.remove('hidden');
+        uploadImage.classList.remove('upload-image');
+        uploadImage.classList.add('upload-image-add');
+
+        if (uploadImage.querySelector(".upload-image-input")) {
+          uploadImage.querySelector(".upload-image-input").value = "";
+        }
+      }
+    }
+  });
+}
 
 /***/ }),
 
@@ -2746,6 +3758,48 @@ function scrollWindowElement(element) {
   scrollWindowElement.addEventListener('touchcancel', this.handleGestureEnd, true);
 }
 ;
+
+/***/ }),
+
+/***/ "./resources/js/admin/mobile/wait.js":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/mobile/wait.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "startWait": () => (/* binding */ startWait),
+/* harmony export */   "stopWait": () => (/* binding */ stopWait),
+/* harmony export */   "startOverlay": () => (/* binding */ startOverlay),
+/* harmony export */   "stopOverlay": () => (/* binding */ stopOverlay)
+/* harmony export */ });
+var spinner = document.getElementById('spinner');
+var overlay = document.getElementById('overlay');
+var startWait = function startWait() {
+  spinner.classList.add('spinner-active');
+  overlay.classList.add('overlay-active');
+};
+var stopWait = function stopWait() {
+  spinner.classList.remove('spinner-active');
+  overlay.classList.remove('overlay-active');
+};
+var startOverlay = function startOverlay() {
+  overlay.classList.add('overlay-active');
+  overlay.addEventListener("click", function (e) {
+    var modals = document.querySelectorAll('.modal');
+    modals.forEach(function (modal) {
+      if (modal.classList.contains('modal-active')) {
+        modal.classList.remove('modal-active');
+      }
+    });
+    overlay.classList.remove('overlay-active');
+  });
+};
+var stopOverlay = function stopOverlay() {
+  overlay.classList.remove('overlay-active');
+};
 
 /***/ }),
 

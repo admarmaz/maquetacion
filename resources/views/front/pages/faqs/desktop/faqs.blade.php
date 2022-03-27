@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="faq-description-image">
-                    @isset($faqs->image_featured_desktop->path)
+                    <!-- @isset($faqs->image_featured_desktop->path)
                         <div class="faq-description-image-featured">
                             <img src="{{Storage::url($faqs->image_featured)}}" alt="{{$faq->image_featured_desktop->alt}}" title="{{$faq->image_featured_desktop->title}}" />
                         </div>
@@ -36,7 +36,7 @@
                                 </div>
                             @endforeach
                         </div>
-                    @endif
+                    @endif -->
                 </div>                
             </div>
         </div>

@@ -7,8 +7,7 @@ const table = document.getElementById("table");
 const form = document.getElementById("form");
 
 
-export let renderMenu = () => {
-
+let renderMenu = () => {
     
     let menuItems = document.querySelectorAll(".menu-item");
 
@@ -36,9 +35,9 @@ export let renderMenu = () => {
                     console.error(error);
                 }
 
-                renderMenu();
                 renderTable();
                 renderForm();
+                renderMenu();
                 showMenu();
             };
 

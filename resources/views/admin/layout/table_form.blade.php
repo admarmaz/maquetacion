@@ -22,9 +22,9 @@
 
 @section('sidebar')
     
-    <div class="sidebar">
+    <div class="sidebar" id="menu-show">
 
-        <div class="dropdown" id="menu-show">
+        <div class="dropdown" >
 
             <div class="dropdown-show">
                 

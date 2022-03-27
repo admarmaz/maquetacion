@@ -1,11 +1,10 @@
 @php
     $route = 'clientes';
- 
+    $filters = ['search' => true];
+    $order = ['fecha de creación' => 'created_at', 'título' => 'title', 'categoría' => 'category_id'];
 @endphp
 
 @extends('admin.layout.table_form')
-
-
 
 @section('table')
 
@@ -21,6 +20,7 @@
                     <th>Nombre</th>
                     <th>Apellidos</th> 
                     <th>Email</th>
+                    <th></th>
                 </tr>
 
                 @foreach ($customers as $customer_element)
@@ -28,11 +28,6 @@
                         <td>{{$customer_element->name}}</td>
                         <td>{{$customer_element->surname}}</td>
                         <td>{{$customer_element->email}}</td>
-                        <td>{{$customer_element->direction}}</td>
-                        <td>{{$customer_element->cp}}</td>
-                        <td>{{$customer_element->country_id}}</td>
-                        <td>{{$customer_element->location}}</td>
-                        <td>{{$customer_element->phone}}</td>
                         <td>
                             <button class="boton-editar" data-url="{{route("customers_show", ['customer' => $customer_element->id])}}" > 
                                 <svg style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -62,9 +57,9 @@
 
             <h2> @lang('admin/clientes.parent_form') </h2>
 
-            <div id="create-button" class= "empty-form-button" data-url= "{{route("customers_create")}}">
+            <div id="create-button" class= "eraser-button" data-url= "{{route("customers_create")}}">
                 <svg style="width:30px;height:30px" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M12,6V9L16,5L12,1V4A8,8 0 0,0 4,12C4,13.57 4.46,15.03 5.24,16.26L6.7,14.8C6.25,13.97 6,13 6,12A6,6 0 0,1 12,6M18.76,7.74L17.3,9.2C17.74,10.04 18,11 18,12A6,6 0 0,1 12,18V15L8,19L12,23V20A8,8 0 0,0 20,12C20,10.43 19.54,8.97 18.76,7.74Z" />
+                    <path fill="currentColor" d="M16.24,3.56L21.19,8.5C21.97,9.29 21.97,10.55 21.19,11.34L12,20.53C10.44,22.09 7.91,22.09 6.34,20.53L2.81,17C2.03,16.21 2.03,14.95 2.81,14.16L13.41,3.56C14.2,2.78 15.46,2.78 16.24,3.56M4.22,15.58L7.76,19.11C8.54,19.9 9.8,19.9 10.59,19.11L14.12,15.58L9.17,10.63L4.22,15.58Z" />
                 </svg>
             </div>
 
@@ -80,20 +75,18 @@
             <input type="hidden" name="id" value="{{isset($customer->id) ? $customer->id : ''}}">
 
                 <div class="tabs-buttons">
+                    <div class="tab-button active-tabs" data-button="1">
+                        <p>Datos personales<p>
+                    </div>    
                     <div class="tab-button" data-button="2">
                         <p> Imagenes <p>
-                    </div>
-                    <div class="tab-button" data-button="1">
-                        <p>Datos personales<p>
-                    </div>
-
-                    
-
+                    </div> 
                 </div>
+
 
                 <div class="tabs">
                     
-                    <div class="tab" data-content="1">
+                    <div class="tab active-tabs" data-content="1">
                         <div class="tab-content" >
 
                                 <div class="formulario-grupo">
@@ -168,7 +161,7 @@
 
                                 <div class="formulario-grupo">
                                     <div class="formulario-label">
-                                        <label for="phone" class="label-highlight">Pais
+                                        <label for="country_id" class="label-highlight">Pais
                                         </label>
                                     </div>
                                     <select name="country_id" data-placeholder="Seleccione una categoría" class="input-highlight">

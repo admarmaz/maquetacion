@@ -21,8 +21,8 @@
                         <div class="swipe-front promote-layer">
 
                             <div class="table-content">
-                                <p><span> Nombre:</span> {{$faq_element->name}} </p>
-                                <p><span> Descripción:</span>{{$faq_element->seo->title}} </p>
+                                <p>{{$faq_element->name}} </p>
+                                <p>{{$faq_element->seo->title}} </p>
                             </div>
 
                             <div class="swipe-back table-icons" >
@@ -157,7 +157,7 @@
                                         <label for="">Descripción</label>
                                     </div>
                                     <div class="formulario-input">
-                                        <textarea class="ckeditor input-highlight" name="locale[description.{{$localization->alias}}]"> {{isset($locale["description.$localization->alias"]) ? $locale["description.$localization->alias"] : ''}}</textarea>
+                                        <textarea class="ckeditor input-highlight" name="locale[description.{{$localization->alias}}]"> {{isset($locale["description.$localization->alias"]) ? $locale["description.$localization->alias"] : ''}}  </textarea>
                                     </div>
                                 </div>
                             </div>

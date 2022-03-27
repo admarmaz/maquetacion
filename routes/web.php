@@ -94,7 +94,8 @@ Route::group(['prefix' => 'admin'], function () {
             'show' => 'sliders_show',
         ]
     ]);
-
+    
+    Route::get('/customers/filter/{filters?}', 'App\Http\Controllers\Admin\CustomerController@filter')->name('clientes_filter');
     Route::resource('clientes', 'App\Http\Controllers\Admin\CustomerController', [
         'parameters' => [
             'clientes' => 'customer', 

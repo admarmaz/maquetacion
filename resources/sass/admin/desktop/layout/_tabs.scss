@@ -1,13 +1,15 @@
+
+
 .tab{
     
     display: none;
 
-    .tab-content{
-        max-height: 0;
-        overflow: hidden;
-        
-    }
+        .tab-content{
+            max-height: 0;
+            overflow: hidden;
+        }
 }
+
 
     .tab.active-tabs{
         display: block;
@@ -22,19 +24,19 @@
     } 
 
 
-.tabs-buttons{
-    display: flex;
-    background-color: #c2efe1;
-    margin-bottom: 1em;
-    align-items: center;
+    .tabs-buttons{
+        display: flex;
+        background-color: #c2efe1;
+        margin-bottom: 1em;
+        align-items: center;
 
-    .tab-button{
-        cursor: pointer;
-        padding: 0 1em;
+        .tab-button{
+            cursor: pointer;
+            padding: 0 1em;
 
-        p{
-            margin: 0.5em;
-        }
+            p{
+                margin: 0.5em;
+            }
     }
 
     .tab-button.active-tabs{

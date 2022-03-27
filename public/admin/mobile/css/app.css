@@ -3,7 +3,11 @@ img {
   max-width: 100%;
 }
 
-.one-column .formulario-grupo {
+html, body {
+  overflow-x: hidden;
+}
+
+.one-column .form-group {
   width: 100%;
 }
 
@@ -11,7 +15,7 @@ img {
   display: flex;
   justify-content: space-between;
 }
-.two-columns .formulario-grupo {
+.two-columns .form-group {
   width: 47%;
 }
 
@@ -19,7 +23,7 @@ img {
   display: flex;
   justify-content: space-between;
 }
-.three-columns .formulario-grupo {
+.three-columns .form-group {
   width: 32%;
 }
 
@@ -27,7 +31,7 @@ img {
   display: flex;
   justify-content: space-between;
 }
-.four-columns .formulario-grupo {
+.four-columns .form-group {
   width: 23%;
 }
 
@@ -570,9 +574,6 @@ label {
   width: 100%;
   align-items: center;
 }
-.formulario .formulario-titulo #create-button {
-  margin-left: 2em;
-}
 
 .formulario .formulario-titulo h2 {
   font-size: 1.2rem;
@@ -584,6 +585,9 @@ label {
 
 .formulario .formulario-contenedor {
   width: 100%;
+}
+.formulario .formulario-contenedor .option-buttons {
+  display: flex;
 }
 
 .formulario .formulario-contenedor .formulario-grupo {
@@ -614,39 +618,40 @@ label {
 }
 
 .sidebar {
-  display: flex;
-  justify-content: center;
   font-weight: bold;
   font-size: 1.2em;
-  background-color: aquamarine;
-  padding: 0.5em;
-  width: 100%;
+  background-color: #cccccc;
+  margin-top: 0;
   font-family: "Montserrat", sans-serif;
-  font-weight: bolder;
+  font-weight: normal;
+  cursor: pointer;
 }
 
 #menu-show .dropdown-hidden {
   height: 0;
   overflow: hidden;
-  transition: 1s;
-}
-
-.dropdown {
-  display: flex;
-  text-align: center;
-}
-
-#menu-show.show .dropdown-hidden {
-  height: 50vh;
-}
-
-.show {
-  display: block;
+  transition: 0.5s;
 }
 
 .dropdown-show {
+  display: flex;
+  padding: 0.5em 2em;
+  align-items: center;
   cursor: pointer;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.dropdown .dropdown-title {
+  margin-top: 0;
+}
+
+#menu-show.show .dropdown-hidden {
+  height: 10vh;
+}
+
+.dropdown .show {
+  display: flex;
+  margin-left: 2em;
 }
 
 ul {
@@ -657,10 +662,18 @@ li {
   cursor: pointer;
   display: inline-block;
   margin-right: 2em;
+  font-size: 1em;
 }
 
 .dropdown-hidden li:hover {
   color: blueviolet;
+}
+
+.close-session {
+  font-size: 0.8em;
+}
+.close-session:hover {
+  color: red;
 }
 
 .swipe-element {
@@ -848,23 +861,329 @@ li {
   text-align: center;
 }
 
-.save-container {
-  width: 10em;
+#save-container {
+  display: none;
+  transition: display 4s;
+}
+#save-container p {
+  margin: 0;
+  color: aliceblue;
+  font-weight: 900;
+}
+#save-container svg {
+  margin-right: 1em;
+}
+@-webkit-keyframes successful {
+  100% {
+    left: 70%;
+  }
+}
+@keyframes successful {
+  100% {
+    left: 70%;
+  }
+}
+#save-container.show {
+  display: flex;
+  width: 20em;
   height: 5em;
-  margin-left: 60vh;
-  margin-top: 8vh;
+  background-color: grey;
+  text-align: center;
+  position: absolute;
+  font-size: 0.8em;
+  top: 5%;
+  left: 120%;
+  opacity: 90%;
+  border-radius: 2px;
+  box-shadow: 0px 0px 7px #292929;
+  -moz-box-shadow: 0px 0px 7px #292929;
+  -webkit-animation-name: successful;
+          animation-name: successful;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+#save-container.show .save-show {
+  display: flex;
+  margin: auto 1em;
 }
 
-.save-message {
+.overlay {
+  background-color: #000000;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+}
+.overlay.overlay-active {
+  cursor: pointer;
+  display: block;
+  opacity: 0.5;
+}
+
+.spinner {
+  display: none;
+}
+.spinner.spinner-active {
+  display: block;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  right: 0;
+  position: fixed;
+  top: 45vh;
+  width: 5%;
+  z-index: 3001;
+}
+.spinner.spinner-active svg {
+  -webkit-animation: rotator 1.4s linear infinite;
+          animation: rotator 1.4s linear infinite;
+  height: 4em;
+  width: 4em;
+}
+.spinner.spinner-active svg .path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+          animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@-webkit-keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}
+.upload-image,
+.upload-image-add {
+  align-items: center;
+  border: 0.15em dashed #02a8b1;
+  color: #cccccc;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.2em;
+  font-weight: 500;
+  height: 30vh;
+  justify-content: center;
+  padding: 0.5em;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.upload-image-collection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.upload-image.collection,
+.upload-image-add.collection {
+  height: 15vh;
+  padding: 0;
+}
+
+.upload-image:hover,
+.upload-image-add:hover {
+  border: 4px dashed #ff5100;
+}
+
+.upload-image-over {
+  border-style: solid;
+}
+
+.upload-image-prompt {
+  position: absolute;
+  width: 15%;
+  z-index: 999;
+}
+
+.upload-image-options {
   display: none;
 }
 
-#save-show.show .save-message {
-  justify-content: right;
-  height: 15vh;
-  margin-top: 5em;
+.upload-image:hover .upload-image-options {
+  display: initial;
+  position: absolute;
+  width: 15%;
+  z-index: 999;
+}
+.upload-image:hover .upload-image-options svg {
+  height: 1.2em;
+  width: 1.2em;
+}
+.upload-image:hover .upload-image-options svg path {
+  fill: white;
 }
 
-.show {
-  display: block;
+.upload-image-input {
+  display: none;
+}
+
+.upload-image-thumb {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #cccccc;
+  background-size: cover;
+  position: relative;
+  z-index: 900;
+}
+
+.upload-image-thumb::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 0;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+}
+
+#upload-image-modal {
+  background-color: white;
+  display: flex;
+  height: 80vh;
+  justify-content: space-between;
+  left: 10%;
+  padding: 1em;
+  position: fixed;
+  top: -100vh;
+  transition: top 0.3s;
+  width: 80%;
+  z-index: 3000;
+}
+
+#upload-image-modal.modal-active {
+  top: 10vh;
+  transition: top 0.3s;
+}
+
+.modal-image {
+  padding: 1em;
+  width: 65%;
+}
+
+#modal-image-original {
+  height: 100%;
+  width: 100%;
+}
+
+.modal-image-attributes {
+  padding: 1em;
+  width: 30%;
+}
+
+.modal-image-store-button {
+  cursor: pointer;
+}
+.modal-image-store-button:hover .store-button-icon {
+  fill: #ff5100;
+}
+.modal-image-store-button svg {
+  float: right;
+  height: 2.4em;
+  width: 2.4em;
+}
+.modal-image-store-button svg .store-button-icon {
+  fill: gray;
+}
+
+.modal-image-delete-button {
+  bottom: 1em;
+  cursor: pointer;
+  position: absolute;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.modal-image-delete-button p {
+  color: red;
+  text-decoration: underline;
+}
+
+.modal-delete {
+  background-color: white;
+  transform: translateY(-200%);
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: -10%;
+  transition: transform 0.5s;
+  width: 40%;
+  z-index: 3000;
+}
+.modal-delete.open {
+  top: 30%;
+  transform: translateY(0);
+}
+.modal-delete .modal-delete-header {
+  background-color: grey;
+  border-bottom: 1px solid #e9ecef;
+  padding: 0.5em 1em;
+  text-align: center;
+}
+.modal-delete .modal-delete-header h4 {
+  font-size: 1.2em;
+  margin: 0;
+}
+.modal-delete .modal-delete-footer {
+  display: flex;
+}
+.modal-delete .modal-delete-footer .modal-delete-option {
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+  width: 50%;
+}
+.modal-delete .modal-delete-footer .modal-delete-option#delete-cancel {
+  background-color: #02a8b1;
+}
+.modal-delete .modal-delete-footer .modal-delete-option#delete-confirm {
+  background-color: #d74242;
 }

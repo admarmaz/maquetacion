@@ -1,7 +1,7 @@
 @charset "utf8";
 
-@import "../base/contents";
-@import "../base/normalize";
+@import "base/contents";
+@import "base/normalize";
 @import "layout/master";
 @import "layout/tabla";
 @import "layout/form";
@@ -12,3 +12,7 @@
 @import "layout/tabs-locale";
 @import "layout/images";
 @import "layout/save";
+@import "layout/wait";
+@import "layout/upload-image";
+@import "layout/modal-image";
+@import "layout/modal-delete";
